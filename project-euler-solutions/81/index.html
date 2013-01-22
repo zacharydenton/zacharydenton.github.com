@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 81 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents a Python solution to Project Euler Problem 81.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Project Euler Problem 81 Solution</h1>
+        <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<div class="problem_content" role="problem">
+	<p>
+In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by <b>only moving to the right and down</b>, is indicated in bold red and is equal to 2427.
+</p>
+	<div style="text-align:center;">
+		<table cellpadding="0" cellspacing="0" border="0" align="center">
+			<tbody><tr>
+					<td>
+<img src="http://projecteuler.net/images/bracket_left.gif" width="8" height="120" alt="" align="middle"><br>
+</td>
+					<td>
+						<table cellpadding="3" cellspacing="0" border="0">
+							<tbody><tr>
+									<td>
+<span style="color:#dd0000;"><b>131</b></span>
+</td><td>
+673
+</td><td>
+234
+</td><td>
+103
+</td><td>
+18
+</td>
+								</tr>
+								<tr>
+									<td>
+<span style="color:#dd0000;"><b>201</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>96</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>342</b></span>
+</td><td>
+965
+</td><td>
+150
+</td>
+								</tr>
+								<tr>
+									<td>
+630
+</td><td>
+803
+</td><td>
+<span style="color:#dd0000;"><b>746</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>422</b></span>
+</td><td>
+111
+</td>
+								</tr>
+								<tr>
+									<td>
+537
+</td><td>
+699
+</td><td>
+497
+</td><td>
+<span style="color:#dd0000;"><b>121</b></span>
+</td><td>
+956
+</td>
+								</tr>
+								<tr>
+									<td>
+805
+</td><td>
+732
+</td><td>
+524
+</td><td>
+<span style="color:#dd0000;"><b>37</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>331</b></span>
+</td>
+								</tr>
+						</tbody></table>
+					</td>
+					<td>
+<img src="http://projecteuler.net/images/bracket_right.gif" width="8" height="120" alt="" align="middle"><br>
+</td>
+				</tr>
+		</tbody></table>
+	</div>
+	<p>
+Find the minimal path sum, in <a href="http://projecteuler.net/project/matrix.txt">matrix.txt</a> (right click and ‘Save Link/Target As…’), a 31K text file containing a 80 by 80 matrix, from the top left to the bottom right by only moving right and down.
+</p>
+
+</div>
+
+
+
+
+
+
+<h2 id="solutions">Solutions</h2>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">import</span> os
+<span class="ch">import</span> sys
+<span class="ch">from</span> collections <span class="ch">import</span> defaultdict
+
+<span class="kw">def</span> dijkstra(matrix):
+    <span class="kw">def</span> neighbors(node):
+        (x, y) = node
+        n = []
+        <span class="kw">if</span> x &lt; <span class="dt">len</span>(matrix[<span class="dv">0</span>]) - <span class="dv">1</span>:
+            n.append((x + <span class="dv">1</span>, y))
+        <span class="kw">if</span> y &lt; <span class="dt">len</span>(matrix) - <span class="dv">1</span>:
+            n.append((x, y + <span class="dv">1</span>))
+        <span class="kw">return</span> n
+
+    <span class="kw">def</span> value(node):
+        (x, y) = node
+        <span class="kw">return</span> matrix[y][x]
+    
+    current = (<span class="dv">0</span>, <span class="dv">0</span>)
+    dest = (<span class="dt">len</span>(matrix[<span class="dv">0</span>]) - <span class="dv">1</span>, <span class="dt">len</span>(matrix) - <span class="dv">1</span>)
+    unvisited = <span class="dt">set</span>((x, y) <span class="kw">for</span> x in <span class="dt">range</span>(dest[<span class="dv">0</span>] + <span class="dv">1</span>) <span class="kw">for</span> y in <span class="dt">range</span>(dest[<span class="dv">1</span>] + <span class="dv">1</span>))
+    nodes = {}
+    <span class="kw">for</span> node in unvisited: nodes[node] = sys.maxint
+    nodes[current] = value(current)
+
+    <span class="kw">while</span> <span class="dv">1</span>:
+        <span class="kw">for</span> node in [n <span class="kw">for</span> n in neighbors(current) <span class="kw">if</span> n in unvisited]:
+            distance = nodes[current] + value(node)
+            <span class="kw">if</span> distance &lt; nodes[node]:
+                nodes[node] = distance
+
+        unvisited.remove(current)
+        <span class="kw">if</span> current == dest:
+            <span class="kw">break</span>
+        <span class="kw">else</span>:
+            current = <span class="dt">min</span>((nodes[node], node) <span class="kw">for</span> node in unvisited)[<span class="dv">1</span>]
+
+    <span class="kw">return</span> nodes[dest]
+
+<span class="kw">def</span> main():
+    matrix = []
+    <span class="kw">with</span> <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&quot;matrix.txt&quot;</span>)) <span class="ch">as</span> matfile:
+        <span class="kw">for</span> row in matfile:
+            matrix.append([<span class="dt">int</span>(n) <span class="kw">for</span> n in row.split(<span class="st">&#39;,&#39;</span>)])
+
+    <span class="kw">print</span> dijkstra(matrix)
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
+<pre><code>$ time pypy minimal_path.py
+real	0m11.065s
+user	0m10.970s
+sys	0m0.060s</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

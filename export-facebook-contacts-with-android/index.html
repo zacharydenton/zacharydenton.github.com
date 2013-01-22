@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Export Facebook Contacts with Android - Zach Denton</title>
+		<meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Export Facebook Contacts with Android</h1>
+        <p>If you have a rooted Android phone, you have full control over your device — and unrestricted access to the data it contains. In this post, I’m going to show you how you can use your rooted Android device to do something that <a href="http://techcrunch.com/2011/02/22/google-android-facebook-contacts/">the average person can’t do</a>: namely, export your contacts from the Facebook app on Android.</p>
+<h2 id="get-the-contacts-database">1. Get the contacts database</h2>
+<p>It turns out that the Facebook app stores your contacts in an SQLite database located on the filesystem at <code>/data/data/com.facebook.katana/databases/fb.db</code>. In order to use this database, we need to copy it to a computer. Since Android doesn’t provide access to the internal storage via USB, I first copied the database to my SD card using a root file browser, and then copied it to my computer via USB.</p>
+<h2 id="examine-the-contacts-database">2. Examine the contacts database</h2>
+<p>Now that you have the database on your local machine, you can analyze it and determine its structure. Begin by opening it up with the SQLite client:</p>
+<pre><code>$ sqlite3 /path/to/fb.db</code></pre>
+<p>Now it’s just the standard procedure when dealing with an unknown database:</p>
+<h3 id="list-the-tables">2.1 List the tables</h3>
+<pre><code>sqlite&gt; .tables
+albums                    friends                   page_search_results
+android_metadata          friends_data              perf_sessions
+cache                     key_value                 photos
+chatconversations         mailbox_messages          search_results
+chatmessages              mailbox_messages_display  stream_photos
+connections               mailbox_profiles          user_statuses
+default_page_images       mailbox_threads           user_values
+events                    notifications</code></pre>
+<h3 id="determine-which-tables-contain-the-data-youre-looking-for">2.2 Determine which tables contain the data you’re looking for</h3>
+<p>The table’s name is often a good indicator of its contents. In this case, the <code>friends</code> table (technically, it’s a <a href="http://www.sqlite.org/lang_createview.html">view</a>) contains all the data we need.</p>
+<h3 id="determine-which-columns-to-extract">2.3 Determine which columns to extract</h3>
+<p>Here’s the structure of the <code>friends</code> view:</p>
+<pre><code>sqlite&gt; .schema friends
+CREATE VIEW friends AS SELECT connections._id AS _id, connections.user_id AS user_id, connections.display_name AS display_name, connections.connection_type AS connection_type, connections.user_image_url AS user_image_url, connections.user_image AS user_image, connections.hash AS hash, friends_data.first_name AS first_name, friends_data.last_name AS last_name, friends_data.cell AS cell, friends_data.other AS other, friends_data.email AS email, friends_data.birthday_month AS birthday_month, friends_data.birthday_day AS birthday_day, friends_data.birthday_year AS birthday_year FROM connections LEFT OUTER JOIN friends_data ON connections.user_id=friends_data.user_id WHERE connections.connection_type=0;</code></pre>
+<p>In this case, the important columns are:</p>
+<ul>
+<li><code>display_name</code></li>
+<li><code>user_image_url</code></li>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
+<li><code>cell</code></li>
+<li><code>other</code></li>
+<li><code>email</code></li>
+<li><code>birthday_month</code></li>
+<li><code>birthday_day</code></li>
+<li><code>birthday_year</code></li>
+</ul>
+<p>At this point, the hard part is over and it’s just a matter of extracting the data from the database.</p>
+<h2 id="export-the-data">3. Export the data</h2>
+<h3 id="the-vcard-format">3.1 The vCard format</h3>
+<p>Now that we know exactly which data we need, we can export it from the database into a useful format. The most useful format for contact data appears to be <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, which is almost universally supported in communication apps. I won’t go into the details of the <a href="https://tools.ietf.org/html/rfc6350">vCard specification</a>, but here’s an example of what we’re trying to generate:</p>
+<pre><code>BEGIN:VCARD
+VERSION:3.0
+N:Feynman;Richard;;;
+FN:Richard Feynman
+TEL;TYPE=HOME:+72973525698
+EMAIL;TYPE=PREF:rfeynman@princeton.edu
+BDAY:1918-5-11
+REV:2012-01-08T18:36:35.814661
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Planck;Max;;;
+FN:Max Planck
+TEL;TYPE=CELL:+66260695729
+EMAIL;TYPE=PREF:planck@berlin.de
+BDAY:1858-4-23
+REV:2012-01-08T18:36:36.043204
+END:VCARD</code></pre>
+<p>Notice that multiple contacts can exist in the same file.</p>
+<h3 id="a-script-to-generate-the-vcard">3.2 A script to generate the vCard</h3>
+<p>I’ve written a Python script to generate a vCard from the <code>fb.db</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">import</span> sys
+<span class="ch">import</span> base64
+<span class="ch">import</span> codecs
+<span class="ch">import</span> sqlite3
+<span class="ch">import</span> urllib2
+<span class="ch">import</span> argparse
+<span class="ch">import</span> datetime
+
+<span class="kw">def</span> parse_database(database):
+    conn = sqlite3.<span class="ot">connect</span>(database)
+    conn.row_factory=sqlite3.Row
+    c = conn.cursor()
+    fields = <span class="st">&#39;display_name, user_image_url, first_name, &#39;</span> +\
+             <span class="st">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
+             <span class="st">&#39;birthday_day, birthday_year&#39;</span>
+    c.execute(<span class="st">&#39;select </span><span class="ot">%s</span><span class="st"> from friends&#39;</span> % fields)
+    <span class="kw">return</span> [row <span class="kw">for</span> row in c]
+
+<span class="kw">def</span> generate_vcard(contact, photos=<span class="ot">False</span>):
+    card = <span class="st">&quot;BEGIN:VCARD</span><span class="ch">\n</span><span class="st">VERSION:3.0</span><span class="ch">\n</span><span class="st">&quot;</span>
+    card += <span class="st">&quot;N:</span><span class="ot">%s</span><span class="st">;</span><span class="ot">%s</span><span class="st">;;;</span><span class="ch">\n</span><span class="st">&quot;</span> % (contact[<span class="st">&#39;last_name&#39;</span>], contact[<span class="st">&#39;first_name&#39;</span>])
+    card += <span class="st">&quot;FN:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;display_name&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;cell&#39;</span>]:
+        card += <span class="st">&#39;TEL;TYPE=CELL:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;cell&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;other&#39;</span>]:
+        card += <span class="st">&#39;TEL;TYPE=HOME:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;other&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;email&#39;</span>]:
+        card += <span class="st">&quot;EMAIL;TYPE=PREF:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;email&#39;</span>]
+
+    birthday = <span class="st">&quot;-&quot;</span>.join([<span class="dt">str</span>(f) <span class="kw">for</span> f in [contact[<span class="st">&#39;birthday_year&#39;</span>],
+                                          contact[<span class="st">&#39;birthday_month&#39;</span>],
+                                          contact[<span class="st">&#39;birthday_day&#39;</span>]]
+                         <span class="kw">if</span> f != -<span class="dv">1</span>])
+    <span class="kw">if</span> birthday:
+        <span class="kw">if</span> birthday.count(<span class="st">&#39;-&#39;</span>) == <span class="dv">1</span>: birthday = <span class="st">&quot;1900-&quot;</span> + birthday <span class="co"># default year</span>
+        card += <span class="st">&quot;BDAY:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % birthday
+
+    <span class="kw">if</span> photos and contact[<span class="st">&#39;user_image_url&#39;</span>]:
+        <span class="kw">try</span>:
+            photo = urllib2.urlopen(contact[<span class="st">&#39;user_image_url&#39;</span>]).read()
+            card += <span class="st">&quot;PHOTO;ENCODING=B;TYPE=JPEG:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> %\
+                    base64.b64encode(photo)
+        <span class="kw">except</span>:
+            <span class="kw">pass</span>
+
+
+    card += <span class="st">&quot;REV:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">END:VCARD</span><span class="ch">\n</span><span class="st">&quot;</span> % datetime.datetime.now().isoformat()
+    <span class="kw">return</span> card
+
+<span class="kw">def</span> main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(<span class="st">&#39;database&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;path to facebook database&quot;</span>, default=<span class="st">&quot;fb.db&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
+    parser.add_argument(<span class="st">&#39;vcard&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;file to write contacts to&quot;</span>, default=<span class="st">&quot;fbcontacts.vcf&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
+    parser.add_argument(<span class="st">&#39;--photos&#39;</span>, action=<span class="st">&quot;store_true&quot;</span>, <span class="dt">help</span>=<span class="st">&quot;download profile pictures&quot;</span>)
+    args = parser.parse_args()
+
+    <span class="kw">with</span> codecs.<span class="dt">open</span>(args.vcard, <span class="st">&#39;w&#39;</span>, <span class="st">&#39;utf-8&#39;</span>) <span class="ch">as</span> vcard:
+        contacts = parse_database(args.database)
+        <span class="kw">for</span> i, contact in <span class="dt">enumerate</span>(contacts):
+            sys.stderr.write(<span class="st">&quot;</span><span class="ch">\r</span><span class="st">exporting contact </span><span class="ot">%s</span><span class="st"> of </span><span class="ot">%s</span><span class="st">&quot;</span> % (i<span class="dv">+1</span>, <span class="dt">len</span>(contacts)))
+            card = generate_vcard(contact, args.photos)
+            <span class="kw">print</span> &gt;&gt; vcard, card
+            sys.stderr.flush()
+        sys.stderr.write(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
+<p>It just goes through each row, grabs the relevant data, and writes it out in vCard format.</p>
+<p>To use the script, just run <code>python fbcontacts.py /path/to/fb.db</code>. You’ll end up with all of your contacts in a vCard file, complete with email addresses, phone numbers, birthdays, and (if you specify the <code>--photos</code> flag) profile pictures.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Restrictions don’t apply to those with rooted phones and a bit of curiosity.</p>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

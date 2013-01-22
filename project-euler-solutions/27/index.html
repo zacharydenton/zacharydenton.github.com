@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 27 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 27 in Python and Ruby.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Project Euler Problem 27 Solution</h1>
+        <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>Euler published the remarkable quadratic formula:</p>
+<p>\(n^2 + n + 41\)</p>
+<p>It turns out that the formula will produce 40 primes for the consecutive values n = 0 to 39. However, when n = 40, \(40^2 + 40 + 41 = 40(40 + 1) + 41\) is divisible by 41, and certainly when n = 41, \(41^2 + 41 + 41\) is clearly divisible by 41.</p>
+<p>Using computers, the incredible formula \(n^2 - 79n + 1601\) was discovered, which produces 80 primes for the consecutive values n = 0 to 79. The product of the coefficients, 79 and 1601, is 126479.</p>
+<p>Considering quadratics of the form:</p>
+<p>\(n^2 + an + b, \text{ where } |a| &lt; 1000 \text{ and } |b| &lt; 1000\)</p>
+<p>Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.</p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">from</span> collections <span class="ch">import</span> defaultdict
+<span class="ch">from</span> itertools <span class="ch">import</span> product
+<span class="ch">from</span> operator <span class="ch">import</span> mul
+<span class="ch">import</span> math
+
+<span class="kw">def</span> factorize(n):
+    <span class="kw">if</span> n &lt; <span class="dv">1</span>:
+        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">&#39;fact() argument should be &gt;= 1&#39;</span>)
+    <span class="kw">if</span> n == <span class="dv">1</span>:
+        <span class="kw">return</span> []  <span class="co"># special case</span>
+    res = []
+    <span class="co"># iterate over all even numbers first.</span>
+    <span class="kw">while</span> n % <span class="dv">2</span> == <span class="dv">0</span>:
+        res.append(<span class="dv">2</span>)
+        n //= <span class="dv">2</span>
+    <span class="co"># try odd numbers up to sqrt(n)</span>
+    limit = math.sqrt(n<span class="dv">+1</span>)
+    i = <span class="dv">3</span>
+    <span class="kw">while</span> i &lt;= limit:
+        <span class="kw">if</span> n % i == <span class="dv">0</span>:
+            res.append(i)
+            n //= i
+            limit = math.sqrt(n+i)
+        <span class="kw">else</span>:
+            i += <span class="dv">2</span>
+    <span class="kw">if</span> n != <span class="dv">1</span>:
+        res.append(n)
+    <span class="kw">return</span> res
+
+<span class="kw">def</span> num_divisors(n):
+    factors = <span class="dt">sorted</span>(factorize(n))
+    histogram = defaultdict(<span class="dt">int</span>)
+    <span class="kw">for</span> factor in factors:
+        histogram[factor] += <span class="dv">1</span>
+    <span class="co"># number of divisors is equal to product of </span>
+    <span class="co"># incremented exponents of prime factors</span>
+    <span class="ch">from</span> operator <span class="ch">import</span> mul
+    <span class="kw">try</span>:
+        <span class="kw">return</span> <span class="dt">reduce</span>(mul, [exponent + <span class="dv">1</span> <span class="kw">for</span> exponent in histogram.values()])
+    <span class="kw">except</span>:
+        <span class="kw">return</span> <span class="dv">1</span>
+
+<span class="kw">def</span> num_primes(formula):
+    num = <span class="dv">0</span>
+    <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">1000</span>):
+        res = formula(n)
+        <span class="kw">if</span> res &lt; <span class="dv">1</span> or not is_prime(res):
+            <span class="kw">return</span> num
+        <span class="kw">else</span>:
+            num += <span class="dv">1</span>
+ 
+<span class="kw">def</span> is_prime(num):
+    <span class="kw">if</span> num_divisors(num) == <span class="dv">2</span> and num &gt; <span class="dv">1</span>:
+        <span class="kw">return</span> <span class="ot">True</span>
+    <span class="kw">else</span>:
+        <span class="kw">return</span> <span class="ot">False</span>
+
+<span class="kw">def</span> main():
+    most = <span class="dv">0</span>
+    best = (<span class="dv">0</span>, <span class="dv">0</span>)
+    <span class="kw">for</span> a, b in product(<span class="dt">range</span>(-<span class="dv">999</span>,<span class="dv">1000</span>), <span class="dt">range</span>(-<span class="dv">999</span>, <span class="dv">1000</span>)):
+        formula = <span class="kw">lambda</span> n: n**<span class="dv">2</span> + a*n + b
+        num = num_primes(formula) 
+        <span class="kw">if</span> num &gt; most:
+            most = num
+            best = (a, b)
+    <span class="kw">print</span> mul(*best)
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre>
+<pre><code>$ time pypy quadratic-primes.py
+real	0m4.895s
+user	0m4.851s
+sys	0m0.029s</code></pre>
+<h3 id="ruby">Ruby</h3>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+require <span class="st">&#39;mathn&#39;</span>
+puts (-<span class="dv">999</span>..<span class="dv">999</span>).to_a.product((-<span class="dv">999</span>..<span class="dv">999</span>).to_a).map { |a, b|
+	[(<span class="dv">0</span>..<span class="dv">100</span>).take_while { |n| (n**<span class="dv">2</span> + a*n + b).prime? }.count, a * b]
+}.max[<span class="dv">1</span>]</code></pre>
+<pre><code>$ time ruby quadratic-primes.rb
+real	0m55.171s
+user	0m54.737s
+sys	0m0.277s</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Zach Denton</title>
+        <link>http://zacharydenton.com</link>
+        <description><![CDATA[On life, the universe, and everything.]]></description>
+        <atom:link href="http://zacharydenton.com/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>2012-12-29T02:26:34Z</lastBuildDate>
+        <item>
+    <title>Best of 2012</title>
+    <link>http://zacharydenton.com/best-of-2012/</link>
+    <description><![CDATA[<p>It’s been a great year. Here’s a list of the best books, movies, albums, and websites I discovered in 2012.</p>
+<h2 id="books">Books</h2>
+<h3 id="the-society-of-mind"><a href="http://www.amazon.com/Society-Mind-Marvin-Minsky/dp/0671657135">The Society of Mind</a></h3>
+<div class="figure">
+<img src="http://chemoton.files.wordpress.com/2010/03/marvin-minsky-the-society-of-mind.jpg" alt="The Society of Mind" /><p class="caption">The Society of Mind</p>
+</div>
+<p>I came across <em>The Society of Mind</em> when I was doing research for a philosophy paper earlier this year. In the book, Marvin Minsky theorizes that the mind is an emergent phenomenon arising from the interactions of mindless “agents”.</p>
+<p>My takeaway was that the mind is like a giant tree (the hierarchical data structure), with the leaf nodes being simple capabilities like movement, a desire for food and water, balance, etc., and more complex behaviors farther up the tree, each arising from its child behaviors/capabilities. Then the root node of the tree would be consciousness as we perceive it.</p>
+<h3 id="prometheus-rising"><a href="http://www.amazon.com/Prometheus-Rising-Robert-Anton-Wilson/dp/1561840564">Prometheus Rising</a></h3>
+<div class="figure">
+<img src="http://upload.wikimedia.org/wikipedia/en/a/a6/PrometheusRisingCover.jpg" alt="Prometheus Rising" /><p class="caption">Prometheus Rising</p>
+</div>
+<p><em>Prometheus Rising</em>, by the infamous Robert Anton Wilson, was a very interesting read. It’s basically RAW’s attempt to synthesize <a href="http://en.wikipedia.org/wiki/Eight-circuit_model_of_consciousness">Leary’s eight-circuit model of consciousness</a>, <a href="http://en.wikipedia.org/wiki/General_semantics">general semantics</a>, yoga, quantum physics, and plenty of other weird stuff into an “owner’s manual for the human brain”. Despite being somewhat new-age at times, the book changed the way I see the world.</p>
+<h3 id="snow-crash"><a href="http://www.amazon.com/Snow-Crash-Bantam-Spectra-Book/dp/0553380958">Snow Crash</a></h3>
+<div class="figure">
+<img src="http://images.betterworldbooks.com/055/Snow-Crash-9780553562613.jpg" alt="Snow Crash" /><p class="caption">Snow Crash</p>
+</div>
+<p><em>Snow Crash</em> is a sci-fi classic. It’s got alternate reality, samurai swords, Mafia-controlled pizza delivery, privately-owned police, Sumerian myth, linguistics, and all kinds of other stuff.</p>
+<p>There were some cool ideas in there and things like the Metaverse don’t seem too far off, especially with the <a href="http://www.oculusvr.com/">Oculus Rift</a> on the horizon.</p>
+<h2 id="movies">Movies</h2>
+<h3 id="mulholland-drive"><a href="http://en.wikipedia.org/wiki/Mulholland_Drive_(film)">Mulholland Drive</a></h3>
+<div class="figure">
+<img src="http://upload.wikimedia.org/wikipedia/en/0/0f/Mulholland.png" alt="Mulholland Drive" /><p class="caption">Mulholland Drive</p>
+</div>
+<p><em>Mulholland Drive</em> is a film that won’t make sense the first time you watch it. It wasn’t until I read <a href="http://badassdigest.com/2012/03/04/film-crit-hulk-smash-hulk-vs-the-genius-of-mulholland-drive/">HULK VS. THE GENIUS OF MULHOLLAND DRIVE</a> that I understood what had actually happened in the film. Watch the film and then read that article — I haven’t seen anything else that comes close to this.</p>
+<h3 id="the-edukators"><a href="http://www.imdb.com/title/tt0408777/">The Edukators</a></h3>
+<div class="figure">
+<img src="http://upload.wikimedia.org/wikipedia/en/7/7a/Fetten_jahre_sind_vorbei.jpg" alt="The Edukators" /><p class="caption">The Edukators</p>
+</div>
+<p>A great movie about three young Germans that break into wealthy Berliners’ homes, rearrange the furniture, and leave notes like <em>Die fetten jahre sind vorbei</em> (the years of gluttony are over).</p>
+<blockquote>
+<p>Back when the staff picked interesting, under-seeded films for staff recommendations, we got this gem. I continue to come back to this film many times. It is fantastic on all fronts and imperfect in just the right ways. — <em>Sergey @ PTP</em></p>
+</blockquote>
+<h2 id="albums">Albums</h2>
+<p>This year I listened to a ton of electronic music.</p>
+<h3 id="bluetech-sines-and-singularities"><a href="http://www.last.fm/music/Bluetech/Sines+and+Singularities">Bluetech — Sines and Singularities</a></h3>
+<div class="figure">
+<img src="http://www.aleph-zero.info/userfiles/cd/Z4_400.jpg" alt="Sines and Singularities" /><p class="caption">Sines and Singularities</p>
+</div>
+<p>This album is an outstanding example of the genre known as <a href="http://www.last.fm/tag/psychill/wiki">psychedelic chillout</a>.</p>
+<h3 id="vibrasphere-exploring-the-tributaries"><a href="http://www.last.fm/music/Vibrasphere/Exploring+The+Tributaries">Vibrasphere — Exploring the Tributaries</a></h3>
+<div class="figure">
+<img src="http://pic70.picturetrail.com/VOL1830/8012224/15044022/257997215.jpg" alt="Exploring the Tributaries" /><p class="caption">Exploring the Tributaries</p>
+</div>
+<p>I listened to a lot of psytrance this year, and this album stands out as my favorite.</p>
+<h3 id="ashtech-walkin-target"><a href="http://www.last.fm/music/Ashtech/Walkin%27+Target">Ashtech — Walkin’ Target</a></h3>
+<div class="figure">
+<img src="http://f0.bcbits.com/z/35/86/358607174-1.jpg" alt="Walkin’ Target" /><p class="caption">Walkin’ Target</p>
+</div>
+<p>A great dub album by Ashtech.</p>
+<h3 id="wendy-carlos-switched-on-bach"><a href="http://www.last.fm/music/Wendy+Carlos/Switched-On+Bach">Wendy Carlos — Switched-On Bach</a></h3>
+<div class="figure">
+<img src="http://upload.wikimedia.org/wikipedia/en/9/98/Switched_On_Bach.jpg" alt="Switched-On Bach" /><p class="caption">Switched-On Bach</p>
+</div>
+<p>You can’t go wrong when you combine two of the greatest things in music: J.S. Bach and the Moog synthesizer.</p>
+<h2 id="websites">Websites</h2>
+<h3 id="craftscape"><a href="http://codeflow.org/webgl/craftscape/">Craftscape</a></h3>
+<p>The coolest WebGL demo I’ve seen so far: a shader-based terrain sculptor/simulator/renderer.</p>
+<h3 id="kaggle"><a href="http://www.kaggle.com/">Kaggle</a></h3>
+<p>A site with lots of machine-learning competitions.</p>
+<h3 id="stripe-ctf"><a href="https://stripe.com/blog/capture-the-flag-20">Stripe CTF</a></h3>
+<p>Stripe CTF was one of the most fun programming competitions I’ve participated in. There were 8 levels in total, each consisting of a different web app that you had to exploit in order to proceed. I got a sweet free t-shirt for being one of the first to finish.</p>
+<h3 id="glsl-sandbox"><a href="http://glsl.heroku.com/">GLSL Sandbox</a></h3>
+<p>A WebGL-based shader programming sandbox. This is like <a href="http://sketchpad.cc/">Studio Sketchpad</a> on steroids. A really fun way to render Mandelbrot sets and other fractals on the GPU in realtime.</p>
+<h3 id="trello"><a href="https://trello.com/">Trello</a></h3>
+<p>I started using Trello in January. It’s a great organizational tool for projects.</p>
+<h3 id="pinboard"><a href="http://pinboard.in/">Pinboard</a></h3>
+<p>After hearing a lot about it, I finally decided to lay down $9 for a Pinboard account. I use it to organize all of my bookmarks and also to maintain a reading list. Pinboard has a great API that I’ve used to <a href="http://grimoire.in/">read articles on my Kindle</a> and also to archive every link I consider important.</p>
+<h3 id="web-audio-api-specification"><a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Web Audio API Specification</a></h3>
+<p>Usually I’m not a big fan of reading long API specifications, but the Web Audio API’s specification is worth the read. Building synthesizers inside of a web browser is just unbelievably fun.</p>]]></description>
+    <pubDate>Fri, 28 Dec 2012 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/best-of-2012/</guid>
+</item>
+<item>
+    <title>Export Facebook Contacts with Android</title>
+    <link>http://zacharydenton.com/export-facebook-contacts-with-android/</link>
+    <description><![CDATA[<p>If you have a rooted Android phone, you have full control over your device — and unrestricted access to the data it contains. In this post, I’m going to show you how you can use your rooted Android device to do something that <a href="http://techcrunch.com/2011/02/22/google-android-facebook-contacts/">the average person can’t do</a>: namely, export your contacts from the Facebook app on Android.</p>
+<h2 id="get-the-contacts-database">1. Get the contacts database</h2>
+<p>It turns out that the Facebook app stores your contacts in an SQLite database located on the filesystem at <code>/data/data/com.facebook.katana/databases/fb.db</code>. In order to use this database, we need to copy it to a computer. Since Android doesn’t provide access to the internal storage via USB, I first copied the database to my SD card using a root file browser, and then copied it to my computer via USB.</p>
+<h2 id="examine-the-contacts-database">2. Examine the contacts database</h2>
+<p>Now that you have the database on your local machine, you can analyze it and determine its structure. Begin by opening it up with the SQLite client:</p>
+<pre><code>$ sqlite3 /path/to/fb.db</code></pre>
+<p>Now it’s just the standard procedure when dealing with an unknown database:</p>
+<h3 id="list-the-tables">2.1 List the tables</h3>
+<pre><code>sqlite&gt; .tables
+albums                    friends                   page_search_results
+android_metadata          friends_data              perf_sessions
+cache                     key_value                 photos
+chatconversations         mailbox_messages          search_results
+chatmessages              mailbox_messages_display  stream_photos
+connections               mailbox_profiles          user_statuses
+default_page_images       mailbox_threads           user_values
+events                    notifications</code></pre>
+<h3 id="determine-which-tables-contain-the-data-youre-looking-for">2.2 Determine which tables contain the data you’re looking for</h3>
+<p>The table’s name is often a good indicator of its contents. In this case, the <code>friends</code> table (technically, it’s a <a href="http://www.sqlite.org/lang_createview.html">view</a>) contains all the data we need.</p>
+<h3 id="determine-which-columns-to-extract">2.3 Determine which columns to extract</h3>
+<p>Here’s the structure of the <code>friends</code> view:</p>
+<pre><code>sqlite&gt; .schema friends
+CREATE VIEW friends AS SELECT connections._id AS _id, connections.user_id AS user_id, connections.display_name AS display_name, connections.connection_type AS connection_type, connections.user_image_url AS user_image_url, connections.user_image AS user_image, connections.hash AS hash, friends_data.first_name AS first_name, friends_data.last_name AS last_name, friends_data.cell AS cell, friends_data.other AS other, friends_data.email AS email, friends_data.birthday_month AS birthday_month, friends_data.birthday_day AS birthday_day, friends_data.birthday_year AS birthday_year FROM connections LEFT OUTER JOIN friends_data ON connections.user_id=friends_data.user_id WHERE connections.connection_type=0;</code></pre>
+<p>In this case, the important columns are:</p>
+<ul>
+<li><code>display_name</code></li>
+<li><code>user_image_url</code></li>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
+<li><code>cell</code></li>
+<li><code>other</code></li>
+<li><code>email</code></li>
+<li><code>birthday_month</code></li>
+<li><code>birthday_day</code></li>
+<li><code>birthday_year</code></li>
+</ul>
+<p>At this point, the hard part is over and it’s just a matter of extracting the data from the database.</p>
+<h2 id="export-the-data">3. Export the data</h2>
+<h3 id="the-vcard-format">3.1 The vCard format</h3>
+<p>Now that we know exactly which data we need, we can export it from the database into a useful format. The most useful format for contact data appears to be <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, which is almost universally supported in communication apps. I won’t go into the details of the <a href="https://tools.ietf.org/html/rfc6350">vCard specification</a>, but here’s an example of what we’re trying to generate:</p>
+<pre><code>BEGIN:VCARD
+VERSION:3.0
+N:Feynman;Richard;;;
+FN:Richard Feynman
+TEL;TYPE=HOME:+72973525698
+EMAIL;TYPE=PREF:rfeynman@princeton.edu
+BDAY:1918-5-11
+REV:2012-01-08T18:36:35.814661
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Planck;Max;;;
+FN:Max Planck
+TEL;TYPE=CELL:+66260695729
+EMAIL;TYPE=PREF:planck@berlin.de
+BDAY:1858-4-23
+REV:2012-01-08T18:36:36.043204
+END:VCARD</code></pre>
+<p>Notice that multiple contacts can exist in the same file.</p>
+<h3 id="a-script-to-generate-the-vcard">3.2 A script to generate the vCard</h3>
+<p>I’ve written a Python script to generate a vCard from the <code>fb.db</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">import</span> sys
+<span class="ch">import</span> base64
+<span class="ch">import</span> codecs
+<span class="ch">import</span> sqlite3
+<span class="ch">import</span> urllib2
+<span class="ch">import</span> argparse
+<span class="ch">import</span> datetime
+
+<span class="kw">def</span> parse_database(database):
+    conn = sqlite3.<span class="ot">connect</span>(database)
+    conn.row_factory=sqlite3.Row
+    c = conn.cursor()
+    fields = <span class="st">&#39;display_name, user_image_url, first_name, &#39;</span> +\
+             <span class="st">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
+             <span class="st">&#39;birthday_day, birthday_year&#39;</span>
+    c.execute(<span class="st">&#39;select </span><span class="ot">%s</span><span class="st"> from friends&#39;</span> % fields)
+    <span class="kw">return</span> [row <span class="kw">for</span> row in c]
+
+<span class="kw">def</span> generate_vcard(contact, photos=<span class="ot">False</span>):
+    card = <span class="st">&quot;BEGIN:VCARD</span><span class="ch">\n</span><span class="st">VERSION:3.0</span><span class="ch">\n</span><span class="st">&quot;</span>
+    card += <span class="st">&quot;N:</span><span class="ot">%s</span><span class="st">;</span><span class="ot">%s</span><span class="st">;;;</span><span class="ch">\n</span><span class="st">&quot;</span> % (contact[<span class="st">&#39;last_name&#39;</span>], contact[<span class="st">&#39;first_name&#39;</span>])
+    card += <span class="st">&quot;FN:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;display_name&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;cell&#39;</span>]:
+        card += <span class="st">&#39;TEL;TYPE=CELL:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;cell&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;other&#39;</span>]:
+        card += <span class="st">&#39;TEL;TYPE=HOME:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;other&#39;</span>]
+
+    <span class="kw">if</span> contact[<span class="st">&#39;email&#39;</span>]:
+        card += <span class="st">&quot;EMAIL;TYPE=PREF:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;email&#39;</span>]
+
+    birthday = <span class="st">&quot;-&quot;</span>.join([<span class="dt">str</span>(f) <span class="kw">for</span> f in [contact[<span class="st">&#39;birthday_year&#39;</span>],
+                                          contact[<span class="st">&#39;birthday_month&#39;</span>],
+                                          contact[<span class="st">&#39;birthday_day&#39;</span>]]
+                         <span class="kw">if</span> f != -<span class="dv">1</span>])
+    <span class="kw">if</span> birthday:
+        <span class="kw">if</span> birthday.count(<span class="st">&#39;-&#39;</span>) == <span class="dv">1</span>: birthday = <span class="st">&quot;1900-&quot;</span> + birthday <span class="co"># default year</span>
+        card += <span class="st">&quot;BDAY:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % birthday
+
+    <span class="kw">if</span> photos and contact[<span class="st">&#39;user_image_url&#39;</span>]:
+        <span class="kw">try</span>:
+            photo = urllib2.urlopen(contact[<span class="st">&#39;user_image_url&#39;</span>]).read()
+            card += <span class="st">&quot;PHOTO;ENCODING=B;TYPE=JPEG:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> %\
+                    base64.b64encode(photo)
+        <span class="kw">except</span>:
+            <span class="kw">pass</span>
+
+
+    card += <span class="st">&quot;REV:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">END:VCARD</span><span class="ch">\n</span><span class="st">&quot;</span> % datetime.datetime.now().isoformat()
+    <span class="kw">return</span> card
+
+<span class="kw">def</span> main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(<span class="st">&#39;database&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;path to facebook database&quot;</span>, default=<span class="st">&quot;fb.db&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
+    parser.add_argument(<span class="st">&#39;vcard&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;file to write contacts to&quot;</span>, default=<span class="st">&quot;fbcontacts.vcf&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
+    parser.add_argument(<span class="st">&#39;--photos&#39;</span>, action=<span class="st">&quot;store_true&quot;</span>, <span class="dt">help</span>=<span class="st">&quot;download profile pictures&quot;</span>)
+    args = parser.parse_args()
+
+    <span class="kw">with</span> codecs.<span class="dt">open</span>(args.vcard, <span class="st">&#39;w&#39;</span>, <span class="st">&#39;utf-8&#39;</span>) <span class="ch">as</span> vcard:
+        contacts = parse_database(args.database)
+        <span class="kw">for</span> i, contact in <span class="dt">enumerate</span>(contacts):
+            sys.stderr.write(<span class="st">&quot;</span><span class="ch">\r</span><span class="st">exporting contact </span><span class="ot">%s</span><span class="st"> of </span><span class="ot">%s</span><span class="st">&quot;</span> % (i<span class="dv">+1</span>, <span class="dt">len</span>(contacts)))
+            card = generate_vcard(contact, args.photos)
+            <span class="kw">print</span> &gt;&gt; vcard, card
+            sys.stderr.flush()
+        sys.stderr.write(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
+<p>It just goes through each row, grabs the relevant data, and writes it out in vCard format.</p>
+<p>To use the script, just run <code>python fbcontacts.py /path/to/fb.db</code>. You’ll end up with all of your contacts in a vCard file, complete with email addresses, phone numbers, birthdays, and (if you specify the <code>--photos</code> flag) profile pictures.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Restrictions don’t apply to those with rooted phones and a bit of curiosity.</p>]]></description>
+    <pubDate>Mon, 14 May 2012 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/export-facebook-contacts-with-android/</guid>
+</item>
+<item>
+    <title>Music Server Revisited: Streaming with sshfs and mp3fs</title>
+    <link>http://zacharydenton.com/music-server-revisited-streaming-with-sshfs-and-mp3fs/</link>
+    <description><![CDATA[<p>A while back, I wrote about <a href="/build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
+<p>Before you start, you’re going to need a Linux machine with your music collection on it (the server). You will also need another Linux machine to act as the client (e.g. a laptop with a small hard drive).</p>
+<h2 id="configuring-the-server">Configuring the server</h2>
+<h3 id="install-the-ssh-server">Install the ssh server</h3>
+<p>The first thing you’re going to want to do is install an ssh server, if it’s not already installed.</p>
+<pre><code>$ sudo aptitude install openssh-server</code></pre>
+<p>If your music is already compressed, or if you just have a very fast internet connection, you’re done configuring the server. Otherwise, read on to learn how to transcode your music on-the-fly with mp3fs.</p>
+<h3 id="set-up-mp3fs">Set up mp3fs</h3>
+<blockquote>
+<p>MP3FS is a read-only FUSE filesystem which transcodes audio formats (currently FLAC) to MP3 on the fly when opened and read. This was written to enable me to use my FLAC collection with software and/or hardware which only understands the MP3 format e.g. gmediaserver to a Netgear MP101 MP3 player. — <a href="http://khenriks.github.com/mp3fs/">Kristofer Henriksson</a></p>
+</blockquote>
+<p>If you have any music in FLAC format, you’re probably not going to be able to stream it without first transcoding to MP3. mp3fs solves this problem. First, install it.</p>
+<pre><code>$ sudo aptitude install mp3fs</code></pre>
+<p>NOTE: Depending on your distro, the repositories might have an outdated version of mp3fs. If the following commands don’t work, try installing a newer version of mp3fs (either by compiling it yourself or finding a newer package).</p>
+<p>Now that it’s installed, we’ll set it up. Create a folder for the mp3fs:</p>
+<pre><code>$ mkdir ~/MP3</code></pre>
+<p>Next, add an entry to <code>/etc/fstab</code> to automatically mount the mp3fs:</p>
+<pre><code># cat &gt;&gt; /etc/fstab &lt;&lt; EOF
+mp3fs#/home/USER/Music /home/USER/MP3 fuse allow_other,ro,bitrate=320 0 0
+EOF</code></pre>
+<p>Make sure you adjust the paths and bitrate, if necessary.</p>
+<p>Finally, mount the mp3fs:</p>
+<pre><code>$ sudo mount -a</code></pre>
+<p>Now your music collection should appear at <code>~/MP3</code> in MP3 format.</p>
+<h2 id="configuring-the-client">Configuring the client</h2>
+<p>We’re going to use sshfs to stream the music. It uses SSH to allow you to mount remote filesystems on the local machine. In other words, it will make your remote music collection available on the client machine. To start, install sshfs.</p>
+<pre><code>$ sudo aptitude install sshfs</code></pre>
+<p>Now, mount the remote music collection (adjust the parameters as necessary):</p>
+<pre><code>$ sshfs USER@example.com:Music ~/Music</code></pre>
+<p>Your music collection should now be visible on the client at <code>~/Music</code>. Fire up your favorite media player, allow it to scan your music library, and enjoy.</p>
+<p>If you want the sshfs to be automatically mounted, you will first need to <a href="http://www.ece.uci.edu/~chou/ssh-key.html">set up key-based SSH authentication</a>. Once that’s done, you will need to edit <code>/etc/fstab</code>:</p>
+<pre><code># cat &gt;&gt; /etc/fstab &lt;&lt; EOF
+sshfs#USER@example.com:Music /home/USER/Music fuse defaults,idmap=user 0 0
+EOF</code></pre>
+<p>Now your music collection will be available at login.</p>]]></description>
+    <pubDate>Thu, 29 Dec 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/music-server-revisited-streaming-with-sshfs-and-mp3fs/</guid>
+</item>
+<item>
+    <title>A* Search with Multiple Targets and Sources</title>
+    <link>http://zacharydenton.com/a-star-search-with-multiple-targets-and-sources/</link>
+    <description><![CDATA[<p>A couple months ago, I decided to expand my knowledge of artificial intelligence by participating in the <a href="http://aichallenge.org">2011 AI Challenge</a>. It was an incredibly interesting and educational experience. Sadly, I was forced to divert my attention away from the AI Challenge to focus on more important things.</p>
+<p>One of the more interesting things I learned from the AI Challenge was an A* algorithm which supports searching from multiple sources to multiple targets, simultaneously. I used this algorithm to efficiently gather food: one pass of this algorithm calculated paths to each food tile.</p>
+<p>The algorithm is similar to the basic A*, except for a few key differences. First of all, the frontier is prepopulated with all of the sources. Secondly, the goal test function checks to see if the current position corresponds to <em>any</em> of the targets, not just a single target. Finally, the heuristic is the Manhattan distance to the <em>nearest</em> target.</p>
+<p>This is the algorithm in pseudocode:</p>
+<pre><code>frontier = {sources}
+explored = {}
+loop:
+    if frontier is empty: return
+    path = remove_choice(frontier) # minimize f + h where h = distance to nearest target
+    s = path.end
+    add s to explored
+    if s in targets: command source to follow path
+    for a in actions:
+        add [path + a -&gt; Result(s, a)] to frontier
+            unless Result(s, a) in frontier + explored</code></pre>
+<p>I’ve <a href="https://github.com/zacharydenton/aichallenge-ants">uploaded my bot to GitHub</a>, so you can actually <a href="https://github.com/zacharydenton/aichallenge-ants/blob/master/MyBot.java#L237">see this algorithm in practice</a> if you want.</p>]]></description>
+    <pubDate>Thu, 29 Dec 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/a-star-search-with-multiple-targets-and-sources/</guid>
+</item>
+<item>
+    <title>Iceland</title>
+    <link>http://zacharydenton.com/iceland/</link>
+    <description><![CDATA[<div class="figure">
+<img src="https://lh3.googleusercontent.com/-Z0V_sIl9L_g/TkWd8BhZPsI/AAAAAAAAbqk/kFSTwtfMXNQ/s770/IMG_3711.JPG" alt="Knitting on a tree in Reykjavik" /><p class="caption">Knitting on a tree in Reykjavik</p>
+</div>
+<p>I arrived at Keflavik airport at about 2 AM. I was planning on spending the night at the airport, but unfortunately the airport is very small outside of the main terminal. I ended up taking the airport shuttle in to Reykjavik and arrived in the city center at around 3 AM. I went to 4 different hostels before finding a place with any vacancy. The place I ended up at, Reykjavik City Hostel, is about a 30 minute walk outside of Reykjavik. It was interesting because the average age of the people staying there was about 30. Iceland is an expensive place; apparently even people in their 30s can’t afford hotels there!</p>
+<!-- more -->
+
+<p>The following day I explored Reykjavik. I started off the day by going to a coffee shop. The great thing about Iceland is that the coffee shops have free refills. This was a welcome relief from the Icelandic prices. I walked around Reykjavik for a bit, and ate salmon kebab and lobster soup at <a href="http://travel.nytimes.com/2006/11/12/travel/12bite.html">Sægreifinn</a>.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-puWv-WTpyA0/TkWcVRdqjsI/AAAAAAAAbpk/bkJs7c9-iY4/s800/IMG_3667.JPG" alt="Mink whale kebab at Sægreifinn" /><p class="caption">Mink whale kebab at Sægreifinn</p>
+</div>
+<p>After that, I walked up to Hallgrímskirkja.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-SQQ76Q1aXfA/TkWc-Tma7aI/AAAAAAAAbp0/uVDkFjfkcY4/s770/IMG_3670.JPG" alt="The road to Hallgrímskirkja" /><p class="caption">The road to Hallgrímskirkja</p>
+</div>
+<p>It’s a very impressive concrete cathedral.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-ukdquF-7G3w/TkWTmlNZ_KI/AAAAAAAAbnE/IVms7-m9boI/s770/IMG_3678.JPG" alt="Hallgrímskirkja" /><p class="caption">Hallgrímskirkja</p>
+</div>
+<p>It looks futuristic in a sense.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-jhcFB7YYGl0/TkWar1rCcTI/AAAAAAAAboY/sw6BvkxLI14/s770/IMG_3688.JPG" alt="Looking up at Hallgrímskirkja" /><p class="caption">Looking up at Hallgrímskirkja</p>
+</div>
+<p>Inside, an organist was playing.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-bJ-ALniCHBM/TkWbQziXePI/AAAAAAAAbog/5QspqMn1PS4/s770/IMG_3690.JPG" alt="Inside Hallgrímskirkja" /><p class="caption">Inside Hallgrímskirkja</p>
+</div>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-sHtw8ey6Qb8/TkWbWNGfxPI/AAAAAAAAbok/eLWANvJjLD4/s770/IMG_3692.JPG" alt="Hallgrímskirkja organ" /><p class="caption">Hallgrímskirkja organ</p>
+</div>
+<p>On the way back down the hill, I stopped inside Mokka Kaffi and had a waffle and a cappuccino.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-O572KH-VJKI/TkWdhFpLTOI/AAAAAAAAbqM/stBMbuNS9F8/s770/IMG_3708.JPG" alt="Laugavegur in Reykjavik" /><p class="caption">Laugavegur in Reykjavik</p>
+</div>
+<p>I walked around Reykjavik a bit more, bought some groceries, and made the long walk back to the hostel.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-uLUuA4ZLHa8/TkWftXtGFgI/AAAAAAAAbro/EaROnkfAWdQ/s770/IMG_3725.JPG" alt="Road to the hostel" /><p class="caption">Road to the hostel</p>
+</div>
+<p>The next day was similar to the first. For breakfast, I enjoyed “The Truck” (pancakes, bacon, scrambled eggs, and coffee) at Grái Kötturinn. For dinner, I had the best hot dogs in the world at Bæjarins Bestu.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-eSLUZM0ky1I/TkWgC6DPsoI/AAAAAAAAbr0/YsKnBDWNe7I/s770/IMG_3701.JPG" alt="Bæjarins Bestu" /><p class="caption">Bæjarins Bestu</p>
+</div>
+<p>These hot dogs were probably the best food I purchased on the entire trip. In Iceland, you’re supposed to order a hot dog with everything (<em>ein með öllu</em>).</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-V4VYCYypLCc/TkWfr6n1yOI/AAAAAAAAbrk/WW5PYdQnivA/s770/IMG_3700.JPG" alt="Two Icelandic hot dogs" /><p class="caption">Two Icelandic hot dogs</p>
+</div>
+<p>When Bill Clinton came to this hot dog stand, he ordered one with only mustard. Today, they serve the “Clinton”, which is a hot dog with only mustard. No one ever orders that, though.</p>
+<p>When young Dawn with her rose-red fingers shone once more I took the bus to go hiking at Esjan, a popular day hiking spot outside of Reykjavik. I missed one of the buses, so I ended up spending a couple hours at a bakery about 10 miles away from Esjan. I had a nice cinnamon pastry and a cappuccino (and internet), so it wasn’t a problem. When I got to Esjan, it was about 4 PM.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-i8oDU7Cq-VY/TkWj1gMrLMI/AAAAAAAAbt4/crVvTSnXk0g/s770/IMG_3768.JPG" alt="Esjan" /><p class="caption">Esjan</p>
+</div>
+<p>The guidebook said that the Esjan hike takes about 3 hours to complete, so I was worried I might not make it back in time to catch the last bus of the day. I proceeded swiftly up the mountain, passing several people along the way.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-BrXIuyU5fBc/TkWjQLMrgLI/AAAAAAAAbtg/-fc7Wi7Urug/s770/IMG_3759.JPG" alt="Hiking up Esjan" /><p class="caption">Hiking up Esjan</p>
+</div>
+<p>A couple of locals passed me, but they were jogging up and down the mountain.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-bfdJDIhisYs/TkWGOptuNbI/AAAAAAAAbks/Owz0xYbm6KU/s770/IMG_3760.JPG" alt="View on Esjan hike" /><p class="caption">View on Esjan hike</p>
+</div>
+<p>It was extremely damp at the top of the mountain, probably because the top of the mountain was inside a cloud.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-vFwqJZwpEzE/TkWjENIupiI/AAAAAAAAbtY/JTTsxnc2UTE/s770/IMG_3762.JPG" alt="At the top of Esjan" /><p class="caption">At the top of Esjan</p>
+</div>
+<p>I was hiking with my brown loafers so I decided not to climb the last 50 meters to the top. Still worried that I might not catch the evening bus back to Reykjavik, I ran all the way down the mountain. I almost caught up with the locals who passed me earlier. The hike ended up lasting a little over an hour.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-sBjzf1ezxf0/TkWjsVhLmAI/AAAAAAAAbt0/SPKx0oDXOZw/s770/IMG_3766.JPG" alt="At the bottom of Esjan" /><p class="caption">At the bottom of Esjan</p>
+</div>
+<p>There was a restaurant at the bottom of the mountain called Esjustofa, where I had a coffee and some carrot cake.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-wvMbRsoowqk/TkWlKFdEQvI/AAAAAAAAbus/6WjUvsOSrks/s770/IMG_3733.JPG" alt="Esjustofa" /><p class="caption">Esjustofa</p>
+</div>
+<p>I caught the final bus of the day without any problems.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-4Hg9s2l-aI0/TkWkGwKX1NI/AAAAAAAAbuE/mGZ1BURh2SE/s770/IMG_3769.JPG" alt="The road back to Reykjavik" /><p class="caption">The road back to Reykjavik</p>
+</div>
+<p>The next day, I took a bus along the spectacular Ring Road to a place east of Reykjavik, called Vik.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-ejG6qo1sWMQ/TkWmKwtz2YI/AAAAAAAAbvY/79VxqX_ff8M/s770/IMG_3774.JPG" alt="I was the only one on the bus" /><p class="caption">I was the only one on the bus</p>
+</div>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-0HcsOVlC6Gg/TkWlfRHv8PI/AAAAAAAAbu8/bkrpNsOJfR4/s770/IMG_3790.JPG" alt="Driving on the Ring Road" /><p class="caption">Driving on the Ring Road</p>
+</div>
+<p>Vik is a small village by the coast.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-tNWfxxOxs04/TkWpVs8VX7I/AAAAAAAAbxI/q1df04MeGjQ/s770/IMG_3806.JPG" alt="Vik" /><p class="caption">Vik</p>
+</div>
+<p>I was extremely lucky to get the last bed at the tiny hostel in Vik. I’m honestly not sure what I would have done had I not gotten that bed, because it was pouring rain outside and there didn’t seem to be any other options within my budget for miles.</p>
+<p>I got up the next morning and went for a walk along the seaside cliffs.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-10ezw6g65Xo/TkWo_F05x2I/AAAAAAAAbw4/HnGxOxMIwM8/s770/IMG_3803.JPG" alt="Cliffs by Vik" /><p class="caption">Cliffs by Vik</p>
+</div>
+<p>I passed by a rock formation that looks kind of like a submerged stegosaurus. This was a really nice hike.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-bCMsdKXvvUA/TkWoqoH7CBI/AAAAAAAAbww/e8beQWD0U2U/s770/IMG_3820.JPG" alt="Vik hike" /><p class="caption">Vik hike</p>
+</div>
+<p>Several sheep grazed alongside me.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-nyNb7N293Cg/TkWnvYK9JDI/AAAAAAAAbwI/WV2NYudTHYk/s770/IMG_3814.JPG" alt="Icelandic sheep" /><p class="caption">Icelandic sheep</p>
+</div>
+<p>On the way back, the rain and fog returned with a vengeance. It was literally raining sideways. When I made it back to the hostel, I was completely drenched. I took advantage of the free food shelf at the hostel, making an interesting combination of cous cous, salami, and alphabet soup. I made a trek through the rain to the gas station, where a westbound bus was departing. I took the bus to a port where I took a ferry to the Westman Islands, a group of volcanic islands south of Iceland.</p>
+<p>When I arrived in Heimaey (the main Westman Island), I had to find a place to stay. The guidebook didn’t have too much to say about Heimaey, as it is a bit off the beaten path. It did mention that Heimaey is Iceland’s most important fishing town.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-rMpIaHNH6vM/TkWxj5FIe6I/AAAAAAAAb1g/4sV3mkrmSkE/s770/IMG_3826.JPG" alt="Fishing nets in Heimaey" /><p class="caption">Fishing nets in Heimaey</p>
+</div>
+<p>I went to the main hotel on the island, but it was way out my price range. They didn’t have any space in their hostel either. Fortunately for me they called a friend of theirs who ran a gistihús (guesthouse) on the outskirts of town.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-w7zxeHifS8U/TkWMo0d1j_I/AAAAAAAAbmI/hykWzig9Q8I/s770/IMG_3824.JPG" alt="Near the guesthouse" /><p class="caption">Near the guesthouse</p>
+</div>
+<p>The guesthouse price was decent, about twice as much as the Reykjavik hostel. Inside the guesthouse, I met a German family drinking vodka and eating fermented shark (Iceland’s equivalent of surströmming). The fermented shark was actually not too bad. I walked into town to grab some dinner, and ended up with an overpriced pizza.</p>
+<p>The next day, I set out to explore the island.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-KTCbPNqaNbE/TkWxyGLQAhI/AAAAAAAAb1o/O5oSZRhHM6w/s770/IMG_3827.JPG" alt="Birds on a cliff" /><p class="caption">Birds on a cliff</p>
+</div>
+<p>The first thing I did was hike up one of the volcanic hills that surround the island.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-DwG-DmA35XI/TkWrY7gRnXI/AAAAAAAAbyU/VBS1yhgllEw/s770/IMG_3844.JPG" alt="Hiking up a volcanic hill" /><p class="caption">Hiking up a volcanic hill</p>
+</div>
+<p>It was pretty steep; you had to use ropes to climb up.</p>
+<div class="figure">
+<img src="https://lh5.googleusercontent.com/-G0xzgTAYcu4/TkWrrM4315I/AAAAAAAAbyg/ZSP3jV077fM/s770/IMG_3846.JPG" alt="Closer to the top" /><p class="caption">Closer to the top</p>
+</div>
+<p>There was a nice view at the top.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-xL9PICc5XGM/TkWsWY6DXrI/AAAAAAAAby8/IeXo-Xgy6Zk/s770/IMG_3850.JPG" alt="View from the top" /><p class="caption">View from the top</p>
+</div>
+<p>Also, this wasn’t climbing on solid ground. This was climbing on volcanic sand, so it was like climbing on a diagonal beach. The great thing about this was that you could “surf” the whole way down. Very exciting. From there, I walked into town in search of some lunch. I went to the grocery store and purchased a roasted chicken and two liters of Coke. I found a picnic table in town and devoured the chicken. I ate the chicken with such savage haste that an Asian couple actually came up to me and asked if they could take a photograph. Who knows what strange corner of the internet that photo ended up at. After that, I walked over to the lava fields on the other side of town.</p>
+<div class="figure">
+<img src="https://lh6.googleusercontent.com/-QIFEgiVNheE/TkWtuLo0SII/AAAAAAAAbz0/cRsOrl9HZkc/s770/IMG_3866.JPG" alt="Lava fields" /><p class="caption">Lava fields</p>
+</div>
+<p>The lava was already solidified, of course. For some reason I was expecting to see some flowing red lava, though. Maybe in Hawaii.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-B2yoEFJLiMU/TkWuZZKxLzI/AAAAAAAAb0U/DzJF1HeHp6E/s770/IMG_3872.JPG" alt="Lava fields" /><p class="caption">Lava fields</p>
+</div>
+<p>I also hiked up a volcano.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-9lEII7rg8j4/TkXMJ6dWtdI/AAAAAAAAb3E/ap8_AH7qxMw/s770/IMG_20110806_143331.jpg" alt="On top of a volcano" /><p class="caption">On top of a volcano</p>
+</div>
+<p>It was interesting because the volcano was still warm. If you dug down a bit I’m sure you would burn your hand. It was cool to see clouds forming as wind blew over the top of the volcano.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-eklICkKT_-4/TkWxOiiYdJI/AAAAAAAAb1Y/HPbDLIub7Sg/s770/IMG_3885.JPG" alt="Clouds forming on volcano" /><p class="caption">Clouds forming on volcano</p>
+</div>
+<p>I took the ferry back to the mainland and took the bus back to Reykjavik.</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/-wYw8RXHyb3M/TkXMJyKirnI/AAAAAAAAb3E/WRP7ys2dGQg/s770/IMG_20110806_200110.jpg" alt="Ring Road back to Reykjavik" /><p class="caption">Ring Road back to Reykjavik</p>
+</div>
+<p>It was quite late when I got back, so I wasn’t sure whether or not to book a hostel for the night. The bus company sold the tickets at half price if you took the bus at 4:30 AM, which was reason enough for me to just spend the night at the bus station. I withdrew my handy silk travel sheet from my suitcase and slept for a few hours until it was time to leave. Most of the people on the bus had been partying all night. I wish I had thought of that idea, but maybe next time. After a few flights and a car ride, I was back home in Maryland. It was without a doubt the best summer I’ve ever had.</p>]]></description>
+    <pubDate>Wed, 05 Oct 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/iceland/</guid>
+</item>
+<item>
+    <title>Copenhagen</title>
+    <link>http://zacharydenton.com/copenhagen/</link>
+    <description><![CDATA[<p>My visit to Copenhagen was relatively uneventful. The main thing I did was go to the <a href="http://www.coffeecollective.dk/">Coffee Collective</a>, a coffee roastery run by a former World Barista Champion.</p>
+<!-- more -->
+
+<p>I’m not entirely sure what that means. At the Coffee Collective, I tried a coffee which was blended with bergamot, like Earl Grey tea. It wasn’t very good. When I got back to the US, I searched for different Aeropress brewing techniques and came across <a href="http://coffeecollective.blogspot.com/2010/01/updated-aeropress-brewing-method.html">the technique that Coffee Collective uses</a>. I’m not sure if it really improves the flavor but it is certainly more complicated.</p>
+<p>I also lost my phone charger at the hostel I was staying at. This effectively doubled the cost of staying at the hostel. I don’t understand how the worst hostel on my trip could be in Copenhagen.</p>
+<p>After the short stay in Copenhagen, I went to the airport and hopped on a plane headed for Iceland.</p>]]></description>
+    <pubDate>Tue, 04 Oct 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/copenhagen/</guid>
+</item>
+<item>
+    <title>Berlin</title>
+    <link>http://zacharydenton.com/berlin/</link>
+    <description><![CDATA[<p>Immediately after arriving at the Berlin Hauptbahnhof, I went to the tourist information desk. I asked the guy behind the counter for a map, and he asked for 10 euro. When I asked him where to find a free WiFi hotspot, he replied, “Nothing is free in Germany.” Not a promising start.</p>
+<!-- more -->
+
+<p>I left the train station and walked through the ultramodern museum district until I reached the Brandenburg Gate. True to the man’s words, none of the German cafés had free WiFi. I was just about to give up and head on to Copenhagen when I spotted a Starbucks. Capitalism at its finest. I found a nearby hostel with reasonable prices, so I decided to spend a night or two in Berlin. I slept in the hostel’s “K-Studio”, along with 39 roommates.</p>
+<div class="figure">
+<img src="https://lh4.googleusercontent.com/-5zt0dqaFXuY/TjF6VzcnuNI/AAAAAAAAb20/dJAIhe4znPI/s770/img_3666.jpg" alt="The K-Studio" /><p class="caption">The K-Studio</p>
+</div>
+<p>Hungry, I decided to go for a walk in search of a supermarket. East Berlin is quite advanced, especially compared to how I imagined it. I always thought it was a gray wasteland, but in fact it is cleaner and more modern than West Berlin. I went back to the hostel, ate a few delicious tomato/least expensive meat/least expensive cheese sandwiches, and played pool for a couple hours.</p>
+<p>Then I went out with a couple of Parisian girls and a guy from Missouri. We convinced the guy working at the hostel to tag along too, since he had just graduated third in his class. We took the subway to Kreuzberg and went into a bar. I was astonished to hear <em>Flying Turns</em> from The Minimal Wave Tapes playing.</p>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/1N-g7MaKZMQ" frameborder="0" allowfullscreen></iframe>
+
+<p>After an hour or so, we ventured forth, briefly pausing in a convenience store where two other girls joined us. We then went to a club, but the doorman wouldn’t let me in. One of the girls who had joined us at the store suggested that I go back to her apartment to get her friend’s blazer so that I would look older (and thus get into the club).</p>
+<p>After spending some time at the apartment, we went back to the club. Despite the blazer, the doorman still wouldn’t let me in. Instead, I ended up at another bar with the two girls and the friend whose blazer I was wearing. We discussed important topics such as nonetheless vs. nevertheless, post-punk, and hipsters. Afterwards, I enjoyed some late night kebab and took a taxi back to the hostel.</p>
+<p>I didn’t explore Berlin as much as I had intended, but I had a good time nevertheless. Later the next day I took the train to Copenhagen.</p>]]></description>
+    <pubDate>Tue, 04 Oct 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/berlin/</guid>
+</item>
+<item>
+    <title>Vienna</title>
+    <link>http://zacharydenton.com/vienna/</link>
+    <description><![CDATA[<div class="figure">
+<img src="https://lh6.googleusercontent.com/-EGtDAD2LJKU/TjGNN73ZlMI/AAAAAAAAb24/wGzvbx5nCYg/s770/img_3562.jpg" alt="Cafe Central" /><p class="caption">Cafe Central</p>
+</div>
+<p>I left Budapest on a remarkably advanced “Railjet” train and ended up in Vienna a short while later. Vienna is a great city. In fact, it’s one of my favorite European cities. Vienna is a blend of advanced infrastructure, magnificent buildings, culture, and coffee.</p>
+<p>When I got out of the train station, I walked toward Mariahilfer Strasse, Vienna’s main shopping street. The first thing I noticed was a crowd of Turks protesting something. Nobody seemed to know what they were upset about.</p>
+<p>I continued walking down the street in search of WiFi and eventually found a municipal hotspot. I fired up Google Maps and saw that there were several hostels in the area. Based on ratings, I chose a place called Strawberry Hostel.</p>
+<p>Once checked in at the hostel, I walked towards the center of the city. Overall, Vienna is very clean and modern. In the center of the city it’s still very clean, but the architecture is more grandiose. I spent a while wandering and ended up at Café Central. After ordering a pot of coffee (which means two cups in Vienna) and a chocolate truffle cake, I read the first six books of the Iliad while enjoying the live piano performance. One of the songs caught my attention in particular. I recognized it as part of the soundtrack from <em>Waking Life</em>, one of my favorite films.</p>
+<iframe width="770" height="578" src="http://www.youtube.com/embed/N3UJveRHygI" frameborder="0" allowfullscreen></iframe>
+
+<p>I think the piece was originally by Chopin.</p>
+<p>I walked for a couple more hours in the center of the city, and went back to the hostel. The next day I went to Prague.</p>]]></description>
+    <pubDate>Sat, 01 Oct 2011 00:00:00 UT</pubDate>
+    <guid>http://zacharydenton.com/vienna/</guid>
+</item>
+
+    </channel> 
+</rss>

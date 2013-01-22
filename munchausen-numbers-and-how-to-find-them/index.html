@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Munchausen Numbers and How to Find Them - Zach Denton</title>
+		<meta name="description" content="An introduction to Munchausen numbers and how to find them with various programming languages.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Munchausen Numbers and How to Find Them</h1>
+        <p>There are those who would have you believe that <a href="http://en.wikipedia.org/wiki/Interesting_number_paradox">every number is interesting</a>. However, there are interesting numbers and then there are <em>interesting</em> numbers. Today I’m going to talk about numbers in the latter category.</p>
+<p>Munchausen numbers are numbers with the property that the sum of their digits raised to themselves equals the number itself. I think this is best explained with an example:</p>
+<p>\(3^3 + 4^4 + 3^3 + 5^5 = 3435\)</p>
+<p>I don’t know about you, but I find this extremely interesting! (Come on! You don’t think that’s interesting?) In any case, I decided to write a few different programs to find these numbers.</p>
+<p>The basic algorithm I came up with is as follows:</p>
+<ul>
+<li>Separate the number into its constituent digits.</li>
+<li>Find the sum of each digit raised to itself.</li>
+<li>If this sum equals the original number, then it is a Munchausen number.</li>
+</ul>
+<p>That’s fairly self-explanatory, right? Let me show you a few different ways to do this.</p>
+<h3 id="ruby">Ruby</h3>
+<p>Ruby was the first “real” programming language I learned. Before Ruby, I was writing simple programs on my TI-89, but that doesn’t really count. If you’re wondering, I first learned how to program by reading the excellent <a href="http://pine.fm/LearnToProgram/" title="Learn to Program"><em>Learn to Program</em></a>, by Chris Pine.</p>
+<p>In Ruby, the easiest way to get the digits of a number is simply to convert the number into a string. Once that is established, one simply needs to apply the aforementioned algorithm to each number within a certain limit to find the Munchausen numbers within that limit:</p>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<span class="co"># munchausen.rb - finds munchausen numbers</span>
+
+<span class="dv">5000</span>.times <span class="kw">do</span> |i|
+    digits = i.to_s()
+    sum = <span class="dv">0</span>
+    digits.each_char <span class="kw">do</span> |digit|
+        digit = digit.to_i()
+        sum += digit ** digit
+    <span class="kw">end</span>
+    <span class="kw">if</span> sum == i
+        puts i.to_s() + <span class="st">&quot; (munchausen)&quot;</span>
+    <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+<h3 id="c">C</h3>
+<p>C is great if you need to eke out every last drop of performance from your machine. I wouldn’t think of using it in any other case, though. That being said, it is much easier than assembly language, but come on people – this is the 21st century.</p>
+<p>I took a slightly different approach here and used modular arithmetic to extract the digits from the number. To find the least significant digit, we take the remainder when the number is divided by 10. We do this until all digits have been extracted. Then we simply apply the algorithm as in the previous example.</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="co">// calculate munchausen numbers</span>
+<span class="ot">#include &lt;stdio.h&gt;</span>
+<span class="ot">#include &lt;math.h&gt;</span>
+
+<span class="dt">int</span> limit = <span class="dv">5000</span>; <span class="co">// the upper bound of the search</span>
+
+<span class="dt">int</span> i;
+<span class="dt">int</span> main() {
+    <span class="kw">for</span> (i = <span class="dv">1</span>; i &lt; limit; i++) {
+        <span class="co">// loop through each digit in i</span>
+        <span class="co">// e.g. for 1000 we get 0, 0, 0, 1.</span>
+        <span class="dt">int</span> number = i;
+        <span class="dt">int</span> sum = <span class="dv">0</span>;
+        <span class="kw">while</span> (number &gt; <span class="dv">0</span>) {
+            <span class="dt">int</span> digit = number % <span class="dv">10</span>;
+            number = number / <span class="dv">10</span>;
+            <span class="co">// find the sum of the digits </span>
+            <span class="co">// raised to themselves </span>
+            sum += pow(digit, digit);
+        }
+        <span class="kw">if</span> (sum == i) {
+            <span class="co">// the sum is equal to the number</span>
+            <span class="co">// itself; thus it is a </span>
+            <span class="co">// munchausen number</span>
+            printf(<span class="st">&quot;%i (munchausen)</span><span class="ch">\n</span><span class="st">&quot;</span>, i);
+        } 
+    }
+    <span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre>
+<h3 id="clojure">Clojure</h3>
+<p>Clojure is an interesting new language, conceived in 2008. It is a Lisp which targets the Java Virtual Machine, meaning it can make use of any existing Java code whilst being written in a functional style.</p>
+<p>Functional programming is an intriguing concept. It seems more theoretical than the imperative style I am used to, but perhaps that is because I am learning the language by reading <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" title="Structure and Interpretation of Computer Programs"><em>Structure and Interpretation of Computer Programs</em></a>.</p>
+<p>One thing about Clojure that seems strange to me is the fact that it lacks a standard library. This means that you have to define your own exponentiation function. In this case, I just used a function from the Java standard library.</p>
+<p>The other idiosyncrasy I noticed is that in Clojure, converting a char to an int returns the ASCII representation of that char, rather than performing a direct conversion. Thus, we must subtract 48 in order to receive the number itself.</p>
+<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+(<span class="kw">defn</span><span class="fu"> ** </span>[x n]
+  (. (. java.math.BigInteger (valueOf x)) (pow n)))
+
+(<span class="kw">defn</span><span class="fu"> raise-to-itself </span>[number]
+  (** number number))
+
+(<span class="kw">defn</span><span class="fu"> digits </span>[number]
+  <span class="co">; convert the number to a string,</span>
+  <span class="co">; and convert each char to an int.</span>
+  <span class="co">;</span>
+  <span class="co">; subtract 48 because casting a char</span>
+  <span class="co">; to an int returns the ASCII</span>
+  <span class="co">; representation of that char.</span>
+  (<span class="kw">map</span> #(<span class="kw">-</span> (<span class="kw">int</span> %) <span class="dv">48</span>) (<span class="kw">str</span> number))) 
+
+(<span class="kw">defn</span><span class="fu"> munchausen</span>? [number]
+  <span class="co">; if the sum of the digits raised to</span>
+  <span class="co">; themselves is equal to the number </span>
+  <span class="co">; itself, then it is a munchausen number.</span>
+  (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> raise-to-itself (digits number))) number))
+
+(<span class="kw">def</span><span class="fu"> munchausen </span>(<span class="kw">filter</span> munchausen? (<span class="kw">range</span> <span class="dv">5000</span>)))
+(<span class="kw">println</span> munchausen)</code></pre>
+<h3 id="python">Python</h3>
+<p>Python is easily my favorite language. Everything about it just seems “right”. Of course, this is probably because it is the language I use the most – but then we have a chicken-or-egg scenario, don’t we?</p>
+<p>Here’s the program written in Python. I used it to find every Munchausen number less than 500,000,000. After thirty minutes or so of intense computation, it turns out that the only Munchausen numbers are 1 and 3435. Others have posited that 438,579,088 is a Munchausen number, but this is false because \(0^0 = 1\), at least in most programming languages.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
+<span class="co"># calculates munchausen numbers</span>
+<span class="co">#</span>
+<span class="co"># these are numbers with the property</span>
+<span class="co"># that the sum of its digits raised</span>
+<span class="co"># to themselves produces the original</span>
+<span class="co"># number.</span>
+
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">5000</span>):
+    digits = (<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="dt">str</span>(i))
+    <span class="kw">if</span> <span class="dt">sum</span>(digit ** digit <span class="kw">for</span> digit in digits) == i:
+        <span class="kw">print</span>(i, <span class="st">&quot;(munchausen)&quot;</span>)</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

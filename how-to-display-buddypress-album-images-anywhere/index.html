@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>How To Display BuddyPress Album Images Anywhere - Zach Denton</title>
+		<meta name="description" content="How to use the BuddyPress Album+ loop to display images anywhere on your WordPress site.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>How To Display BuddyPress Album Images Anywhere</h1>
+        <p>Recently, I created a new landing page for <a href="http://ultralightbackpacking.net" title="Ultralight Backpacking Network">Ultralight Backpacking Network</a>. It features a grid of images posted by the site’s users. Ultralight Backpacking Network is using BuddyPress Album+ to manage users’ photo albums, so I needed to figure out a way to display BuddyPress Album+ images anywhere on the site. It turns out that BuddyPress Album+ makes this a relatively easy task. You retrieve the images using a loop, a process familiar to anyone who has modified or created a WordPress theme. Here’s an example of a BuddyPress Album+ loop:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;photos&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;?php</span> bp_album_query_pictures(&#39;per_page=5&#39;); <span class="kw">?&gt;</span>
+<span class="kw">&lt;?php</span> if ( bp_album_has_pictures() ) : <span class="kw">?&gt;</span>
+        <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;thumb&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;?php</span> while ( bp_album_has_pictures() ) : bp_album_the_picture(); <span class="kw">?&gt;</span>
+                <span class="kw">&lt;li&gt;</span>
+                        <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_middle_url(); ?&gt;&quot;</span><span class="ot"> title=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_title(); ?&gt;&quot;</span><span class="kw">&gt;</span>
+                                <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&#39;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_thumb_url() ?&gt;&#39;</span><span class="ot"> alt=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_desc(); ?&gt;&quot;</span> <span class="kw">/&gt;</span>
+                        <span class="kw">&lt;/a&gt;</span>
+                <span class="kw">&lt;/li&gt;</span>
+        <span class="kw">&lt;?php</span> endwhile; <span class="kw">?&gt;</span>
+        <span class="kw">&lt;/ul&gt;</span> 
+<span class="kw">&lt;?php</span> endif; <span class="kw">?&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p>Notice how similar it is to the WordPress loop. An important thing to remember is that you must first call the function <code>bp_album_query_pictures()</code> before you can start the BuddyPress Album+ Loop. This function initializes the Query object used for the loop. The <code>bp_album_query_pictures()</code> function supports a few different parameters:</p>
+<ul>
+<li><strong>owner_id</strong> - This is the numeric ID of the user whose photos you wish to display.</li>
+<li><strong>id</strong> - This is the numeric ID of the photo you wish to display. Only used if you wish to display a single photo.</li>
+<li><strong>privacy</strong> - Retrieve photos based on privacy settings. Can be one of the following:
+<ul>
+<li><em>public</em> - photos visible to everyone</li>
+<li><em>members</em> - photos visible to members</li>
+<li><em>friends</em>- photos visible to friends of the currentÂ user</li>
+<li><em>private</em>- photos visible to the currentÂ user</li>
+<li><em>admin</em>- photos visible to the site administrator</li>
+</ul></li>
+<li><strong>adjacent</strong>- Used to select a photo immediately preceding or succeeding the photo specified by <strong>id</strong>. Use one of either:
+<ul>
+<li><em>next</em> - select the next photo</li>
+<li><em>prev</em> - select the previous photo</li>
+</ul></li>
+<li><strong>orderkey</strong>- Specify which field to use to sort the photos. This is one of the following:
+<ul>
+<li><em>id</em> - sort by the numeric ID of the photos</li>
+<li><em>user_id</em>- sort by the numeric ID of the users who uploaded the photos</li>
+<li><em>status</em>- sort based on the status of the photos</li>
+</ul></li>
+<li><strong>ordersort</strong>- Specify the order in which to sort the photos. One of either:
+<ul>
+<li><em>ASC</em> - sort in ascending order</li>
+<li><em>DESC</em> - sort in descending order</li>
+</ul></li>
+<li><strong>per_page</strong> - The number of photos you would like to display per page. If you want 24 photos, this is where you would specify that.</li>
+<li><strong>offset</strong>- Start selecting photos after a certain offset.</li>
+</ul>
+<p>Once you’ve started the loop, you have a few different options depending on how you want to display the data. Here are some of the template tags you can use:</p>
+<ul>
+<li><strong>bp_album_picture_title</strong> - Prints the title of the image.</li>
+<li><strong>bp_album_picture_desc</strong> - Prints the image description.</li>
+<li><strong>bp_album_picture_id</strong> - Prints the numeric ID of the image.</li>
+<li><strong>bp_album_picture_url</strong> - Prints the URL to the page where the image is located.</li>
+<li><strong>bp_album_picture_original_url</strong> - Prints the URL to the original image.</li>
+<li><strong>bp_album_picture_middle_url</strong> - Prints the URL to the scaled image.</li>
+<li><strong>bp_album_picture_thumb_url</strong>- Prints the URL to the image thumbnail.</li>
+<li><strong>bp_album_adjacent_links</strong> - Prints links to the preceding and succeeding albums or images.</li>
+</ul>
+<p>There are several other template tags you can use – too many to list here, in fact. For more information, check out <code>includes/bp-album-templatetags.php</code> in the <code>bp-album</code> folder. If you want to display information about the album author, you are going to need a few additional template tags that don’t come with BuddyPress Album+ by default. See <a href="/programming/buddypress-album-author-template-tags/" title="BuddyPress Album Author Template Tags">this post</a> for more details. That’s enough information to get you up and running with custom BuddyPress Album+ themes.</p>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

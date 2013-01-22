@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 8 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 8 in Python and Ruby.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Project Euler Problem 8 Solution</h1>
+        <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>Find the greatest product of five consecutive digits in the 1000-digit number.</p>
+<pre><code>73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511
+12540698747158523863050715693290963295227443043557
+66896648950445244523161731856403098711121722383113
+62229893423380308135336276614282806444486645238749
+30358907296290491560440772390713810515859307960866
+70172427121883998797908792274921901699720888093776
+65727333001053367881220235421809751254540594752243
+52584907711670556013604839586446706324415722155397
+53697817977846174064955149290862569321978468622482
+83972241375657056057490261407972968652414535100474
+82166370484403199890008895243450658541227588666881
+16427171479924442928230863465674813919123162824586
+17866458359124566529476545682848912883142607690042
+24219022671055626321111109370544217506941658960408
+07198403850962455444362981230987879927244284909188
+84580156166097919133875499200524063689912560717606
+05886116467109405077541002256983155200055935729725
+71636269561882670428252483600823257530420752963450</code></pre>
+<h2 id="solutions">Solutions</h2>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python</span>
+numbers = <span class="st">&#39;&#39;&#39;</span>
+<span class="st">73167176531330624919225119674426574742355349194934</span>
+<span class="st">96983520312774506326239578318016984801869478851843</span>
+<span class="st">85861560789112949495459501737958331952853208805511</span>
+<span class="st">12540698747158523863050715693290963295227443043557</span>
+<span class="st">66896648950445244523161731856403098711121722383113</span>
+<span class="st">62229893423380308135336276614282806444486645238749</span>
+<span class="st">30358907296290491560440772390713810515859307960866</span>
+<span class="st">70172427121883998797908792274921901699720888093776</span>
+<span class="st">65727333001053367881220235421809751254540594752243</span>
+<span class="st">52584907711670556013604839586446706324415722155397</span>
+<span class="st">53697817977846174064955149290862569321978468622482</span>
+<span class="st">83972241375657056057490261407972968652414535100474</span>
+<span class="st">82166370484403199890008895243450658541227588666881</span>
+<span class="st">16427171479924442928230863465674813919123162824586</span>
+<span class="st">17866458359124566529476545682848912883142607690042</span>
+<span class="st">24219022671055626321111109370544217506941658960408</span>
+<span class="st">07198403850962455444362981230987879927244284909188</span>
+<span class="st">84580156166097919133875499200524063689912560717606</span>
+<span class="st">05886116467109405077541002256983155200055935729725</span>
+<span class="st">71636269561882670428252483600823257530420752963450</span>
+<span class="st">&#39;&#39;&#39;</span>
+numstring = numbers.strip().replace(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="st">&#39;&#39;</span>)
+greatest_product = <span class="dv">0</span>
+
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(numstring)):
+    product = <span class="dv">1</span>
+    substring = numstring[i:i<span class="dv">+5</span>]
+    <span class="kw">for</span> digit in substring:
+        product *= <span class="dt">int</span>(digit)
+    <span class="kw">if</span> product &gt; greatest_product:
+        greatest_product = product
+
+<span class="kw">print</span> greatest_product</code></pre>
+<pre><code>$ time pypy great_prod.py
+real	0m0.057s
+user	0m0.041s
+sys	0m0.016s</code></pre>
+<h3 id="ruby">Ruby</h3>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+numbers = &lt;&lt;<span class="kw">EOS</span>
+<span class="ot">73167176531330624919225119674426574742355349194934</span>
+<span class="ot">96983520312774506326239578318016984801869478851843</span>
+<span class="ot">85861560789112949495459501737958331952853208805511</span>
+<span class="ot">12540698747158523863050715693290963295227443043557</span>
+<span class="ot">66896648950445244523161731856403098711121722383113</span>
+<span class="ot">62229893423380308135336276614282806444486645238749</span>
+<span class="ot">30358907296290491560440772390713810515859307960866</span>
+<span class="ot">70172427121883998797908792274921901699720888093776</span>
+<span class="ot">65727333001053367881220235421809751254540594752243</span>
+<span class="ot">52584907711670556013604839586446706324415722155397</span>
+<span class="ot">53697817977846174064955149290862569321978468622482</span>
+<span class="ot">83972241375657056057490261407972968652414535100474</span>
+<span class="ot">82166370484403199890008895243450658541227588666881</span>
+<span class="ot">16427171479924442928230863465674813919123162824586</span>
+<span class="ot">17866458359124566529476545682848912883142607690042</span>
+<span class="ot">24219022671055626321111109370544217506941658960408</span>
+<span class="ot">07198403850962455444362981230987879927244284909188</span>
+<span class="ot">84580156166097919133875499200524063689912560717606</span>
+<span class="ot">05886116467109405077541002256983155200055935729725</span>
+<span class="ot">71636269561882670428252483600823257530420752963450</span>
+<span class="kw">EOS</span>
+numbers = numbers.split.join(<span class="st">&#39;&#39;</span>)
+max = <span class="dv">0</span>
+numbers.split(<span class="st">&#39;&#39;</span>).each_with_index <span class="kw">do</span> |char, i|
+    product = numbers[i..i<span class="dv">+4</span>].each_char.inject(<span class="dv">1</span>) {|product, digit| product * digit.to_i}
+    <span class="kw">if</span> product &gt; max
+        max = product
+    <span class="kw">end</span>
+<span class="kw">end</span>
+puts max</code></pre>
+<pre><code>$ time ruby great_prod.rb
+real	0m0.024s
+user	0m0.021s
+sys	0m0.002s</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

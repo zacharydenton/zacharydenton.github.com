@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 69 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 69 in Python and Ruby.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Project Euler Problem 69 Solution</h1>
+        <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>
+Euler’s Totient function, φ(n) [sometimes called the phi function], is used to determine the number of numbers less than n which are relatively prime to n. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, φ(9)=6.
+</p>
+
+<table class="table">
+	<tbody><tr>
+			<td>
+<b><i>n</i></b>
+</td>
+			<td>
+<b>Relatively Prime</b>
+</td>
+			<td>
+<b>φ(<i>n</i>)</b>
+</td>
+			<td>
+<b><i>n</i>/φ(<i>n</i>)</b>
+</td>
+		</tr>
+		<tr>
+			<td>
+2
+</td>
+			<td>
+1
+</td>
+			<td>
+1
+</td>
+			<td>
+2
+</td>
+		</tr>
+		<tr>
+			<td>
+3
+</td>
+			<td>
+1,2
+</td>
+			<td>
+2
+</td>
+			<td>
+1.5
+</td>
+		</tr>
+		<tr>
+			<td>
+4
+</td>
+			<td>
+1,3
+</td>
+			<td>
+2
+</td>
+			<td>
+2
+</td>
+		</tr>
+		<tr>
+			<td>
+5
+</td>
+			<td>
+1,2,3,4
+</td>
+			<td>
+4
+</td>
+			<td>
+1.25
+</td>
+		</tr>
+		<tr>
+			<td>
+6
+</td>
+			<td>
+1,5
+</td>
+			<td>
+2
+</td>
+			<td>
+3
+</td>
+		</tr>
+		<tr>
+			<td>
+7
+</td>
+			<td>
+1,2,3,4,5,6
+</td>
+			<td>
+6
+</td>
+			<td>
+1.1666…
+</td>
+		</tr>
+		<tr>
+			<td>
+8
+</td>
+			<td>
+1,3,5,7
+</td>
+			<td>
+4
+</td>
+			<td>
+2
+</td>
+		</tr>
+		<tr>
+			<td>
+9
+</td>
+			<td>
+1,2,4,5,7,8
+</td>
+			<td>
+6
+</td>
+			<td>
+1.5
+</td>
+		</tr>
+		<tr>
+			<td>
+10
+</td>
+			<td>
+1,3,7,9
+</td>
+			<td>
+4
+</td>
+			<td>
+2.5
+</td>
+		</tr>
+</tbody></table>
+
+<p>
+It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
+</p>
+
+<p>
+Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
+</p>
+
+
+
+
+
+
+<h2 id="solutions">Solutions</h2>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">import</span> math
+<span class="ch">from</span> operator <span class="ch">import</span> mul
+
+<span class="kw">def</span> factorize(n):
+    res = []
+    <span class="co"># iterate over all even numbers first.</span>
+    <span class="kw">while</span> n % <span class="dv">2</span> == <span class="dv">0</span>:
+        res.append(<span class="dv">2</span>)
+        n //= <span class="dv">2</span>
+    <span class="co"># try odd numbers up to sqrt(n)</span>
+    limit = math.sqrt(n<span class="dv">+1</span>)
+    i = <span class="dv">3</span>
+    <span class="kw">while</span> i &lt;= limit:
+        <span class="kw">if</span> n % i == <span class="dv">0</span>:
+            res.append(i)
+            n //= i
+            limit = math.sqrt(n+i)
+        <span class="kw">else</span>:
+            i += <span class="dv">2</span>
+    <span class="kw">if</span> n != <span class="dv">1</span>:
+        res.append(n)
+    <span class="kw">return</span> res
+
+<span class="kw">def</span> totient(n):
+    <span class="kw">return</span> n * <span class="dt">reduce</span>(mul, [<span class="dv">1</span> - (<span class="fl">1.0</span> / p) <span class="kw">for</span> p in <span class="dt">set</span>(factorize(n))])
+
+<span class="kw">def</span> main():
+    <span class="kw">print</span> <span class="dt">max</span>((n / totient(n), n) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">2</span>, <span class="dv">1000001</span>))[<span class="dv">1</span>]
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
+<pre><code>$ time pypy totient.py
+real	0m3.349s
+user	0m3.322s
+sys	0m0.015s</code></pre>
+<h3 id="ruby">Ruby</h3>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+require <span class="st">&#39;set&#39;</span>
+
+<span class="kw">def</span> factorize(orig)
+  factors = {}
+  factors.default = <span class="dv">0</span> <span class="co"># return 0 instead nil if key not found in hash</span>
+  n = orig
+  i = <span class="dv">2</span>
+  sqi = <span class="dv">4</span> <span class="co"># square of i</span>
+  while sqi &lt;= n <span class="kw">do</span>
+    while n.modulo(i) == <span class="dv">0</span> <span class="kw">do</span>
+      n /= i
+      factors[i] += <span class="dv">1</span>
+    <span class="kw">end</span>
+    <span class="co"># we take advantage of the fact that (i +1)**2 = i**2 + 2*i +1</span>
+    sqi += <span class="dv">2</span> * i + <span class="dv">1</span>
+    i += <span class="dv">1</span>
+  <span class="kw">end</span>
+
+  <span class="kw">if</span> (n != <span class="dv">1</span>) &amp;&amp; (n != orig)
+    factors[n] += <span class="dv">1</span>
+  <span class="kw">end</span>
+  factors
+<span class="kw">end</span>
+
+<span class="kw">def</span> totient(n)
+  n * factorize(n).each_key.map { |p| <span class="dv">1</span> - <span class="fl">1.0</span> / p }.reduce(<span class="dv">1</span>, :*)
+<span class="kw">end</span>
+
+puts (<span class="dv">2</span>..<span class="dv">1000000</span>).map { |n| [n / totient(n), n] }.max[<span class="dv">1</span>]</code></pre>
+<pre><code>$ time ruby totient.rb
+real	0m39.977s
+user	0m39.778s
+sys	0m0.089s</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

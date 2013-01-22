@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 4 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 4 in Clojure, Haskell, Python and Ruby.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Project Euler Problem 4 Solution</h1>
+        <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is \(9009 = 91 \times 99\).
+</p>
+
+<p>
+Find the largest palindrome made from the product of two 3-digit numbers.
+</p>
+
+
+
+
+
+
+<h2 id="solutions">Solutions</h2>
+<h3 id="clojure">Clojure</h3>
+<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+(<span class="kw">defn</span><span class="fu"> palindrome</span>? [n]
+  (<span class="kw">=</span> (<span class="kw">seq</span> (<span class="kw">str</span> n)) (<span class="kw">reverse</span> (<span class="kw">str</span> n))))
+
+(<span class="kw">defn</span><span class="fu"> palindromes </span>[limit]
+  (<span class="kw">filter</span> palindrome? (<span class="kw">for</span> [a (<span class="kw">range</span> <span class="dv">100</span> <span class="dv">1000</span>) b (<span class="kw">range</span> a <span class="dv">1000</span>)] (<span class="kw">*</span> a b))))
+
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">max</span> (palindromes <span class="dv">1000</span>)))</code></pre>
+<pre><code>$ time clojure palindrome.clj
+real	0m2.063s
+user	0m3.199s
+sys	0m0.130s</code></pre>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isPalindrome n <span class="fu">=</span> <span class="fu">show</span> n <span class="fu">==</span> <span class="fu">reverse</span> (<span class="fu">show</span> n)
+
+<span class="ot">main ::</span>  <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> <span class="fu">maximum</span> [prod <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">999</span>], <span class="kw">let</span> prod <span class="fu">=</span> a <span class="fu">*</span> b, isPalindrome prod]</code></pre>
+<pre><code>$ time runhaskell palindrome.hs
+real	0m1.253s
+user	0m1.158s
+sys	0m0.087s</code></pre>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="kw">print</span> <span class="dt">max</span>(a*b <span class="kw">for</span> a in <span class="dt">range</span>(<span class="dv">100</span>,<span class="dv">1000</span>) <span class="kw">for</span> b in <span class="dt">range</span>(a,<span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">str</span>(a*b) == <span class="dt">str</span>(a*b)[::-<span class="dv">1</span>])</code></pre>
+<pre><code>$ time pypy palindrome.py
+real	0m0.123s
+user	0m0.107s
+sys	0m0.016s</code></pre>
+<h3 id="ruby">Ruby</h3>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+
+<span class="kw">class</span> <span class="dt">Integer</span>
+  <span class="kw">def</span> palindromic?
+    digits = <span class="dv">self</span>.to_s.split(<span class="st">&#39;&#39;</span>)
+    <span class="kw">return</span> digits == digits.reverse
+  <span class="kw">end</span>
+<span class="kw">end</span>
+
+max = <span class="dv">0</span>
+(<span class="dv">100</span>..<span class="dv">999</span>).each <span class="kw">do</span> |a|
+  (a..<span class="dv">999</span>).each <span class="kw">do</span> |b|
+    product = a * b
+    <span class="kw">if</span> product &gt; max <span class="kw">and</span> product.palindromic?
+      max = product
+    <span class="kw">end</span>
+  <span class="kw">end</span>
+<span class="kw">end</span>
+puts max</code></pre>
+<pre><code>$ time ruby palindrome.rb
+real	0m0.541s
+user	0m0.526s
+sys	0m0.013s</code></pre>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Geodesic Distance Between Points in GeoDjango - Zach Denton</title>
+		<meta name="description" content="Various ways to perform geodesic distance calculations in Django.">
+		<meta name="author" content="Zach Denton">
+		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+		<link href="/css/screen.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body class="">
+		<div id="meny">
+			<h1><a href="/">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Archives</a></li>
+				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
+				<li><a href="/project-euler-solutions/">Project Euler</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+			</ul>
+			</nav>
+			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
+		</div>
+		<div id="content">
+			<div class="column column-large">
+    <div class="column-padding">
+        <h1>Geodesic Distance Between Points in GeoDjango</h1>
+        <h2 id="background">Background</h2>
+<p>I’m working on a Django project which deals with geographic data. To handle this data, I’m using GeoDjango (django.contrib.gis), which is a fantastic framework for working with GIS information in Django. The data I am using consists of points scattered across the Earth, so I decided to store the geographic information in the WGS84 datum (SRID 4326), the system used by GPS.</p>
+<p>The problem is that since WGS84 is a geographic coordinate system, as opposed to a projected coordinate system, GeoDjango returns the Cartesian distance between points as a float value in degrees. This is not useful for presenting to users, since we deal with kilometers and miles in everyday life. The distance we want is known as the <a href="http://en.wikipedia.org/wiki/Geodesy" title="Geodesy">geodesic distance</a>.</p>
+<h2 id="geodesic-distance">Geodesic Distance</h2>
+<p>Geodesic distance refers to the distance between two points if you were to travel between them on the Earth’s surface. Thus, it is the ‘real’ distance between two points, as opposed to the theoretical distance returned by GeoDjango.</p>
+<p>The formulae used to calculate this distance are <a href="http://en.wikipedia.org/wiki/Vincenty%27s_formulae" title="Vincenty&#39;s formulae">quite complex</a>. Luckily, they have been implemented for us in a Python module called <a href="http://code.google.com/p/geopy/wiki/GettingStarted#Calculating_distances" title="Calculating Distances with geopy">geopy</a>. The specific method we will be using is known as Vincenty’s method. It’s accurate to within 0.5mm!</p>
+<p>The specific function is <code>geopy.distance.distance</code>. Here’s a simple example demonstrating its use:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> geopy.distance <span class="ch">import</span> distance <span class="ch">as</span> geopy_distance
+&gt;&gt;&gt; washington = (<span class="fl">38.53</span>, <span class="fl">77.02</span>)
+&gt;&gt;&gt; chicago = (<span class="fl">41.50</span>, <span class="fl">87.37</span>)
+&gt;&gt;&gt; d = geopy_distance(washington, chicago)
+&gt;&gt;&gt; <span class="kw">print</span> d.meters
+<span class="fl">942408.377797</span>
+&gt;&gt;&gt; <span class="kw">print</span> d.miles
+<span class="fl">585.585417063</span></code></pre>
+<p>Notice how converting between different units of measure on the resultant <code>Distance</code> object is as simple as accessing different attributes of that object (in this case, <code>meters</code> and <code>miles</code>).</p>
+<h2 id="solution">Solution</h2>
+<p>In the example below, we have a Route object which can be associated with an arbitrary number of waypoints. Since the geopy distance function only works on two points, we use the itertools module to take the points pairwise so that we can calculate the distance for each pair and find the sum of the distances. Once we have calculated the geodesic distance with geopy and itertools, we turn it into a GeoDjango Distance object, which allows us to seamlessly convert to several different kinds of units as well as interface with the rest of GeoDjango’s spatial query functions.</p>
+<p>Here’s an example <code>models.py</code> which demonstrates this approach:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> itertools <span class="ch">import</span> tee, izip
+
+<span class="ch">from</span> django.contrib.gis.db <span class="ch">import</span> models
+<span class="ch">from</span> django.contrib.gis.measure <span class="ch">import</span> Distance
+
+<span class="ch">from</span> geopy.distance <span class="ch">import</span> distance <span class="ch">as</span> geopy_distance
+
+<span class="kw">def</span> pairwise(iterable):
+    <span class="st">&quot;s -&gt; (s0,s1), (s1,s2), (s2, s3), ...&quot;</span>
+    a, b = tee(iterable)
+    <span class="dt">next</span>(b, <span class="ot">None</span>)
+    <span class="kw">return</span> izip(a, b)
+
+<span class="co"># Create your models here.</span>
+<span class="kw">class</span> Route(models.Model):
+    name = models.CharField(max_length=<span class="dv">100</span>)
+
+    <span class="kw">def</span> length(<span class="ot">self</span>):
+        <span class="co">&#39;&#39;&#39;Determine the length of the route.&#39;&#39;&#39;</span>
+        points = (waypoint.point <span class="kw">for</span> waypoint in <span class="ot">self</span>.waypoint_set.orderby(<span class="st">&#39;time&#39;</span>))
+        meters = <span class="dt">sum</span>(geopy_distance(a, b).meters <span class="kw">for</span> (a, b) in pairwise(points))
+        <span class="kw">return</span> Distance(m=meters)
+
+<span class="kw">class</span> Waypoint(models.Model):
+    time = models.DateTimeField()
+    route = models.ForeignKey(Route)
+    point = models.PointField(srid=<span class="dv">4326</span>)
+    objects = models.GeoManager()
+
+<span class="kw">def</span> distance(*points):
+    <span class="co">&#39;&#39;&#39;</span>
+<span class="co">    Find the geodesic distance between two or more points.</span>
+
+<span class="co">    If more than two points are specified, the points are assumed</span>
+<span class="co">    to be on a route. The total length of this route is</span>
+<span class="co">    calculated.</span>
+
+<span class="co">    Returns a django.contrib.gis.measure.Distance object.</span>
+<span class="co">    &#39;&#39;&#39;</span>
+    meters = <span class="dt">sum</span>(geopy_distance(a, b).meters <span class="kw">for</span> (a, b) in pairwise(points))
+    <span class="kw">return</span> Distance(m=meters)
+
+<span class="kw">def</span> example():
+    <span class="ch">from</span> django.contrib.gis.geos <span class="ch">import</span> Point
+    <span class="co"># Calculate the distance to San Franciso from Washington, D.C., via Chicago.</span>
+    washington = Point(<span class="fl">38.53</span>, <span class="fl">77.02</span>)
+    chicago = Point(<span class="fl">41.50</span>, <span class="fl">87.37</span>)
+    san_francisco = Point(<span class="fl">37.47</span>, <span class="fl">122.26</span>)
+
+    d = distance(washington, chicago, san_francisco)
+    <span class="kw">print</span> <span class="st">&quot;Washington, D.C. -&gt; Chicago -&gt; San Francisco:&quot;</span>
+    <span class="kw">print</span> <span class="st">&quot;</span><span class="ot">%(miles)0.2f</span><span class="st"> miles, or </span><span class="ot">%(kilometers)0.2f</span><span class="st"> kilometers (or </span><span class="ot">%(fathoms)0.2f</span><span class="st"> fathoms)&quot;</span> % {
+            <span class="st">&#39;miles&#39;</span>: d.mi,
+            <span class="st">&#39;kilometers&#39;</span>: d.km,
+            <span class="st">&#39;fathoms&#39;</span>: d.fathom
+    }</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> app.models
+&gt;&gt;&gt; app.models.example()
+Washington, D.C. -&gt; Chicago -&gt; San Francisco:
+<span class="fl">2458.41</span> miles, or <span class="fl">3956.42</span> kilometers (or <span class="fl">2163398.31</span> fathoms)</code></pre>
+<p>The distance function can either be used on its own or as an instance method, as in Route.length(). If you have any questions, feel free to ask in the comments.</p>
+<h2 id="additional-notes">Additional Notes</h2>
+<h3 id="projected-coordinate-systems">Projected Coordinate Systems</h3>
+<p>If your data is concentrated in a small area, then you could use a <a href="http://docs.djangoproject.com/en/dev/ref/contrib/gis/db-api/#distance-lookups" title="GeoDjango Distance Lookups">projected coordinate system</a> (such as SRID 32140, for South Texas) to solve the problem.</p>
+<h3 id="postgis-geography-field-type">PostGIS Geography Field Type</h3>
+<p>Alternatively, you could try storing your data using the <a href="http://postgis.refractions.net/docs/ch04.html#PostGIS_Geography" title="PostGIS Geography Field Type">PostGIS Geography field type</a>, which performs geodesic calculations instead of Cartesian calculations. The downside with this approach is that it prevents you from using many of the GeoDjango functions. For instance, none of the Spatial Aggregate functions worked, in my testing. Since this is a relatively new PostGIS feature, I expect it to become more usable in the future. Once it does, I recommend using that instead, as it makes more sense to have these kinds of calculations occur seamlessly at the database level.</p>
+    </div>
+</div>
+
+			<div class="column column-small archives" id="recentposts">
+				<div class="column-padding">
+					<h1>Blog</h1>
+					<article>
+<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
+<p>
+Wherein I list the best books, movies, music, and websites of 2012.
+</p>
+</article>
+<article>
+<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
+<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
+<p>
+How to use a rooted Android phone to export your Facebook address book.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
+<p>
+Access a remote music collection seamlessly with user-space filesystems.
+</p>
+</article>
+<article>
+<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
+<p>
+An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
+</p>
+</article>
+<article>
+<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/iceland/">Iceland</a></h2>
+<p>
+I spent the final week of my trip exploring Iceland.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
+<p>
+A brief visit to Copenhagen.
+</p>
+</article>
+<article>
+<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/berlin/">Berlin</a></h2>
+<p>
+A great time in Berlin, especially in Kreuzberg.
+</p>
+</article>
+<article>
+<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
+<h2><a class="title" href="/vienna/">Vienna</a></h2>
+<p>
+Vienna is now among my favorite European cities.
+</p>
+</article>
+
+					<hr class="short">
+					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Twitter</h1>
+					<div id="tweets"></div>
+					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-medium">
+				<div class="column-padding">
+					<div id="googleplus"></div>
+					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>GitHub</h1>
+					<div id="github-feed"></div>
+					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
+				</div>
+			</div>
+			<div class="column column-small">
+				<div class="column-padding">
+					<h1>Music</h1>
+					<div id="lastfm"></div>
+					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
