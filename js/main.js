@@ -76,7 +76,7 @@
             return this.target.addClass("error").text("GitHub's busted");
           },
           success: function(data) {
-            return _this.render(data.data.slice(0, _this.count));
+            return _this.render(data.data);
           }
         });
       }
@@ -87,21 +87,18 @@
     };
 
     GitHub.prototype.issueUrl = function(event) {
-      return "<a href='" + event.payload.issue.html_url + "'>issue #" + event.payload.issue.number + "</a> (" + event.payload.issue.title + ")";
+      return "<a title='" + (_.escape(event.payload.issue.title)) + "' href='" + event.payload.issue.html_url + "'>issue #" + event.payload.issue.number + "</a>";
     };
 
     GitHub.prototype.commitUrl = function(event) {
-      var commit;
-      return ((function() {
-        var _i, _len, _ref, _results;
-        _ref = event.payload.commits;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          commit = _ref[_i];
-          _results.push("<a href='https://github.com/" + event.repo.name + "/commit/" + commit.sha + "'>" + commit.message + "</a>");
-        }
-        return _results;
-      })()).join(", ");
+      var commit, num_commits;
+      num_commits = event.payload.commits.length;
+      if (num_commits === 1) {
+        commit = event.payload.commits[0];
+        return "<a href='https://github.com/" + event.repo.name + "/commit/" + commit.sha + "' title='" + (_.escape(commit.message)) + "'>1 commit</a>";
+      } else {
+        return "<a href='https://github.com/" + event.repo.name + "/commits?author=" + this.username + "'>" + num_commits + " commits</a>";
+      }
     };
 
     GitHub.prototype.renderEvent = function(event) {
@@ -113,18 +110,21 @@
           break;
         case "IssuesEvent":
           if (event.payload.action === "closed") {
-            content = "Closed " + (this.issueUrl(event)) + " on " + (this.repoUrl(event)) + ".";
+            content = "Closed " + (this.repoUrl(event)) + " " + (this.issueUrl(event)) + ".";
           }
           break;
         case "PushEvent":
-          content = "Updated " + (this.repoUrl(event)) + ": " + (this.commitUrl(event));
+          content = "Pushed " + (this.commitUrl(event)) + " to " + (this.repoUrl(event)) + ".";
           break;
         case "FollowEvent":
           content = "Followed <a href='" + event.payload.target.html_url + "'>" + event.payload.target.login + "</a>.";
           break;
+        case "IssueCommentEvent":
+          content = "Commented on " + (this.repoUrl(event)) + " " + (this.issueUrl(event)) + ".";
+          break;
         case "CreateEvent":
           if (event.payload.description) {
-            content = "Created " + (this.repoUrl(event)) + " &mdash; " + event.payload.description + ".";
+            content = "Created " + (this.repoUrl(event)) + " &mdash; " + (_.escape(event.payload.description)) + ".";
           } else {
             content = "Created " + (this.repoUrl(event)) + ".";
           }
@@ -137,16 +137,16 @@
     };
 
     GitHub.prototype.render = function(events) {
-      var event;
-      return this.target.html(((function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = events.length; _i < _len; _i++) {
-          event = events[_i];
-          _results.push(this.renderEvent(event));
+      var content, contents, event, _i, _len;
+      contents = [];
+      for (_i = 0, _len = events.length; _i < _len; _i++) {
+        event = events[_i];
+        content = this.renderEvent(event);
+        if (content) {
+          contents.push(content);
         }
-        return _results;
-      }).call(this)).join(''));
+      }
+      return this.target.html(contents.slice(0, this.count).join(''));
     };
 
     return GitHub;
@@ -317,7 +317,7 @@
         _results = [];
         for (_i = 0, _len = albums.length; _i < _len; _i++) {
           album = albums[_i];
-          _results.push("<a href='" + album.url + "'><img title='" + album.artist.name + " &mdash; " + album.name + "' src='" + (resizeImage({
+          _results.push("<a href='" + album.url + "'><img title='" + (_.escape(album.artist.name)) + " &mdash; " + (_.escape(album.name)) + "' src='" + (resizeImage({
             url: album.image[3]['#text'],
             resize_w: 192
           })) + "' /></a><hr class='short'>");
