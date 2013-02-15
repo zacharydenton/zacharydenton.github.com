@@ -63,9 +63,9 @@
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy tri-pen-hex.py
-real	0m0.101s
-user	0m0.073s
-sys	0m0.028s</code></pre>
+real	0m0.143s
+user	0m0.094s
+sys	0m0.030s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;set&#39;</span>
@@ -75,8 +75,8 @@ puts (<span class="dv">286</span>..<span class="dv">100000</span>).map { |n| n*(
 	p.include?(t) <span class="kw">and</span> h.include?(t)
 }</code></pre>
 <pre><code>$ time ruby tri-pen-hex.rb
-real	0m0.264s
-user	0m0.246s
+real	0m0.268s
+user	0m0.249s
 sys	0m0.017s</code></pre>
     </div>
 </div>

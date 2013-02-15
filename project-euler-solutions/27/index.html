@@ -117,9 +117,9 @@
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy quadratic-primes.py
-real	0m4.895s
-user	0m4.851s
-sys	0m0.029s</code></pre>
+real	0m6.594s
+user	0m6.198s
+sys	0m0.044s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span>
@@ -127,9 +127,9 @@ puts (-<span class="dv">999</span>..<span class="dv">999</span>).to_a.product((-
 	[(<span class="dv">0</span>..<span class="dv">100</span>).take_while { |n| (n**<span class="dv">2</span> + a*n + b).prime? }.count, a * b]
 }.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby quadratic-primes.rb
-real	0m55.171s
-user	0m54.737s
-sys	0m0.277s</code></pre>
+real	1m5.011s
+user	1m4.469s
+sys	0m0.374s</code></pre>
     </div>
 </div>
 

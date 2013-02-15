@@ -46,9 +46,9 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
 <pre><code>$ time clojure natural.clj
-real	0m1.136s
-user	0m1.599s
-sys	0m0.086s</code></pre>
+real	0m1.339s
+user	0m1.686s
+sys	0m0.105s</code></pre>
 <h3 id="go">Go</h3>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
@@ -63,23 +63,23 @@ sys	0m0.086s</code></pre>
 	fmt.Println(sum)
 }</code></pre>
 <pre><code>$ time go run natural.go
-real	0m0.215s
-user	0m0.176s
-sys	0m0.038s</code></pre>
+real	0m0.289s
+user	0m0.188s
+sys	0m0.045s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> <span class="fu">sum</span> [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], <span class="fu">or</span> [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
 <pre><code>$ time runhaskell natural.hs
-real	0m0.225s
-user	0m0.199s
-sys	0m0.026s</code></pre>
+real	0m0.296s
+user	0m0.253s
+sys	0m0.041s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
 <pre><code>$ time pypy natural.py
-real	0m0.043s
-user	0m0.030s
-sys	0m0.013s</code></pre>
+real	0m0.049s
+user	0m0.037s
+sys	0m0.011s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
@@ -90,9 +90,9 @@ sum = <span class="dv">0</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby natural.rb
-real	0m0.027s
-user	0m0.018s
-sys	0m0.009s</code></pre>
+real	0m0.049s
+user	0m0.020s
+sys	0m0.006s</code></pre>
 <h3 id="scheme">Scheme</h3>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
@@ -102,9 +102,9 @@ sys	0m0.009s</code></pre>
 			(iota <span class="dv">1000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre><code>$ time mit-scheme-native --quiet &lt; natural.scm
-real	0m0.063s
-user	0m0.038s
-sys	0m0.024s</code></pre>
+real	0m0.512s
+user	0m0.042s
+sys	0m0.038s</code></pre>
     </div>
 </div>
 

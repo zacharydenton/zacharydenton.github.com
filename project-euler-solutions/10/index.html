@@ -66,9 +66,9 @@ Find the sum of all the primes below two million.
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (primes <span class="dv">2000000</span>)))</code></pre>
 <pre><code>$ time clojure sum-primes.clj
-real	0m6.532s
-user	0m8.365s
-sys	0m0.254s</code></pre>
+real	0m7.931s
+user	0m10.353s
+sys	0m0.324s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> takewhile
@@ -88,17 +88,17 @@ sys	0m0.254s</code></pre>
 
 <span class="kw">print</span> <span class="dt">sum</span>(takewhile(<span class="kw">lambda</span> x: x &lt; <span class="dv">2000000</span>, eratosthenes()))</code></pre>
 <pre><code>$ time pypy sum-primes.py
-real	0m1.752s
-user	0m1.647s
-sys	0m0.100s</code></pre>
+real	0m1.704s
+user	0m1.597s
+sys	0m0.103s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span>
 puts <span class="dt">Prime</span>.take_while{ |n| n &lt; <span class="dv">2000000</span> }.reduce(:+)</code></pre>
 <pre><code>$ time ruby sum-primes.rb
-real	0m7.352s
-user	0m7.287s
-sys	0m0.045s</code></pre>
+real	0m7.935s
+user	0m7.787s
+sys	0m0.097s</code></pre>
     </div>
 </div>
 

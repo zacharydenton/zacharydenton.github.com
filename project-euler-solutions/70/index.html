@@ -93,9 +93,9 @@ Find the value of \(n\), \(1 \lt n \lt 10^7\), for which \(\varphi(n)\) is a per
 
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
 <pre><code>$ time pypy totient.py
-real	0m0.307s
-user	0m0.286s
-sys	0m0.019s</code></pre>
+real	0m1.926s
+user	0m0.328s
+sys	0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span>
@@ -113,9 +113,9 @@ primes.combination(<span class="dv">2</span>).select { |a, b| a * b &lt; 1e7 }.e
 <span class="kw">end</span>
 puts min[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby totient.rb
-real	0m4.602s
-user	0m4.525s
-sys	0m0.063s</code></pre>
+real	0m5.635s
+user	0m5.498s
+sys	0m0.049s</code></pre>
     </div>
 </div>
 

@@ -74,9 +74,9 @@ choose n k <span class="fu">=</span> (factorial n) <span class="ot">`div`</span>
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> choose <span class="dv">40</span> <span class="dv">20</span></code></pre>
 <pre><code>$ time runhaskell binom.hs
-real	0m0.244s
-user	0m0.199s
-sys	0m0.045s</code></pre>
+real	0m1.130s
+user	0m0.232s
+sys	0m0.071s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -88,8 +88,8 @@ sys	0m0.045s</code></pre>
 
 puts <span class="dv">40</span>.choose(<span class="dv">20</span>)</code></pre>
 <pre><code>$ time ruby pascal.rb
-real	0m0.016s
-user	0m0.012s
+real	0m0.020s
+user	0m0.017s
 sys	0m0.003s</code></pre>
     </div>
 </div>

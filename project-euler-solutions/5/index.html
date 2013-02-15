@@ -58,8 +58,8 @@ divisibleTo x <span class="fu">=</span> <span class="kw">let</span> step <span c
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> divisibleTo <span class="dv">20</span></code></pre>
 <pre><code>$ time runhaskell divisible.hs
-real	0m0.255s
-user	0m0.214s
+real	0m0.361s
+user	0m0.238s
 sys	0m0.039s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -85,9 +85,9 @@ sys	0m0.039s</code></pre>
 
 <span class="kw">print</span> divisible_to(<span class="dv">20</span>)</code></pre>
 <pre><code>$ time pypy divisible.py
-real	0m0.050s
-user	0m0.035s
-sys	0m0.014s</code></pre>
+real	0m0.048s
+user	0m0.038s
+sys	0m0.010s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -114,9 +114,9 @@ sys	0m0.014s</code></pre>
 
 puts divisible_to(<span class="dv">20</span>)</code></pre>
 <pre><code>$ time ruby divisible.rb
-real	0m0.017s
-user	0m0.013s
-sys	0m0.003s</code></pre>
+real	0m0.054s
+user	0m0.014s
+sys	0m0.010s</code></pre>
     </div>
 </div>
 

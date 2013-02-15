@@ -115,9 +115,9 @@
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy abundant.py
-real	0m16.233s
-user	0m14.486s
-sys	0m1.692s</code></pre>
+real	0m20.842s
+user	0m16.741s
+sys	0m3.526s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span> 
@@ -151,9 +151,9 @@ abundants.each <span class="kw">do</span> |x|
 sums.uniq!
 puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre>
 <pre><code>$ time ruby abundant.rb
-real	0m29.033s
-user	0m28.822s
-sys	0m0.134s</code></pre>
+real	0m32.040s
+user	0m31.867s
+sys	0m0.063s</code></pre>
     </div>
 </div>
 

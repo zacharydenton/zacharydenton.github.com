@@ -74,9 +74,9 @@ For which value of \(p \leq 1000\), is the number of solutions maximised?
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy triangle-solve.py
-real	0m0.134s
-user	0m0.115s
-sys	0m0.018s</code></pre>
+real	0m0.233s
+user	0m0.167s
+sys	0m0.021s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 solutions = {}
@@ -92,9 +92,9 @@ solutions = {}
 <span class="kw">end</span>
 puts solutions.max { |a,b| a[<span class="dv">1</span>] &lt;=&gt; b[<span class="dv">1</span>] }[<span class="dv">0</span>]</code></pre>
 <pre><code>$ time ruby triangle-solve.rb
-real	0m8.321s
-user	0m8.281s
-sys	0m0.013s</code></pre>
+real	0m7.913s
+user	0m7.861s
+sys	0m0.033s</code></pre>
     </div>
 </div>
 

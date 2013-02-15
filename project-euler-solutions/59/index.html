@@ -2,8 +2,8 @@
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8">
-		<title>Project Euler Problem 6 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents solutions to Project Euler Problem 6 in Clojure, Haskell, Python and Ruby.">
+		<title>Project Euler Problem 59 Solution - Zach Denton</title>
+		<meta name="description" content="This page presents a Python solution to Project Euler Problem 59.">
 		<meta name="author" content="Zach Denton">
 		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
@@ -33,25 +33,23 @@
 		<div id="content">
 			<div class="column column-large">
     <div class="column-padding">
-        <h1>Project Euler Problem 6 Solution</h1>
+        <h1>Project Euler Problem 59 Solution</h1>
         <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
 <p>
-The sum of the squares of the first ten natural numbers is,
+Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange). For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.
 </p>
-
-<p>\(1^2 + 2^2 + ... + 10^2 = 385\)</p>
 <p>
-The square of the sum of the first ten natural numbers is,
+A modern encryption method is to take a text file, convert the bytes to ASCII, then XOR each byte with a given value, taken from a secret key. The advantage with the XOR function is that using the same encryption key on the cipher text, restores the plain text; for example, 65 XOR 42 = 107, then 107 XOR 42 = 65.
 </p>
-
-<p>\((1 + 2 + ... + 10)^2 = 55^2 = 3025\)</p>
 <p>
-Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is \(3025 − 385 = 2640\).
+For unbreakable encryption, the key is the same length as the plain text message, and the key is made up of random bytes. The user would keep the encrypted message and the encryption key in different locations, and without both “halves”, it is impossible to decrypt the message.
 </p>
-
 <p>
-Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+Unfortunately, this method is impractical for most users, so the modified method is to use a password as a key. If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message. The balance for this method is using a sufficiently long password key for security, but short enough to be memorable.
+</p>
+<p>
+Your task has been made easy, as the encryption key consists of three lower case characters. Using <a href="http://projectuler.net/project/cipher1.txt">cipher1.txt</a> (right click and ‘Save Link/Target As…’), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.
 </p>
 
 
@@ -60,45 +58,61 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="clojure">Clojure</h3>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
-(<span class="kw">defn</span><span class="fu"> square </span>[x]
-  (<span class="kw">*</span> x x))
-
-(<span class="kw">defn</span><span class="fu"> sum-squares </span>[limit]
-  (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> square (<span class="kw">range</span> <span class="dv">1</span> (<span class="kw">+</span> limit <span class="dv">1</span>)))))
-
-(<span class="kw">defn</span><span class="fu"> square-sum </span>[limit]
-  (square (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">range</span> <span class="dv">1</span> (<span class="kw">+</span> limit <span class="dv">1</span>)))))
-
-(<span class="kw">println</span> (<span class="kw">-</span> (square-sum <span class="dv">100</span>) (sum-squares <span class="dv">100</span>)))</code></pre>
-<pre><code>$ time clojure square_sum.clj
-real	0m1.210s
-user	0m1.628s
-sys	0m0.095s</code></pre>
-<h3 id="haskell">Haskell</h3>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> (s<span class="fu">*</span>s) <span class="fu">-</span> sqS <span class="kw">where</span>
-    s <span class="fu">=</span> (<span class="fu">sum</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>])
-    sqS <span class="fu">=</span> <span class="fu">sum</span> [i <span class="fu">*</span> i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>]]</code></pre>
-<pre><code>$ time runhaskell squareSum.hs
-real	0m0.267s
-user	0m0.228s
-sys	0m0.036s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-<span class="kw">print</span> <span class="dt">sum</span>(<span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))**<span class="dv">2</span> - <span class="dt">sum</span>(x**<span class="dv">2</span> <span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))</code></pre>
-<pre><code>$ time pypy square_sum.py
-real	0m0.046s
-user	0m0.032s
-sys	0m0.014s</code></pre>
-<h3 id="ruby">Ruby</h3>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-puts ((<span class="dv">1</span>..<span class="dv">100</span>).inject(<span class="dv">0</span>) {|s,v| s += v})**<span class="dv">2</span> - ((<span class="dv">1</span>..<span class="dv">100</span>).collect {|x| x**<span class="dv">2</span>}.inject(<span class="dv">0</span>) { |s,v| s += v} )</code></pre>
-<pre><code>$ time ruby square_sum.rb
-real	0m0.018s
-user	0m0.014s
-sys	0m0.005s</code></pre>
+<span class="ch">import</span> os
+<span class="ch">from</span> itertools <span class="ch">import</span> *
+<span class="ch">from</span> string <span class="ch">import</span> *
+<span class="ch">from</span> collections <span class="ch">import</span> defaultdict
+<span class="ch">from</span> operator <span class="ch">import</span> itemgetter
+
+dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span> word in <span class="dt">open</span>(<span class="st">&#39;/usr/share/dict/words&#39;</span>).readlines())
+
+<span class="kw">def</span> ncycle(iterable, n):
+    c = cycle(iterable)
+    <span class="kw">for</span> i in <span class="dt">range</span>(n):
+        <span class="kw">yield</span> c.<span class="dt">next</span>()
+
+<span class="kw">def</span> decipher(cipher, password):
+    key = <span class="dt">list</span>(ncycle(password, <span class="dt">len</span>(cipher)))
+
+    <span class="kw">for</span> c, k in <span class="dt">zip</span>(cipher, key):
+        <span class="kw">yield</span> <span class="dt">chr</span>(c ^ k)
+
+<span class="kw">def</span> dictionary_words(words):
+    <span class="kw">return</span> [word <span class="kw">for</span> word in words <span class="kw">if</span> word.lower() in dictionary]
+
+<span class="kw">def</span> is_english(plaintext):
+    frequency = defaultdict(<span class="dt">int</span>)
+    <span class="kw">for</span> char in plaintext:
+        frequency[char] += <span class="dv">1</span>
+    f = <span class="dt">sorted</span>(frequency.iteritems(), key=itemgetter(<span class="dv">1</span>), reverse=<span class="ot">True</span>)
+    top = [k <span class="kw">for</span> k,v in f[:<span class="dv">4</span>]]
+    <span class="kw">if</span> <span class="st">&#39; &#39;</span> in top and <span class="st">&#39;e&#39;</span> in top and <span class="st">&#39;t&#39;</span> in top:
+        words = plaintext.split()
+        <span class="kw">if</span> <span class="dt">float</span>(<span class="dt">len</span>(dictionary_words(words))) / <span class="dt">float</span>(<span class="dt">len</span>(words)) &gt; <span class="fl">0.5</span>:
+            <span class="kw">return</span> <span class="ot">True</span>
+    <span class="kw">return</span> <span class="ot">False</span>
+
+<span class="kw">def</span> main():
+    cipher = [<span class="dt">int</span>(c) <span class="kw">for</span> c in <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&#39;cipher1.txt&#39;</span>)).read().strip().split(<span class="st">&#39;,&#39;</span>)]
+
+    candidates = ascii_lowercase
+
+    passwords = product(candidates, candidates, candidates)
+    <span class="kw">for</span> p in passwords:
+        password = [<span class="dt">ord</span>(c) <span class="kw">for</span> c in p]
+        plaintext = <span class="st">&#39;&#39;</span>.join(<span class="dt">list</span>(decipher(cipher, password)))
+        <span class="kw">if</span> is_english(plaintext):
+            <span class="kw">print</span> <span class="dt">sum</span>(<span class="dt">ord</span>(c) <span class="kw">for</span> c in plaintext)
+            <span class="kw">return</span>
+
+<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre>
+<pre><code>$ time pypy xor-encryption.py
+real	0m4.157s
+user	0m3.890s
+sys	0m0.076s</code></pre>
     </div>
 </div>
 

@@ -121,9 +121,9 @@ triangles = (triangle(i) <span class="kw">for</span> i in <span class="dt">range
 divisible_triangles = (i <span class="kw">for</span> i in triangles <span class="kw">if</span> num_divisors(i) &gt; <span class="dv">500</span>)
 <span class="kw">print</span> divisible_triangles.<span class="dt">next</span>()</code></pre>
 <pre><code>$ time pypy triangle-numbers.py
-real	0m0.284s
-user	0m0.268s
-sys	0m0.015s</code></pre>
+real	0m0.337s
+user	0m0.315s
+sys	0m0.021s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span> 
@@ -150,9 +150,9 @@ triangles = <span class="dt">Enumerator</span>.new <span class="kw">do</span> |y
 
 puts triangles.detect { |t| t.divisors.count &gt; <span class="dv">500</span> }</code></pre>
 <pre><code>$ time ruby triangle-numbers.rb
-real	0m4.041s
-user	0m4.012s
-sys	0m0.018s</code></pre>
+real	0m4.637s
+user	0m4.621s
+sys	0m0.005s</code></pre>
     </div>
 </div>
 

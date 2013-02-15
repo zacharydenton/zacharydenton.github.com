@@ -56,9 +56,9 @@ Find the sum of all the even-valued terms in the sequence which do not exceed fo
 (<span class="kw">def</span><span class="fu"> fibs </span>(<span class="kw">lazy-cat</span> [<span class="dv">0</span> <span class="dv">1</span>] (<span class="kw">map</span> <span class="kw">+</span> (<span class="kw">rest</span> fibs) fibs)))
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> <span class="kw">even?</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % <span class="dv">4000000</span>) fibs))))</code></pre>
 <pre><code>$ time clojure fibonacci.clj
-real	0m1.102s
-user	0m1.472s
-sys	0m0.092s</code></pre>
+real	0m1.191s
+user	0m1.598s
+sys	0m0.090s</code></pre>
 <h3 id="go">Go</h3>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
@@ -71,9 +71,9 @@ sys	0m0.092s</code></pre>
 	fmt.Println(sum)
 }</code></pre>
 <pre><code>$ time go run fibonacci.go
-real	0m0.178s
-user	0m0.148s
-sys	0m0.028s</code></pre>
+real	0m0.221s
+user	0m0.170s
+sys	0m0.048s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> <span class="fu">zipWith</span> (<span class="fu">+</span>) fibs (<span class="fu">tail</span> fibs)
@@ -81,9 +81,9 @@ fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</spa
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> <span class="fu">sum</span> <span class="fu">$</span> <span class="fu">filter</span> <span class="fu">even</span> <span class="fu">$</span> <span class="fu">takeWhile</span> (<span class="fu">&lt;</span><span class="dv">4000000</span>) fibs</code></pre>
 <pre><code>$ time runhaskell fibonacci.hs
-real	0m0.255s
-user	0m0.215s
-sys	0m0.039s</code></pre>
+real	0m0.267s
+user	0m0.222s
+sys	0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum, a, b = <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>
@@ -93,7 +93,7 @@ sum, a, b = <span class="dv">0</span>, <span class="dv">1</span>, <span class="d
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby fibonacci.rb
-real	0m0.016s
+real	0m0.018s
 user	0m0.012s
 sys	0m0.006s</code></pre>
     </div>

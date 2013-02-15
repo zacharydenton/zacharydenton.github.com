@@ -111,9 +111,9 @@
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy pandigital-prime.py
-real	0m0.279s
-user	0m0.258s
-sys	0m0.020s</code></pre>
+real	0m0.500s
+user	0m0.307s
+sys	0m0.026s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">&#39;mathn&#39;</span>
@@ -123,9 +123,9 @@ puts (<span class="dv">1</span>..<span class="dv">9</span>).flat_map { |n|
 	}.select { |i| i.prime? }
 }.max</code></pre>
 <pre><code>$ time ruby pandigital-prime.rb
-real	0m4.378s
-user	0m4.303s
-sys	0m0.062s</code></pre>
+real	0m4.452s
+user	0m4.393s
+sys	0m0.049s</code></pre>
     </div>
 </div>
 

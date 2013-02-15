@@ -66,15 +66,15 @@ Find the last ten digits of the series, \(1^1 + 2^2 + 3^3 + \dots + 1000^{1000}\
 <pre><code>$ time clojure raise-to-itself.clj
 Warning: ** not declared dynamic and thus is not dynamically rebindable, but its name suggests otherwise. Please either indicate ^:dynamic ** or change the name. (/home/zach/code/euler/048/raise-to-itself.clj:2)
 
-real	0m1.463s
-user	0m2.341s
-sys	0m0.079s</code></pre>
+real	0m1.967s
+user	0m2.870s
+sys	0m0.103s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">1000</span>).reduce(<span class="dv">0</span>) { |s,n| s + n**n }.to_s[-<span class="dv">10</span>..-<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby power-series.rb
-real	0m0.036s
-user	0m0.030s
+real	0m0.045s
+user	0m0.039s
 sys	0m0.005s</code></pre>
     </div>
 </div>

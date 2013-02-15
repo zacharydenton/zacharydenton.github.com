@@ -120,9 +120,9 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 <span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy triangle-max.py
-real	0m0.041s
-user	0m0.030s
-sys	0m0.011s</code></pre>
+real	0m0.048s
+user	0m0.034s
+sys	0m0.014s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangle_str = &lt;&lt;<span class="kw">EOS</span>
@@ -154,8 +154,8 @@ triangle = triangle_str.each_line.map { |line| line.split.map(&amp;<span class="
 puts triangle[<span class="dv">0</span>][<span class="dv">0</span>]</code></pre>
 <pre><code>$ time ruby max-route.rb
 real	0m0.019s
-user	0m0.016s
-sys	0m0.003s</code></pre>
+user	0m0.014s
+sys	0m0.005s</code></pre>
     </div>
 </div>
 

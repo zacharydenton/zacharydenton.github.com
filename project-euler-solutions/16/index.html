@@ -59,23 +59,23 @@ sumDigits n <span class="fu">=</span> sumDigits&#39; n <span class="dv">0</span>
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> sumDigits <span class="fu">$</span> <span class="dv">2</span><span class="fu">^</span><span class="dv">1000</span></code></pre>
 <pre><code>$ time runhaskell sumExp.hs
-real	0m0.285s
-user	0m0.246s
-sys	0m0.039s</code></pre>
+real	0m0.282s
+user	0m0.229s
+sys	0m0.049s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">print</span> <span class="dt">sum</span>(<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="dt">str</span>(<span class="dv">2</span>**<span class="dv">1000</span>))</code></pre>
 <pre><code>$ time pypy sum-exp.py
-real	0m0.045s
-user	0m0.032s
-sys	0m0.013s</code></pre>
+real	0m0.047s
+user	0m0.029s
+sys	0m0.018s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>**<span class="dv">1000</span>).to_s.each_char.inject(<span class="dv">0</span>) {|s,v| s+v.to_i}</code></pre>
 <pre><code>$ time ruby sum-exp.rb
-real	0m0.019s
-user	0m0.012s
-sys	0m0.006s</code></pre>
+real	0m0.021s
+user	0m0.017s
+sys	0m0.003s</code></pre>
     </div>
 </div>
 

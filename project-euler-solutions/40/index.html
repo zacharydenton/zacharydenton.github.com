@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 40 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents solutions to Project Euler Problem 40 in Python and Ruby.">
+		<meta name="description" content="This page presents a Ruby solution to Project Euler Problem 40.">
 		<meta name="author" content="Zach Denton">
 		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
@@ -51,14 +51,6 @@ If \(d_n\) represents the nth digit of the fractional part, find the value of th
 
 <p>\(d_1 \times d_{10} \times d_{100} \times d_{1000} \times d_{10000} \times d_{100000} \times d_{1000000}\)</p>
 <h2 id="solutions">Solutions</h2>
-<h3 id="python">Python</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">&#39;&#39;</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
-<span class="kw">print</span> d[<span class="dv">0</span>] * d[<span class="dv">9</span>] * d[<span class="dv">99</span>] * d[<span class="dv">999</span>] * d[<span class="dv">9999</span>] * d[<span class="dv">99999</span>] * d[<span class="dv">999999</span>]</code></pre>
-<pre><code>$ time pypy irrational-part.py
-real	0m11.162s
-user	0m9.606s
-sys	0m1.520s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 s = (<span class="st">&#39;1&#39;</span>..<span class="st">&#39;1000000&#39;</span>).to_a.join <span class="st">&#39;&#39;</span>
@@ -66,9 +58,9 @@ puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
 	s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
 }.reduce(<span class="dv">1</span>, :*)</code></pre>
 <pre><code>$ time ruby irrational-part.rb
-real	0m0.873s
-user	0m0.828s
-sys	0m0.027s</code></pre>
+real	0m1.112s
+user	0m0.876s
+sys	0m0.045s</code></pre>
     </div>
 </div>
 
