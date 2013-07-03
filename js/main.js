@@ -116,6 +116,12 @@
         case "PushEvent":
           content = "Pushed " + (this.commitUrl(event)) + " to " + (this.repoUrl(event)) + ".";
           break;
+        case "PublicEvent":
+          content = "Open sourced " + (this.repoUrl(event)) + ".";
+          break;
+        case "ForkEvent":
+          content = "Forked " + (this.repoUrl(event)) + " to <a href='" + event.payload.forkee.html_url + "'>" + event.payload.forkee.full_name + "</a>.";
+          break;
         case "FollowEvent":
           content = "Followed <a href='" + event.payload.target.html_url + "'>" + event.payload.target.login + "</a>.";
           break;
