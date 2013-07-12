@@ -8,13 +8,13 @@
         <name>Zach Denton</name>
         <email>z@chdenton.com</email>
     </author>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-29T02:26:34Z</updated>
     <entry>
     <title>Best of 2012</title>
     <link href="http://zacharydenton.com/best-of-2012/" />
     <id>http://zacharydenton.com/best-of-2012/</id>
     <published>2012-12-28T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-29T02:26:34Z</updated>
     <summary type="html"><![CDATA[<p>It’s been a great year. Here’s a list of the best books, movies, albums, and websites I discovered in 2012.</p>
 <h2 id="books">Books</h2>
 <h3 id="the-society-of-mind"><a href="http://www.amazon.com/Society-Mind-Marvin-Minsky/dp/0671657135">The Society of Mind</a></h3>
@@ -91,7 +91,7 @@
     <link href="http://zacharydenton.com/export-facebook-contacts-with-android/" />
     <id>http://zacharydenton.com/export-facebook-contacts-with-android/</id>
     <published>2012-05-14T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T07:01:42Z</updated>
     <summary type="html"><![CDATA[<p>If you have a rooted Android phone, you have full control over your device — and unrestricted access to the data it contains. In this post, I’m going to show you how you can use your rooted Android device to do something that <a href="http://techcrunch.com/2011/02/22/google-android-facebook-contacts/">the average person can’t do</a>: namely, export your contacts from the Facebook app on Android.</p>
 <h2 id="get-the-contacts-database">1. Get the contacts database</h2>
 <p>It turns out that the Facebook app stores your contacts in an SQLite database located on the filesystem at <code>/data/data/com.facebook.katana/databases/fb.db</code>. In order to use this database, we need to copy it to a computer. Since Android doesn’t provide access to the internal storage via USB, I first copied the database to my SD card using a root file browser, and then copied it to my computer via USB.</p>
@@ -168,8 +168,8 @@ END:VCARD</code></pre>
     conn.row_factory=sqlite3.Row
     c = conn.cursor()
     fields = <span class="st">&#39;display_name, user_image_url, first_name, &#39;</span> +\
-             <span class="st">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
-             <span class="st">&#39;birthday_day, birthday_year&#39;</span>
+             <span class="co">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
+             <span class="co">&#39;birthday_day, birthday_year&#39;</span>
     c.execute(<span class="st">&#39;select </span><span class="ot">%s</span><span class="st"> from friends&#39;</span> % fields)
     <span class="kw">return</span> [row <span class="kw">for</span> row in c]
 
@@ -234,7 +234,7 @@ END:VCARD</code></pre>
     <link href="http://zacharydenton.com/music-server-revisited-streaming-with-sshfs-and-mp3fs/" />
     <id>http://zacharydenton.com/music-server-revisited-streaming-with-sshfs-and-mp3fs/</id>
     <published>2011-12-29T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T06:52:53Z</updated>
     <summary type="html"><![CDATA[<p>A while back, I wrote about <a href="/build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
 <p>Before you start, you’re going to need a Linux machine with your music collection on it (the server). You will also need another Linux machine to act as the client (e.g. a laptop with a small hard drive).</p>
 <h2 id="configuring-the-server">Configuring the server</h2>
@@ -276,7 +276,7 @@ EOF</code></pre>
     <link href="http://zacharydenton.com/a-star-search-with-multiple-targets-and-sources/" />
     <id>http://zacharydenton.com/a-star-search-with-multiple-targets-and-sources/</id>
     <published>2011-12-29T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T06:48:43Z</updated>
     <summary type="html"><![CDATA[<p>A couple months ago, I decided to expand my knowledge of artificial intelligence by participating in the <a href="http://aichallenge.org">2011 AI Challenge</a>. It was an incredibly interesting and educational experience. Sadly, I was forced to divert my attention away from the AI Challenge to focus on more important things.</p>
 <p>One of the more interesting things I learned from the AI Challenge was an A* algorithm which supports searching from multiple sources to multiple targets, simultaneously. I used this algorithm to efficiently gather food: one pass of this algorithm calculated paths to each food tile.</p>
 <p>The algorithm is similar to the basic A*, except for a few key differences. First of all, the frontier is prepopulated with all of the sources. Secondly, the goal test function checks to see if the current position corresponds to <em>any</em> of the targets, not just a single target. Finally, the heuristic is the Manhattan distance to the <em>nearest</em> target.</p>
@@ -299,7 +299,7 @@ loop:
     <link href="http://zacharydenton.com/iceland/" />
     <id>http://zacharydenton.com/iceland/</id>
     <published>2011-10-05T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T07:49:30Z</updated>
     <summary type="html"><![CDATA[<div class="figure">
 <img src="https://lh3.googleusercontent.com/-Z0V_sIl9L_g/TkWd8BhZPsI/AAAAAAAAbqk/kFSTwtfMXNQ/s770/IMG_3711.JPG" alt="Knitting on a tree in Reykjavik" /><p class="caption">Knitting on a tree in Reykjavik</p>
 </div>
@@ -451,7 +451,7 @@ loop:
     <link href="http://zacharydenton.com/copenhagen/" />
     <id>http://zacharydenton.com/copenhagen/</id>
     <published>2011-10-04T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T07:48:59Z</updated>
     <summary type="html"><![CDATA[<p>My visit to Copenhagen was relatively uneventful. The main thing I did was go to the <a href="http://www.coffeecollective.dk/">Coffee Collective</a>, a coffee roastery run by a former World Barista Champion.</p>
 <!-- more -->
 
@@ -464,7 +464,7 @@ loop:
     <link href="http://zacharydenton.com/berlin/" />
     <id>http://zacharydenton.com/berlin/</id>
     <published>2011-10-04T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T07:48:22Z</updated>
     <summary type="html"><![CDATA[<p>Immediately after arriving at the Berlin Hauptbahnhof, I went to the tourist information desk. I asked the guy behind the counter for a map, and he asked for 10 euro. When I asked him where to find a free WiFi hotspot, he replied, “Nothing is free in Germany.” Not a promising start.</p>
 <!-- more -->
 
@@ -485,7 +485,7 @@ loop:
     <link href="http://zacharydenton.com/vienna/" />
     <id>http://zacharydenton.com/vienna/</id>
     <published>2011-10-01T00:00:00Z</published>
-    <updated>2013-01-22T21:29:33Z</updated>
+    <updated>2012-12-10T07:50:23Z</updated>
     <summary type="html"><![CDATA[<div class="figure">
 <img src="https://lh6.googleusercontent.com/-EGtDAD2LJKU/TjGNN73ZlMI/AAAAAAAAb24/wGzvbx5nCYg/s770/img_3562.jpg" alt="Cafe Central" /><p class="caption">Cafe Central</p>
 </div>

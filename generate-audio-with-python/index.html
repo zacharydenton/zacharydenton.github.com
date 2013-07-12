@@ -114,7 +114,7 @@ samples = (<span class="dt">int</span>(sample * max_amplitude) <span class="kw">
 <p>Thus, we take the third approach: buffer chunks of the audio stream and write each chunk as it is computed. This offers the advantages of both techniques.</p>
 <p>So, putting all of this together, we end up with something like this:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> grouper(n, iterable, fillvalue=<span class="ot">None</span>):
-    <span class="st">&quot;grouper(3, &#39;ABCDEFG&#39;, &#39;x&#39;) --&gt; ABC DEF Gxx&quot;</span>
+    <span class="co">&quot;grouper(3, &#39;ABCDEFG&#39;, &#39;x&#39;) --&gt; ABC DEF Gxx&quot;</span>
     args = [<span class="dt">iter</span>(iterable)] * n
     <span class="kw">return</span> izip_longest(fillvalue=fillvalue, *args)
 
@@ -147,7 +147,7 @@ samples = (<span class="dt">int</span>(sample * max_amplitude) <span class="kw">
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 
 <span class="kw">def</span> grouper(n, iterable, fillvalue=<span class="ot">None</span>):
-    <span class="st">&quot;grouper(3, &#39;ABCDEFG&#39;, &#39;x&#39;) --&gt; ABC DEF Gxx&quot;</span>
+    <span class="co">&quot;grouper(3, &#39;ABCDEFG&#39;, &#39;x&#39;) --&gt; ABC DEF Gxx&quot;</span>
     args = [<span class="dt">iter</span>(iterable)] * n
     <span class="kw">return</span> izip_longest(fillvalue=fillvalue, *args)
 
@@ -191,7 +191,7 @@ samples = (<span class="dt">int</span>(sample * max_amplitude) <span class="kw">
     <span class="kw">return</span> islice(izip(*(imap(<span class="dt">sum</span>, izip(*channel)) <span class="kw">for</span> channel in channels)), nsamples)
 
 <span class="kw">def</span> write_wavefile(filename, samples, nframes=<span class="ot">None</span>, nchannels=<span class="dv">2</span>, sampwidth=<span class="dv">2</span>, framerate=<span class="dv">44100</span>, bufsize=<span class="dv">2048</span>):
-    <span class="st">&quot;Write samples to a wavefile.&quot;</span>
+    <span class="co">&quot;Write samples to a wavefile.&quot;</span>
     <span class="kw">if</span> nframes is <span class="ot">None</span>:
         nframes = -<span class="dv">1</span>
 
@@ -210,7 +210,7 @@ samples = (<span class="dt">int</span>(sample * max_amplitude) <span class="kw">
     <span class="kw">return</span> filename
 
 <span class="kw">def</span> write_pcm(f, samples, sampwidth=<span class="dv">2</span>, framerate=<span class="dv">44100</span>, bufsize=<span class="dv">2048</span>):
-    <span class="st">&quot;Write samples as raw PCM data.&quot;</span>
+    <span class="co">&quot;Write samples as raw PCM data.&quot;</span>
     max_amplitude = <span class="dt">float</span>(<span class="dt">int</span>((<span class="dv">2</span> ** (sampwidth * <span class="dv">8</span>)) / <span class="dv">2</span>) - <span class="dv">1</span>)
 
     <span class="co"># split the samples into chunks (to reduce memory consumption and improve performance)</span>
@@ -306,7 +306,7 @@ write_wavefile(sys.stdout, samples)</code></pre>
 <span class="ch">import</span> sys
 
 <span class="kw">def</span> ncycles(iterable, n):
-    <span class="st">&quot;Returns the sequence elements n times&quot;</span>
+    <span class="co">&quot;Returns the sequence elements n times&quot;</span>
     <span class="kw">return</span> chain.from_iterable(repeat(<span class="dt">tuple</span>(iterable), n))
 
 <span class="kw">def</span> waves():

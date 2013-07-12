@@ -110,8 +110,8 @@ END:VCARD</code></pre>
     conn.row_factory=sqlite3.Row
     c = conn.cursor()
     fields = <span class="st">&#39;display_name, user_image_url, first_name, &#39;</span> +\
-             <span class="st">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
-             <span class="st">&#39;birthday_day, birthday_year&#39;</span>
+             <span class="co">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
+             <span class="co">&#39;birthday_day, birthday_year&#39;</span>
     c.execute(<span class="st">&#39;select </span><span class="ot">%s</span><span class="st"> from friends&#39;</span> % fields)
     <span class="kw">return</span> [row <span class="kw">for</span> row in c]
 

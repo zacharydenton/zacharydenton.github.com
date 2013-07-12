@@ -60,9 +60,9 @@ Hej! Talar du spanska?</code></pre>
     api = <span class="st">&quot;https://www.googleapis.com/language/translate/v2?&quot;</span>
     api_key = <span class="st">&quot;AIzaSyBgBlJCogk_1Hd_7WaLQgLVbQss0_dvNUc&quot;</span>
     parameters = urllib.urlencode({
-        <span class="st">&#39;target&#39;</span>: target,
-        <span class="st">&#39;key&#39;</span>: api_key,
-        <span class="st">&#39;q&#39;</span>: text
+        <span class="co">&#39;target&#39;</span>: target,
+        <span class="co">&#39;key&#39;</span>: api_key,
+        <span class="co">&#39;q&#39;</span>: text
     })
 
     response = urllib2.urlopen(api + parameters)

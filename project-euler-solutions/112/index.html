@@ -44,7 +44,7 @@
 <p>Find the least number for which the proportion of bouncy numbers is exactly 99%.</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="haskell">Haskell</h3>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import</span> <span class="dt">Data.List</span> (<span class="fu">sort</span>, find)
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import</span> Data.List (sort, find)
 
 <span class="ot">isIncreasing ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isIncreasing n <span class="fu">=</span> <span class="fu">show</span> n <span class="fu">==</span> <span class="fu">sort</span> (<span class="fu">show</span> n)
@@ -57,8 +57,8 @@ isBouncy n <span class="fu">=</span> <span class="fu">not</span> (isIncreasing n
 
 <span class="ot">bouncy ::</span>  [(<span class="dt">Integer</span>, <span class="dt">Integer</span>)]
 bouncy <span class="fu">=</span> b&#39; <span class="dv">1</span> <span class="dv">0</span> <span class="kw">where</span>
-    b&#39; n acc <span class="fu">|</span> isBouncy n <span class="fu">=</span> (n, acc<span class="dv">+1</span>) <span class="fu">:</span> b&#39; (n<span class="dv">+1</span>) (acc<span class="dv">+1</span>)
-             <span class="fu">|</span> <span class="fu">otherwise</span>  <span class="fu">=</span> (n, acc)   <span class="fu">:</span> b&#39; (n<span class="dv">+1</span>) acc
+    b&#39; n acc <span class="fu">|</span> isBouncy n <span class="fu">=</span> (n, acc<span class="fu">+</span><span class="dv">1</span>) <span class="fu">:</span> b&#39; (n<span class="fu">+</span><span class="dv">1</span>) (acc<span class="fu">+</span><span class="dv">1</span>)
+             <span class="fu">|</span> <span class="fu">otherwise</span>  <span class="fu">=</span> (n, acc)   <span class="fu">:</span> b&#39; (n<span class="fu">+</span><span class="dv">1</span>) acc
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="fu">print</span> <span class="fu">$</span> <span class="fu">maybe</span> <span class="dv">0</span> <span class="fu">fst</span> <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre>
@@ -71,7 +71,7 @@ sys	0m0.252s</code></pre>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 
 <span class="kw">def</span> pairwise(iterable):
-    <span class="st">&quot;s -&gt; (s0,s1), (s1,s2), (s2, s3), ...&quot;</span>
+    <span class="co">&quot;s -&gt; (s0,s1), (s1,s2), (s2, s3), ...&quot;</span>
     a, b = tee(iterable)
     <span class="dt">next</span>(b, <span class="ot">None</span>)
     <span class="kw">return</span> izip(a, b)

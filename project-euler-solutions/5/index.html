@@ -52,7 +52,7 @@ isDivisibleTo x n <span class="fu">=</span> <span class="fu">all</span> (\i <spa
 
 <span class="ot">divisibleTo ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 divisibleTo <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
-divisibleTo x <span class="fu">=</span> <span class="kw">let</span> step <span class="fu">=</span> divisibleTo (x<span class="dv">-1</span>)
+divisibleTo x <span class="fu">=</span> <span class="kw">let</span> step <span class="fu">=</span> divisibleTo (x<span class="fu">-</span><span class="dv">1</span>)
                 <span class="kw">in</span>  <span class="fu">head</span> <span class="fu">$</span> <span class="fu">filter</span> (isDivisibleTo x) [step,<span class="dv">2</span><span class="fu">*</span>step<span class="fu">..</span>]
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
