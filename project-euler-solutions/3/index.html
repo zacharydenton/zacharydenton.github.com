@@ -3,103 +3,38 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 3 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents solutions to Project Euler Problem 3 in Go, Python and Ruby.">
 		<meta name="author" content="Zach Denton">
-		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
-		<link href="/css/screen.css" rel="stylesheet" type="text/css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 3 in Python and Ruby.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/main.js"></script>
+		
 	</head>
-	<body class="">
-		<div id="meny">
-			<h1><a href="/">Zach Denton</a></h1>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Archives</a></li>
-				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
-				<li><a href="/project-euler-solutions/">Project Euler</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
-				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
-		</div>
-		<div id="content">
-			<div class="column column-large">
-    <div class="column-padding">
-        <h1>Project Euler Problem 3 Solution</h1>
-        <h2 id="overview">Overview</h2>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 3 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
 <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
 <p>What is the largest prime factor of the number 600851475143 ?</p>
 <h2 id="solutions">Solutions</h2>
-<h3 id="go">Go</h3>
-<pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
-
-<span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
-<span class="kw">import</span> <span class="st">&quot;math&quot;</span>
-<span class="kw">import</span> <span class="st">&quot;math/big&quot;</span>
-
-<span class="kw">func</span> eratosthenes(max <span class="dt">int</span>) []<span class="dt">int</span> {
-	nums := <span class="fu">make</span>([]<span class="dt">int</span>, max)
-
-	p := 2 <span class="co">// first prime, 2</span>
-	<span class="kw">for</span> {
-		i := p - 1
-		<span class="co">// mark multiples not prime</span>
-		<span class="kw">for</span> i += p; i &lt; max; i += p {
-			nums[i] = -1
-		}
-		<span class="co">// find first unmarked number greater than p</span>
-		<span class="kw">for</span> i = p; i &lt; max; i++ {
-			<span class="kw">if</span> nums[i] != -1 {
-				p = i + 1
-				<span class="kw">break</span>
-			}
-		}
-		<span class="co">// no unmarked numbers greater than p found; finished</span>
-		<span class="kw">if</span> i == max {
-			<span class="kw">break</span>
-		}
-	}
-	<span class="co">// filter out all marked numbers</span>
-	primes := <span class="fu">make</span>([]<span class="dt">int</span>, max)
-	j := 0
-	<span class="kw">for</span> i := <span class="kw">range</span> nums {
-		<span class="kw">if</span> nums[i] == 0 {
-			primes[j] = i + 1
-			j++
-		}
-	}
-	<span class="kw">return</span> primes[:j]
-}
-
-<span class="kw">func</span> main() {
-	n := <span class="fu">new</span>(big.Int)
-	n.SetString(<span class="st">&quot;600851475143&quot;</span>, 10)
-	m := <span class="fu">new</span>(big.Int)
-	max := <span class="dt">int</span>(math.Sqrt(600851475143))
-	primes := eratosthenes(max)
-	<span class="co">// find the largest prime factor of n</span>
-	<span class="kw">for</span> i := <span class="fu">len</span>(primes) - 1; i &gt;= 0; i-- {
-		p := big.NewInt(<span class="dt">int64</span>(primes[i]))
-		m.Mod(n, p)
-		<span class="kw">if</span> m.Int64() == 0 {
-			fmt.Println(p)
-			<span class="kw">break</span>
-		}
-	}
-}</code></pre>
-<pre><code>$ time go run prime-factor.go
-real	0m2.338s
-user	0m0.444s
-sys	0m0.085s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -124,11 +59,11 @@ sys	0m0.085s</code></pre>
         res.append(n)
     <span class="kw">return</span> res
 
-<span class="kw">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
+<span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
 <pre><code>$ time pypy prime-factor.py
-real	0m0.051s
-user	0m0.033s
-sys	0m0.019s</code></pre>
+real	0m0.099s
+user	0m0.024s
+sys	0m0.016s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -157,103 +92,13 @@ sys	0m0.019s</code></pre>
 
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
 <pre><code>$ time ruby prime-factor.rb
-real	0m0.022s
-user	0m0.018s
+real	0m0.047s
+user	0m0.012s
 sys	0m0.004s</code></pre>
-    </div>
-</div>
-
-			<div class="column column-small archives" id="recentposts">
-				<div class="column-padding">
-					<h1>Blog</h1>
-					<article>
-<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
-<p>
-Wherein I list the best books, movies, music, and websites of 2012.
-</p>
-</article>
-<article>
-<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
-<p>
-How to use a rooted Android phone to export your Facebook address book.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
-<p>
-Access a remote music collection seamlessly with user-space filesystems.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
-<p>
-An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
-</p>
-</article>
-<article>
-<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/iceland/">Iceland</a></h2>
-<p>
-I spent the final week of my trip exploring Iceland.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
-<p>
-A brief visit to Copenhagen.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/berlin/">Berlin</a></h2>
-<p>
-A great time in Berlin, especially in Kreuzberg.
-</p>
-</article>
-<article>
-<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/vienna/">Vienna</a></h2>
-<p>
-Vienna is now among my favorite European cities.
-</p>
 </article>
 
-					<hr class="short">
-					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Twitter</h1>
-					<div id="tweets"></div>
-					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-medium">
-				<div class="column-padding">
-					<div id="googleplus"></div>
-					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>GitHub</h1>
-					<div id="github-feed"></div>
-					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Music</h1>
-					<div id="lastfm"></div>
-					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
-				</div>
-			</div>
-		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

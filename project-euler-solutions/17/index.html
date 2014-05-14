@@ -3,41 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 17 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 17.">
 		<meta name="author" content="Zach Denton">
-		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
-		<link href="/css/screen.css" rel="stylesheet" type="text/css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+		<meta name="description" content="This page presents a Python solution to Project Euler Problem 17.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/main.js"></script>
+		
 	</head>
-	<body class="">
-		<div id="meny">
-			<h1><a href="/">Zach Denton</a></h1>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Archives</a></li>
-				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
-				<li><a href="/project-euler-solutions/">Project Euler</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
-				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
-		</div>
-		<div id="content">
-			<div class="column column-large">
-    <div class="column-padding">
-        <h1>Project Euler Problem 17 Solution</h1>
-        <h2 id="overview">Overview</h2>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 17 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
 <p>
-If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are \(3 + 3 + 5 + 4 + 4 = 19\) letters used in total.
+If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are <span class="math">3 + 3 + 5 + 4 + 4 = 19</span> letters used in total.
 </p>
 
 <p>
@@ -58,46 +54,46 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> to_english(number):
     _ones = {
-            <span class="dv">1</span>: <span class="st">&#39;one&#39;</span>,
-            <span class="dv">2</span>: <span class="st">&#39;two&#39;</span>,
-            <span class="dv">3</span>: <span class="st">&#39;three&#39;</span>,
-            <span class="dv">4</span>: <span class="st">&#39;four&#39;</span>,
-            <span class="dv">5</span>: <span class="st">&#39;five&#39;</span>,
-            <span class="dv">6</span>: <span class="st">&#39;six&#39;</span>,
-            <span class="dv">7</span>: <span class="st">&#39;seven&#39;</span>,
-            <span class="dv">8</span>: <span class="st">&#39;eight&#39;</span>,
-            <span class="dv">9</span>: <span class="st">&#39;nine&#39;</span>,
-            <span class="dv">10</span>: <span class="st">&#39;ten&#39;</span>,
-            <span class="dv">11</span>: <span class="st">&#39;eleven&#39;</span>,
-            <span class="dv">12</span>: <span class="st">&#39;twelve&#39;</span>,
-            <span class="dv">13</span>: <span class="st">&#39;thirteen&#39;</span>,
-            <span class="dv">14</span>: <span class="st">&#39;fourteen&#39;</span>,
-            <span class="dv">15</span>: <span class="st">&#39;fifteen&#39;</span>,
-            <span class="dv">16</span>: <span class="st">&#39;sixteen&#39;</span>,
-            <span class="dv">17</span>: <span class="st">&#39;seventeen&#39;</span>,
-            <span class="dv">18</span>: <span class="st">&#39;eighteen&#39;</span>,
-            <span class="dv">19</span>: <span class="st">&#39;nineteen&#39;</span>,
+            <span class="dv">1</span>: <span class="st">'one'</span>,
+            <span class="dv">2</span>: <span class="st">'two'</span>,
+            <span class="dv">3</span>: <span class="st">'three'</span>,
+            <span class="dv">4</span>: <span class="st">'four'</span>,
+            <span class="dv">5</span>: <span class="st">'five'</span>,
+            <span class="dv">6</span>: <span class="st">'six'</span>,
+            <span class="dv">7</span>: <span class="st">'seven'</span>,
+            <span class="dv">8</span>: <span class="st">'eight'</span>,
+            <span class="dv">9</span>: <span class="st">'nine'</span>,
+            <span class="dv">10</span>: <span class="st">'ten'</span>,
+            <span class="dv">11</span>: <span class="st">'eleven'</span>,
+            <span class="dv">12</span>: <span class="st">'twelve'</span>,
+            <span class="dv">13</span>: <span class="st">'thirteen'</span>,
+            <span class="dv">14</span>: <span class="st">'fourteen'</span>,
+            <span class="dv">15</span>: <span class="st">'fifteen'</span>,
+            <span class="dv">16</span>: <span class="st">'sixteen'</span>,
+            <span class="dv">17</span>: <span class="st">'seventeen'</span>,
+            <span class="dv">18</span>: <span class="st">'eighteen'</span>,
+            <span class="dv">19</span>: <span class="st">'nineteen'</span>,
             }
 
     _tens = {
-            <span class="dv">2</span>: <span class="st">&#39;twenty&#39;</span>,
-            <span class="dv">3</span>: <span class="st">&#39;thirty&#39;</span>,
-            <span class="dv">4</span>: <span class="st">&#39;forty&#39;</span>,
-            <span class="dv">5</span>: <span class="st">&#39;fifty&#39;</span>,
-            <span class="dv">6</span>: <span class="st">&#39;sixty&#39;</span>,
-            <span class="dv">7</span>: <span class="st">&#39;seventy&#39;</span>,
-            <span class="dv">8</span>: <span class="st">&#39;eighty&#39;</span>,
-            <span class="dv">9</span>: <span class="st">&#39;ninety&#39;</span>
+            <span class="dv">2</span>: <span class="st">'twenty'</span>,
+            <span class="dv">3</span>: <span class="st">'thirty'</span>,
+            <span class="dv">4</span>: <span class="st">'forty'</span>,
+            <span class="dv">5</span>: <span class="st">'fifty'</span>,
+            <span class="dv">6</span>: <span class="st">'sixty'</span>,
+            <span class="dv">7</span>: <span class="st">'seventy'</span>,
+            <span class="dv">8</span>: <span class="st">'eighty'</span>,
+            <span class="dv">9</span>: <span class="st">'ninety'</span>
             }
     <span class="kw">if</span> <span class="dt">abs</span>(number) &gt;= <span class="dv">10000</span>:
         <span class="kw">return</span> <span class="dt">str</span>(number)
     <span class="kw">elif</span> number == <span class="dv">0</span>:
-        <span class="kw">return</span> <span class="st">&#39;zero&#39;</span>
+        <span class="kw">return</span> <span class="st">'zero'</span>
     <span class="kw">else</span>:
-        output = <span class="st">&#39;&#39;</span>
+        output = <span class="st">''</span>
 
         <span class="kw">if</span> number &lt; <span class="dv">0</span>:
-            output += <span class="st">&#39;negative &#39;</span>
+            output += <span class="st">'negative '</span>
             number = <span class="dt">abs</span>(number)
 
         <span class="kw">if</span> number &gt;= <span class="dv">1000</span>:
@@ -120,7 +116,7 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
             output += _tens[number / <span class="dv">10</span>]
             number %= <span class="dv">10</span>
             <span class="kw">if</span> number % <span class="dv">10</span> in _ones:
-                output += <span class="st">&#39;-&#39;</span>
+                output += <span class="st">'-'</span>
 
         <span class="kw">if</span> number in _ones:
             output += _ones[number]
@@ -128,110 +124,20 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
         <span class="kw">return</span> output
 
 <span class="kw">def</span> cleanse_string(string):
-    <span class="co">&#39;&#39;&#39;remove spaces and hyphens&#39;&#39;&#39;</span>
-    string = string.replace(<span class="st">&#39; &#39;</span>, <span class="st">&#39;&#39;</span>)
-    string = string.replace(<span class="st">&#39;-&#39;</span>, <span class="st">&#39;&#39;</span>)
+    <span class="co">'''remove spaces and hyphens'''</span>
+    string = string.replace(<span class="st">' '</span>, <span class="st">''</span>)
+    string = string.replace(<span class="st">'-'</span>, <span class="st">''</span>)
     <span class="kw">return</span> string
 
-<span class="kw">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
+<span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
 <pre><code>$ time pypy num-string-sum.py
-real	0m0.062s
-user	0m0.047s
-sys	0m0.015s</code></pre>
-    </div>
-</div>
-
-			<div class="column column-small archives" id="recentposts">
-				<div class="column-padding">
-					<h1>Blog</h1>
-					<article>
-<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
-<p>
-Wherein I list the best books, movies, music, and websites of 2012.
-</p>
-</article>
-<article>
-<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
-<p>
-How to use a rooted Android phone to export your Facebook address book.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
-<p>
-Access a remote music collection seamlessly with user-space filesystems.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
-<p>
-An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
-</p>
-</article>
-<article>
-<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/iceland/">Iceland</a></h2>
-<p>
-I spent the final week of my trip exploring Iceland.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
-<p>
-A brief visit to Copenhagen.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/berlin/">Berlin</a></h2>
-<p>
-A great time in Berlin, especially in Kreuzberg.
-</p>
-</article>
-<article>
-<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/vienna/">Vienna</a></h2>
-<p>
-Vienna is now among my favorite European cities.
-</p>
+real	0m0.052s
+user	0m0.044s
+sys	0m0.004s</code></pre>
 </article>
 
-					<hr class="short">
-					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Twitter</h1>
-					<div id="tweets"></div>
-					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-medium">
-				<div class="column-padding">
-					<div id="googleplus"></div>
-					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>GitHub</h1>
-					<div id="github-feed"></div>
-					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Music</h1>
-					<div id="lastfm"></div>
-					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
-				</div>
-			</div>
-		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

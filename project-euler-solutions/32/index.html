@@ -3,51 +3,47 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 32 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents solutions to Project Euler Problem 32 in Python and Ruby.">
 		<meta name="author" content="Zach Denton">
-		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
-		<link href="/css/screen.css" rel="stylesheet" type="text/css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+		<meta name="description" content="This page presents solutions to Project Euler Problem 32 in Python and Ruby.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/main.js"></script>
+		
 	</head>
-	<body class="">
-		<div id="meny">
-			<h1><a href="/">Zach Denton</a></h1>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Archives</a></li>
-				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
-				<li><a href="/project-euler-solutions/">Project Euler</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
-				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
-		</div>
-		<div id="content">
-			<div class="column column-large">
-    <div class="column-padding">
-        <h1>Project Euler Problem 32 Solution</h1>
-        <h2 id="overview">Overview</h2>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 32 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
 <p>We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.</p>
-<p>The product 7254 is unusual, as the identity, \(39 \times 186 = 7254\), containing multiplicand, multiplier, and product is 1 through 9 pandigital.</p>
+<p>The product 7254 is unusual, as the identity, <span class="math">39 × 186 = 7254</span>, containing multiplicand, multiplier, and product is 1 through 9 pandigital.</p>
 <p>Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.</p>
 <p>HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> is_pandigital(*args, **kwargs):
-    num = <span class="dt">sorted</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">str</span>(arg) <span class="kw">for</span> arg in args))
+    num = <span class="dt">sorted</span>(<span class="st">''</span>.join(<span class="dt">str</span>(arg) <span class="kw">for</span> arg in args))
 
     <span class="kw">try</span>:
-        <span class="kw">if</span> kwargs[<span class="st">&#39;length&#39;</span>] and <span class="dt">len</span>(num) != kwargs[<span class="st">&#39;length&#39;</span>]:
+        <span class="kw">if</span> kwargs[<span class="st">'length'</span>] and <span class="dt">len</span>(num) != kwargs[<span class="st">'length'</span>]:
             <span class="kw">return</span> <span class="ot">False</span>
     <span class="kw">except</span> <span class="ot">KeyError</span>:
         <span class="kw">pass</span>
@@ -65,14 +61,14 @@
             product = multiplicand * multiplier
             <span class="kw">if</span> is_pandigital(multiplicand, multiplier, product, length=<span class="dv">9</span>):
                 pandigitals.add(product)
-    <span class="kw">print</span> <span class="dt">sum</span>(pandigitals)
+    <span class="dt">print</span> <span class="dt">sum</span>(pandigitals)
 
-<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy pandigital-products.py
-real	0m1.334s
-user	0m1.206s
-sys	0m0.040s</code></pre>
+real	0m0.929s
+user	0m0.892s
+sys	0m0.032s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
@@ -83,103 +79,13 @@ puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
 	p[<span class="dv">0</span>].length == <span class="dv">9</span> &amp;&amp; p[<span class="dv">0</span>].each_char.sort.join == <span class="st">&quot;123456789&quot;</span>
 }.map { |p| p[<span class="dv">1</span>] }.uniq.reduce(:+)</code></pre>
 <pre><code>$ time ruby pandigital.rb
-real	0m1.365s
-user	0m1.283s
-sys	0m0.079s</code></pre>
-    </div>
-</div>
-
-			<div class="column column-small archives" id="recentposts">
-				<div class="column-padding">
-					<h1>Blog</h1>
-					<article>
-<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
-<p>
-Wherein I list the best books, movies, music, and websites of 2012.
-</p>
-</article>
-<article>
-<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
-<p>
-How to use a rooted Android phone to export your Facebook address book.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
-<p>
-Access a remote music collection seamlessly with user-space filesystems.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
-<p>
-An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
-</p>
-</article>
-<article>
-<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/iceland/">Iceland</a></h2>
-<p>
-I spent the final week of my trip exploring Iceland.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
-<p>
-A brief visit to Copenhagen.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/berlin/">Berlin</a></h2>
-<p>
-A great time in Berlin, especially in Kreuzberg.
-</p>
-</article>
-<article>
-<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/vienna/">Vienna</a></h2>
-<p>
-Vienna is now among my favorite European cities.
-</p>
+real	0m1.673s
+user	0m1.600s
+sys	0m0.064s</code></pre>
 </article>
 
-					<hr class="short">
-					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Twitter</h1>
-					<div id="tweets"></div>
-					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-medium">
-				<div class="column-padding">
-					<div id="googleplus"></div>
-					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>GitHub</h1>
-					<div id="github-feed"></div>
-					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Music</h1>
-					<div id="lastfm"></div>
-					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
-				</div>
-			</div>
-		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

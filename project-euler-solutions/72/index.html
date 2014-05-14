@@ -3,44 +3,40 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 72 Solution - Zach Denton</title>
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 72.">
 		<meta name="author" content="Zach Denton">
-		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
-		<link href="/css/screen.css" rel="stylesheet" type="text/css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+		<meta name="description" content="This page presents a Python solution to Project Euler Problem 72.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/main.js"></script>
+		
 	</head>
-	<body class="">
-		<div id="meny">
-			<h1><a href="/">Zach Denton</a></h1>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Archives</a></li>
-				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
-				<li><a href="/project-euler-solutions/">Project Euler</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
-				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
-		</div>
-		<div id="content">
-			<div class="column column-large">
-    <div class="column-padding">
-        <h1>Project Euler Problem 72 Solution</h1>
-        <h2 id="overview">Overview</h2>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 72 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
-<p>Consider the fraction, \(\frac{n}{d}\), where \(n\) and \(d\) are positive integers. If \(n \lt d\) and \(\mathrm{HCF}(n,d)=1\), it is called a reduced proper fraction.</p>
-<p>If we list the set of reduced proper fractions for \(d \leq 8\) in ascending order of size, we get:</p>
-<p>\(\frac{1}{8}, \frac{1}{7}, \frac{1}{6}, \frac{1}{5}, \frac{1}{4}, \frac{2}{7}, \frac{1}{3}, \frac{3}{8}, \frac{2}{5}, \frac{3}{7}, \frac{1}{2}, \frac{4}{7}, \frac{3}{5}, \frac{5}{8}, \frac{2}{3}, \frac{5}{7}, \frac{3}{4}, \frac{4}{5}, \frac{5}{6}, \frac{6}{7}, \frac{7}{8}\)</p>
+<p>Consider the fraction, <span class="math">$\frac{n}{d}$</span>, where <span class="math"><em>n</em></span> and <span class="math"><em>d</em></span> are positive integers. If <span class="math"><em>n</em> &lt; <em>d</em></span> and <span class="math">HCF(<em>n</em>, <em>d</em>) = 1</span>, it is called a reduced proper fraction.</p>
+<p>If we list the set of reduced proper fractions for <span class="math"><em>d</em> ≤ 8</span> in ascending order of size, we get:</p>
+<p><br /><span class="math">$$\frac{1}{8}, \frac{1}{7}, \frac{1}{6}, \frac{1}{5}, \frac{1}{4}, \frac{2}{7}, \frac{1}{3}, \frac{3}{8}, \frac{2}{5}, \frac{3}{7}, \frac{1}{2}, \frac{4}{7}, \frac{3}{5}, \frac{5}{8}, \frac{2}{3}, \frac{5}{7}, \frac{3}{4}, \frac{4}{5}, \frac{5}{6}, \frac{6}{7}, \frac{7}{8}$$</span><br /></p>
 <p>It can be seen that there are 21 elements in this set.</p>
-<p>How many elements would be contained in the set of reduced proper fractions for \(d \leq 1,000,000\)?</p>
+<p>How many elements would be contained in the set of reduced proper fractions for <span class="math"><em>d</em> ≤ 1, 000, 000</span>?</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -75,107 +71,17 @@
     <span class="kw">return</span> <span class="dt">sum</span>(totient(m) <span class="kw">for</span> m in <span class="dt">range</span>(<span class="dv">1</span>, n<span class="dv">+1</span>)) - <span class="dv">1</span>
 
 <span class="kw">def</span> main():
-    <span class="kw">print</span> farey_length(<span class="dv">1000000</span>)
+    <span class="dt">print</span> farey_length(<span class="dv">1000000</span>)
 
-<span class="kw">if</span> <span class="dt">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
 <pre><code>$ time pypy farey.py
-real	0m5.391s
-user	0m5.026s
-sys	0m0.028s</code></pre>
-    </div>
-</div>
-
-			<div class="column column-small archives" id="recentposts">
-				<div class="column-padding">
-					<h1>Blog</h1>
-					<article>
-<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
-<p>
-Wherein I list the best books, movies, music, and websites of 2012.
-</p>
-</article>
-<article>
-<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
-<p>
-How to use a rooted Android phone to export your Facebook address book.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
-<p>
-Access a remote music collection seamlessly with user-space filesystems.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
-<p>
-An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
-</p>
-</article>
-<article>
-<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/iceland/">Iceland</a></h2>
-<p>
-I spent the final week of my trip exploring Iceland.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
-<p>
-A brief visit to Copenhagen.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/berlin/">Berlin</a></h2>
-<p>
-A great time in Berlin, especially in Kreuzberg.
-</p>
-</article>
-<article>
-<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/vienna/">Vienna</a></h2>
-<p>
-Vienna is now among my favorite European cities.
-</p>
+real	0m5.710s
+user	0m5.388s
+sys	0m0.012s</code></pre>
 </article>
 
-					<hr class="short">
-					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Twitter</h1>
-					<div id="tweets"></div>
-					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-medium">
-				<div class="column-padding">
-					<div id="googleplus"></div>
-					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>GitHub</h1>
-					<div id="github-feed"></div>
-					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Music</h1>
-					<div id="lastfm"></div>
-					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
-				</div>
-			</div>
-		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

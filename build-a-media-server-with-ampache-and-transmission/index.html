@@ -3,38 +3,32 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Build a Media Server With Ampache and Transmission - Zach Denton</title>
-		<meta name="description" content="A guide to building the ultimate music server using open source software.">
 		<meta name="author" content="Zach Denton">
-		<link rel="alternate" type="application/+xml" title="Zach Denton" href="/atom.xml">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
-		<link href="/css/screen.css" rel="stylesheet" type="text/css">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<script src="/js/underscore-min.js"></script>
-		<script src="/js/main.js"></script>
+		<meta name="description" content="A guide to building the ultimate music server using open source software.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../css/main.css">
+		
 	</head>
-	<body class="">
-		<div id="meny">
-			<h1><a href="/">Zach Denton</a></h1>
+	<body>
+		<header role="banner">
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Archives</a></li>
-				<li><a href="http://labs.zacharydenton.com/">Experiments</a></li>
-				<li><a href="/project-euler-solutions/">Project Euler</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
-				<li><a href="http://feeds.feedburner.com/zacharydenton">RSS</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a id="email" href="mailto: z@chdenton.com"><i class="icon-envelope-alt"></i> z@chdenton.com</a>
-		</div>
-		<div id="content">
-			<div class="column column-large">
-    <div class="column-padding">
-        <h1>Build a Media Server With Ampache and Transmission</h1>
-        <p>This guide will teach you how to unleash your music collection. Access it from anywhere with an internet connection – on your laptop, your phone, at work, or on a plane.</p>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Build a Media Server With Ampache and Transmission</h1>
+
+  <p>This guide will teach you how to unleash your music collection. Access it from anywhere with an internet connection – on your laptop, your phone, at work, or on a plane.</p>
 <p>This guide has three parts. Part one tells you how to build a server for less than $300. Part two discusses how to build a music collection. Part three discusses how to stream that collection across the internet. <!--more--></p>
 <p>If you already have a computer that is connected to the Internet 24/7, you can skip part one.</p>
 <h2 id="part-one-building-a-server">Part One: Building a Server</h2>
@@ -138,13 +132,13 @@ A note on VPSs
 <p>On this page, type ‘root’ into the ‘MySQL Username’ box. The ‘MySQL username’ is the MySQL root password you entered on the previous page. Click ‘Write Config’ and you will be prompted to download an <code>ampache.cfg.php</code> file. Save this file to your local machine.</p>
 <h3 id="configuring-ampache">Configuring Ampache</h3>
 <p>Make the following changes to <code>ampache.cfg.php</code>:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">xml_rpc:</span> &quot;true&quot;
-<span class="fu">allow_zip_download:</span> &quot;true&quot;
-<span class="fu">transcode_m4a:</span> &quot;false&quot;</code></pre>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">xml_rpc:</span> <span class="st">&quot;true&quot;</span>
+<span class="fu">allow_zip_download:</span> <span class="st">&quot;true&quot;</span>
+<span class="fu">transcode_m4a:</span> <span class="st">&quot;false&quot;</span></code></pre>
 <p>If you would like to transcode your FLACs on-the-fly, make the following change:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">transcode_flac:</span> &quot;true&quot;</code></pre>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">transcode_flac:</span> <span class="st">&quot;true&quot;</span></code></pre>
 <p>If you have multiple formats of each album (e.g. if you download albums in MP3, OGG, AAC, and FLAC), each format will be indexed. To eliminate these duplicates, you can opt to only index one of these formats. To only index FLAC:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">catalog_file_pattern:</span> &quot;flac&quot;</code></pre>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">catalog_file_pattern:</span> <span class="st">&quot;flac&quot;</span></code></pre>
 <p>When you’ve finished editing <code>ampache.cfg.php</code>, copy it to the <code>/etc/ampache</code> directory on your server:</p>
 <pre class="console"><code>$ scp /path/to/ampache.cfg.php root@your-server:/etc/ampache/</code></pre>
 <p>Once <code>ampache.cfg.php</code> is in place on your server, click ‘Check for Config’. Both ‘Ampache.cfg.php Exists’ and ‘Ampache.cfg.php Configured?’ should now say ‘OK’. Click ‘Continue to Step 3’.</p>
@@ -162,100 +156,10 @@ A note on VPSs
 <p>Now that you have some music in the playlist, click the “Play” icon (looks like a broadcast tower) located above the playlist on the right side of the screen. You will be prompted to download a playlist file. Download it and open it with the media player of your choice – Totem or VLC for example. You should hear some music. Enjoy!</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Hopefully you now have enough information to build a killer media server. I covered a lot of ground in this guide, so feel free to ask any questions you may have.</p>
-    </div>
-</div>
-
-			<div class="column column-small archives" id="recentposts">
-				<div class="column-padding">
-					<h1>Blog</h1>
-					<article>
-<time datetime="2012-12-28"><span class="line-left"></span>Dec 28 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/best-of-2012/">Best of 2012</a></h2>
-<p>
-Wherein I list the best books, movies, music, and websites of 2012.
-</p>
-</article>
-<article>
-<time datetime="2012-05-14"><span class="line-left"></span>May 14 2012<span class="line-right"></span></time>
-<h2><a class="title" href="/export-facebook-contacts-with-android/">Export Facebook Contacts with Android</a></h2>
-<p>
-How to use a rooted Android phone to export your Facebook address book.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/music-server-revisited-streaming-with-sshfs-and-mp3fs/">Music Server Revisited: Streaming with sshfs and mp3fs</a></h2>
-<p>
-Access a remote music collection seamlessly with user-space filesystems.
-</p>
-</article>
-<article>
-<time datetime="2011-12-29"><span class="line-left"></span>Dec 29 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/a-star-search-with-multiple-targets-and-sources/">A* Search with Multiple Targets and Sources</a></h2>
-<p>
-An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.
-</p>
-</article>
-<article>
-<time datetime="2011-10-05"><span class="line-left"></span>Oct  5 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/iceland/">Iceland</a></h2>
-<p>
-I spent the final week of my trip exploring Iceland.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/copenhagen/">Copenhagen</a></h2>
-<p>
-A brief visit to Copenhagen.
-</p>
-</article>
-<article>
-<time datetime="2011-10-04"><span class="line-left"></span>Oct  4 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/berlin/">Berlin</a></h2>
-<p>
-A great time in Berlin, especially in Kreuzberg.
-</p>
-</article>
-<article>
-<time datetime="2011-10-01"><span class="line-left"></span>Oct  1 2011<span class="line-right"></span></time>
-<h2><a class="title" href="/vienna/">Vienna</a></h2>
-<p>
-Vienna is now among my favorite European cities.
-</p>
 </article>
 
-					<hr class="short">
-					<p class="centered"><strong><a href="/archives/">View All Posts</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Twitter</h1>
-					<div id="tweets"></div>
-					<p class="centered"><strong><a href="//twitter.com/zacharydenton">Twitter Stream</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-medium">
-				<div class="column-padding">
-					<div id="googleplus"></div>
-					<p class="centered"><strong><a href="https://plus.google.com/103362376417669694940?rel=author">Google+ Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>GitHub</h1>
-					<div id="github-feed"></div>
-					<p class="centered"><strong><a href="//github.com/zacharydenton">GitHub Profile</a></strong></p>
-				</div>
-			</div>
-			<div class="column column-small">
-				<div class="column-padding">
-					<h1>Music</h1>
-					<div id="lastfm"></div>
-					<p class="centered"><strong><a href="//last.fm/user/zacharydenton">Last.fm Stream</a></strong></p>
-				</div>
-			</div>
-		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
