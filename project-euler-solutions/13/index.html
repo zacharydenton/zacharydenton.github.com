@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 13 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 13 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 13 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -134,6 +134,15 @@
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690</code></pre>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+        str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/013/digits.txt&quot;</span>
+        putStrLn <span class="fu">$</span> take <span class="dv">10</span> <span class="fu">$</span> show <span class="fu">$</span> sum <span class="fu">$</span> map read <span class="fu">$</span> lines str</code></pre>
+<pre><code>$ time runhaskell large-sum.hs
+real	0m0.381s
+user	0m0.290s
+sys	0m0.043s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 digits_string = <span class="st">'''</span>
