@@ -59,9 +59,9 @@ F_{12} &amp;= 144
 
 (<span class="kw">println</span> (<span class="kw">count</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % (.pow (BigInteger/TEN) <span class="dv">999</span>)) fibs)))</code></pre>
 <pre><code>$ time clojure fibonacci.clj
-real	0m2.170s
-user	0m2.160s
-sys	0m0.092s</code></pre>
+real	0m1.831s
+user	0m2.569s
+sys	0m0.089s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
@@ -69,9 +69,9 @@ fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</spa
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="fu">==</span><span class="dv">1000</span>) <span class="fu">.</span> length <span class="fu">.</span> show <span class="fu">$</span> fibs <span class="fu">!!</span> i]</code></pre>
 <pre><code>$ time runhaskell fibonacci.hs
-real	0m5.410s
-user	0m0.460s
-sys	0m0.084s</code></pre>
+real	0m0.623s
+user	0m0.555s
+sys	0m0.034s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 i = <span class="dv">1</span>
@@ -82,9 +82,9 @@ t1, t2 = <span class="dv">0</span>, <span class="dv">1</span>
 <span class="kw">end</span>
 puts i</code></pre>
 <pre><code>$ time ruby fibonacci.rb
-real	0m0.406s
-user	0m0.388s
-sys	0m0.012s</code></pre>
+real	0m0.345s
+user	0m0.334s
+sys	0m0.010s</code></pre>
 </article>
 
 

@@ -240,9 +240,9 @@ digits_string = <span class="st">'''</span>
 <span class="st">'''</span>
 <span class="dt">print</span> <span class="dt">str</span>(<span class="dt">sum</span>(<span class="dt">long</span>(line.strip()) <span class="kw">for</span> line in digits_string.strip().splitlines()))[:<span class="dv">10</span>]</code></pre>
 <pre><code>$ time pypy large-sum.py
-real	0m0.040s
+real	0m0.203s
 user	0m0.036s
-sys	0m0.000s</code></pre>
+sys	0m0.014s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 digits_string = &lt;&lt;<span class="kw">EOS</span>
@@ -350,8 +350,8 @@ digits_string = &lt;&lt;<span class="kw">EOS</span>
 puts digits_string.each_line.inject(<span class="dv">0</span>) {|sum, value| sum+value.to_i}.to_s[<span class="dv">0</span>..<span class="dv">9</span>]</code></pre>
 <pre><code>$ time ruby large-sum.rb
 real	0m0.019s
-user	0m0.016s
-sys	0m0.000s</code></pre>
+user	0m0.015s
+sys	0m0.004s</code></pre>
 </article>
 
 

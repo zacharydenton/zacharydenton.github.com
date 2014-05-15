@@ -89,9 +89,9 @@ Find the value of <span class="math"><em>n</em></span>, <span class="math">1 &
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
 <pre><code>$ time pypy totient.py
-real	0m0.278s
-user	0m0.256s
-sys	0m0.020s</code></pre>
+real	0m1.926s
+user	0m0.328s
+sys	0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -109,9 +109,9 @@ primes.combination(<span class="dv">2</span>).select { |a, b| a * b &lt; 1e7 }.e
 <span class="kw">end</span>
 puts min[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby totient.rb
-real	0m5.893s
-user	0m5.664s
-sys	0m0.068s</code></pre>
+real	0m5.635s
+user	0m5.498s
+sys	0m0.049s</code></pre>
 </article>
 
 

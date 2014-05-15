@@ -52,9 +52,9 @@ If <span class="math"><em>d</em><sub><em>n</em></sub></span> represents the nth 
 d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">''</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
 <span class="dt">print</span> d[<span class="dv">0</span>] * d[<span class="dv">9</span>] * d[<span class="dv">99</span>] * d[<span class="dv">999</span>] * d[<span class="dv">9999</span>] * d[<span class="dv">99999</span>] * d[<span class="dv">999999</span>]</code></pre>
 <pre><code>$ time pypy irrational-part.py
-real	3m7.193s
-user	0m10.213s
-sys	0m1.544s</code></pre>
+real	0m6.594s
+user	0m5.650s
+sys	0m0.943s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 s = (<span class="st">'1'</span>..<span class="st">'1000000'</span>).to_a.join <span class="st">''</span>
@@ -62,9 +62,9 @@ puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
 	s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
 }.reduce(<span class="dv">1</span>, :*)</code></pre>
 <pre><code>$ time ruby irrational-part.rb
-real	0m4.051s
-user	0m1.044s
-sys	0m0.052s</code></pre>
+real	0m1.112s
+user	0m0.876s
+sys	0m0.045s</code></pre>
 </article>
 
 

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 1 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 1 in Clojure, Haskell, Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 1 in Clojure, Go, Haskell, Python, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -42,23 +42,40 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
 <pre><code>$ time clojure natural.clj
-real	0m1.353s
-user	0m1.708s
-sys	0m0.064s</code></pre>
+real	0m1.339s
+user	0m1.686s
+sys	0m0.105s</code></pre>
+<h3 id="go">Go</h3>
+<pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+<span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
+
+<span class="kw">func</span> main() {
+	sum := 0
+	<span class="kw">for</span> i := 0; i &lt; 1000; i++ {
+		<span class="kw">if</span> i % 3 == 0 || i % 5 == 0 {
+			sum += i
+		}
+	}
+	fmt.Println(sum)
+}</code></pre>
+<pre><code>$ time go run natural.go
+real	0m0.289s
+user	0m0.188s
+sys	0m0.045s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
 <pre><code>$ time runhaskell natural.hs
-real	0m0.326s
-user	0m0.280s
-sys	0m0.024s</code></pre>
+real	0m0.296s
+user	0m0.253s
+sys	0m0.041s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
 <pre><code>$ time pypy natural.py
-real	0m0.047s
-user	0m0.044s
-sys	0m0.000s</code></pre>
+real	0m0.049s
+user	0m0.037s
+sys	0m0.011s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
@@ -69,9 +86,21 @@ sum = <span class="dv">0</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby natural.rb
-real	0m0.021s
-user	0m0.000s
-sys	0m0.016s</code></pre>
+real	0m0.049s
+user	0m0.020s
+sys	0m0.006s</code></pre>
+<h3 id="scheme">Scheme</h3>
+<pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
+  (reduce <span class="kw">+</span> <span class="dv">0</span>
+		  (filter
+			(<span class="kw">lambda</span> (n)
+			  (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
+			(iota <span class="dv">1000</span>))))
+(<span class="kw">newline</span>)</code></pre>
+<pre><code>$ time mit-scheme-native --quiet &lt; natural.scm
+real	0m0.512s
+user	0m0.042s
+sys	0m0.038s</code></pre>
 </article>
 
 

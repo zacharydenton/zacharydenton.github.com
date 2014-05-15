@@ -56,9 +56,9 @@
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy names.py
-real	0m0.393s
-user	0m0.072s
-sys	0m0.016s</code></pre>
+real	0m0.464s
+user	0m0.083s
+sys	0m0.020s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -68,9 +68,9 @@ puts names.map { |name|
 	(names.index(name) + <span class="dv">1</span>) * word_score
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby names.rb
-real	0m1.017s
-user	0m0.908s
-sys	0m0.004s</code></pre>
+real	0m1.163s
+user	0m1.131s
+sys	0m0.009s</code></pre>
 </article>
 
 

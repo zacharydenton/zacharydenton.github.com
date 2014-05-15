@@ -60,18 +60,18 @@
 longest = <span class="dt">max</span>(recurring_cycle(<span class="dv">1</span>, i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>))
 <span class="dt">print</span> [i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>) <span class="kw">if</span> recurring_cycle(<span class="dv">1</span>, i) == longest][<span class="dv">0</span>]</code></pre>
 <pre><code>$ time pypy recurring-decimal.py
-real	0m2.730s
-user	0m2.700s
-sys	0m0.012s</code></pre>
+real	0m4.044s
+user	0m3.977s
+sys	0m0.011s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">1000</span>).map { |d| 
 	(<span class="dv">1</span>..d).detect(lambda{<span class="dv">0</span>}) { |t| (<span class="dv">10</span>**t % d) == <span class="dv">1</span> } 
 }.each_with_index.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby decimal-cycle.rb
-real	0m1.911s
-user	0m1.768s
-sys	0m0.024s</code></pre>
+real	0m1.370s
+user	0m1.360s
+sys	0m0.008s</code></pre>
 </article>
 
 

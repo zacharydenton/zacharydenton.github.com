@@ -52,16 +52,16 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 <span class="ch">from</span> itertools <span class="ch">import</span> islice, permutations
 <span class="dt">print</span> <span class="st">''</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre>
 <pre><code>$ time pypy permutations.py
-real	0m6.208s
-user	0m0.224s
-sys	0m0.032s</code></pre>
+real	0m0.407s
+user	0m0.300s
+sys	0m0.017s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">9</span>).to_a.permutation(<span class="dv">10</span>).to_a[<span class="dv">999999</span>].join</code></pre>
 <pre><code>$ time ruby permutations.rb
-real	0m4.333s
-user	0m3.816s
-sys	0m0.404s</code></pre>
+real	0m3.696s
+user	0m3.277s
+sys	0m0.313s</code></pre>
 </article>
 
 

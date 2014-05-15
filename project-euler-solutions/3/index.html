@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 3 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 3 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 3 in Go, Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -35,6 +35,86 @@
 <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
 <p>What is the largest prime factor of the number 600851475143 ?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="go">Go</h3>
+<pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+
+<span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
+<span class="kw">import</span> <span class="st">&quot;math&quot;</span>
+<span class="kw">import</span> <span class="st">&quot;math/big&quot;</span>
+
+<span class="kw">func</span> eratosthenes(max <span class="dt">int</span>) []<span class="dt">int</span> {
+	nums := <span class="fu">make</span>([]<span class="dt">int</span>, max)
+
+	p := 2 <span class="co">// first prime, 2</span>
+	<span class="kw">for</span> {
+		i := p - 1
+		<span class="co">// mark multiples not prime</span>
+		<span class="kw">for</span> i += p; i &lt; max; i += p {
+			nums[i] = -1
+		}
+		<span class="co">// find first unmarked number greater than p</span>
+		<span class="kw">for</span> i = p; i &lt; max; i++ {
+			<span class="kw">if</span> nums[i] != -1 {
+				p = i + 1
+				<span class="kw">break</span>
+			}
+		}
+		<span class="co">// no unmarked numbers greater than p found; finished</span>
+		<span class="kw">if</span> i == max {
+			<span class="kw">break</span>
+		}
+	}
+	<span class="co">// filter out all marked numbers</span>
+	primes := <span class="fu">make</span>([]<span class="dt">int</span>, max)
+	j := 0
+	<span class="kw">for</span> i := <span class="kw">range</span> nums {
+		<span class="kw">if</span> nums[i] == 0 {
+			primes[j] = i + 1
+			j++
+		}
+	}
+	<span class="kw">return</span> primes[:j]
+}
+
+<span class="kw">func</span> main() {
+	n := <span class="fu">new</span>(big.Int)
+	n.SetString(<span class="st">&quot;600851475143&quot;</span>, 10)
+	m := <span class="fu">new</span>(big.Int)
+	max := <span class="dt">int</span>(math.Sqrt(600851475143))
+	primes := eratosthenes(max)
+	<span class="co">// find the largest prime factor of n</span>
+	<span class="kw">for</span> i := <span class="fu">len</span>(primes) - 1; i &gt;= 0; i-- {
+		p := big.NewInt(<span class="dt">int64</span>(primes[i]))
+		m.Mod(n, p)
+		<span class="kw">if</span> m.Int64() == 0 {
+			fmt.Println(p)
+			<span class="kw">break</span>
+		}
+	}
+}</code></pre>
+<pre><code>$ time go run prime-factor.go
+real	0m2.338s
+user	0m0.444s
+sys	0m0.085s</code></pre>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
+primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
+    sieve (p<span class="fu">:</span>xs) <span class="fu">=</span> p <span class="fu">:</span> sieve [x <span class="fu">|</span> x <span class="ot">&lt;-</span> xs, x <span class="ot">`mod`</span> p <span class="fu">&gt;</span> <span class="dv">0</span>]
+
+<span class="ot">factorize ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">where</span>
+    primeFactors <span class="dv">1</span> _ <span class="fu">=</span> []
+    primeFactors m (p<span class="fu">:</span>ps) <span class="fu">|</span> m <span class="fu">&lt;</span> p <span class="fu">*</span> p <span class="fu">=</span> [m]
+                          <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> p <span class="fu">:</span> primeFactors q (p<span class="fu">:</span>ps)
+                          <span class="fu">|</span> otherwise <span class="fu">=</span> primeFactors m ps
+                          <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
+<pre><code>$ time runhaskell prime-factor.hs
+real	0m0.515s
+user	0m0.313s
+sys	0m0.040s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -61,9 +141,9 @@
 
 <span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
 <pre><code>$ time pypy prime-factor.py
-real	0m0.099s
-user	0m0.024s
-sys	0m0.016s</code></pre>
+real	0m0.051s
+user	0m0.033s
+sys	0m0.019s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -92,8 +172,8 @@ sys	0m0.016s</code></pre>
 
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
 <pre><code>$ time ruby prime-factor.rb
-real	0m0.047s
-user	0m0.012s
+real	0m0.022s
+user	0m0.018s
 sys	0m0.004s</code></pre>
 </article>
 
