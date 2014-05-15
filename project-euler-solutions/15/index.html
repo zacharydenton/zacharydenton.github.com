@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 15 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 15 in Haskell and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 15 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -72,6 +72,14 @@ main <span class="fu">=</span> print <span class="fu">$</span> choose <span clas
 real	0m1.130s
 user	0m0.232s
 sys	0m0.071s</code></pre>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="ch">from</span> gmpy <span class="ch">import</span> comb
+<span class="dt">print</span> comb(<span class="dv">2</span> * <span class="dv">20</span>,<span class="dv">20</span>)</code></pre>
+<pre><code>$ time pypy grid-routes.py
+real	0m0.022s
+user	0m0.013s
+sys	0m0.007s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
