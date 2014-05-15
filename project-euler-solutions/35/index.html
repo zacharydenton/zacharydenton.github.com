@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 35 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Ruby solution to Project Euler Problem 35.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 35 in Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -36,6 +36,49 @@
 <p>There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.</p>
 <p>How many circular primes are there below one million?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
+
+<span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+pairwise f (xs<span class="fu">:</span>ys<span class="fu">:</span>t) <span class="fu">=</span> f xs ys <span class="fu">:</span> pairwise f t
+pairwise _ t <span class="fu">=</span> t
+
+<span class="ot">primes ::</span> [<span class="dt">Integer</span>]
+primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> _<span class="dt">Y</span> ((<span class="dv">3</span> <span class="fu">:</span>) <span class="fu">.</span> gaps <span class="dv">5</span> <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> map (\p<span class="ot">-&gt;</span> [p<span class="fu">*</span>p, p<span class="fu">*</span>p<span class="fu">+</span><span class="dv">2</span><span class="fu">*</span>p<span class="fu">..</span>]))
+    <span class="kw">where</span>
+        _<span class="dt">Y</span> g <span class="fu">=</span> g (_<span class="dt">Y</span> g)                      <span class="co">-- recursion, Y combinator</span>
+        _<span class="dt">U</span> ((x<span class="fu">:</span>xs)<span class="fu">:</span>t) <span class="fu">=</span> x <span class="fu">:</span> (union xs <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> pairwise union) t   <span class="co">-- ~= nub.sort.concat</span>
+        gaps k s<span class="fu">@</span>(x<span class="fu">:</span>xs) 
+            <span class="fu">|</span> k <span class="fu">&lt;</span> x     <span class="fu">=</span> k <span class="fu">:</span> gaps (k<span class="fu">+</span><span class="dv">2</span>) s    <span class="co">-- ~= [k,k+2..]\\s, when</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span>     gaps (k<span class="fu">+</span><span class="dv">2</span>) xs   <span class="co">--  k &lt;= head s &amp;&amp; null(s\\[k,k+2..])</span>
+
+<span class="ot">rotate ::</span> [a] <span class="ot">-&gt;</span> [a]
+rotate [] <span class="fu">=</span> []
+rotate (x<span class="fu">:</span>xs) <span class="fu">=</span> xs <span class="fu">++</span> [x]
+
+<span class="ot">rotations ::</span> [a] <span class="ot">-&gt;</span> [[a]]
+rotations x <span class="fu">=</span> take n (iterate rotate x)
+    <span class="kw">where</span> n <span class="fu">=</span> length x
+
+<span class="ot">intRotations ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+intRotations <span class="fu">=</span> map read <span class="fu">.</span> rotations <span class="fu">.</span> show
+
+<span class="ot">prime ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+prime n <span class="fu">=</span> n <span class="fu">&gt;</span> <span class="dv">1</span> <span class="fu">&amp;&amp;</span> foldr (\p r <span class="ot">-&gt;</span> p<span class="fu">*</span>p <span class="fu">&gt;</span> n <span class="fu">||</span> ((n <span class="ot">`rem`</span> p) <span class="fu">/=</span> <span class="dv">0</span> <span class="fu">&amp;&amp;</span> r)) <span class="dt">True</span> primes
+
+<span class="ot">circular ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+circular <span class="fu">=</span> all prime <span class="fu">.</span> intRotations
+
+<span class="ot">candidate ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+candidate n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">10</span> <span class="fu">=</span> <span class="dt">True</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span> all (<span class="ot">`elem`</span> <span class="st">&quot;1379&quot;</span>) (show n)
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre>
+<pre><code>$ time runhaskell circular-primes.hs
+real	0m1.947s
+user	0m1.783s
+sys	0m0.090s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
