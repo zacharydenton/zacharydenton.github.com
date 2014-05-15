@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 12 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 12 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 12 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -60,6 +60,42 @@ We can see that 28 is the first triangle number to have over five divisors. What
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (group)
+
+<span class="ot">triangles ::</span> [<span class="dt">Int</span>]
+triangles <span class="fu">=</span> scanl1 (<span class="fu">+</span>) [<span class="dv">1</span><span class="fu">..</span>]
+
+<span class="ot">primes ::</span> [<span class="dt">Int</span>]
+primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
+    sieve [] <span class="fu">=</span> []
+    sieve (p<span class="fu">:</span>xs) <span class="fu">=</span> p <span class="fu">:</span> sieve [x <span class="fu">|</span> x <span class="ot">&lt;-</span> xs, x <span class="ot">`mod`</span> p <span class="fu">&gt;</span> <span class="dv">0</span>]
+
+<span class="ot">factorize ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">where</span>
+    primeFactors <span class="dv">1</span> _ <span class="fu">=</span> []
+    primeFactors _ [] <span class="fu">=</span> []
+    primeFactors m (p<span class="fu">:</span>ps) <span class="fu">|</span> m <span class="fu">&lt;</span> p <span class="fu">*</span> p <span class="fu">=</span> [m]
+                          <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> p <span class="fu">:</span> primeFactors q (p<span class="fu">:</span>ps)
+                          <span class="fu">|</span> otherwise <span class="fu">=</span> primeFactors m ps
+                          <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
+
+<span class="ot">primePowers ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [(<span class="dt">Int</span>, <span class="dt">Int</span>)]
+primePowers n <span class="fu">=</span> [(head x, length x) <span class="fu">|</span> x <span class="ot">&lt;-</span> group <span class="fu">$</span> factorize n]
+
+<span class="ot">divisors ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+divisors n <span class="fu">=</span> map product <span class="fu">$</span> sequence
+    [take (k<span class="fu">+</span><span class="dv">1</span>) <span class="fu">$</span> iterate (p<span class="fu">*</span>) <span class="dv">1</span> <span class="fu">|</span> (p, k) <span class="ot">&lt;-</span> primePowers n]
+
+<span class="ot">numDivisors ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span>  <span class="dt">Int</span>
+numDivisors n <span class="fu">=</span> product [k <span class="fu">+</span> <span class="dv">1</span> <span class="fu">|</span> (_, k) <span class="ot">&lt;-</span> primePowers n]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> dropWhile (\n <span class="ot">-&gt;</span> numDivisors n <span class="fu">&lt;=</span> <span class="dv">500</span>) triangles</code></pre>
+<pre><code>$ time runhaskell triangle-numbers.hs
+real	0m2.052s
+user	0m1.873s
+sys	0m0.057s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
