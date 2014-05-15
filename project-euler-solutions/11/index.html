@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 11 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 11 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 11 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -72,6 +72,44 @@ What is the greatest product of four adjacent numbers in any direction (up, down
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (tails, transpose)
+
+<span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+parse <span class="fu">=</span> map (map read <span class="fu">.</span> words) <span class="fu">.</span> lines
+
+<span class="ot">chunks ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [[a]]
+chunks n l <span class="fu">|</span> length chunk <span class="fu">&lt;</span> n <span class="fu">=</span> []
+           <span class="fu">|</span> otherwise <span class="fu">=</span> chunk <span class="fu">:</span> chunks n (tail l)
+           <span class="kw">where</span> chunk <span class="fu">=</span> take n l
+
+<span class="ot">horizontal ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+horizontal <span class="fu">=</span> concatMap (chunks <span class="dv">4</span>)
+
+<span class="ot">vertical ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+vertical <span class="fu">=</span> horizontal <span class="fu">.</span> transpose
+
+<span class="ot">diagonal ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+diagonal <span class="fu">=</span> concatMap (chunks <span class="dv">4</span>) <span class="fu">.</span> transpose <span class="fu">.</span> zipWith drop [<span class="dv">0</span><span class="fu">..</span>]
+
+<span class="ot">southEast ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+southEast <span class="fu">=</span> concatMap diagonal <span class="fu">.</span> tails
+
+<span class="ot">southWest ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
+southWest <span class="fu">=</span> southEast <span class="fu">.</span> map reverse
+
+<span class="ot">largestProduct ::</span> [[<span class="dt">Int</span>]] <span class="ot">-&gt;</span> <span class="dt">Int</span>
+largestProduct <span class="fu">=</span> maximum <span class="fu">.</span> map product
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+        str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/011/grid.txt&quot;</span>
+        <span class="kw">let</span> grid <span class="fu">=</span> parse str
+        print <span class="fu">$</span> largestProduct <span class="fu">$</span> concatMap (<span class="fu">$</span>grid) [horizontal, vertical, southEast, southWest]</code></pre>
+<pre><code>$ time runhaskell grid-product.hs
+real	0m0.493s
+user	0m0.323s
+sys	0m0.050s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 grid = []
