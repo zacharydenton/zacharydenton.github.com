@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 243 Solution - Zach Denton</title>
+		<meta name="author" content="Zach Denton">
+		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 243.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600|Poly:400,400italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+	</head>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
+			</ul>
+			</nav>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 243 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>A positive fraction whose numerator is less than its denominator is called a proper fraction.</p>
+<p>For any denominator, <span class="math"><em>d</em></span>, there will be <span class="math"><em>d</em> − 1</span> proper fractions; for example, with <span class="math"><em>d</em> = 12</span>:</p>
+<p><br /><span class="math">$$\frac{1}{12}, \frac{2}{12}, \frac{3}{12}, \frac{4}{12}, \frac{5}{12}, \frac{6}{12}, \frac{7}{12}, \frac{8}{12}, \frac{9}{12}, \frac{10}{12}, \frac{11}{12}.$$</span><br /></p>
+<p>We shall call a fraction that cannot be cancelled down a <em>resilient fraction</em>.</p>
+<p>Furthermore we shall define the <em>resilience</em> of a denominator, <span class="math"><em>R</em>(<em>d</em>)</span>, to be the ratio of its proper fractions that are resilient; for example, <span class="math">$R(12) = \frac{4}{11}$</span>.</p>
+<p>In fact, <span class="math"><em>d</em> = 12</span> is the smallest denominator having a resilience <span class="math">$R(d) &lt; \frac{4}{10}$</span>.</p>
+<p>Find the smallest denominator <span class="math"><em>d</em></span>, having a resilience <span class="math">$R(d) &lt; \frac{15499}{94744}$</span>.</p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
+<span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+
+<span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+pairwise f (xs<span class="fu">:</span>ys<span class="fu">:</span>t) <span class="fu">=</span> f xs ys <span class="fu">:</span> pairwise f t
+pairwise _ t <span class="fu">=</span> t
+
+<span class="ot">primes ::</span> [<span class="dt">Int</span>]
+primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> _<span class="dt">Y</span> ((<span class="dv">3</span> <span class="fu">:</span>) <span class="fu">.</span> gaps <span class="dv">5</span> <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> map (\p<span class="ot">-&gt;</span> [p<span class="fu">*</span>p, p<span class="fu">*</span>p<span class="fu">+</span><span class="dv">2</span><span class="fu">*</span>p<span class="fu">..</span>]))
+    <span class="kw">where</span>
+        _<span class="dt">Y</span> g <span class="fu">=</span> g (_<span class="dt">Y</span> g)                      <span class="co">-- recursion, Y combinator</span>
+        _<span class="dt">U</span> ((x<span class="fu">:</span>xs)<span class="fu">:</span>t) <span class="fu">=</span> x <span class="fu">:</span> (union xs <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> pairwise union) t   <span class="co">-- ~= nub.sort.concat</span>
+        gaps k s<span class="fu">@</span>(x<span class="fu">:</span>xs) 
+            <span class="fu">|</span> k <span class="fu">&lt;</span> x     <span class="fu">=</span> k <span class="fu">:</span> gaps (k<span class="fu">+</span><span class="dv">2</span>) s    <span class="co">-- ~= [k,k+2..]\\s, when</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span>     gaps (k<span class="fu">+</span><span class="dv">2</span>) xs   <span class="co">--  k &lt;= head s &amp;&amp; null(s\\[k,k+2..])</span>
+
+<span class="ot">factorize ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">where</span>
+    primeFactors <span class="dv">1</span> _ <span class="fu">=</span> []
+    primeFactors _ [] <span class="fu">=</span> []
+    primeFactors m (p<span class="fu">:</span>ps) <span class="fu">|</span> m <span class="fu">&lt;</span> p <span class="fu">*</span> p <span class="fu">=</span> [m]
+                          <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> p <span class="fu">:</span> primeFactors q (p<span class="fu">:</span>ps)
+                          <span class="fu">|</span> otherwise <span class="fu">=</span> primeFactors m ps
+                          <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
+
+<span class="ot">uniq ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+uniq xs <span class="fu">=</span> uniq' Set.empty xs <span class="kw">where</span>
+    uniq' _ [] <span class="fu">=</span> []
+    uniq' set (y<span class="fu">:</span>ys) <span class="fu">|</span> Set.member y set <span class="fu">=</span> uniq' set ys
+                     <span class="fu">|</span> otherwise <span class="fu">=</span> y <span class="fu">:</span> uniq' (Set.insert y set) xs
+
+<span class="ot">totient ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+totient <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span>
+totient n <span class="fu">=</span> (fromIntegral n) <span class="fu">*</span> product [<span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">-</span> (<span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">/</span> (fromIntegral p)) <span class="fu">|</span> p <span class="ot">&lt;-</span> uniq <span class="fu">$</span> factorize n]
+
+<span class="ot">resilience ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+resilience d <span class="fu">=</span> (totient d) <span class="fu">/</span> (fromIntegral (d <span class="fu">-</span> <span class="dv">1</span>))
+
+<span class="ot">primorials ::</span> [<span class="dt">Int</span>]
+primorials <span class="fu">=</span> scanl1 (<span class="fu">*</span>) primes
+
+<span class="ot">candidates ::</span> [<span class="dt">Int</span>]
+candidates <span class="fu">=</span> expand <span class="dv">1</span> primorials <span class="kw">where</span>
+    expand m ps<span class="fu">@</span>(x<span class="fu">:</span>y<span class="fu">:</span>_) <span class="fu">|</span> m <span class="fu">*</span> x <span class="fu">&lt;</span> y <span class="fu">=</span> m <span class="fu">*</span> x <span class="fu">:</span> expand (m<span class="fu">+</span><span class="dv">1</span>) ps
+                        <span class="fu">|</span> otherwise <span class="fu">=</span> expand <span class="dv">1</span> (tail ps)
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head [d <span class="fu">|</span> d <span class="ot">&lt;-</span> candidates, resilience d <span class="fu">&lt;</span> <span class="dv">15499</span> <span class="fu">/</span> <span class="dv">94744</span>]</code></pre>
+<pre><code>$ time runhaskell resilience.hs
+real	0m0.359s
+user	0m0.313s
+sys	0m0.047s</code></pre>
+</article>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>
