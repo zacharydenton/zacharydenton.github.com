@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 23 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 23 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 23 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -37,6 +37,63 @@
 <p>As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
 <p>Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group, union)
+<span class="kw">import </span><span class="dt">Data.Array</span>
+
+<span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+pairwise f (xs<span class="fu">:</span>ys<span class="fu">:</span>t) <span class="fu">=</span> f xs ys <span class="fu">:</span> pairwise f t
+pairwise _ t <span class="fu">=</span> t
+
+<span class="ot">primes ::</span> [<span class="dt">Int</span>]
+primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> _<span class="dt">Y</span> ((<span class="dv">3</span> <span class="fu">:</span>) <span class="fu">.</span> gaps <span class="dv">5</span> <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> map (\p<span class="ot">-&gt;</span> [p<span class="fu">*</span>p, p<span class="fu">*</span>p<span class="fu">+</span><span class="dv">2</span><span class="fu">*</span>p<span class="fu">..</span>]))
+    <span class="kw">where</span>
+        _<span class="dt">Y</span> g <span class="fu">=</span> g (_<span class="dt">Y</span> g)                      <span class="co">-- recursion, Y combinator</span>
+        _<span class="dt">U</span> ((x<span class="fu">:</span>xs)<span class="fu">:</span>t) <span class="fu">=</span> x <span class="fu">:</span> (union xs <span class="fu">.</span> _<span class="dt">U</span> <span class="fu">.</span> pairwise union) t   <span class="co">-- ~= nub.sort.concat</span>
+        gaps k s<span class="fu">@</span>(x<span class="fu">:</span>xs) 
+            <span class="fu">|</span> k <span class="fu">&lt;</span> x     <span class="fu">=</span> k <span class="fu">:</span> gaps (k<span class="fu">+</span><span class="dv">2</span>) s    <span class="co">-- ~= [k,k+2..]\\s, when</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span>     gaps (k<span class="fu">+</span><span class="dv">2</span>) xs   <span class="co">--  k &lt;= head s &amp;&amp; null(s\\[k,k+2..])</span>
+
+<span class="ot">factorize ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">where</span>
+    primeFactors <span class="dv">1</span> _ <span class="fu">=</span> []
+    primeFactors _ [] <span class="fu">=</span> []
+    primeFactors m (p<span class="fu">:</span>ps) <span class="fu">|</span> m <span class="fu">&lt;</span> p <span class="fu">*</span> p <span class="fu">=</span> [m]
+                          <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> p <span class="fu">:</span> primeFactors q (p<span class="fu">:</span>ps)
+                          <span class="fu">|</span> otherwise <span class="fu">=</span> primeFactors m ps
+                          <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
+
+<span class="ot">primePowers ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [(<span class="dt">Int</span>, <span class="dt">Int</span>)]
+primePowers n <span class="fu">=</span> [(head x, length x) <span class="fu">|</span> x <span class="ot">&lt;-</span> group <span class="fu">$</span> factorize n]
+
+<span class="ot">divisors ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+divisors n <span class="fu">=</span> filter (<span class="fu">&lt;</span>n) <span class="fu">$</span> map product <span class="fu">$</span> sequence
+    [take (k<span class="fu">+</span><span class="dv">1</span>) <span class="fu">$</span> iterate (p<span class="fu">*</span>) <span class="dv">1</span> <span class="fu">|</span> (p, k) <span class="ot">&lt;-</span> primePowers n]
+
+<span class="ot">upperBound ::</span> <span class="dt">Int</span>
+upperBound <span class="fu">=</span> <span class="dv">20161</span>
+
+<span class="ot">abundant ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+abundant n <span class="fu">=</span> (sum <span class="fu">.</span> divisors) n <span class="fu">&gt;</span> n
+
+<span class="ot">abundantsArray ::</span> <span class="dt">Array</span> <span class="dt">Int</span> <span class="dt">Bool</span>
+abundantsArray <span class="fu">=</span> listArray (<span class="dv">1</span>, upperBound) <span class="fu">$</span> map abundant [<span class="dv">1</span><span class="fu">..</span>upperBound]
+
+<span class="ot">abundants ::</span> [<span class="dt">Int</span>]
+abundants <span class="fu">=</span> filter (abundantsArray <span class="fu">!</span>) [<span class="dv">1</span><span class="fu">..</span>upperBound]
+
+<span class="ot">remainders ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+remainders x <span class="fu">=</span> map (x<span class="fu">-</span>) <span class="fu">$</span> takeWhile (<span class="fu">&lt;=</span> x <span class="ot">`quot`</span> <span class="dv">2</span>) abundants
+
+<span class="ot">sums ::</span> [<span class="dt">Int</span>]
+sums <span class="fu">=</span> filter (any (abundantsArray <span class="fu">!</span>) <span class="fu">.</span> remainders) [<span class="dv">1</span><span class="fu">..</span>upperBound]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre>
+<pre><code>$ time runhaskell abundant.hs
+real	0m1.881s
+user	0m1.787s
+sys	0m0.067s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="ch">import</span> math
