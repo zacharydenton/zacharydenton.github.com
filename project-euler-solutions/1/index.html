@@ -45,14 +45,14 @@
 
 <span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv)
 {
-	<span class="dt">int</span> sum = <span class="dv">0</span>;
-	<span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++) {
-		<span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span> || i % <span class="dv">5</span> == <span class="dv">0</span>) {
-			sum += i;
-		}
-	}
-	printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
-	<span class="kw">return</span> <span class="dv">0</span>;
+    <span class="dt">int</span> sum = <span class="dv">0</span>;
+    <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++) {
+        <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span> || i % <span class="dv">5</span> == <span class="dv">0</span>) {
+            sum += i;
+        }
+    }
+    printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
+    <span class="kw">return</span> <span class="dv">0</span>;
 }</code></pre>
 <pre><code>$ time ./natural
 real   0m0.001s
