@@ -88,13 +88,13 @@ sys    0m0.017s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i|
-	(<span class="dv">1</span>..i.to_s.length).all? { |j|
-		i.to_s.split(<span class="st">''</span>).rotate(j).join(<span class="st">''</span>).to_i.prime?
-	}
+  (<span class="dv">1</span>..i.to_s.length).all? { |j|
+    i.to_s.split(<span class="st">''</span>).rotate(j).join(<span class="st">''</span>).to_i.prime?
+  }
 }.count</code></pre>
 <pre><code>$ time ruby circular-primes.rb
-real   0m27.112s
-user   0m27.120s
+real   0m27.094s
+user   0m27.100s
 sys    0m0.003s</code></pre>
 </article>
 

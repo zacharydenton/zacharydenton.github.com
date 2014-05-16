@@ -63,20 +63,20 @@ sys    0m0.087s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
-	i.to_s.length &gt; <span class="dv">1</span> &amp;&amp; i == i.to_s.each_char.map { |d| (<span class="dv">1</span>..d.to_i).reduce(<span class="dv">1</span>, :*) }.reduce(:+)
+  i.to_s.length &gt; <span class="dv">1</span> &amp;&amp; i == i.to_s.each_char.map { |d| (<span class="dv">1</span>..d.to_i).reduce(<span class="dv">1</span>, :*) }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby curious.rb
-real   0m0.368s
-user   0m0.367s
-sys    0m0.000s</code></pre>
+real   0m0.391s
+user   0m0.377s
+sys    0m0.013s</code></pre>
 <h3 id="scheme">Scheme</h3>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(factorial n)
   (apply * (iota n <span class="dv">1</span>)))
 
 (<span class="kw">define</span><span class="fu"> </span>(digits n)
   (<span class="kw">if</span> (<span class="kw">zero?</span> n)
-      '()
-      (<span class="kw">cons</span> (<span class="kw">remainder</span> n <span class="dv">10</span>) (digits (<span class="kw">quotient</span> n <span class="dv">10</span>)))))
+    '()
+    (<span class="kw">cons</span> (<span class="kw">remainder</span> n <span class="dv">10</span>) (digits (<span class="kw">quotient</span> n <span class="dv">10</span>)))))
 
 (<span class="kw">define</span><span class="fu"> </span>(curious? n)
   (<span class="kw">and</span> (<span class="kw">=</span> (apply <span class="kw">+</span> (map factorial (digits n))) n)
@@ -85,9 +85,9 @@ sys    0m0.000s</code></pre>
 (<span class="kw">display</span> (apply <span class="kw">+</span> (filter curious? (iota <span class="dv">50000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre><code>$ time mit-scheme-native --quiet &lt; curious.scm
-real   0m0.505s
-user   0m0.490s
-sys    0m0.013s</code></pre>
+real   0m0.518s
+user   0m0.497s
+sys    0m0.020s</code></pre>
 </article>
 
 

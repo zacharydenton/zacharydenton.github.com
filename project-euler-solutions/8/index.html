@@ -146,16 +146,16 @@ numbers = &lt;&lt;<span class="kw">EOS</span>
 numbers = numbers.split.join(<span class="st">''</span>)
 max = <span class="dv">0</span>
 numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</span> |char, i|
-    product = numbers[i..i<span class="dv">+4</span>].each_char.inject(<span class="dv">1</span>) {|product, digit| product * digit.to_i}
-    <span class="kw">if</span> product &gt; max
-        max = product
-    <span class="kw">end</span>
+  product = numbers[i..i<span class="dv">+4</span>].each_char.inject(<span class="dv">1</span>) {|product, digit| product * digit.to_i}
+  <span class="kw">if</span> product &gt; max
+    max = product
+  <span class="kw">end</span>
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby great_prod.rb
-real   0m0.060s
-user   0m0.057s
-sys    0m0.003s</code></pre>
+real   0m0.057s
+user   0m0.053s
+sys    0m0.000s</code></pre>
 </article>
 
 

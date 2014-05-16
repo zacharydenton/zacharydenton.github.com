@@ -78,17 +78,17 @@ sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">for</span> a <span class="kw">in</span> (<span class="dv">1</span>..<span class="dv">500</span>)
-    <span class="kw">for</span> b <span class="kw">in</span> (a..<span class="dv">500</span>)
-        <span class="kw">for</span> c <span class="kw">in</span> (b..<span class="dv">500</span>)
-            <span class="kw">if</span> a**<span class="dv">2</span> + b**<span class="dv">2</span> == c**<span class="dv">2</span> <span class="kw">and</span> a+b+c == <span class="dv">1000</span>
-                puts a*b*c
-            <span class="kw">end</span>
-        <span class="kw">end</span>
+  <span class="kw">for</span> b <span class="kw">in</span> (a..<span class="dv">500</span>)
+    <span class="kw">for</span> c <span class="kw">in</span> (b..<span class="dv">500</span>)
+      <span class="kw">if</span> a**<span class="dv">2</span> + b**<span class="dv">2</span> == c**<span class="dv">2</span> <span class="kw">and</span> a+b+c == <span class="dv">1000</span>
+        puts a*b*c
+      <span class="kw">end</span>
     <span class="kw">end</span>
+  <span class="kw">end</span>
 <span class="kw">end</span></code></pre>
 <pre><code>$ time ruby pythagorean-triples.rb
-real   0m4.144s
-user   0m4.140s
+real   0m4.094s
+user   0m4.090s
 sys    0m0.003s</code></pre>
 </article>
 

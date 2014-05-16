@@ -82,20 +82,20 @@ sys    0m0.033s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 solutions = {}
 (<span class="dv">1</span>..<span class="dv">500</span>).each <span class="kw">do</span> |a|
-	(a..<span class="dv">500</span>).each <span class="kw">do</span> |b|
-		(b..<span class="dv">500</span>).each <span class="kw">do</span> |c|
-			<span class="kw">if</span> a**<span class="dv">2</span> + b**<span class="dv">2</span> == c**<span class="dv">2</span>
-				solutions[a+b+c] ||= <span class="dv">0</span>
-				solutions[a+b+c] += <span class="dv">1</span>
-			<span class="kw">end</span>
-		<span class="kw">end</span>
-	<span class="kw">end</span>
+  (a..<span class="dv">500</span>).each <span class="kw">do</span> |b|
+    (b..<span class="dv">500</span>).each <span class="kw">do</span> |c|
+      <span class="kw">if</span> a**<span class="dv">2</span> + b**<span class="dv">2</span> == c**<span class="dv">2</span>
+        solutions[a+b+c] ||= <span class="dv">0</span>
+        solutions[a+b+c] += <span class="dv">1</span>
+      <span class="kw">end</span>
+    <span class="kw">end</span>
+  <span class="kw">end</span>
 <span class="kw">end</span>
 puts solutions.max { |a,b| a[<span class="dv">1</span>] &lt;=&gt; b[<span class="dv">1</span>] }[<span class="dv">0</span>]</code></pre>
 <pre><code>$ time ruby triangle-solve.rb
-real   0m3.895s
-user   0m3.893s
-sys    0m0.003s</code></pre>
+real   0m3.981s
+user   0m3.980s
+sys    0m0.000s</code></pre>
 </article>
 
 

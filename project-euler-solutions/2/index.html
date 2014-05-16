@@ -65,15 +65,15 @@ sys    0m0.053s</code></pre>
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-	sum := 0
-	<span class="kw">for</span> a, b := 1, 2; b &lt;= 4e6; a, b = b, a + b {
-		<span class="kw">if</span> b % 2 == 0 { sum += b }
-	}
-	fmt.Println(sum)
+    sum := 0
+    <span class="kw">for</span> a, b := 1, 2; b &lt;= 4e6; a, b = b, a + b {
+        <span class="kw">if</span> b % 2 == 0 { sum += b }
+    }
+    fmt.Println(sum)
 }</code></pre>
 <pre><code>$ time go run fibonacci.go
-real   0m0.257s
-user   0m0.207s
+real   0m0.233s
+user   0m0.200s
 sys    0m0.030s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]

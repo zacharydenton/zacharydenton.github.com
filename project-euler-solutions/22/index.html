@@ -95,12 +95,12 @@ sys    0m0.023s</code></pre>
 
 names = <span class="dt">File</span>.open(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">'/names.txt'</span>).read.scan(<span class="ot">/\w+/</span>).sort
 puts names.map { |name| 
-	word_score = name.each_byte.map { |c| c - <span class="dv">64</span> }.reduce(:+)
-	(names.index(name) + <span class="dv">1</span>) * word_score
+  word_score = name.each_byte.map { |c| c - <span class="dv">64</span> }.reduce(:+)
+  (names.index(name) + <span class="dv">1</span>) * word_score
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby names.rb
-real   0m0.282s
-user   0m0.280s
+real   0m0.286s
+user   0m0.283s
 sys    0m0.000s</code></pre>
 </article>
 

@@ -78,14 +78,14 @@ sys    0m0.030s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 primes = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">17</span>]
 puts (<span class="st">'0'</span>..<span class="st">'9'</span>).to_a.permutation.select { |digits| 
-	(<span class="dv">1</span>..<span class="dv">7</span>).all? { |i|
-		digits[i..i<span class="dv">+2</span>].join(<span class="st">''</span>).to_i % primes[i] == <span class="dv">0</span>
-	}
+  (<span class="dv">1</span>..<span class="dv">7</span>).all? { |i|
+    digits[i..i<span class="dv">+2</span>].join(<span class="st">''</span>).to_i % primes[i] == <span class="dv">0</span>
+  }
 }.map { |digits| digits.join(<span class="st">''</span>).to_i }.reduce(:+)</code></pre>
 <pre><code>$ time ruby pandigital-substrings.rb
-real   0m9.176s
-user   0m9.167s
-sys    0m0.010s</code></pre>
+real   0m9.712s
+user   0m9.707s
+sys    0m0.007s</code></pre>
 </article>
 
 

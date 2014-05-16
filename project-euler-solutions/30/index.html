@@ -77,11 +77,11 @@ sys    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
-	i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
+  i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby sum-of-fifths.rb
-real   0m1.651s
-user   0m1.650s
+real   0m1.628s
+user   0m1.627s
 sys    0m0.000s</code></pre>
 </article>
 

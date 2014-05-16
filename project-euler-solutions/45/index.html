@@ -77,12 +77,12 @@ require <span class="st">'set'</span>
 p = (<span class="dv">1</span>..<span class="dv">100000</span>).map { |n| n*(<span class="dv">3</span>*n<span class="dv">-1</span>)/<span class="dv">2</span> }.to_set
 h = (<span class="dv">1</span>..<span class="dv">100000</span>).map { |n| n*(<span class="dv">2</span>*n<span class="dv">-1</span>) }.to_set
 puts (<span class="dv">286</span>..<span class="dv">100000</span>).map { |n| n*(n<span class="dv">+1</span>)/<span class="dv">2</span> }.detect { |t|
-	p.include?(t) <span class="kw">and</span> h.include?(t)
+  p.include?(t) <span class="kw">and</span> h.include?(t)
 }</code></pre>
 <pre><code>$ time ruby tri-pen-hex.rb
-real   0m0.205s
+real   0m0.202s
 user   0m0.193s
-sys    0m0.010s</code></pre>
+sys    0m0.007s</code></pre>
 </article>
 
 

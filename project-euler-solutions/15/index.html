@@ -89,9 +89,9 @@ sys    0m0.003s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
-	<span class="kw">def</span> choose(k) 
-		(<span class="dv">self</span>-k<span class="dv">+1</span> .. <span class="dv">self</span>).inject(<span class="dv">1</span>, &amp;:*) / (<span class="dv">2</span> .. k).inject(<span class="dv">1</span>, &amp;:*) 
-	<span class="kw">end</span>
+  <span class="kw">def</span> choose(k) 
+    (<span class="dv">self</span>-k<span class="dv">+1</span> .. <span class="dv">self</span>).inject(<span class="dv">1</span>, &amp;:*) / (<span class="dv">2</span> .. k).inject(<span class="dv">1</span>, &amp;:*) 
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 puts <span class="dv">40</span>.choose(<span class="dv">20</span>)</code></pre>

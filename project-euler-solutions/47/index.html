@@ -98,11 +98,11 @@ sys    0m0.043s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).each_cons(<span class="dv">4</span>).detect { |nums| 
-	nums.all? { |n| n.prime_division.length == <span class="dv">4</span> } 
+  nums.all? { |n| n.prime_division.length == <span class="dv">4</span> } 
 }[<span class="dv">0</span>]</code></pre>
 <pre><code>$ time ruby consecutive-factors.rb
-real   0m3.261s
-user   0m3.257s
+real   0m3.344s
+user   0m3.340s
 sys    0m0.003s</code></pre>
 </article>
 

@@ -119,13 +119,13 @@ sys    0m0.023s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">9</span>).flat_map { |n|
-	(<span class="st">'1'</span>..n.to_s).to_a.permutation.map { |p|
-		p.join(<span class="st">''</span>).to_i
-	}.select { |i| i.prime? }
+  (<span class="st">'1'</span>..n.to_s).to_a.permutation.map { |p|
+    p.join(<span class="st">''</span>).to_i
+  }.select { |i| i.prime? }
 }.max</code></pre>
 <pre><code>$ time ruby pandigital-prime.rb
-real   0m2.051s
-user   0m2.040s
+real   0m1.957s
+user   0m1.947s
 sys    0m0.010s</code></pre>
 </article>
 

@@ -73,13 +73,13 @@ i = <span class="dv">1</span>
 sum = i
 step = <span class="dv">2</span>
 <span class="kw">until</span> i &gt;= <span class="dv">1001</span>**<span class="dv">2</span>
-	<span class="dv">4</span>.times { sum += i += step }
-	step += <span class="dv">2</span>
+  <span class="dv">4</span>.times { sum += i += step }
+  step += <span class="dv">2</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby spiral.rb
-real   0m0.036s
-user   0m0.033s
+real   0m0.050s
+user   0m0.050s
 sys    0m0.000s</code></pre>
 </article>
 

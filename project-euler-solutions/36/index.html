@@ -75,15 +75,15 @@ sys    0m0.137s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">class</span> <span class="dt">String</span>
-	<span class="kw">def</span> palindrome?
-		<span class="dv">self</span> == <span class="dv">self</span>.reverse
-	<span class="kw">end</span>
+  <span class="kw">def</span> palindrome?
+    <span class="dv">self</span> == <span class="dv">self</span>.reverse
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i| i.to_s.palindrome? &amp;&amp; i.to_s(<span class="dv">2</span>).palindrome? }.reduce(:+)</code></pre>
 <pre><code>$ time ruby binary-palindrome.rb
-real   0m0.424s
-user   0m0.423s
+real   0m0.417s
+user   0m0.413s
 sys    0m0.000s</code></pre>
 </article>
 

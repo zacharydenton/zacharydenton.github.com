@@ -181,37 +181,37 @@ sys    0m0.517s</code></pre>
 require <span class="st">'mathn'</span> 
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
-	<span class="kw">def</span> divisors
-		<span class="kw">return</span> [<span class="dv">1</span>] <span class="kw">if</span> <span class="dv">self</span> == <span class="dv">1</span>
-		primes, powers = <span class="dv">self</span>.prime_division.transpose 
-		exponents = powers.map{|i| (<span class="dv">0</span>..i).to_a} 
-		divisors = exponents.shift.product(*exponents).map <span class="kw">do</span> |powers| 
-			primes.zip(powers).map{|prime, power| prime ** power}.inject(:*) 
-		<span class="kw">end</span> 
-		divisors.take divisors.length - <span class="dv">1</span>
-	<span class="kw">end</span>
+  <span class="kw">def</span> divisors
+    <span class="kw">return</span> [<span class="dv">1</span>] <span class="kw">if</span> <span class="dv">self</span> == <span class="dv">1</span>
+    primes, powers = <span class="dv">self</span>.prime_division.transpose 
+    exponents = powers.map{|i| (<span class="dv">0</span>..i).to_a} 
+    divisors = exponents.shift.product(*exponents).map <span class="kw">do</span> |powers| 
+      primes.zip(powers).map{|prime, power| prime ** power}.inject(:*) 
+    <span class="kw">end</span> 
+    divisors.take divisors.length - <span class="dv">1</span>
+  <span class="kw">end</span>
 
-	<span class="kw">def</span> abundant?
-		<span class="dv">self</span>.divisors.reduce(:+) &gt; <span class="dv">self</span>
-	<span class="kw">end</span>
+  <span class="kw">def</span> abundant?
+    <span class="dv">self</span>.divisors.reduce(:+) &gt; <span class="dv">self</span>
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 abundants = (<span class="dv">1</span>..<span class="dv">28213</span>).select { |n| n.abundant? }
 i = <span class="dv">0</span>
 sums = []
 abundants.each <span class="kw">do</span> |x|
-	abundants[i..abundants.length].each <span class="kw">do</span> |y|
-		sum = x + y
-		sums &lt;&lt; sum <span class="kw">unless</span> sum &gt; <span class="dv">28213</span>
-	<span class="kw">end</span>
-	i += <span class="dv">1</span>
+  abundants[i..abundants.length].each <span class="kw">do</span> |y|
+    sum = x + y
+    sums &lt;&lt; sum <span class="kw">unless</span> sum &gt; <span class="dv">28213</span>
+  <span class="kw">end</span>
+  i += <span class="dv">1</span>
 <span class="kw">end</span>
 sums.uniq!
 puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre>
 <pre><code>$ time ruby abundant.rb
-real   0m17.315s
-user   0m17.287s
-sys    0m0.037s</code></pre>
+real   0m16.427s
+user   0m16.410s
+sys    0m0.023s</code></pre>
 </article>
 
 

@@ -170,15 +170,15 @@ triangle_str = &lt;&lt;<span class="kw">EOS</span>
 triangle = triangle_str.each_line.map { |line| line.split.map(&amp;<span class="st">:to_i</span>) }
 
 (triangle.length - <span class="dv">2</span>).downto(<span class="dv">0</span>) <span class="kw">do</span> |y|
-	triangle[y].length.times <span class="kw">do</span> |x| 
-		triangle[y][x] += [triangle[y<span class="dv">+1</span>][x], triangle[y<span class="dv">+1</span>][x<span class="dv">+1</span>]].max
-	<span class="kw">end</span>
+  triangle[y].length.times <span class="kw">do</span> |x| 
+    triangle[y][x] += [triangle[y<span class="dv">+1</span>][x], triangle[y<span class="dv">+1</span>][x<span class="dv">+1</span>]].max
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 puts triangle[<span class="dv">0</span>][<span class="dv">0</span>]</code></pre>
 <pre><code>$ time ruby max-route.rb
-real   0m0.048s
-user   0m0.047s
+real   0m0.051s
+user   0m0.050s
 sys    0m0.000s</code></pre>
 </article>
 

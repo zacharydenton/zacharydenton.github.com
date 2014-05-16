@@ -74,15 +74,15 @@ sys    0m0.027s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="st">'10'</span>..<span class="st">'99'</span>).to_a.product((<span class="st">'10'</span>..<span class="st">'99'</span>).to_a).select { |num, den|
-	(num[<span class="dv">0</span>].to_f / den[<span class="dv">1</span>].to_f) == (num.to_f / den.to_f) &amp;&amp; num[<span class="dv">1</span>] == den[<span class="dv">0</span>] &amp;&amp; num[<span class="dv">1</span>] != den[<span class="dv">1</span>]
+  (num[<span class="dv">0</span>].to_f / den[<span class="dv">1</span>].to_f) == (num.to_f / den.to_f) &amp;&amp; num[<span class="dv">1</span>] == den[<span class="dv">0</span>] &amp;&amp; num[<span class="dv">1</span>] != den[<span class="dv">1</span>]
 }.uniq.map { |num, den| [num.to_i, den.to_i] }.reduce([<span class="dv">1</span>, <span class="dv">1</span>]) { |p, v|
-	f = [p[<span class="dv">0</span>] * v[<span class="dv">0</span>], p[<span class="dv">1</span>] * v[<span class="dv">1</span>]]
-	[f[<span class="dv">0</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>]), f[<span class="dv">1</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>])]
+  f = [p[<span class="dv">0</span>] * v[<span class="dv">0</span>], p[<span class="dv">1</span>] * v[<span class="dv">1</span>]]
+  [f[<span class="dv">0</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>]), f[<span class="dv">1</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>])]
 }[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby curious-fractions.rb
-real   0m0.059s
+real   0m0.066s
 user   0m0.050s
-sys    0m0.007s</code></pre>
+sys    0m0.013s</code></pre>
 </article>
 
 

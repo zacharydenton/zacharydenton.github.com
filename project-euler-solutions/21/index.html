@@ -96,26 +96,26 @@ sys    0m0.003s</code></pre>
 require <span class="st">'mathn'</span> 
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
-	<span class="kw">def</span> divisors
-		<span class="kw">return</span> [<span class="dv">1</span>] <span class="kw">if</span> <span class="dv">self</span> == <span class="dv">1</span>
-		primes, powers = <span class="dv">self</span>.prime_division.transpose 
-		exponents = powers.map{|i| (<span class="dv">0</span>..i).to_a} 
-		divisors = exponents.shift.product(*exponents).map <span class="kw">do</span> |powers| 
-			primes.zip(powers).map{|prime, power| prime ** power}.inject(:*) 
-		<span class="kw">end</span> 
-		divisors.sort.take divisors.length - <span class="dv">1</span>
-	<span class="kw">end</span>
-	
-	<span class="kw">def</span> amicable?(n=<span class="dv">self</span>.divisors.reduce(:+))
-		n != <span class="dv">self</span> &amp;&amp; n.divisors.reduce(:+) == <span class="dv">self</span>
-	<span class="kw">end</span>
+  <span class="kw">def</span> divisors
+    <span class="kw">return</span> [<span class="dv">1</span>] <span class="kw">if</span> <span class="dv">self</span> == <span class="dv">1</span>
+    primes, powers = <span class="dv">self</span>.prime_division.transpose 
+    exponents = powers.map{|i| (<span class="dv">0</span>..i).to_a} 
+    divisors = exponents.shift.product(*exponents).map <span class="kw">do</span> |powers| 
+      primes.zip(powers).map{|prime, power| prime ** power}.inject(:*) 
+    <span class="kw">end</span> 
+    divisors.sort.take divisors.length - <span class="dv">1</span>
+  <span class="kw">end</span>
+
+  <span class="kw">def</span> amicable?(n=<span class="dv">self</span>.divisors.reduce(:+))
+    n != <span class="dv">self</span> &amp;&amp; n.divisors.reduce(:+) == <span class="dv">self</span>
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 puts (<span class="dv">1</span>..<span class="dv">10000</span>).find_all { |n| n.amicable? }.reduce(:+)</code></pre>
 <pre><code>$ time ruby amicable.rb
-real   0m0.595s
-user   0m0.590s
-sys    0m0.003s</code></pre>
+real   0m0.596s
+user   0m0.587s
+sys    0m0.007s</code></pre>
 </article>
 
 

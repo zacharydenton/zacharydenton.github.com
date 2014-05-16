@@ -131,27 +131,27 @@ sys    0m0.073s</code></pre>
 max_l = <span class="dv">0</span>
 max_i = <span class="dv">0</span>
 <span class="dv">500001</span>.step(<span class="dv">1000000</span>, <span class="dv">2</span>).each <span class="kw">do</span> |i|
-	l = <span class="dv">0</span>
-	j = i
-	while j != <span class="dv">1</span> <span class="kw">do</span>
-		<span class="kw">if</span> j.even?
-			j /= <span class="dv">2</span>
-		<span class="kw">else</span>
-			j = <span class="dv">3</span> * j + <span class="dv">1</span>
-		<span class="kw">end</span>
-		l += <span class="dv">1</span>
-	<span class="kw">end</span>
-	<span class="kw">if</span> l &gt; max_l
-		max_l = l
-		max_i = i
-	<span class="kw">end</span>
+  l = <span class="dv">0</span>
+  j = i
+  while j != <span class="dv">1</span> <span class="kw">do</span>
+    <span class="kw">if</span> j.even?
+      j /= <span class="dv">2</span>
+    <span class="kw">else</span>
+      j = <span class="dv">3</span> * j + <span class="dv">1</span>
+    <span class="kw">end</span>
+    l += <span class="dv">1</span>
+  <span class="kw">end</span>
+  <span class="kw">if</span> l &gt; max_l
+    max_l = l
+    max_i = i
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 puts max_i</code></pre>
 <pre><code>$ time ruby longest-chain.rb
-real   0m2.534s
-user   0m2.523s
-sys    0m0.010s</code></pre>
+real   0m2.494s
+user   0m2.490s
+sys    0m0.003s</code></pre>
 </article>
 
 

@@ -55,18 +55,18 @@ sys    0m0.050s</code></pre>
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-	sum := 0
-	<span class="kw">for</span> i := 0; i &lt; 1000; i++ {
-		<span class="kw">if</span> i % 3 == 0 || i % 5 == 0 {
-			sum += i
-		}
-	}
-	fmt.Println(sum)
+    sum := 0
+    <span class="kw">for</span> i := 0; i &lt; 1000; i++ {
+        <span class="kw">if</span> i % 3 == 0 || i % 5 == 0 {
+            sum += i
+        }
+    }
+    fmt.Println(sum)
 }</code></pre>
 <pre><code>$ time go run natural.go
-real   0m0.241s
-user   0m0.210s
-sys    0m0.030s</code></pre>
+real   0m0.240s
+user   0m0.203s
+sys    0m0.033s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
@@ -85,26 +85,26 @@ sys    0m0.033s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
 <span class="dv">1000</span>.times <span class="kw">do</span> |i|
-	<span class="kw">if</span> i % <span class="dv">3</span> == <span class="dv">0</span> <span class="kw">or</span> i % <span class="dv">5</span> == <span class="dv">0</span>
-		sum += i
-	<span class="kw">end</span>
+  <span class="kw">if</span> i % <span class="dv">3</span> == <span class="dv">0</span> <span class="kw">or</span> i % <span class="dv">5</span> == <span class="dv">0</span>
+    sum += i
+  <span class="kw">end</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby natural.rb
-real   0m0.049s
-user   0m0.043s
+real   0m0.038s
+user   0m0.033s
 sys    0m0.003s</code></pre>
 <h3 id="scheme">Scheme</h3>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
-		  (filter
-			(<span class="kw">lambda</span> (n)
-			  (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
-			(iota <span class="dv">1000</span>))))
+          (filter
+            (<span class="kw">lambda</span> (n)
+              (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
+            (iota <span class="dv">1000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre><code>$ time mit-scheme-native --quiet &lt; natural.scm
-real   0m0.075s
-user   0m0.043s
+real   0m0.051s
+user   0m0.037s
 sys    0m0.013s</code></pre>
 </article>
 

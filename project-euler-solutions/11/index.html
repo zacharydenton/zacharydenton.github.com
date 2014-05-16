@@ -191,39 +191,39 @@ grid_string = &lt;&lt;<span class="kw">EOS</span>
 
 grid = []
 grid_string.each_line <span class="kw">do</span> |line|
-	grid.push line.split
+  grid.push line.split
 <span class="kw">end</span>
 
 directions = []
 (-<span class="dv">1</span>..<span class="dv">1</span>).each <span class="kw">do</span> |x|
-	(-<span class="dv">1</span>..<span class="dv">1</span>).each <span class="kw">do</span> |y|
-		directions.push([x, y]) <span class="kw">unless</span> x == <span class="dv">0</span> &amp;&amp; y == <span class="dv">0</span>
-	<span class="kw">end</span>
+  (-<span class="dv">1</span>..<span class="dv">1</span>).each <span class="kw">do</span> |y|
+    directions.push([x, y]) <span class="kw">unless</span> x == <span class="dv">0</span> &amp;&amp; y == <span class="dv">0</span>
+  <span class="kw">end</span>
 <span class="kw">end</span>
 
 max = <span class="dv">0</span>
 grid.each_with_index <span class="kw">do</span> |row, y|
-	row.each_with_index	<span class="kw">do</span> |cell, x|
-		directions.each <span class="kw">do</span> |x_dir, y_dir|
-			product = <span class="dv">1</span>
-			<span class="dv">4</span>.times <span class="kw">do</span> |i|
-				x_pos = x + i * x_dir
-				y_pos = y + i * y_dir
-				<span class="kw">unless</span> (x_pos &lt; <span class="dv">0</span> || x_pos &gt;= row.length) || (y_pos &lt; <span class="dv">0</span> || y_pos &gt;= grid.length)
-					product *= grid[y_pos][x_pos].to_i
-				<span class="kw">end</span>
-			<span class="kw">end</span>
-			<span class="kw">if</span> product &gt; max
-				max = product
-			<span class="kw">end</span>
-		<span class="kw">end</span>
-	<span class="kw">end</span>
+  row.each_with_index	<span class="kw">do</span> |cell, x|
+    directions.each <span class="kw">do</span> |x_dir, y_dir|
+      product = <span class="dv">1</span>
+      <span class="dv">4</span>.times <span class="kw">do</span> |i|
+        x_pos = x + i * x_dir
+        y_pos = y + i * y_dir
+        <span class="kw">unless</span> (x_pos &lt; <span class="dv">0</span> || x_pos &gt;= row.length) || (y_pos &lt; <span class="dv">0</span> || y_pos &gt;= grid.length)
+          product *= grid[y_pos][x_pos].to_i
+        <span class="kw">end</span>
+      <span class="kw">end</span>
+      <span class="kw">if</span> product &gt; max
+        max = product
+      <span class="kw">end</span>
+    <span class="kw">end</span>
+  <span class="kw">end</span>
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby grid-product.rb
-real   0m0.057s
-user   0m0.057s
-sys    0m0.000s</code></pre>
+real   0m0.054s
+user   0m0.050s
+sys    0m0.007s</code></pre>
 </article>
 
 

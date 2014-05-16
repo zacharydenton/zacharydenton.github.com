@@ -82,14 +82,14 @@ sys    0m0.000s</code></pre>
 i = <span class="dv">1</span>
 t1, t2 = <span class="dv">0</span>, <span class="dv">1</span>
 <span class="kw">while</span> t2.to_s.length &lt; <span class="dv">1000</span>
-    t1, t2 = t2, t1 + t2
-    i += <span class="dv">1</span>
+  t1, t2 = t2, t1 + t2
+  i += <span class="dv">1</span>
 <span class="kw">end</span>
 puts i</code></pre>
 <pre><code>$ time ruby fibonacci.rb
-real   0m0.085s
-user   0m0.080s
-sys    0m0.003s</code></pre>
+real   0m0.089s
+user   0m0.077s
+sys    0m0.013s</code></pre>
 </article>
 
 

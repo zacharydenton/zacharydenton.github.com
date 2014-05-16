@@ -64,12 +64,12 @@ sys    0m0.500s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 s = (<span class="st">'1'</span>..<span class="st">'1000000'</span>).to_a.join <span class="st">''</span>
 puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
-	s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
+  s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
 }.reduce(<span class="dv">1</span>, :*)</code></pre>
 <pre><code>$ time ruby irrational-part.rb
-real   0m0.608s
-user   0m0.547s
-sys    0m0.060s</code></pre>
+real   0m0.617s
+user   0m0.533s
+sys    0m0.083s</code></pre>
 </article>
 
 

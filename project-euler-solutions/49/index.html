@@ -156,19 +156,19 @@ sys    0m0.023s</code></pre>
 require <span class="st">'mathn'</span>
 primes = (<span class="dv">1488</span>..<span class="dv">9999</span>).select { |n| n.prime? }
 primes.each <span class="kw">do</span> |a|
-	primes.select { |b| b &gt; a }.each <span class="kw">do</span> |b|
-		primes.select { |c| c &gt; b }.each <span class="kw">do</span> |c|
-			<span class="kw">if</span>	c-b == b-a &amp;&amp; 
-				a.to_s.split(<span class="st">''</span>).sort == b.to_s.split(<span class="st">''</span>).sort &amp;&amp;
-				b.to_s.split(<span class="st">''</span>).sort == c.to_s.split(<span class="st">''</span>).sort &amp;&amp;
-				c.to_s.split(<span class="st">''</span>).sort == a.to_s.split(<span class="st">''</span>).sort
-				puts a.to_s + b.to_s + c.to_s; exit
-			<span class="kw">end</span>
-		<span class="kw">end</span>
-	<span class="kw">end</span>
+  primes.select { |b| b &gt; a }.each <span class="kw">do</span> |b|
+    primes.select { |c| c &gt; b }.each <span class="kw">do</span> |c|
+      <span class="kw">if</span>	c-b == b-a &amp;&amp; 
+        a.to_s.split(<span class="st">''</span>).sort == b.to_s.split(<span class="st">''</span>).sort &amp;&amp;
+        b.to_s.split(<span class="st">''</span>).sort == c.to_s.split(<span class="st">''</span>).sort &amp;&amp;
+        c.to_s.split(<span class="st">''</span>).sort == a.to_s.split(<span class="st">''</span>).sort
+        puts a.to_s + b.to_s + c.to_s; exit
+      <span class="kw">end</span>
+    <span class="kw">end</span>
+  <span class="kw">end</span>
 <span class="kw">end</span></code></pre>
 <pre><code>$ time ruby prime-sequence.rb
-real   0m13.773s
+real   0m13.774s
 user   0m13.760s
 sys    0m0.013s</code></pre>
 </article>

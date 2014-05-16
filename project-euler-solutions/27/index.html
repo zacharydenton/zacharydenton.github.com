@@ -125,12 +125,12 @@ sys    0m0.037s</code></pre>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (-<span class="dv">999</span>..<span class="dv">999</span>).to_a.product((-<span class="dv">999</span>..<span class="dv">999</span>).to_a).map { |a, b|
-	[(<span class="dv">0</span>..<span class="dv">100</span>).take_while { |n| (n**<span class="dv">2</span> + a*n + b).prime? }.count, a * b]
+  [(<span class="dv">0</span>..<span class="dv">100</span>).take_while { |n| (n**<span class="dv">2</span> + a*n + b).prime? }.count, a * b]
 }.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby quadratic-primes.rb
-real   0m27.272s
-user   0m27.080s
-sys    0m0.203s</code></pre>
+real   0m26.002s
+user   0m25.837s
+sys    0m0.177s</code></pre>
 </article>
 
 

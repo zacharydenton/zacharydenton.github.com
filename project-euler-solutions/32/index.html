@@ -77,16 +77,16 @@ sys    0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
-	(<span class="dv">1</span>..<span class="dv">99</span>).map <span class="kw">do</span> |b|  
-		[a.to_s + b.to_s + (a*b).to_s, a*b]
-	<span class="kw">end</span>
+  (<span class="dv">1</span>..<span class="dv">99</span>).map <span class="kw">do</span> |b|  
+    [a.to_s + b.to_s + (a*b).to_s, a*b]
+  <span class="kw">end</span>
 }.select { |p| 
-	p[<span class="dv">0</span>].length == <span class="dv">9</span> &amp;&amp; p[<span class="dv">0</span>].each_char.sort.join == <span class="st">&quot;123456789&quot;</span>
+  p[<span class="dv">0</span>].length == <span class="dv">9</span> &amp;&amp; p[<span class="dv">0</span>].each_char.sort.join == <span class="st">&quot;123456789&quot;</span>
 }.map { |p| p[<span class="dv">1</span>] }.uniq.reduce(:+)</code></pre>
 <pre><code>$ time ruby pandigital.rb
-real   0m0.733s
-user   0m0.693s
-sys    0m0.040s</code></pre>
+real   0m0.742s
+user   0m0.710s
+sys    0m0.030s</code></pre>
 </article>
 
 

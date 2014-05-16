@@ -86,11 +86,11 @@ sys    0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">1000</span>).map { |d| 
-	(<span class="dv">1</span>..d).detect(lambda{<span class="dv">0</span>}) { |t| (<span class="dv">10</span>**t % d) == <span class="dv">1</span> } 
+  (<span class="dv">1</span>..d).detect(lambda{<span class="dv">0</span>}) { |t| (<span class="dv">10</span>**t % d) == <span class="dv">1</span> } 
 }.each_with_index.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby decimal-cycle.rb
-real   0m1.056s
-user   0m1.050s
+real   0m1.021s
+user   0m1.017s
 sys    0m0.003s</code></pre>
 </article>
 
