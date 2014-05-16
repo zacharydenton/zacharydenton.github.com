@@ -98,9 +98,9 @@
 	}
 }</code></pre>
 <pre><code>$ time go run prime-factor.go
-real	0m2.338s
-user	0m0.444s
-sys	0m0.085s</code></pre>
+real	0m0.293s
+user	0m0.273s
+sys	0m0.017s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -116,10 +116,10 @@ factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">whe
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
-<pre><code>$ time runhaskell prime-factor.hs
-real	0m0.515s
-user	0m0.313s
-sys	0m0.040s</code></pre>
+<pre><code>$ time ./prime-factor
+real	0m0.005s
+user	0m0.003s
+sys	0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -146,9 +146,9 @@ sys	0m0.040s</code></pre>
 
 <span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
 <pre><code>$ time pypy prime-factor.py
-real	0m0.051s
-user	0m0.033s
-sys	0m0.019s</code></pre>
+real	0m0.198s
+user	0m0.167s
+sys	0m0.030s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -177,9 +177,9 @@ sys	0m0.019s</code></pre>
 
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
 <pre><code>$ time ruby prime-factor.rb
-real	0m0.022s
-user	0m0.018s
-sys	0m0.004s</code></pre>
+real	0m0.049s
+user	0m0.043s
+sys	0m0.003s</code></pre>
 </article>
 
 

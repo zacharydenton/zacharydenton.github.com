@@ -60,11 +60,9 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> can-be-written-as-sum-of-fifths? (<span class="kw">range</span> <span class="dv">500000</span>))))</code></pre>
 <pre><code>$ time clojure fifth-powers.clj
-Warning: ** not declared dynamic and thus is not dynamically rebindable, but its name suggests otherwise. Please either indicate ^:dynamic ** or change the name. (/home/zach/code/euler/030/fifth-powers.clj:2)
-
-real	0m5.975s
-user	0m6.092s
-sys	0m0.222s</code></pre>
+real	0m2.950s
+user	0m4.057s
+sys	0m0.147s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits n <span class="fu">=</span> digits' n []
@@ -72,19 +70,19 @@ digits n <span class="fu">=</span> digits' n []
           digits' n acc <span class="fu">=</span> digits' (div n <span class="dv">10</span>) (mod n <span class="dv">10</span> <span class="fu">:</span> acc)
 
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span><span class="dv">500000</span>], sum (map (<span class="fu">^</span><span class="dv">5</span>) (digits n)) <span class="fu">==</span> n]</code></pre>
-<pre><code>$ time runhaskell sumFifths.hs
-real	0m13.333s
-user	0m13.164s
-sys	0m0.117s</code></pre>
+<pre><code>$ time ./sumFifths
+real	0m0.343s
+user	0m0.340s
+sys	0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
 	i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby sum-of-fifths.rb
-real	0m2.798s
-user	0m2.785s
-sys	0m0.008s</code></pre>
+real	0m1.651s
+user	0m1.650s
+sys	0m0.000s</code></pre>
 </article>
 
 

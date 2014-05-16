@@ -63,10 +63,10 @@ bouncy <span class="fu">=</span> b' <span class="dv">1</span> <span class="dv">0
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maybe <span class="dv">0</span> fst <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre>
-<pre><code>$ time runhaskell bouncy.hs
-real	0m16.444s
-user	0m15.421s
-sys	0m0.252s</code></pre>
+<pre><code>$ time ./bouncy
+real	0m1.294s
+user	0m1.287s
+sys	0m0.007s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -102,9 +102,9 @@ sys	0m0.252s</code></pre>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
 <pre><code>$ time pypy bouncy.py
-real	0m16.423s
-user	0m16.070s
-sys	0m0.068s</code></pre>
+real	0m2.831s
+user	0m2.810s
+sys	0m0.020s</code></pre>
 </article>
 
 

@@ -75,9 +75,9 @@ Find the pair of pentagonal numbers, <span class="math"><em>P</em><sub><em>j</em
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy pentagonal-nums.py
-real	0m0.678s
-user	0m0.563s
-sys	0m0.019s</code></pre>
+real	0m0.388s
+user	0m0.357s
+sys	0m0.030s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -86,9 +86,9 @@ puts pentagonals.to_a.combination(<span class="dv">2</span>).select { |a,b|
 	pentagonals.include?(a+b) &amp;&amp; pentagonals.include?((a-b).abs)
 }.map { |a,b| (a-b).abs }.min</code></pre>
 <pre><code>$ time ruby pentagonal-nums.rb
-real	0m2.039s
-user	0m2.030s
-sys	0m0.004s</code></pre>
+real	0m0.983s
+user	0m0.973s
+sys	0m0.007s</code></pre>
 </article>
 
 

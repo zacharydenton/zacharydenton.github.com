@@ -133,25 +133,25 @@ first_of_months = {}
 
 <span class="dt">print</span> <span class="dt">len</span>([weekday <span class="kw">for</span> weekday in first_of_months.values() <span class="kw">if</span> weekday == <span class="st">'sun'</span>])</code></pre>
 <pre><code>$ time pypy first-sunday.py
-real	0m1.461s
-user	0m0.132s
-sys	0m0.021s</code></pre>
+real	0m0.260s
+user	0m0.223s
+sys	0m0.033s</code></pre>
 <h3 id="python-1">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> calendar <span class="ch">import</span> monthrange; <span class="ch">from</span> itertools <span class="ch">import</span> product
 <span class="dt">print</span> <span class="dt">len</span>([(year, month) <span class="kw">for</span> year, month in product(<span class="dt">range</span>(<span class="dv">1901</span>, <span class="dv">2001</span>), <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)) <span class="kw">if</span> monthrange(year, month)[<span class="dv">0</span>] == <span class="dv">6</span>])</code></pre>
 <pre><code>$ time pypy calendar-module-first-sunday.py
-real	0m0.809s
-user	0m0.168s
-sys	0m0.029s</code></pre>
+real	0m0.314s
+user	0m0.283s
+sys	0m0.030s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'date'</span>
 puts <span class="dt">Date</span>.new(<span class="dv">1901</span>,<span class="dv">1</span>,<span class="dv">1</span>).upto(<span class="dt">Date</span>.new(<span class="dv">2000</span>,<span class="dv">12</span>,<span class="dv">31</span>)).find_all { |d| d.mday == <span class="dv">1</span> &amp;&amp; d.wday == <span class="dv">0</span> }.count</code></pre>
 <pre><code>$ time ruby first-sunday.rb
-real	0m0.086s
-user	0m0.047s
-sys	0m0.004s</code></pre>
+real	0m0.070s
+user	0m0.057s
+sys	0m0.010s</code></pre>
 </article>
 
 

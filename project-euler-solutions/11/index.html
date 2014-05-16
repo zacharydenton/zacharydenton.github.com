@@ -111,10 +111,10 @@ main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/011/grid.txt&quot;</span>
         <span class="kw">let</span> grid <span class="fu">=</span> parse str
         print <span class="fu">$</span> largestProduct <span class="fu">$</span> concatMap (<span class="fu">$</span>grid) [horizontal, vertical, southEast, southWest]</code></pre>
-<pre><code>$ time runhaskell grid-product.hs
-real	0m0.493s
-user	0m0.323s
-sys	0m0.050s</code></pre>
+<pre><code>$ time ./grid-product
+real	0m0.007s
+user	0m0.003s
+sys	0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 grid = []
@@ -161,9 +161,9 @@ greatest_product = <span class="dv">0</span>
 
 <span class="dt">print</span> greatest_product</code></pre>
 <pre><code>$ time pypy grid-product.py
-real	0m1.403s
-user	0m0.104s
-sys	0m0.019s</code></pre>
+real	0m0.226s
+user	0m0.203s
+sys	0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 grid_string = &lt;&lt;<span class="kw">EOS</span>
@@ -221,9 +221,9 @@ grid.each_with_index <span class="kw">do</span> |row, y|
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby grid-product.rb
-real	0m0.026s
-user	0m0.017s
-sys	0m0.008s</code></pre>
+real	0m0.057s
+user	0m0.057s
+sys	0m0.000s</code></pre>
 </article>
 
 

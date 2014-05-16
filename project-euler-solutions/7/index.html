@@ -56,9 +56,9 @@
 
 (<span class="kw">println</span> (<span class="kw">nth</span> (primes <span class="dv">1000000</span>) <span class="dv">10000</span>))</code></pre>
 <pre><code>$ time clojure find-primes.clj
-real	0m1.783s
-user	0m2.982s
-sys	0m0.146s</code></pre>
+real	0m1.383s
+user	0m2.247s
+sys	0m0.057s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -67,10 +67,10 @@ primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</s
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> primes <span class="fu">!!</span> <span class="dv">10000</span></code></pre>
-<pre><code>$ time runhaskell 10001st-prime.hs
-real	0m1.258s
-user	0m0.903s
-sys	0m0.070s</code></pre>
+<pre><code>$ time ./10001st-prime
+real	0m0.053s
+user	0m0.050s
+sys	0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> eratosthenes():
@@ -94,17 +94,17 @@ sys	0m0.070s</code></pre>
 
 <span class="dt">print</span> nth_prime(<span class="dv">10001</span>)</code></pre>
 <pre><code>$ time pypy find-primes.py
-real	0m0.434s
-user	0m0.177s
-sys	0m0.022s</code></pre>
+real	0m0.295s
+user	0m0.250s
+sys	0m0.043s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts <span class="dt">Prime</span>.take(<span class="dv">10001</span>).last</code></pre>
 <pre><code>$ time ruby find-primes.rb
-real	0m0.246s
-user	0m0.210s
-sys	0m0.011s</code></pre>
+real	0m0.093s
+user	0m0.080s
+sys	0m0.013s</code></pre>
 </article>
 
 

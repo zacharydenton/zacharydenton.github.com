@@ -57,25 +57,25 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
-<pre><code>$ time runhaskell permutations.hs
-real	0m7.943s
-user	0m7.477s
-sys	0m0.483s</code></pre>
+<pre><code>$ time ./permutations
+real	0m5.903s
+user	0m5.373s
+sys	0m0.530s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> islice, permutations
 <span class="dt">print</span> <span class="st">''</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre>
 <pre><code>$ time pypy permutations.py
-real	0m0.407s
-user	0m0.300s
-sys	0m0.017s</code></pre>
+real	0m0.255s
+user	0m0.210s
+sys	0m0.043s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">9</span>).to_a.permutation(<span class="dv">10</span>).to_a[<span class="dv">999999</span>].join</code></pre>
 <pre><code>$ time ruby permutations.rb
-real	0m3.696s
-user	0m3.277s
-sys	0m0.313s</code></pre>
+real	0m1.788s
+user	0m1.603s
+sys	0m0.183s</code></pre>
 </article>
 
 

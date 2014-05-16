@@ -79,9 +79,9 @@
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy composite-prime.py
-real	0m0.240s
-user	0m0.158s
-sys	0m0.026s</code></pre>
+real	0m0.286s
+user	0m0.240s
+sys	0m0.043s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -92,9 +92,9 @@ twicesquares = (<span class="dv">0</span>..<span class="dv">100</span>).map { |n
 sums = primes.to_a.product(twicesquares.to_a).map { |a,b| a+b }.to_set
 puts composites.select { |n| !sums.include?(n) <span class="kw">and</span> n.odd? }.min</code></pre>
 <pre><code>$ time ruby composite-prime.rb
-real	0m0.414s
-user	0m0.338s
-sys	0m0.015s</code></pre>
+real	0m0.241s
+user	0m0.230s
+sys	0m0.010s</code></pre>
 </article>
 
 

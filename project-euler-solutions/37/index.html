@@ -110,9 +110,9 @@
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy truncatable-primes.py
-real	0m5.536s
-user	0m5.425s
-sys	0m0.047s</code></pre>
+real	0m3.243s
+user	0m3.190s
+sys	0m0.053s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -122,9 +122,9 @@ puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
 	}
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby truncatable-primes.rb
-real	0m22.959s
-user	0m22.896s
-sys	0m0.014s</code></pre>
+real	0m10.876s
+user	0m10.870s
+sys	0m0.010s</code></pre>
 </article>
 
 

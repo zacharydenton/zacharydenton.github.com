@@ -71,9 +71,9 @@ d_8d_9d_{10} &amp; =289 \text{ is divisible by 17}
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy pandigital-substrings.py
-real	0m3.473s
-user	0m2.939s
-sys	0m0.022s</code></pre>
+real	0m1.089s
+user	0m1.057s
+sys	0m0.030s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 primes = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">17</span>]
@@ -83,9 +83,9 @@ puts (<span class="st">'0'</span>..<span class="st">'9'</span>).to_a.permutation
 	}
 }.map { |digits| digits.join(<span class="st">''</span>).to_i }.reduce(:+)</code></pre>
 <pre><code>$ time ruby pandigital-substrings.rb
-real	0m16.372s
-user	0m16.235s
-sys	0m0.036s</code></pre>
+real	0m9.176s
+user	0m9.167s
+sys	0m0.010s</code></pre>
 </article>
 
 

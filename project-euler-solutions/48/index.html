@@ -65,18 +65,16 @@ Find the last ten digits of the series, <span class="math">1<sup>1</sup> + 2
 (<span class="kw">def</span><span class="fu"> result </span>(<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">map</span> raise-to-itself (<span class="kw">range</span> <span class="dv">1</span> <span class="dv">1001</span>))))
 (<span class="kw">println</span> (<span class="kw">apply</span> <span class="kw">str</span> (<span class="kw">reverse</span> (<span class="kw">take</span> <span class="dv">10</span> (<span class="kw">reverse</span> (digits result))))))</code></pre>
 <pre><code>$ time clojure raise-to-itself.clj
-Warning: ** not declared dynamic and thus is not dynamically rebindable, but its name suggests otherwise. Please either indicate ^:dynamic ** or change the name. (/home/zach/code/euler/048/raise-to-itself.clj:2)
-
-real	0m1.967s
-user	0m2.870s
-sys	0m0.103s</code></pre>
+real	0m1.177s
+user	0m1.797s
+sys	0m0.060s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">1000</span>).reduce(<span class="dv">0</span>) { |s,n| s + n**n }.to_s[-<span class="dv">10</span>..-<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby power-series.rb
-real	0m0.045s
-user	0m0.039s
-sys	0m0.005s</code></pre>
+real	0m0.063s
+user	0m0.060s
+sys	0m0.003s</code></pre>
 </article>
 
 

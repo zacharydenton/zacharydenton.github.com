@@ -68,9 +68,9 @@
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy curious-fractions.py
-real	0m1.110s
-user	0m0.281s
-sys	0m0.030s</code></pre>
+real	0m0.474s
+user	0m0.447s
+sys	0m0.027s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="st">'10'</span>..<span class="st">'99'</span>).to_a.product((<span class="st">'10'</span>..<span class="st">'99'</span>).to_a).select { |num, den|
@@ -80,9 +80,9 @@ puts (<span class="st">'10'</span>..<span class="st">'99'</span>).to_a.product((
 	[f[<span class="dv">0</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>]), f[<span class="dv">1</span>] / f[<span class="dv">0</span>].gcd(f[<span class="dv">1</span>])]
 }[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby curious-fractions.rb
-real	0m0.039s
-user	0m0.033s
-sys	0m0.006s</code></pre>
+real	0m0.059s
+user	0m0.050s
+sys	0m0.007s</code></pre>
 </article>
 
 

@@ -63,10 +63,10 @@ totalScore names <span class="fu">=</span> sum <span class="fu">$</span> zipWith
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/022/names.txt&quot;</span>
         print <span class="fu">$</span> totalScore <span class="fu">$</span> parse str</code></pre>
-<pre><code>$ time runhaskell names.hs
-real	0m0.367s
-user	0m0.300s
-sys	0m0.063s</code></pre>
+<pre><code>$ time ./names
+real	0m0.027s
+user	0m0.027s
+sys	0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
@@ -87,9 +87,9 @@ sys	0m0.063s</code></pre>
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy names.py
-real	0m0.464s
-user	0m0.083s
-sys	0m0.020s</code></pre>
+real	0m0.222s
+user	0m0.197s
+sys	0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -99,9 +99,9 @@ puts names.map { |name|
 	(names.index(name) + <span class="dv">1</span>) * word_score
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby names.rb
-real	0m1.163s
-user	0m1.131s
-sys	0m0.009s</code></pre>
+real	0m0.282s
+user	0m0.280s
+sys	0m0.000s</code></pre>
 </article>
 
 
