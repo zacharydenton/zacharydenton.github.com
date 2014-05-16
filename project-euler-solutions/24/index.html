@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 24 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 24 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 24 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -47,6 +47,15 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, permutations)
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
+<pre><code>$ time runhaskell permutations.hs
+real	0m7.943s
+user	0m7.477s
+sys	0m0.483s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> islice, permutations
