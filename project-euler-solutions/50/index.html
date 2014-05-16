@@ -103,10 +103,10 @@ Which prime, below one-million, can be written as the sum of the most consecutiv
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time pypy consecutive-prime-sum.py
-real   0m0.616s
-user   0m0.560s
-sys    0m0.053s</code></pre>
+<pre><code>$ time python2 consecutive-prime-sum.py
+real   0m14.387s
+user   0m14.357s
+sys    0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -125,8 +125,8 @@ primes[<span class="dv">0</span>..<span class="dv">10</span>].each_with_index { 
 }
 puts longest.reduce(:+)</code></pre>
 <pre><code>$ time ruby consecutive-prime-sum.rb
-real   0m0.234s
-user   0m0.230s
+real   0m0.255s
+user   0m0.250s
 sys    0m0.003s</code></pre>
 </article>
 

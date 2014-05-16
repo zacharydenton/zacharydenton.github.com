@@ -61,10 +61,10 @@ Find the last ten digits of this prime number.
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
 <span class="dt">print</span> <span class="dt">str</span>(gmpy.mpz(<span class="dv">28433</span>*<span class="dv">2</span>**<span class="dv">7830457+1</span>))[-<span class="dv">10</span>:]</code></pre>
-<pre><code>$ time pypy non-mersenne.py
-real   0m0.508s
-user   0m0.470s
-sys    0m0.017s</code></pre>
+<pre><code>$ time python2 non-mersenne.py
+real   0m0.447s
+user   0m0.433s
+sys    0m0.013s</code></pre>
 </article>
 
 

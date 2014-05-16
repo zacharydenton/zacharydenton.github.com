@@ -98,9 +98,9 @@
     }
 }</code></pre>
 <pre><code>$ time go run prime-factor.go
-real   0m0.366s
-user   0m0.323s
-sys    0m0.040s</code></pre>
+real   0m0.358s
+user   0m0.320s
+sys    0m0.033s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -145,10 +145,10 @@ sys    0m0.000s</code></pre>
     <span class="kw">return</span> res
 
 <span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
-<pre><code>$ time pypy prime-factor.py
-real   0m0.198s
-user   0m0.167s
-sys    0m0.030s</code></pre>
+<pre><code>$ time python2 prime-factor.py
+real   0m0.019s
+user   0m0.010s
+sys    0m0.007s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -178,8 +178,8 @@ sys    0m0.030s</code></pre>
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
 <pre><code>$ time ruby prime-factor.rb
 real   0m0.047s
-user   0m0.043s
-sys    0m0.003s</code></pre>
+user   0m0.040s
+sys    0m0.010s</code></pre>
 </article>
 
 

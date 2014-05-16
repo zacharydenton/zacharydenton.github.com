@@ -74,9 +74,9 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 (<span class="kw">println</span> (<span class="kw">-</span> (square-sum <span class="dv">100</span>) (sum-squares <span class="dv">100</span>)))</code></pre>
 <pre><code>$ time clojure square_sum.clj
-real   0m1.050s
-user   0m1.617s
-sys    0m0.057s</code></pre>
+real   0m0.999s
+user   0m1.557s
+sys    0m0.037s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> (s<span class="fu">*</span>s) <span class="fu">-</span> sqS <span class="kw">where</span>
@@ -85,21 +85,21 @@ main <span class="fu">=</span> print <span class="fu">$</span> (s<span class="fu
 <pre><code>$ time ./squareSum
 real   0m0.002s
 user   0m0.000s
-sys    0m0.000s</code></pre>
+sys    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))**<span class="dv">2</span> - <span class="dt">sum</span>(x**<span class="dv">2</span> <span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>))</code></pre>
-<pre><code>$ time pypy square_sum.py
-real   0m0.174s
-user   0m0.140s
-sys    0m0.033s</code></pre>
+<pre><code>$ time python2 square_sum.py
+real   0m0.012s
+user   0m0.010s
+sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts ((<span class="dv">1</span>..<span class="dv">100</span>).inject(<span class="dv">0</span>) {|s,v| s += v})**<span class="dv">2</span> - ((<span class="dv">1</span>..<span class="dv">100</span>).collect {|x| x**<span class="dv">2</span>}.inject(<span class="dv">0</span>) { |s,v| s += v} )</code></pre>
 <pre><code>$ time ruby square_sum.rb
-real   0m0.047s
+real   0m0.050s
 user   0m0.043s
-sys    0m0.003s</code></pre>
+sys    0m0.007s</code></pre>
 </article>
 
 

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 1 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 1 in Clojure, Go, Haskell, Python, Ruby and Scheme.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 1 in C, Clojure, Go, Haskell, Python, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link href="http://fonts.googleapis.com/css?family=Cabin:400,600|Poly:400,400italic" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../css/main.css">
@@ -40,6 +40,24 @@
 <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
 <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="c">C</h3>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
+
+<span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv)
+{
+	<span class="dt">int</span> sum = <span class="dv">0</span>;
+	<span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++) {
+		<span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span> || i % <span class="dv">5</span> == <span class="dv">0</span>) {
+			sum += i;
+		}
+	}
+	printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
+	<span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre>
+<pre><code>$ time ./natural
+real   0m0.001s
+user   0m0.000s
+sys    0m0.000s</code></pre>
 <h3 id="clojure">Clojure</h3>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> multiple</span>? [n]
@@ -47,9 +65,9 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
 <pre><code>$ time clojure natural.clj
-real   0m1.077s
-user   0m1.617s
-sys    0m0.050s</code></pre>
+real   0m1.048s
+user   0m1.600s
+sys    0m0.037s</code></pre>
 <h3 id="go">Go</h3>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
@@ -64,8 +82,8 @@ sys    0m0.050s</code></pre>
     fmt.Println(sum)
 }</code></pre>
 <pre><code>$ time go run natural.go
-real   0m0.240s
-user   0m0.203s
+real   0m0.250s
+user   0m0.213s
 sys    0m0.033s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
@@ -73,14 +91,14 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span clas
 <pre><code>$ time ./natural
 real   0m0.002s
 user   0m0.000s
-sys    0m0.000s</code></pre>
+sys    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
-<pre><code>$ time pypy natural.py
-real   0m0.196s
-user   0m0.160s
-sys    0m0.033s</code></pre>
+<pre><code>$ time python2 natural.py
+real   0m0.016s
+user   0m0.013s
+sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
@@ -91,9 +109,9 @@ sum = <span class="dv">0</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre><code>$ time ruby natural.rb
-real   0m0.038s
-user   0m0.033s
-sys    0m0.003s</code></pre>
+real   0m0.047s
+user   0m0.040s
+sys    0m0.007s</code></pre>
 <h3 id="scheme">Scheme</h3>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
@@ -103,9 +121,9 @@ sys    0m0.003s</code></pre>
             (iota <span class="dv">1000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre><code>$ time mit-scheme-native --quiet &lt; natural.scm
-real   0m0.051s
-user   0m0.037s
-sys    0m0.013s</code></pre>
+real   0m0.059s
+user   0m0.050s
+sys    0m0.007s</code></pre>
 </article>
 
 

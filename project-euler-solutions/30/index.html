@@ -60,9 +60,9 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> can-be-written-as-sum-of-fifths? (<span class="kw">range</span> <span class="dv">500000</span>))))</code></pre>
 <pre><code>$ time clojure fifth-powers.clj
-real   0m2.950s
-user   0m4.057s
-sys    0m0.147s</code></pre>
+real   0m2.961s
+user   0m4.067s
+sys    0m0.130s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits n <span class="fu">=</span> digits' n []
@@ -71,18 +71,18 @@ digits n <span class="fu">=</span> digits' n []
 
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span><span class="dv">500000</span>], sum (map (<span class="fu">^</span><span class="dv">5</span>) (digits n)) <span class="fu">==</span> n]</code></pre>
 <pre><code>$ time ./sumFifths
-real   0m0.343s
-user   0m0.340s
-sys    0m0.003s</code></pre>
+real   0m0.359s
+user   0m0.357s
+sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
   i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre><code>$ time ruby sum-of-fifths.rb
-real   0m1.628s
-user   0m1.627s
-sys    0m0.000s</code></pre>
+real   0m1.640s
+user   0m1.630s
+sys    0m0.010s</code></pre>
 </article>
 
 

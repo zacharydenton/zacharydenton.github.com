@@ -55,16 +55,16 @@ How many n-digit positive integers exist which are also an nth power?
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> [<span class="dv">1</span> <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], length (show (i<span class="fu">^</span>n)) <span class="fu">==</span> n]</code></pre>
 <pre><code>$ time ./nPower
-real   0m0.046s
-user   0m0.043s
+real   0m0.048s
+user   0m0.050s
 sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dv">1</span> <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100</span>) <span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100</span>) <span class="kw">if</span> <span class="dt">len</span>(<span class="dt">str</span>(i**x)) == x)</code></pre>
-<pre><code>$ time pypy n-power.py
-real   0m0.241s
-user   0m0.213s
-sys    0m0.027s</code></pre>
+<pre><code>$ time python2 n-power.py
+real   0m0.054s
+user   0m0.043s
+sys    0m0.010s</code></pre>
 </article>
 
 

@@ -64,16 +64,16 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">*</span> (<span class="kw">first</span> (candidates <span class="dv">500</span>))))</code></pre>
 <pre><code>$ time clojure pythagorean-triples.clj
-real   0m2.380s
-user   0m3.300s
-sys    0m0.140s</code></pre>
+real   0m2.304s
+user   0m3.243s
+sys    0m0.127s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [a<span class="fu">*</span>b<span class="fu">*</span>c <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">500</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">500</span>], c <span class="ot">&lt;-</span> [b<span class="fu">..</span><span class="dv">500</span>],
                              a<span class="fu">+</span>b<span class="fu">+</span>c <span class="fu">==</span> <span class="dv">1000</span>, a<span class="fu">*</span>a <span class="fu">+</span> b<span class="fu">*</span>b <span class="fu">==</span> c<span class="fu">*</span>c]</code></pre>
 <pre><code>$ time ./pythagorean
-real   0m0.372s
-user   0m0.370s
+real   0m0.365s
+user   0m0.363s
 sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
@@ -87,9 +87,9 @@ sys    0m0.000s</code></pre>
   <span class="kw">end</span>
 <span class="kw">end</span></code></pre>
 <pre><code>$ time ruby pythagorean-triples.rb
-real   0m4.094s
-user   0m4.090s
-sys    0m0.003s</code></pre>
+real   0m3.950s
+user   0m3.943s
+sys    0m0.007s</code></pre>
 </article>
 
 

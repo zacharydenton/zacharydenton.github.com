@@ -96,7 +96,7 @@ sums <span class="fu">=</span> filter (any (abundantsArray <span class="fu">!</s
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre>
 <pre><code>$ time ./abundant
-real   0m0.137s
+real   0m0.135s
 user   0m0.133s
 sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
@@ -172,10 +172,10 @@ sys    0m0.000s</code></pre>
     
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time pypy abundant.py
-real   0m8.858s
-user   0m8.343s
-sys    0m0.517s</code></pre>
+<pre><code>$ time python2 abundant.py
+real   0m17.136s
+user   0m17.133s
+sys    0m0.010s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
@@ -209,9 +209,9 @@ abundants.each <span class="kw">do</span> |x|
 sums.uniq!
 puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre>
 <pre><code>$ time ruby abundant.rb
-real   0m16.427s
-user   0m16.410s
-sys    0m0.023s</code></pre>
+real   0m16.658s
+user   0m16.627s
+sys    0m0.037s</code></pre>
 </article>
 
 

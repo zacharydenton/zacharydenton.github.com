@@ -115,10 +115,10 @@ greatest_product = <span class="dv">0</span>
         greatest_product = product
 
 <span class="dt">print</span> greatest_product</code></pre>
-<pre><code>$ time pypy great_prod.py
-real   0m0.210s
-user   0m0.170s
-sys    0m0.037s</code></pre>
+<pre><code>$ time python2 great_prod.py
+real   0m0.027s
+user   0m0.023s
+sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 numbers = &lt;&lt;<span class="kw">EOS</span>
@@ -153,9 +153,9 @@ numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</s
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby great_prod.rb
-real   0m0.057s
-user   0m0.053s
-sys    0m0.000s</code></pre>
+real   0m0.055s
+user   0m0.050s
+sys    0m0.003s</code></pre>
 </article>
 
 

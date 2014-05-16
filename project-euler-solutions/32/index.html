@@ -70,10 +70,10 @@
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time pypy pandigital-products.py
-real   0m0.654s
-user   0m0.630s
-sys    0m0.023s</code></pre>
+<pre><code>$ time python2 pandigital-products.py
+real   0m2.359s
+user   0m2.347s
+sys    0m0.010s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
@@ -84,9 +84,9 @@ puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
   p[<span class="dv">0</span>].length == <span class="dv">9</span> &amp;&amp; p[<span class="dv">0</span>].each_char.sort.join == <span class="st">&quot;123456789&quot;</span>
 }.map { |p| p[<span class="dv">1</span>] }.uniq.reduce(:+)</code></pre>
 <pre><code>$ time ruby pandigital.rb
-real   0m0.742s
-user   0m0.710s
-sys    0m0.030s</code></pre>
+real   0m0.734s
+user   0m0.697s
+sys    0m0.037s</code></pre>
 </article>
 
 
