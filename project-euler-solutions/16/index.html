@@ -60,23 +60,23 @@ sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> <span class="dv">2</span><span class="fu">^</span><span class="dv">1000</span></code></pre>
 <pre><code>$ time ./sumExp
-real	0m0.002s
-user	0m0.000s
-sys	0m0.000s</code></pre>
+real   0m0.002s
+user   0m0.000s
+sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="dt">str</span>(<span class="dv">2</span>**<span class="dv">1000</span>))</code></pre>
 <pre><code>$ time pypy sum-exp.py
-real	0m0.162s
-user	0m0.140s
-sys	0m0.020s</code></pre>
+real   0m0.162s
+user   0m0.140s
+sys    0m0.020s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>**<span class="dv">1000</span>).to_s.each_char.inject(<span class="dv">0</span>) {|s,v| s+v.to_i}</code></pre>
 <pre><code>$ time ruby sum-exp.rb
-real	0m0.045s
-user	0m0.040s
-sys	0m0.003s</code></pre>
+real   0m0.045s
+user   0m0.040s
+sys    0m0.003s</code></pre>
 </article>
 
 

@@ -76,9 +76,9 @@ main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/008/numbers.txt&quot;</span>
         print <span class="fu">$</span> largestProduct <span class="fu">$</span> chunks <span class="dv">5</span> <span class="fu">$</span> parse str</code></pre>
 <pre><code>$ time ./great-prod
-real	0m0.008s
-user	0m0.007s
-sys	0m0.000s</code></pre>
+real   0m0.008s
+user   0m0.007s
+sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python</span>
 numbers = <span class="st">'''</span>
@@ -116,9 +116,9 @@ greatest_product = <span class="dv">0</span>
 
 <span class="dt">print</span> greatest_product</code></pre>
 <pre><code>$ time pypy great_prod.py
-real	0m0.210s
-user	0m0.170s
-sys	0m0.037s</code></pre>
+real   0m0.210s
+user   0m0.170s
+sys    0m0.037s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 numbers = &lt;&lt;<span class="kw">EOS</span>
@@ -153,9 +153,9 @@ numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</s
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby great_prod.rb
-real	0m0.060s
-user	0m0.057s
-sys	0m0.003s</code></pre>
+real   0m0.060s
+user   0m0.057s
+sys    0m0.003s</code></pre>
 </article>
 
 

@@ -61,9 +61,9 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">max</span> (palindromes <span class="dv">1000</span>)))</code></pre>
 <pre><code>$ time clojure palindrome.clj
-real	0m1.659s
-user	0m2.610s
-sys	0m0.107s</code></pre>
+real   0m1.659s
+user   0m2.610s
+sys    0m0.107s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPalindrome n <span class="fu">=</span> show n <span class="fu">==</span> reverse (show n)
@@ -71,16 +71,16 @@ isPalindrome n <span class="fu">=</span> show n <span class="fu">==</span> rever
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum [prod <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">999</span>], <span class="kw">let</span> prod <span class="fu">=</span> a <span class="fu">*</span> b, isPalindrome prod]</code></pre>
 <pre><code>$ time ./palindrome
-real	0m0.084s
-user	0m0.083s
-sys	0m0.000s</code></pre>
+real   0m0.084s
+user   0m0.083s
+sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">max</span>(a*b <span class="kw">for</span> a in <span class="dt">range</span>(<span class="dv">100</span>,<span class="dv">1000</span>) <span class="kw">for</span> b in <span class="dt">range</span>(a,<span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">str</span>(a*b) == <span class="dt">str</span>(a*b)[::-<span class="dv">1</span>])</code></pre>
 <pre><code>$ time pypy palindrome.py
-real	0m0.241s
-user	0m0.200s
-sys	0m0.040s</code></pre>
+real   0m0.241s
+user   0m0.200s
+sys    0m0.040s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -102,9 +102,9 @@ max = <span class="dv">0</span>
 <span class="kw">end</span>
 puts max</code></pre>
 <pre><code>$ time ruby palindrome.rb
-real	0m0.450s
-user	0m0.443s
-sys	0m0.007s</code></pre>
+real   0m0.450s
+user   0m0.443s
+sys    0m0.007s</code></pre>
 </article>
 
 

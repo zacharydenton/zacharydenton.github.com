@@ -231,9 +231,9 @@ Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
 <pre><code>$ time pypy totient.py
-real	0m2.459s
-user	0m2.423s
-sys	0m0.033s</code></pre>
+real   0m2.459s
+user   0m2.423s
+sys    0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -266,9 +266,9 @@ require <span class="st">'set'</span>
 
 puts (<span class="dv">2</span>..<span class="dv">1000000</span>).map { |n| [n / totient(n), n] }.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby totient.rb
-real	0m19.977s
-user	0m19.923s
-sys	0m0.060s</code></pre>
+real   0m19.977s
+user   0m19.923s
+sys    0m0.060s</code></pre>
 </article>
 
 

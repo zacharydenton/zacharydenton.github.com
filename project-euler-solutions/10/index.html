@@ -67,9 +67,9 @@ Find the sum of all the primes below two million.
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (primes <span class="dv">2000000</span>)))</code></pre>
 <pre><code>$ time clojure sum-primes.clj
-real	0m4.772s
-user	0m5.757s
-sys	0m0.120s</code></pre>
+real   0m4.772s
+user   0m5.757s
+sys    0m0.120s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -79,9 +79,9 @@ primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</s
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">2000000</span>) primes</code></pre>
 <pre><code>$ time ./sum-primes
-real	0m1.355s
-user	0m1.337s
-sys	0m0.017s</code></pre>
+real   0m1.355s
+user   0m1.337s
+sys    0m0.017s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> takewhile
@@ -101,17 +101,17 @@ sys	0m0.017s</code></pre>
 
 <span class="dt">print</span> <span class="dt">sum</span>(takewhile(<span class="kw">lambda</span> x: x &lt; <span class="dv">2000000</span>, eratosthenes()))</code></pre>
 <pre><code>$ time pypy sum-primes.py
-real	0m1.449s
-user	0m1.410s
-sys	0m0.037s</code></pre>
+real   0m1.449s
+user   0m1.410s
+sys    0m0.037s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts <span class="dt">Prime</span>.take_while{ |n| n &lt; <span class="dv">2000000</span> }.reduce(:+)</code></pre>
 <pre><code>$ time ruby sum-primes.rb
-real	0m0.387s
-user	0m0.370s
-sys	0m0.017s</code></pre>
+real   0m0.387s
+user   0m0.370s
+sys    0m0.017s</code></pre>
 </article>
 
 

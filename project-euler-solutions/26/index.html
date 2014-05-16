@@ -64,9 +64,9 @@ cycleLength n <span class="fu">|</span> even n <span class="fu">=</span> <span c
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> cycleLength) [<span class="dv">1</span>,<span class="dv">3</span><span class="fu">..</span><span class="dv">1000</span>]</code></pre>
 <pre><code>$ time ./decimal-cycle
-real	0m0.334s
-user	0m0.333s
-sys	0m0.000s</code></pre>
+real   0m0.334s
+user   0m0.333s
+sys    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> recurring_cycle(n, d):
@@ -80,18 +80,18 @@ sys	0m0.000s</code></pre>
 longest = <span class="dt">max</span>(recurring_cycle(<span class="dv">1</span>, i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>))
 <span class="dt">print</span> [i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>) <span class="kw">if</span> recurring_cycle(<span class="dv">1</span>, i) == longest][<span class="dv">0</span>]</code></pre>
 <pre><code>$ time pypy recurring-decimal.py
-real	0m1.840s
-user	0m1.807s
-sys	0m0.033s</code></pre>
+real   0m1.840s
+user   0m1.807s
+sys    0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">1000</span>).map { |d| 
 	(<span class="dv">1</span>..d).detect(lambda{<span class="dv">0</span>}) { |t| (<span class="dv">10</span>**t % d) == <span class="dv">1</span> } 
 }.each_with_index.max[<span class="dv">1</span>]</code></pre>
 <pre><code>$ time ruby decimal-cycle.rb
-real	0m1.056s
-user	0m1.050s
-sys	0m0.003s</code></pre>
+real   0m1.056s
+user   0m1.050s
+sys    0m0.003s</code></pre>
 </article>
 
 

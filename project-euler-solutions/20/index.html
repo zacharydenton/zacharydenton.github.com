@@ -55,9 +55,9 @@ Find the sum of the digits in the number <span class="math">100!</span>.
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">map</span> #(<span class="kw">-</span> (<span class="kw">int</span> %) <span class="dv">48</span>) (<span class="kw">str</span> (<span class="kw">reduce</span> <span class="kw">*</span> (<span class="kw">range</span> BigInteger/ONE <span class="dv">100</span>))))))</code></pre>
 <pre><code>$ time clojure factorial.clj
-real	0m1.032s
-user	0m1.583s
-sys	0m0.043s</code></pre>
+real   0m1.032s
+user   0m1.583s
+sys    0m0.043s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">sumDigits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
@@ -69,16 +69,16 @@ factorial n <span class="fu">=</span> foldr (<span class="fu">*</span>) <span cl
 
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> factorial <span class="dv">100</span></code></pre>
 <pre><code>$ time ./factorial
-real	0m0.002s
-user	0m0.000s
-sys	0m0.000s</code></pre>
+real   0m0.002s
+user   0m0.000s
+sys    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts <span class="dv">100</span>.downto(<span class="dv">1</span>).inject(:*).to_s.each_char.inject(<span class="dv">0</span>) {|s,v|s+v.to_i}</code></pre>
 <pre><code>$ time ruby factorial.rb
-real	0m0.047s
-user	0m0.043s
-sys	0m0.007s</code></pre>
+real   0m0.047s
+user   0m0.043s
+sys    0m0.007s</code></pre>
 </article>
 
 

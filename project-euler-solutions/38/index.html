@@ -76,9 +76,9 @@
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre><code>$ time pypy pandigital-concatenation.py
-real	0m0.732s
-user	0m0.707s
-sys	0m0.023s</code></pre>
+real   0m0.732s
+user   0m0.707s
+sys    0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 p (<span class="dv">1</span>..<span class="dv">9999</span>).flat_map { |i|
@@ -91,9 +91,9 @@ p (<span class="dv">1</span>..<span class="dv">9999</span>).flat_map { |i|
 	s.length == <span class="dv">9</span> &amp;&amp; s.split(<span class="st">''</span>).sort.join(<span class="st">''</span>) == <span class="st">'123456789'</span>
 }.map { |s| s.to_i }.max</code></pre>
 <pre><code>$ time ruby pandigital-concatenation.rb
-real	0m0.474s
-user	0m0.457s
-sys	0m0.017s</code></pre>
+real   0m0.474s
+user   0m0.457s
+sys    0m0.017s</code></pre>
 </article>
 
 

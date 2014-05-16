@@ -136,18 +136,18 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
 <pre><code>$ time pypy num-string-sum.py
-real	0m0.200s
-user	0m0.167s
-sys	0m0.033s</code></pre>
+real   0m0.200s
+user   0m0.167s
+sys    0m0.033s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'linguistics'</span> <span class="co"># gem install linguistics</span>
 <span class="dt">Linguistics</span>::use( <span class="st">:en</span> )
 puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">''</span>).length }.reduce(:+)</code></pre>
 <pre><code>$ time ruby number-to-words.rb
-real	0m0.160s
-user	0m0.157s
-sys	0m0.000s</code></pre>
+real   0m0.160s
+user   0m0.157s
+sys    0m0.000s</code></pre>
 </article>
 
 
