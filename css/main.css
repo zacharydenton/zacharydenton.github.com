@@ -405,7 +405,7 @@ html {
 body {
   color: #191919;
   font-size: 1rem;
-  font-family: "Poly", Georgia, "Times New Roman", Times, serif;
+  font-family: "Source Serif Pro", Georgia, "Times New Roman", Times, serif;
   line-height: 1.468;
   background-color: #ffffff;
   background-image: url("/img/light_wool.png");
@@ -428,7 +428,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Serif Pro", Georgia, "Times New Roman", Times, serif;
   font-weight: 600;
   text-rendering: optimizeLegibility;
   line-height: 1.2;
@@ -477,6 +477,7 @@ header a {
 header h1 {
   margin: 0;
   color: #092e68;
+  font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 4.236rem;
   line-height: 1;
   text-align: center;
