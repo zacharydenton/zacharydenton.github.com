@@ -51,9 +51,7 @@ isPrime n <span class="fu">|</span> n <span class="fu">&lt;=</span> <span class=
 expand ns <span class="fu">=</span> [p <span class="fu">|</span> n <span class="ot">&lt;-</span> ns, k <span class="ot">&lt;-</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>], <span class="kw">let</span> p <span class="fu">=</span> <span class="dv">10</span><span class="fu">*</span>n <span class="fu">+</span> k, isPrime p]
 
 <span class="ot">candidates ::</span> [<span class="dt">Int</span>]
-candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;</span> <span class="dv">10</span>) <span class="fu">$</span> inner [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>] <span class="kw">where</span>
-    inner [] <span class="fu">=</span> []
-    inner xs <span class="fu">=</span> xs <span class="fu">++</span> inner (expand xs)
+candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;</span> <span class="dv">10</span>) <span class="fu">$</span> concat <span class="fu">$</span> takeWhile (not <span class="fu">.</span> null) (iterate expand [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>])
 
 <span class="ot">leftTruncatable ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 leftTruncatable n <span class="fu">=</span> all isPrime <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> n) [n <span class="ot">`rem`</span> <span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]
