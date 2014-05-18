@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 34 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 34 in Clojure, Ruby and Scheme.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 34 in Clojure, Haskell, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -61,6 +61,26 @@
 <span class="kw">real</span>   0m1.449s
 <span class="kw">user</span>   0m2.690s
 <span class="kw">sys</span>    0m0.030s</code></pre>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">factorial ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+factorial n <span class="fu">=</span> product [<span class="dv">1</span><span class="fu">..</span>n]
+
+<span class="ot">digits ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+digits <span class="dv">0</span> <span class="fu">=</span> []
+digits n <span class="fu">=</span> r <span class="fu">:</span> digits q
+    <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem n <span class="dv">10</span>
+
+
+<span class="ot">curious ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+curious n <span class="fu">=</span> n <span class="fu">==</span> sum (map factorial (digits n))
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter curious [<span class="dv">10</span><span class="fu">..</span><span class="dv">50000</span>]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o curious
+$ <span class="kw">time</span> ./curious
+<span class="kw">real</span>   0m0.040s
+<span class="kw">user</span>   0m0.040s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
