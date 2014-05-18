@@ -145,10 +145,11 @@
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/013/digits.txt&quot;</span>
         putStrLn <span class="fu">$</span> take <span class="dv">10</span> <span class="fu">$</span> show <span class="fu">$</span> sum <span class="fu">$</span> map read <span class="fu">$</span> lines str</code></pre>
-<pre><code>$ time ./large-sum
-real   0m0.006s
-user   0m0.003s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o large-sum
+$ <span class="kw">time</span> ./large-sum
+<span class="kw">real</span>   0m0.006s
+<span class="kw">user</span>   0m0.003s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 digits_string = <span class="st">'''</span>
@@ -254,10 +255,10 @@ digits_string = <span class="st">'''</span>
 <span class="st">53503534226472524250874054075591789781264330331690</span>
 <span class="st">'''</span>
 <span class="dt">print</span> <span class="dt">str</span>(<span class="dt">sum</span>(<span class="dt">long</span>(line.strip()) <span class="kw">for</span> line in digits_string.strip().splitlines()))[:<span class="dv">10</span>]</code></pre>
-<pre><code>$ time python2 large-sum.py
-real   0m0.012s
-user   0m0.010s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 large-sum.py
+<span class="kw">real</span>   0m0.012s
+<span class="kw">user</span>   0m0.010s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 digits_string = &lt;&lt;<span class="kw">EOS</span>
@@ -363,10 +364,10 @@ digits_string = &lt;&lt;<span class="kw">EOS</span>
 <span class="ot">53503534226472524250874054075591789781264330331690</span>
 <span class="kw">EOS</span>
 puts digits_string.each_line.inject(<span class="dv">0</span>) {|sum, value| sum+value.to_i}.to_s[<span class="dv">0</span>..<span class="dv">9</span>]</code></pre>
-<pre><code>$ time ruby large-sum.rb
-real   0m0.048s
-user   0m0.047s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby large-sum.rb
+<span class="kw">real</span>   0m0.048s
+<span class="kw">user</span>   0m0.047s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
 

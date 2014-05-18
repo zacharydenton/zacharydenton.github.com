@@ -79,10 +79,10 @@
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 composite-prime.py
-real   0m0.318s
-user   0m0.313s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 composite-prime.py
+<span class="kw">real</span>   0m0.318s
+<span class="kw">user</span>   0m0.313s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -92,10 +92,10 @@ composites = (<span class="dv">2</span>..<span class="dv">10000</span>).reject {
 twicesquares = (<span class="dv">0</span>..<span class="dv">100</span>).map { |n| <span class="dv">2</span>*(n**<span class="dv">2</span>) }.to_set
 sums = primes.to_a.product(twicesquares.to_a).map { |a,b| a+b }.to_set
 puts composites.select { |n| !sums.include?(n) <span class="kw">and</span> n.odd? }.min</code></pre>
-<pre><code>$ time ruby composite-prime.rb
-real   0m0.236s
-user   0m0.227s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby composite-prime.rb
+<span class="kw">real</span>   0m0.236s
+<span class="kw">user</span>   0m0.227s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

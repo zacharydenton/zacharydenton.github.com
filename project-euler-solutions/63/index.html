@@ -55,17 +55,18 @@ How many n-digit positive integers exist which are also an nth power?
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> [<span class="dv">1</span> <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], length (show (i<span class="fu">^</span>n)) <span class="fu">==</span> n]</code></pre>
-<pre><code>$ time ./nPower
-real   0m0.048s
-user   0m0.050s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o nPower
+$ <span class="kw">time</span> ./nPower
+<span class="kw">real</span>   0m0.048s
+<span class="kw">user</span>   0m0.050s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dv">1</span> <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100</span>) <span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100</span>) <span class="kw">if</span> <span class="dt">len</span>(<span class="dt">str</span>(i**x)) == x)</code></pre>
-<pre><code>$ time python2 n-power.py
-real   0m0.054s
-user   0m0.043s
-sys    0m0.010s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 n-power.py
+<span class="kw">real</span>   0m0.054s
+<span class="kw">user</span>   0m0.043s
+<span class="kw">sys</span>    0m0.010s</code></pre>
 </article>
 
 

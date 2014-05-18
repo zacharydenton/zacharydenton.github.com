@@ -95,10 +95,11 @@ candidates <span class="fu">=</span> expand <span class="dv">1</span> primorials
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [d <span class="fu">|</span> d <span class="ot">&lt;-</span> candidates, resilience d <span class="fu">&lt;</span> <span class="dv">15499</span> <span class="fu">/</span> <span class="dv">94744</span>]</code></pre>
-<pre><code>$ time ./resilience
-real   0m0.003s
-user   0m0.000s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o resilience
+$ <span class="kw">time</span> ./resilience
+<span class="kw">real</span>   0m0.003s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
 

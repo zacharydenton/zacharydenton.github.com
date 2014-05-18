@@ -96,10 +96,11 @@ sums <span class="fu">=</span> filter (any (abundantsArray <span class="fu">!</s
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre>
-<pre><code>$ time ./abundant
-real   0m0.135s
-user   0m0.133s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o abundant
+$ <span class="kw">time</span> ./abundant
+<span class="kw">real</span>   0m0.135s
+<span class="kw">user</span>   0m0.133s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="ch">import</span> math
@@ -173,10 +174,10 @@ sys    0m0.000s</code></pre>
     
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 abundant.py
-real   0m17.136s
-user   0m17.133s
-sys    0m0.010s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 abundant.py
+<span class="kw">real</span>   0m17.136s
+<span class="kw">user</span>   0m17.133s
+<span class="kw">sys</span>    0m0.010s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
@@ -209,10 +210,10 @@ abundants.each <span class="kw">do</span> |x|
 <span class="kw">end</span>
 sums.uniq!
 puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre>
-<pre><code>$ time ruby abundant.rb
-real   0m16.658s
-user   0m16.627s
-sys    0m0.037s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby abundant.rb
+<span class="kw">real</span>   0m16.658s
+<span class="kw">user</span>   0m16.627s
+<span class="kw">sys</span>    0m0.037s</code></pre>
 </article>
 
 

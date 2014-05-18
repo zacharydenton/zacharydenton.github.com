@@ -110,10 +110,10 @@
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 truncatable-primes.py
-real   0m24.927s
-user   0m24.920s
-sys    0m0.017s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 truncatable-primes.py
+<span class="kw">real</span>   0m24.927s
+<span class="kw">user</span>   0m24.920s
+<span class="kw">sys</span>    0m0.017s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -122,10 +122,10 @@ puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
     i.to_s[<span class="dv">0</span>..j].to_i.prime? &amp;&amp; i.to_s[j..-<span class="dv">1</span>].to_i.prime?
   }
 }.reduce(:+)</code></pre>
-<pre><code>$ time ruby truncatable-primes.rb
-real   0m10.669s
-user   0m10.673s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby truncatable-primes.rb
+<span class="kw">real</span>   0m10.669s
+<span class="kw">user</span>   0m10.673s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
 

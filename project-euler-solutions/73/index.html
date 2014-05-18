@@ -49,10 +49,10 @@
 <span class="ch">from</span> fractions <span class="ch">import</span> gcd
 
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dv">1</span> <span class="kw">for</span> d in <span class="dt">xrange</span>(<span class="dv">2</span>, <span class="dv">12001</span>) <span class="kw">for</span> n in <span class="dt">xrange</span>(<span class="dv">1</span>, d) <span class="kw">if</span> (n*<span class="dv">3</span> &gt; d) and (n*<span class="dv">2</span> &lt; d) and gcd(n, d) == <span class="dv">1</span>)</code></pre>
-<pre><code>$ time python2 fraction-range.py
-real   0m21.239s
-user   0m21.187s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 fraction-range.py
+<span class="kw">real</span>   0m21.239s
+<span class="kw">user</span>   0m21.187s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

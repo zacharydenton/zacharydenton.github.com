@@ -60,24 +60,25 @@ sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> <span class="dv">2</span><span class="fu">^</span><span class="dv">1000</span></code></pre>
-<pre><code>$ time ./sumExp
-real   0m0.002s
-user   0m0.000s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumExp
+$ <span class="kw">time</span> ./sumExp
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="dt">str</span>(<span class="dv">2</span>**<span class="dv">1000</span>))</code></pre>
-<pre><code>$ time python2 sum-exp.py
-real   0m0.018s
-user   0m0.013s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 sum-exp.py
+<span class="kw">real</span>   0m0.018s
+<span class="kw">user</span>   0m0.013s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>**<span class="dv">1000</span>).to_s.each_char.inject(<span class="dv">0</span>) {|s,v| s+v.to_i}</code></pre>
-<pre><code>$ time ruby sum-exp.rb
-real   0m0.045s
-user   0m0.037s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby sum-exp.rb
+<span class="kw">real</span>   0m0.045s
+<span class="kw">user</span>   0m0.037s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

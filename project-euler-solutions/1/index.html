@@ -55,20 +55,21 @@
     printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
     <span class="kw">return</span> <span class="dv">0</span>;
 }</code></pre>
-<pre><code>$ time ./natural
-real   0m0.001s
-user   0m0.000s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -Ofast -std=c11 -o natural
+$ <span class="kw">time</span> ./natural
+<span class="kw">real</span>   0m0.001s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="clojure">Clojure</h3>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> multiple</span>? [n]
   (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">rem</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">rem</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
-<pre><code>$ time clojure natural.clj
-real   0m1.048s
-user   0m1.600s
-sys    0m0.037s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure natural.clj
+<span class="kw">real</span>   0m1.048s
+<span class="kw">user</span>   0m1.600s
+<span class="kw">sys</span>    0m0.037s</code></pre>
 <h3 id="go">Go</h3>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
@@ -82,24 +83,25 @@ sys    0m0.037s</code></pre>
     }
     fmt.Println(sum)
 }</code></pre>
-<pre><code>$ time go run natural.go
-real   0m0.250s
-user   0m0.213s
-sys    0m0.033s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> go run natural.go
+<span class="kw">real</span>   0m0.250s
+<span class="kw">user</span>   0m0.213s
+<span class="kw">sys</span>    0m0.033s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
-<pre><code>$ time ./natural
-real   0m0.002s
-user   0m0.000s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural
+$ <span class="kw">time</span> ./natural
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
-<pre><code>$ time python2 natural.py
-real   0m0.016s
-user   0m0.013s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 natural.py
+<span class="kw">real</span>   0m0.016s
+<span class="kw">user</span>   0m0.013s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
@@ -109,10 +111,10 @@ sum = <span class="dv">0</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
 puts sum</code></pre>
-<pre><code>$ time ruby natural.rb
-real   0m0.047s
-user   0m0.040s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby natural.rb
+<span class="kw">real</span>   0m0.047s
+<span class="kw">user</span>   0m0.040s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 <h3 id="scheme">Scheme</h3>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
@@ -121,10 +123,10 @@ sys    0m0.007s</code></pre>
               (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
             (iota <span class="dv">1000</span>))))
 (<span class="kw">newline</span>)</code></pre>
-<pre><code>$ time mit-scheme-native --quiet &lt; natural.scm
-real   0m0.059s
-user   0m0.050s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> mit-scheme-native --quiet <span class="kw">&lt;</span> natural.scm
+<span class="kw">real</span>   0m0.059s
+<span class="kw">user</span>   0m0.050s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

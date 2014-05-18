@@ -231,10 +231,10 @@ Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
     <span class="dt">print</span> <span class="dt">max</span>((n / totient(n), n) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">2</span>, <span class="dv">1000001</span>))[<span class="dv">1</span>]
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre><code>$ time python2 totient.py
-real   0m18.061s
-user   0m18.053s
-sys    0m0.017s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 totient.py
+<span class="kw">real</span>   0m18.061s
+<span class="kw">user</span>   0m18.053s
+<span class="kw">sys</span>    0m0.017s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -266,10 +266,10 @@ require <span class="st">'set'</span>
 <span class="kw">end</span>
 
 puts (<span class="dv">2</span>..<span class="dv">1000000</span>).map { |n| [n / totient(n), n] }.max[<span class="dv">1</span>]</code></pre>
-<pre><code>$ time ruby totient.rb
-real   0m19.980s
-user   0m19.923s
-sys    0m0.063s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby totient.rb
+<span class="kw">real</span>   0m19.980s
+<span class="kw">user</span>   0m19.923s
+<span class="kw">sys</span>    0m0.063s</code></pre>
 </article>
 
 

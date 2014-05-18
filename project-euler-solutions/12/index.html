@@ -98,10 +98,11 @@ numDivisors n <span class="fu">=</span> product [k <span class="fu">+</span> <sp
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> dropWhile (\n <span class="ot">-&gt;</span> numDivisors n <span class="fu">&lt;=</span> <span class="dv">500</span>) triangles</code></pre>
-<pre><code>$ time ./triangle-numbers
-real   0m0.057s
-user   0m0.053s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-numbers
+$ <span class="kw">time</span> ./triangle-numbers
+<span class="kw">real</span>   0m0.057s
+<span class="kw">user</span>   0m0.053s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -158,10 +159,10 @@ _triangle_cache = {<span class="dv">1</span>: <span class="dv">1</span>}
 triangles = (triangle(i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100000</span>))
 divisible_triangles = (i <span class="kw">for</span> i in triangles <span class="kw">if</span> num_divisors(i) &gt; <span class="dv">500</span>)
 <span class="dt">print</span> divisible_triangles.<span class="dt">next</span>()</code></pre>
-<pre><code>$ time python2 triangle-numbers.py
-real   0m0.481s
-user   0m0.470s
-sys    0m0.010s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-numbers.py
+<span class="kw">real</span>   0m0.481s
+<span class="kw">user</span>   0m0.470s
+<span class="kw">sys</span>    0m0.010s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
@@ -187,10 +188,10 @@ triangles = <span class="dt">Enumerator</span>.new <span class="kw">do</span> |y
 <span class="kw">end</span>
 
 puts triangles.detect { |t| t.divisors.count &gt; <span class="dv">500</span> }</code></pre>
-<pre><code>$ time ruby triangle-numbers.rb
-real   0m2.519s
-user   0m2.517s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-numbers.rb
+<span class="kw">real</span>   0m2.519s
+<span class="kw">user</span>   0m2.517s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

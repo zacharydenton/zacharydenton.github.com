@@ -76,10 +76,11 @@ largestProduct <span class="fu">=</span> maximum <span class="fu">.</span> map p
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/008/numbers.txt&quot;</span>
         print <span class="fu">$</span> largestProduct <span class="fu">$</span> chunks <span class="dv">5</span> <span class="fu">$</span> parse str</code></pre>
-<pre><code>$ time ./great-prod
-real   0m0.008s
-user   0m0.007s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o great-prod
+$ <span class="kw">time</span> ./great-prod
+<span class="kw">real</span>   0m0.008s
+<span class="kw">user</span>   0m0.007s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python</span>
 numbers = <span class="st">'''</span>
@@ -116,10 +117,10 @@ greatest_product = <span class="dv">0</span>
         greatest_product = product
 
 <span class="dt">print</span> greatest_product</code></pre>
-<pre><code>$ time python2 great_prod.py
-real   0m0.027s
-user   0m0.023s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 great_prod.py
+<span class="kw">real</span>   0m0.027s
+<span class="kw">user</span>   0m0.023s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 numbers = &lt;&lt;<span class="kw">EOS</span>
@@ -153,10 +154,10 @@ numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</s
   <span class="kw">end</span>
 <span class="kw">end</span>
 puts max</code></pre>
-<pre><code>$ time ruby great_prod.rb
-real   0m0.055s
-user   0m0.050s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby great_prod.rb
+<span class="kw">real</span>   0m0.055s
+<span class="kw">user</span>   0m0.050s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

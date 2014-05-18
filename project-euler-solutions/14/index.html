@@ -68,10 +68,11 @@ collatz n <span class="fu">|</span> inRange (bounds memoCollatz) next <span clas
                              <span class="fu">|</span> otherwise <span class="ot">-&gt;</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span>
 
 main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> maximum <span class="fu">$</span> map (\n <span class="ot">-&gt;</span> (collatz n, n)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre>
-<pre><code>$ time ./longest-chain
-real   0m0.953s
-user   0m0.880s
-sys    0m0.073s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o longest-chain
+$ <span class="kw">time</span> ./longest-chain
+<span class="kw">real</span>   0m0.953s
+<span class="kw">user</span>   0m0.880s
+<span class="kw">sys</span>    0m0.073s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> next_collatz(n):
@@ -122,10 +123,10 @@ max_i = <span class="ot">None</span>
         max_len = l
         max_i = i
 <span class="dt">print</span> max_i</code></pre>
-<pre><code>$ time python2 longest-chain.py
-real   0m5.897s
-user   0m5.873s
-sys    0m0.023s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 longest-chain.py
+<span class="kw">real</span>   0m5.897s
+<span class="kw">user</span>   0m5.873s
+<span class="kw">sys</span>    0m0.023s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -149,10 +150,10 @@ max_i = <span class="dv">0</span>
 <span class="kw">end</span>
 
 puts max_i</code></pre>
-<pre><code>$ time ruby longest-chain.rb
-real   0m2.556s
-user   0m2.553s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby longest-chain.rb
+<span class="kw">real</span>   0m2.556s
+<span class="kw">user</span>   0m2.553s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

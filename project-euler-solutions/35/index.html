@@ -81,10 +81,11 @@ candidate n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre>
-<pre><code>$ time ./circular-primes
-real   0m0.224s
-user   0m0.207s
-sys    0m0.020s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes
+$ <span class="kw">time</span> ./circular-primes
+<span class="kw">real</span>   0m0.224s
+<span class="kw">user</span>   0m0.207s
+<span class="kw">sys</span>    0m0.020s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -93,10 +94,10 @@ puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i|
     i.to_s.split(<span class="st">''</span>).rotate(j).join(<span class="st">''</span>).to_i.prime?
   }
 }.count</code></pre>
-<pre><code>$ time ruby circular-primes.rb
-real   0m27.425s
-user   0m27.437s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby circular-primes.rb
+<span class="kw">real</span>   0m27.425s
+<span class="kw">user</span>   0m27.437s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
 

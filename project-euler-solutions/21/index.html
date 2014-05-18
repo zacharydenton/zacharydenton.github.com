@@ -72,10 +72,10 @@ Evaluate the sum of all the amicable numbers under 10000.
   (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> a b)) (<span class="kw">=</span> (d a) b) (<span class="kw">=</span> (d b) a)))
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> #(amicable? % (d %)) (<span class="kw">range</span> <span class="dv">10000</span>))))</code></pre>
-<pre><code>$ time clojure amicable.clj
-real   0m8.555s
-user   0m10.070s
-sys    0m0.130s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure amicable.clj
+<span class="kw">real</span>   0m8.555s
+<span class="kw">user</span>   0m10.070s
+<span class="kw">sys</span>    0m0.130s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">divisors ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 divisors n <span class="fu">=</span> [x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>(div n <span class="dv">2</span>)], n <span class="ot">`mod`</span> x <span class="fu">==</span> <span class="dv">0</span>]
@@ -88,10 +88,11 @@ isAmicable n <span class="fu">=</span> n <span class="fu">/=</span> x <span clas
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter isAmicable [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre><code>$ time ./amicable
-real   0m1.398s
-user   0m1.393s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o amicable
+$ <span class="kw">time</span> ./amicable
+<span class="kw">real</span>   0m1.398s
+<span class="kw">user</span>   0m1.393s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
@@ -113,10 +114,10 @@ require <span class="st">'mathn'</span>
 <span class="kw">end</span>
 
 puts (<span class="dv">1</span>..<span class="dv">10000</span>).find_all { |n| n.amicable? }.reduce(:+)</code></pre>
-<pre><code>$ time ruby amicable.rb
-real   0m0.597s
-user   0m0.593s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby amicable.rb
+<span class="kw">real</span>   0m0.597s
+<span class="kw">user</span>   0m0.593s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

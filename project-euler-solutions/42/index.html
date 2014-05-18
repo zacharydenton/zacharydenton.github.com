@@ -83,20 +83,20 @@ Using <a href="http://projecteuler.net/project/words.txt">words.txt</a> (right c
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 triangle-words.py
-real   0m0.040s
-user   0m0.037s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-words.py
+<span class="kw">real</span>   0m0.040s
+<span class="kw">user</span>   0m0.037s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangles = (<span class="dv">1</span>..<span class="dv">1000</span>).map { |n| (n*(n<span class="dv">+1</span>))/<span class="dv">2</span> }.to_a
 puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">'/words.txt'</span>).scan(<span class="ot">/\w+/</span>).select { |word|
   triangles.include? word.each_byte.reduce(<span class="dv">0</span>) {|s,v| s+(v<span class="dv">-64</span>) }
 }.count</code></pre>
-<pre><code>$ time ruby triangle-words.rb
-real   0m0.095s
-user   0m0.087s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-words.rb
+<span class="kw">real</span>   0m0.095s
+<span class="kw">user</span>   0m0.087s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

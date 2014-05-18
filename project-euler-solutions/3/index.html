@@ -98,10 +98,10 @@
         }
     }
 }</code></pre>
-<pre><code>$ time go run prime-factor.go
-real   0m0.358s
-user   0m0.320s
-sys    0m0.033s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> go run prime-factor.go
+<span class="kw">real</span>   0m0.358s
+<span class="kw">user</span>   0m0.320s
+<span class="kw">sys</span>    0m0.033s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -117,10 +117,11 @@ factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">whe
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
-<pre><code>$ time ./prime-factor
-real   0m0.005s
-user   0m0.003s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor
+$ <span class="kw">time</span> ./prime-factor
+<span class="kw">real</span>   0m0.005s
+<span class="kw">user</span>   0m0.003s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -146,10 +147,10 @@ sys    0m0.000s</code></pre>
     <span class="kw">return</span> res
 
 <span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
-<pre><code>$ time python2 prime-factor.py
-real   0m0.019s
-user   0m0.010s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prime-factor.py
+<span class="kw">real</span>   0m0.019s
+<span class="kw">user</span>   0m0.010s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -177,10 +178,10 @@ sys    0m0.007s</code></pre>
 <span class="kw">end</span>
 
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
-<pre><code>$ time ruby prime-factor.rb
-real   0m0.047s
-user   0m0.040s
-sys    0m0.010s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-factor.rb
+<span class="kw">real</span>   0m0.047s
+<span class="kw">user</span>   0m0.040s
+<span class="kw">sys</span>    0m0.010s</code></pre>
 </article>
 
 

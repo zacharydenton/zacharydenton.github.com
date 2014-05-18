@@ -57,10 +57,10 @@ Find the sum of all the even-valued terms in the sequence which do not exceed fo
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">def</span><span class="fu"> fibs </span>(<span class="kw">lazy-cat</span> [<span class="dv">0</span> <span class="dv">1</span>] (<span class="kw">map</span> <span class="kw">+</span> (<span class="kw">rest</span> fibs) fibs)))
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> <span class="kw">even?</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % <span class="dv">4000000</span>) fibs))))</code></pre>
-<pre><code>$ time clojure fibonacci.clj
-real   0m1.050s
-user   0m1.570s
-sys    0m0.050s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fibonacci.clj
+<span class="kw">real</span>   0m1.050s
+<span class="kw">user</span>   0m1.570s
+<span class="kw">sys</span>    0m0.050s</code></pre>
 <h3 id="go">Go</h3>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
@@ -72,20 +72,21 @@ sys    0m0.050s</code></pre>
     }
     fmt.Println(sum)
 }</code></pre>
-<pre><code>$ time go run fibonacci.go
-real   0m0.241s
-user   0m0.213s
-sys    0m0.023s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> go run fibonacci.go
+<span class="kw">real</span>   0m0.241s
+<span class="kw">user</span>   0m0.213s
+<span class="kw">sys</span>    0m0.023s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter even <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span><span class="dv">4000000</span>) fibs</code></pre>
-<pre><code>$ time ./fibonacci
-real   0m0.002s
-user   0m0.003s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci
+$ <span class="kw">time</span> ./fibonacci
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.003s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum, a, b = <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>
@@ -94,10 +95,10 @@ sum, a, b = <span class="dv">0</span>, <span class="dv">1</span>, <span class="d
   a, b = b, a + b
 <span class="kw">end</span>
 puts sum</code></pre>
-<pre><code>$ time ruby fibonacci.rb
-real   0m0.052s
-user   0m0.047s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby fibonacci.rb
+<span class="kw">real</span>   0m0.052s
+<span class="kw">user</span>   0m0.047s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

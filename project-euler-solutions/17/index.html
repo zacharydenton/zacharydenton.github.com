@@ -136,19 +136,19 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
     <span class="kw">return</span> string
 
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
-<pre><code>$ time python2 num-string-sum.py
-real   0m0.025s
-user   0m0.023s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 num-string-sum.py
+<span class="kw">real</span>   0m0.025s
+<span class="kw">user</span>   0m0.023s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'linguistics'</span> <span class="co"># gem install linguistics</span>
 <span class="dt">Linguistics</span>::use( <span class="st">:en</span> )
 puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">''</span>).length }.reduce(:+)</code></pre>
-<pre><code>$ time ruby number-to-words.rb
-real   0m0.202s
-user   0m0.193s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby number-to-words.rb
+<span class="kw">real</span>   0m0.202s
+<span class="kw">user</span>   0m0.193s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 </article>
 
 

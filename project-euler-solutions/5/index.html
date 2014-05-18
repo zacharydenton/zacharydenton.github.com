@@ -59,10 +59,11 @@ divisibleTo x <span class="fu">=</span> <span class="kw">let</span> step <span c
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> divisibleTo <span class="dv">20</span></code></pre>
-<pre><code>$ time ./divisible
-real   0m0.002s
-user   0m0.000s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o divisible
+$ <span class="kw">time</span> ./divisible
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> is_divisible_to(number, x):
@@ -86,10 +87,10 @@ sys    0m0.000s</code></pre>
         <span class="kw">return</span> number
 
 <span class="dt">print</span> divisible_to(<span class="dv">20</span>)</code></pre>
-<pre><code>$ time python2 divisible.py
-real   0m0.018s
-user   0m0.017s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 divisible.py
+<span class="kw">real</span>   0m0.018s
+<span class="kw">user</span>   0m0.017s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -115,10 +116,10 @@ sys    0m0.003s</code></pre>
 <span class="kw">end</span>
 
 puts divisible_to(<span class="dv">20</span>)</code></pre>
-<pre><code>$ time ruby divisible.rb
-real   0m0.050s
-user   0m0.043s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby divisible.rb
+<span class="kw">real</span>   0m0.050s
+<span class="kw">user</span>   0m0.043s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

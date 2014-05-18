@@ -69,10 +69,10 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
        (palindrome? (Integer/toString n))))
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> palindrome-in-decimal-and-binary? (<span class="kw">range</span> <span class="dv">1</span> <span class="dv">1000000</span>))))</code></pre>
-<pre><code>$ time clojure palindromic-bases.clj
-real   0m3.887s
-user   0m4.880s
-sys    0m0.223s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindromic-bases.clj
+<span class="kw">real</span>   0m3.887s
+<span class="kw">user</span>   0m4.880s
+<span class="kw">sys</span>    0m0.223s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">class</span> <span class="dt">String</span>
@@ -82,10 +82,10 @@ sys    0m0.223s</code></pre>
 <span class="kw">end</span>
 
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i| i.to_s.palindrome? &amp;&amp; i.to_s(<span class="dv">2</span>).palindrome? }.reduce(:+)</code></pre>
-<pre><code>$ time ruby binary-palindrome.rb
-real   0m0.422s
-user   0m0.420s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby binary-palindrome.rb
+<span class="kw">real</span>   0m0.422s
+<span class="kw">user</span>   0m0.420s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
 

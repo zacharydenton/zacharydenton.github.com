@@ -75,10 +75,10 @@ Find the pair of pentagonal numbers, <span class="math"><em>P</em><sub><em>j</em
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 pentagonal-nums.py
-real   0m0.788s
-user   0m0.783s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pentagonal-nums.py
+<span class="kw">real</span>   0m0.788s
+<span class="kw">user</span>   0m0.783s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -86,10 +86,10 @@ pentagonals = (<span class="dv">1</span>..<span class="dv">3000</span>).map { |n
 puts pentagonals.to_a.combination(<span class="dv">2</span>).select { |a,b|
   pentagonals.include?(a+b) &amp;&amp; pentagonals.include?((a-b).abs)
 }.map { |a,b| (a-b).abs }.min</code></pre>
-<pre><code>$ time ruby pentagonal-nums.rb
-real   0m1.076s
-user   0m1.060s
-sys    0m0.013s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pentagonal-nums.rb
+<span class="kw">real</span>   0m1.076s
+<span class="kw">user</span>   0m1.060s
+<span class="kw">sys</span>    0m0.013s</code></pre>
 </article>
 
 

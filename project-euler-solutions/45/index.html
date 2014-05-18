@@ -68,10 +68,10 @@
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 tri-pen-hex.py
-real   0m0.150s
-user   0m0.140s
-sys    0m0.007s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 tri-pen-hex.py
+<span class="kw">real</span>   0m0.150s
+<span class="kw">user</span>   0m0.140s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
@@ -80,10 +80,10 @@ h = (<span class="dv">1</span>..<span class="dv">100000</span>).map { |n| n*(<sp
 puts (<span class="dv">286</span>..<span class="dv">100000</span>).map { |n| n*(n<span class="dv">+1</span>)/<span class="dv">2</span> }.detect { |t|
   p.include?(t) <span class="kw">and</span> h.include?(t)
 }</code></pre>
-<pre><code>$ time ruby tri-pen-hex.rb
-real   0m0.198s
-user   0m0.173s
-sys    0m0.023s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby tri-pen-hex.rb
+<span class="kw">real</span>   0m0.198s
+<span class="kw">user</span>   0m0.173s
+<span class="kw">sys</span>    0m0.023s</code></pre>
 </article>
 
 

@@ -102,10 +102,11 @@ maxPath (current<span class="fu">:</span>next<span class="fu">:</span>rest) <spa
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/018/triangle.txt&quot;</span>
         print <span class="fu">$</span> maxPath <span class="fu">$</span> reverse <span class="fu">$</span> parse str</code></pre>
-<pre><code>$ time ./max-route
-real   0m0.003s
-user   0m0.000s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o max-route
+$ <span class="kw">time</span> ./max-route
+<span class="kw">real</span>   0m0.003s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> find_sum(triangle):
@@ -144,10 +145,10 @@ sys    0m0.000s</code></pre>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
-<pre><code>$ time python2 triangle-max.py
-real   0m0.019s
-user   0m0.017s
-sys    0m0.000s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-max.py
+<span class="kw">real</span>   0m0.019s
+<span class="kw">user</span>   0m0.017s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="ruby">Ruby</h3>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangle_str = &lt;&lt;<span class="kw">EOS</span>
@@ -177,10 +178,10 @@ triangle = triangle_str.each_line.map { |line| line.split.map(&amp;<span class="
 <span class="kw">end</span>
 
 puts triangle[<span class="dv">0</span>][<span class="dv">0</span>]</code></pre>
-<pre><code>$ time ruby max-route.rb
-real   0m0.050s
-user   0m0.043s
-sys    0m0.003s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby max-route.rb
+<span class="kw">real</span>   0m0.050s
+<span class="kw">user</span>   0m0.043s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

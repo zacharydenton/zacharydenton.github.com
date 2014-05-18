@@ -64,10 +64,11 @@ bouncy <span class="fu">=</span> b' <span class="dv">1</span> <span class="dv">0
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maybe <span class="dv">0</span> fst <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre>
-<pre><code>$ time ./bouncy
-real   0m1.287s
-user   0m1.273s
-sys    0m0.013s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o bouncy
+$ <span class="kw">time</span> ./bouncy
+<span class="kw">real</span>   0m1.287s
+<span class="kw">user</span>   0m1.273s
+<span class="kw">sys</span>    0m0.013s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -102,10 +103,10 @@ sys    0m0.013s</code></pre>
     <span class="dt">print</span> (n <span class="kw">for</span> n, b in izip(nums, bouncy) <span class="kw">if</span> b / n == <span class="fl">0.99</span>).<span class="dt">next</span>()
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre><code>$ time python2 bouncy.py
-real   0m22.062s
-user   0m22.020s
-sys    0m0.053s</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 bouncy.py
+<span class="kw">real</span>   0m22.062s
+<span class="kw">user</span>   0m22.020s
+<span class="kw">sys</span>    0m0.053s</code></pre>
 </article>
 
 
