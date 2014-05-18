@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 33 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 33 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 33 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -43,6 +43,29 @@
 <p>There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.</p>
 <p>If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Ratio</span> (denominator)
+
+<span class="ot">fraction ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Rational</span>
+fraction n d <span class="fu">=</span> fromIntegral n <span class="fu">/</span> fromIntegral d
+
+<span class="ot">curious ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+curious n d <span class="fu">|</span> f <span class="fu">&gt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
+            <span class="fu">|</span> d1 <span class="fu">==</span> <span class="dv">0</span> <span class="fu">||</span> d2 <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> <span class="dt">False</span>
+            <span class="fu">|</span> n <span class="fu">==</span> d <span class="fu">=</span> <span class="dt">False</span>
+            <span class="fu">|</span> n2 <span class="fu">/=</span> d1 <span class="fu">=</span> <span class="dt">False</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span> fraction n1 d2 <span class="fu">==</span> f
+            <span class="kw">where</span> f <span class="fu">=</span> fraction n d
+                  (n1, n2) <span class="fu">=</span> quotRem n <span class="dv">10</span>
+                  (d1, d2) <span class="fu">=</span> quotRem d <span class="dv">10</span>
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> denominator <span class="fu">$</span> product [fraction n d <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">..</span><span class="dv">99</span>], d <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">..</span><span class="dv">99</span>], curious n d]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o curious-fractions
+$ <span class="kw">time</span> ./curious-fractions
+<span class="kw">real</span>   0m0.007s
+<span class="kw">user</span>   0m0.007s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> fractions <span class="ch">import</span> *
