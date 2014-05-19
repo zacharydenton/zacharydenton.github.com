@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 42 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 42 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 42 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -58,6 +58,33 @@ Using <a href="http://projecteuler.net/project/words.txt">words.txt</a> (right c
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
+parse <span class="fu">=</span> words <span class="fu">.</span> map replaceComma <span class="fu">.</span> filter notQuote <span class="kw">where</span>
+    replaceComma <span class="ch">','</span> <span class="fu">=</span> <span class="ch">' '</span>
+    replaceComma c <span class="fu">=</span> c
+    notQuote <span class="fu">=</span> (<span class="fu">/=</span> <span class="ch">'&quot;'</span>)
+
+<span class="ot">alphaIndex ::</span> <span class="dt">Char</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+alphaIndex c <span class="fu">=</span> fromEnum c <span class="fu">-</span> <span class="dv">64</span>
+
+<span class="ot">alphaScore ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+alphaScore <span class="fu">=</span> sum <span class="fu">.</span> map alphaIndex
+
+<span class="ot">triangle ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+triangle str <span class="fu">=</span> floor t <span class="fu">==</span> ceiling t
+    <span class="kw">where</span> s <span class="fu">=</span> alphaScore str
+          t <span class="fu">=</span> (sqrt (fromIntegral (<span class="dv">1</span> <span class="fu">+</span> <span class="dv">8</span><span class="fu">*</span>s)) <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">/</span> <span class="dv">2</span>
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+    str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/042/words.txt&quot;</span>
+    print <span class="fu">$</span> length <span class="fu">$</span> filter triangle <span class="fu">$</span> parse str</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words
+$ <span class="kw">time</span> ./triangle-words
+<span class="kw">real</span>   0m0.006s
+<span class="kw">user</span>   0m0.007s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
