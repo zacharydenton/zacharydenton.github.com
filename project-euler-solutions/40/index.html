@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 40 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 40 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 40 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -53,6 +53,17 @@ If <span class="math"><em>d</em><sub><em>n</em></sub></span> represents the nth 
 
 <p><br /><span class="math"><em>d</em><sub>1</sub> × <em>d</em><sub>10</sub> × <em>d</em><sub>100</sub> × <em>d</em><sub>1000</sub> × <em>d</em><sub>10000</sub> × <em>d</em><sub>100000</sub> × <em>d</em><sub>1000000</sub></span><br /></p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">champernowne ::</span> <span class="dt">String</span>
+champernowne <span class="fu">=</span> foldr (\x acc <span class="ot">-&gt;</span> (show x) <span class="fu">++</span> acc) <span class="st">&quot;&quot;</span> [<span class="dv">1</span><span class="fu">..</span>]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> product [read [champernowne <span class="fu">!!</span> (n <span class="fu">-</span> <span class="dv">1</span>)] <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">6</span>]]]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o champernowne
+$ <span class="kw">time</span> ./champernowne
+<span class="kw">real</span>   0m0.139s
+<span class="kw">user</span>   0m0.120s
+<span class="kw">sys</span>    0m0.017s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">''</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
