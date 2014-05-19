@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 54 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 54.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 54 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -81,6 +81,56 @@
 &lt;p&gt;How many hands does Player 1 win?&lt;/p&gt;</code></pre>
 </div>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Char</span> (digitToInt)
+<span class="kw">import </span><span class="dt">Data.List</span> (nub, sortBy)
+
+<span class="ot">rankValue ::</span> <span class="dt">Char</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+rankValue <span class="ch">'A'</span> <span class="fu">=</span> <span class="dv">14</span>
+rankValue <span class="ch">'K'</span> <span class="fu">=</span> <span class="dv">13</span>
+rankValue <span class="ch">'Q'</span> <span class="fu">=</span> <span class="dv">12</span>
+rankValue <span class="ch">'J'</span> <span class="fu">=</span> <span class="dv">11</span>
+rankValue <span class="ch">'T'</span> <span class="fu">=</span> <span class="dv">10</span>
+rankValue  c  <span class="fu">=</span> digitToInt c
+
+<span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [([(<span class="dt">Int</span>, <span class="dt">Char</span>)], [(<span class="dt">Int</span>, <span class="dt">Char</span>)])]
+parse str <span class="fu">=</span> [(parse' left, parse' right) <span class="fu">|</span> line <span class="ot">&lt;-</span> lines str,
+                                           <span class="kw">let</span> cards <span class="fu">=</span> words line,
+                                           <span class="kw">let</span> (left, right) <span class="fu">=</span> splitAt <span class="dv">5</span> cards]
+    <span class="kw">where</span> parse' cards <span class="fu">=</span> [(rankValue (head card), last card) <span class="fu">|</span> card <span class="ot">&lt;-</span> cards]
+
+<span class="ot">count ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Int</span>
+count x xs <span class="fu">=</span> length <span class="fu">$</span> filter (<span class="fu">==</span> x) xs
+
+<span class="ot">evaluate ::</span> [(<span class="dt">Int</span>, <span class="dt">Char</span>)] <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+evaluate hand <span class="fu">|</span> straight <span class="fu">&amp;&amp;</span> flush           <span class="fu">=</span> <span class="dv">9</span> <span class="fu">:</span> ranks
+              <span class="fu">|</span> k <span class="dv">4</span>                         <span class="fu">=</span> <span class="dv">8</span> <span class="fu">:</span> kind <span class="dv">4</span> <span class="fu">++</span> kind <span class="dv">1</span>
+              <span class="fu">|</span> k <span class="dv">3</span> <span class="fu">&amp;&amp;</span> k <span class="dv">2</span>                  <span class="fu">=</span> <span class="dv">7</span> <span class="fu">:</span> kind <span class="dv">3</span> <span class="fu">++</span> kind <span class="dv">2</span>
+              <span class="fu">|</span> flush                       <span class="fu">=</span> <span class="dv">6</span> <span class="fu">:</span> ranks
+              <span class="fu">|</span> straight                    <span class="fu">=</span> <span class="dv">5</span> <span class="fu">:</span> ranks
+              <span class="fu">|</span> k <span class="dv">3</span>                         <span class="fu">=</span> <span class="dv">4</span> <span class="fu">:</span> kind <span class="dv">3</span> <span class="fu">++</span> ranks
+              <span class="fu">|</span> k <span class="dv">2</span> <span class="fu">&amp;&amp;</span> k' <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">=</span> <span class="dv">3</span> <span class="fu">:</span> kind <span class="dv">2</span> <span class="fu">++</span> kind' <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">++</span> ranks
+              <span class="fu">|</span> k <span class="dv">2</span>                         <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> kind <span class="dv">2</span> <span class="fu">++</span> ranks
+              <span class="fu">|</span> otherwise                   <span class="fu">=</span> <span class="dv">1</span> <span class="fu">:</span> ranks
+              <span class="kw">where</span> (r, suits) <span class="fu">=</span> unzip hand
+                    ranks <span class="fu">=</span> sortBy (flip compare) r
+                    flush <span class="fu">=</span> length (nub suits) <span class="fu">==</span> <span class="dv">1</span>
+                    straight <span class="fu">=</span> (maximum ranks) <span class="fu">-</span> (minimum ranks) <span class="fu">==</span> <span class="dv">4</span> <span class="fu">&amp;&amp;</span> length (nub ranks) <span class="fu">==</span> <span class="dv">5</span>
+                    kind' n except <span class="fu">=</span> [rank <span class="fu">|</span> rank <span class="ot">&lt;-</span> ranks, count rank ranks <span class="fu">==</span> n, rank <span class="ot">`notElem`</span> except]
+                    kind n <span class="fu">=</span> kind' n []
+                    k' n except <span class="fu">=</span> not <span class="fu">$</span> null <span class="fu">$</span> kind' n except
+                    k n <span class="fu">=</span> k' n []
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> <span class="kw">do</span>
+    str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/054/poker.txt&quot;</span>
+    <span class="kw">let</span> games <span class="fu">=</span> parse str
+    print <span class="fu">$</span> length [left <span class="fu">|</span> (left, right) <span class="ot">&lt;-</span> games, evaluate left <span class="fu">&gt;</span> evaluate right]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o poker
+$ <span class="kw">time</span> ./poker
+<span class="kw">real</span>   0m0.027s
+<span class="kw">user</span>   0m0.023s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
