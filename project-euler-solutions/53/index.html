@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 53 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 53.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 53 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -67,6 +67,19 @@ How many, not necessarily distinct, values of <span class="math"><em></em><sup><
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">choose ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+choose _ <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
+choose <span class="dv">0</span> _ <span class="fu">=</span> <span class="dv">0</span>
+choose n r <span class="fu">=</span> choose (n<span class="fu">-</span><span class="dv">1</span>) (r<span class="fu">-</span><span class="dv">1</span>) <span class="fu">*</span> n <span class="ot">`div`</span> r
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">&gt;</span> <span class="dv">1000000</span>) [n <span class="ot">`choose`</span> r <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>], r <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>n]]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections
+$ <span class="kw">time</span> ./combinatoric-selections
+<span class="kw">real</span>   0m0.023s
+<span class="kw">user</span>   0m0.020s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
