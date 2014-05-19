@@ -45,10 +45,10 @@
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> filter (\n <span class="ot">-&gt;</span> all ((<span class="fu">==</span> (sort <span class="fu">.</span> show) n) <span class="fu">.</span> (sort <span class="fu">.</span> show) <span class="fu">.</span> (n<span class="fu">*</span>)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">6</span>]) [<span class="dv">1</span><span class="fu">..</span>]</code></pre>
+main <span class="fu">=</span> print <span class="fu">$</span> head [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], all ((<span class="fu">==</span> (sort<span class="fu">.</span>show) n) <span class="fu">.</span> (sort<span class="fu">.</span>show) <span class="fu">.</span> (n<span class="fu">*</span>)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">6</span>]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permuted-multiples
 $ <span class="kw">time</span> ./permuted-multiples
-<span class="kw">real</span>   0m0.207s
+<span class="kw">real</span>   0m0.209s
 <span class="kw">user</span>   0m0.207s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
