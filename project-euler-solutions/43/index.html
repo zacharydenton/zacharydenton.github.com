@@ -55,9 +55,9 @@ d_8d_9d_{10} &amp; =289 \text{ is divisible by 17}
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub)
 
 <span class="ot">expand ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
-expand x <span class="st">&quot;&quot;</span> <span class="fu">=</span> [s <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>, <span class="kw">let</span> s <span class="fu">=</span> show n, length (nub s) <span class="fu">==</span> length s]
+expand x <span class="st">&quot;&quot;</span> <span class="fu">=</span> [s <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>, <span class="kw">let</span> s <span class="fu">=</span> show n, s <span class="fu">==</span> nub s]
 expand <span class="dv">0</span> s <span class="fu">=</span> [c<span class="fu">:</span>s <span class="fu">|</span> c <span class="ot">&lt;-</span> [<span class="ch">'1'</span><span class="fu">..</span><span class="ch">'9'</span>], c <span class="ot">`notElem`</span> s]
-expand x s <span class="fu">=</span> [c<span class="fu">:</span>s <span class="fu">|</span> c <span class="ot">&lt;-</span> [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>], c <span class="ot">`notElem`</span> s, <span class="kw">let</span> t <span class="fu">=</span> c <span class="fu">:</span> take <span class="dv">2</span> s, <span class="kw">let</span> n <span class="fu">=</span> read t, n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>]
+expand x s <span class="fu">=</span> [c<span class="fu">:</span>s <span class="fu">|</span> c <span class="ot">&lt;-</span> [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>], c <span class="ot">`notElem`</span> s, (read (c<span class="fu">:</span>take <span class="dv">2</span> s)) <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>]
 
 <span class="ot">candidates ::</span> [<span class="dt">String</span>]
 candidates <span class="fu">=</span> inner [<span class="dv">17</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">0</span>] [<span class="st">&quot;&quot;</span>] <span class="kw">where</span>
@@ -69,7 +69,7 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-substrings
 $ <span class="kw">time</span> ./pandigital-substrings
 <span class="kw">real</span>   0m0.007s
-<span class="kw">user</span>   0m0.003s
+<span class="kw">user</span>   0m0.007s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
