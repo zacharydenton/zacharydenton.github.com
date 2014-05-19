@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 46 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 46 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 46 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -50,6 +50,24 @@
 <p>It turns out that the conjecture was false.</p>
 <p>What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isPrime n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
+          <span class="fu">|</span> otherwise <span class="fu">=</span> not <span class="fu">$</span> or [n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n]]
+
+<span class="ot">isSum ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isSum n <span class="fu">=</span> any isPrime [n <span class="fu">-</span> <span class="dv">2</span><span class="fu">*</span>s<span class="fu">^</span><span class="dv">2</span> <span class="fu">|</span> s <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromInteger n]]
+
+<span class="ot">candidates ::</span> [<span class="dt">Integer</span>]
+candidates <span class="fu">=</span> [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span>,<span class="dv">3</span><span class="fu">..</span>], not (isPrime n), not (isSum n)]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o goldbach
+$ <span class="kw">time</span> ./goldbach
+<span class="kw">real</span>   0m0.020s
+<span class="kw">user</span>   0m0.017s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> product
