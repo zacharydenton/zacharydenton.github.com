@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 45 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 45 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 45 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -47,6 +47,30 @@
 <p>It can be verified that <span class="math"><em>T</em><sub>285</sub> = <em>P</em><sub>165</sub> = <em>H</em><sub>143</sub> = 40755</span>.</p>
 <p>Find the next triangle number that is also pentagonal and hexagonal.</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+
+<span class="ot">triangles ::</span> [<span class="dt">Int</span>]
+triangles <span class="fu">=</span> [(n<span class="fu">*</span>(n <span class="fu">+</span> <span class="dv">1</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]
+
+<span class="ot">pentagonals ::</span> [<span class="dt">Int</span>]
+pentagonals <span class="fu">=</span> [(n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100000</span>]]
+
+<span class="ot">hexagonals ::</span> [<span class="dt">Int</span>]
+hexagonals <span class="fu">=</span> [n<span class="fu">*</span>(<span class="dv">2</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100000</span>]]
+
+<span class="ot">candidates ::</span> [<span class="dt">Int</span>]
+candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;=</span> <span class="dv">40755</span>) [t <span class="fu">|</span> t <span class="ot">&lt;-</span> triangles, isPentagonal t, isHexagonal t]
+    <span class="kw">where</span> isPentagonal <span class="fu">=</span> (<span class="ot">`Set.member`</span> Set.fromList pentagonals)
+          isHexagonal <span class="fu">=</span> (<span class="ot">`Set.member`</span> Set.fromList hexagonals)
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o tri-pen-hex
+$ <span class="kw">time</span> ./tri-pen-hex
+<span class="kw">real</span>   0m0.096s
+<span class="kw">user</span>   0m0.077s
+<span class="kw">sys</span>    0m0.017s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> triangle(n):
