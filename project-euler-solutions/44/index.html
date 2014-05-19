@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 44 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents solutions to Project Euler Problem 44 in Python and Ruby.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 44 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -57,6 +57,26 @@ Find the pair of pentagonal numbers, <span class="math"><em>P</em><sub><em>j</em
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+
+<span class="ot">pentagonals ::</span> [<span class="dt">Int</span>]
+pentagonals <span class="fu">=</span> [(n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">3000</span>]]
+
+<span class="ot">isPentagonal ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isPentagonal n <span class="fu">=</span> Set.member n (Set.fromList pentagonals)
+
+<span class="ot">candidates ::</span> [<span class="dt">Int</span>]
+candidates <span class="fu">=</span> [j <span class="fu">-</span> k <span class="fu">|</span> j <span class="ot">&lt;-</span> pentagonals, k <span class="ot">&lt;-</span> takeWhile (<span class="fu">&lt;</span> j) pentagonals,
+                      isPentagonal (j <span class="fu">-</span> k), isPentagonal (j <span class="fu">+</span> k)]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pentagonal-nums
+$ <span class="kw">time</span> ./pentagonal-nums
+<span class="kw">real</span>   0m0.241s
+<span class="kw">user</span>   0m0.233s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
