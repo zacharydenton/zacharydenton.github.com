@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 58 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 58.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 58 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -65,6 +65,24 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isPrime n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
+          <span class="fu">|</span> otherwise <span class="fu">=</span> not <span class="fu">$</span> or [n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n]]
+
+<span class="ot">primeCorners ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+primeCorners n <span class="fu">=</span> sum [<span class="dv">1</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">3</span>], isPrime <span class="fu">$</span> n<span class="fu">^</span><span class="dv">2</span> <span class="fu">-</span> x<span class="fu">*</span>(n <span class="fu">-</span> <span class="dv">1</span>)]
+
+<span class="ot">expansion ::</span> [(<span class="dt">Int</span>, <span class="dt">Int</span>)]
+expansion <span class="fu">=</span> scanl (\(p, t) x <span class="ot">-&gt;</span> (p <span class="fu">+</span> primeCorners x, t <span class="fu">+</span> <span class="dv">4</span>)) (<span class="dv">0</span>, <span class="dv">1</span>) [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> (length <span class="fu">$</span> takeWhile id <span class="fu">$</span> tail [<span class="dv">10</span><span class="fu">*</span>p <span class="fu">&gt;=</span> t <span class="fu">|</span> (p, t) <span class="ot">&lt;-</span> expansion])</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes
+$ <span class="kw">time</span> ./spiral-primes
+<span class="kw">real</span>   0m1.090s
+<span class="kw">user</span>   0m1.087s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
