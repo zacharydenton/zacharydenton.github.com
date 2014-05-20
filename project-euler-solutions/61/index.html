@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 61 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 61.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 61 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -102,6 +102,45 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="
 $ <span class="kw">time</span> ./figurate-numbers
 <span class="kw">real</span>   0m0.018s
 <span class="kw">user</span>   0m0.017s
+<span class="kw">sys</span>    0m0.000s</code></pre>
+<h3 id="python">Python</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="kw">def</span> triangle(n): <span class="kw">return</span> n*(n<span class="dv">+1</span>)/<span class="dv">2</span>
+<span class="kw">def</span> square(n): <span class="kw">return</span> n*n
+<span class="kw">def</span> pentagonal(n): <span class="kw">return</span> n*(<span class="dv">3</span>*n<span class="dv">-1</span>)/<span class="dv">2</span>
+<span class="kw">def</span> hexagonal(n): <span class="kw">return</span> n*(<span class="dv">2</span>*n<span class="dv">-1</span>)
+<span class="kw">def</span> heptagonal(n): <span class="kw">return</span> n*(<span class="dv">5</span>*n<span class="dv">-3</span>)/<span class="dv">2</span>
+<span class="kw">def</span> octagonal(n): <span class="kw">return</span> n*(<span class="dv">3</span>*n<span class="dv">-2</span>)
+
+figurates = {
+    <span class="dv">3</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(triangle, <span class="dt">range</span>(<span class="dv">1000</span>))),
+    <span class="dv">4</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(square, <span class="dt">range</span>(<span class="dv">1000</span>))),
+    <span class="dv">5</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(pentagonal, <span class="dt">range</span>(<span class="dv">1000</span>))),
+    <span class="dv">6</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(hexagonal, <span class="dt">range</span>(<span class="dv">1000</span>))),
+    <span class="dv">7</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(heptagonal, <span class="dt">range</span>(<span class="dv">1000</span>))),
+    <span class="dv">8</span>: <span class="dt">filter</span>(<span class="kw">lambda</span> n: n &lt; <span class="dv">10000</span> and n &gt;= <span class="dv">1000</span>, <span class="dt">map</span>(octagonal, <span class="dt">range</span>(<span class="dv">1000</span>)))
+}
+
+<span class="kw">def</span> is_cyclic(a, b):
+    <span class="kw">return</span> <span class="dt">str</span>(a)[-<span class="dv">2</span>:] == <span class="dt">str</span>(b)[:<span class="dv">2</span>]
+
+<span class="kw">def</span> main():
+    numbers = [(key, value) <span class="kw">for</span> key in figurates.keys() <span class="kw">for</span> value in figurates[key]]
+    <span class="kw">for</span> k1, v1 in numbers:
+        <span class="kw">for</span> k2, v2 in [(k, v) <span class="kw">for</span> k, v in numbers <span class="kw">if</span> k not in [k1] and is_cyclic(v1, v)]:
+            <span class="kw">for</span> k3, v3 in [(k, v) <span class="kw">for</span> k, v in numbers <span class="kw">if</span> k not in [k1, k2] and is_cyclic(v2, v)]:
+                <span class="kw">for</span> k4, v4 in [(k, v) <span class="kw">for</span> k, v in numbers <span class="kw">if</span> k not in [k1, k2, k3] and is_cyclic(v3, v)]:
+                    <span class="kw">for</span> k5, v5 in [(k, v) <span class="kw">for</span> k, v in numbers <span class="kw">if</span> k not in [k1, k2, k3, k4] and is_cyclic(v4, v)]:
+                        <span class="kw">for</span> k6, v6 in [(k, v) <span class="kw">for</span> k, v in numbers <span class="kw">if</span> k not in [k1, k2, k3, k4, k5] and is_cyclic(v5, v)]:
+                            <span class="kw">if</span> is_cyclic(v6, v1):
+                                <span class="dt">print</span> <span class="dt">sum</span>([v1, v2, v3, v4, v5, v6])
+                                <span class="kw">return</span>
+
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
+    main()</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 figurate-numbers.py
+<span class="kw">real</span>   0m0.338s
+<span class="kw">user</span>   0m0.337s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
