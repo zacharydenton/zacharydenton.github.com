@@ -66,15 +66,15 @@ cyclic a b <span class="fu">=</span> drop <span class="dv">2</span> a <span clas
 
 <span class="ot">solve ::</span> [<span class="dt">Set.Set</span> <span class="dt">String</span>] <span class="ot">-&gt;</span> [[<span class="dt">Int</span>]]
 solve sets <span class="fu">=</span> [map read [a, b, c, d, e, f] <span class="fu">|</span> a <span class="ot">&lt;-</span> Set.toList <span class="fu">$</span> head sets,
-                                            b <span class="ot">&lt;-</span> filter (cyclic a) <span class="fu">$</span> Set.toList <span class="fu">$</span> Set.unions <span class="fu">$</span> tail sets,
+                                            b <span class="ot">&lt;-</span> filter (cyclic a) <span class="fu">$</span> concatMap Set.toList <span class="fu">$</span> tail sets,
                                             <span class="kw">let</span> be <span class="fu">=</span> filter (Set.notMember b) <span class="fu">$</span> tail sets,
-                                            c <span class="ot">&lt;-</span> filter (cyclic b) <span class="fu">$</span> Set.toList <span class="fu">$</span> Set.unions be,
+                                            c <span class="ot">&lt;-</span> filter (cyclic b) <span class="fu">$</span> concatMap Set.toList be,
                                             <span class="kw">let</span> ce <span class="fu">=</span> filter (Set.notMember c) be,
-                                            d <span class="ot">&lt;-</span> filter (cyclic c) <span class="fu">$</span> Set.toList <span class="fu">$</span> Set.unions ce,
+                                            d <span class="ot">&lt;-</span> filter (cyclic c) <span class="fu">$</span> concatMap Set.toList ce,
                                             <span class="kw">let</span> de <span class="fu">=</span> filter (Set.notMember d) ce,
-                                            e <span class="ot">&lt;-</span> filter (cyclic d) <span class="fu">$</span> Set.toList <span class="fu">$</span> Set.unions de,
+                                            e <span class="ot">&lt;-</span> filter (cyclic d) <span class="fu">$</span> concatMap Set.toList de,
                                             <span class="kw">let</span> ee <span class="fu">=</span> filter (Set.notMember e) de,
-                                            f <span class="ot">&lt;-</span> filter (cyclic e) <span class="fu">$</span> Set.toList <span class="fu">$</span> Set.unions ee,
+                                            f <span class="ot">&lt;-</span> filter (cyclic e) <span class="fu">$</span> concatMap Set.toList ee,
                                             cyclic f a]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
@@ -87,9 +87,9 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="
                                      [n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">2</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o figurate-numbers
 $ <span class="kw">time</span> ./figurate-numbers
-<span class="kw">real</span>   0m0.107s
-<span class="kw">user</span>   0m0.103s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.023s
+<span class="kw">user</span>   0m0.020s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> triangle(n): <span class="kw">return</span> n*(n<span class="dv">+1</span>)/<span class="dv">2</span>
