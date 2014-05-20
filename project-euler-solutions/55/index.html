@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 55 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 55.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 55 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -51,6 +51,20 @@
 <p>How many Lychrel numbers are there below ten-thousand?</p>
 <p>NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretical nature of Lychrel numbers.</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">palindrome ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+palindrome s <span class="fu">=</span> s <span class="fu">==</span> reverse s
+
+<span class="ot">lychrel ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+lychrel n <span class="fu">=</span> not <span class="fu">$</span> any palindrome <span class="fu">$</span> take <span class="dv">50</span> <span class="fu">$</span> tail (iterate (\x <span class="ot">-&gt;</span> show <span class="fu">$</span> (read x) <span class="fu">+</span> (read <span class="fu">$</span> reverse x)) (show n))
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter lychrel [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o lychrel
+$ <span class="kw">time</span> ./lychrel
+<span class="kw">real</span>   0m0.370s
+<span class="kw">user</span>   0m0.363s
+<span class="kw">sys</span>    0m0.007s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
