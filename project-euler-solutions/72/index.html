@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 72 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 72.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 72 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -44,6 +44,18 @@
 <p>It can be seen that there are 21 elements in this set.</p>
 <p>How many elements would be contained in the set of reduced proper fractions for <span class="math"><em>d</em> ≤ 1, 000, 000</span>?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">farey ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+farey <span class="fu">=</span> (map f [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>) <span class="kw">where</span>
+    f n <span class="fu">=</span> (n<span class="fu">*</span>(n <span class="fu">+</span> <span class="dv">3</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">-</span> sum [farey (n <span class="ot">`quot`</span> k) <span class="fu">|</span> k <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>n]]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> farey <span class="dv">1000000</span> <span class="fu">-</span> farey <span class="dv">1</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-fractions
+$ <span class="kw">time</span> ./counting-fractions
+<span class="kw">real</span>   0m0.846s
+<span class="kw">user</span>   0m0.803s
+<span class="kw">sys</span>    0m0.040s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
