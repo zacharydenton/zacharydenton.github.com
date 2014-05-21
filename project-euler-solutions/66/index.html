@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 66 Solution - Zach Denton</title>
+		<meta name="author" content="Zach Denton">
+		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 66.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
+		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+	</head>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
+			</ul>
+			</nav>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 66 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>
+Consider quadratic Diophantine equations of the form:
+</p>
+<br /><span class="math"><em>x</em><sup>2</sup> − <em>D</em><em>y</em><sup>2</sup> = 1</span><br />
+<p>
+For example, when <span class="math"><em>D</em> = 13</span>, the minimal solution in <span class="math"><em>x</em></span> is <span class="math">6492–131802 = 1</span>.
+</p>
+<p>
+It can be assumed that there are no solutions in positive integers when <span class="math"><em>D</em></span> is square.
+</p>
+<p>
+By finding minimal solutions in <span class="math"><em>x</em></span> for <span class="math"><em>D</em> = 2, 3, 5, 6, 7</span>, we obtain the following:
+</p>
+<br /><span class="math">$$
+\begin{align*}
+3^2 – 2 \times 2^2 &amp;amp;= 1 \\
+2^2 – 3 \times 1^2 &amp;amp;= 1 \\
+9^2 – 5 \times 4^2 &amp;amp;= 1 \\
+5^2 – 6 \times 2^2 &amp;amp;= 1 \\
+8^2 – 7 \times 3^2 &amp;amp;= 1
+\end{align*}
+$$</span><br />
+<p>
+Hence, by considering minimal solutions in <span class="math"><em>x</em></span> for <span class="math"><em>D</em> ≤ 7</span>, the largest <span class="math"><em>x</em></span> is obtained when <span class="math"><em>D</em> = 5</span>.
+</p>
+<p>
+Find the value of <span class="math"><em>D</em> ≤ 1000</span> in minimal solutions of <span class="math"><em>x</em></span> for which the largest value of <span class="math"><em>x</em></span> is obtained.
+</p>
+
+
+
+
+
+
+<h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Function</span> (on)
+<span class="kw">import </span><span class="dt">Data.List</span> (maximumBy)
+
+<span class="ot">isInteger ::</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isInteger f <span class="fu">=</span> f <span class="fu">-</span> (fromIntegral (floor f)) <span class="fu">&lt;</span> <span class="dv">0</span><span class="fu">.</span><span class="dv">0000001</span>
+
+<span class="ot">isSquare ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isSquare n <span class="fu">=</span> isInteger (sqrt <span class="fu">$</span> fromIntegral n)
+
+<span class="ot">rationalize ::</span> [<span class="dt">Integer</span>] <span class="ot">-&gt;</span> (<span class="dt">Integer</span>, <span class="dt">Integer</span>)
+rationalize <span class="fu">=</span> foldr (\x (n, d) <span class="ot">-&gt;</span> (x<span class="fu">*</span>n <span class="fu">+</span> d, n)) (<span class="dv">1</span>, <span class="dv">0</span>)
+
+<span class="ot">convergents ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+convergents s <span class="fu">|</span> isSquare s <span class="fu">=</span> []
+              <span class="fu">|</span> isSquare (s<span class="fu">-</span><span class="dv">1</span>) <span class="fu">=</span> (a <span class="dv">0</span>) <span class="fu">:</span> repeat (fromIntegral <span class="fu">$</span> <span class="dv">2</span> <span class="fu">*</span> (floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral (s<span class="fu">-</span><span class="dv">1</span>)))
+              <span class="fu">|</span> otherwise <span class="fu">=</span> map a [<span class="dv">0</span><span class="fu">..</span>]
+              <span class="kw">where</span> m <span class="fu">=</span> (map m' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                    m' <span class="dv">0</span> <span class="fu">=</span> <span class="dv">0</span>
+                    m' n <span class="fu">=</span> (d (n<span class="fu">-</span><span class="dv">1</span>))<span class="fu">*</span>(a (n<span class="fu">-</span><span class="dv">1</span>)) <span class="fu">-</span> (m (n<span class="fu">-</span><span class="dv">1</span>))
+                    d <span class="fu">=</span> (map d' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                    d' <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
+                    d' n <span class="fu">=</span> (s <span class="fu">-</span> (m n)<span class="fu">^</span><span class="dv">2</span>) <span class="ot">`quot`</span> (d (n<span class="fu">-</span><span class="dv">1</span>))
+                    a <span class="fu">=</span> (map a' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                    a' <span class="dv">0</span> <span class="fu">=</span> floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral s
+                    a' n <span class="fu">=</span> floor <span class="fu">$</span> (fromIntegral ((a <span class="dv">0</span>) <span class="fu">+</span> (m n))) <span class="fu">/</span> (fromIntegral (d n))
+
+<span class="ot">solve ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+solve d <span class="fu">=</span> head <span class="fu">$</span> [x <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], <span class="kw">let</span> (x, y) <span class="fu">=</span> rationalize <span class="fu">$</span> take n <span class="fu">$</span> convergents d, x<span class="fu">^</span><span class="dv">2</span> <span class="fu">-</span> d<span class="fu">*</span>y<span class="fu">^</span><span class="dv">2</span> <span class="fu">==</span> <span class="dv">1</span>]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> solve) <span class="fu">$</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000</span>]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o diophantine
+$ <span class="kw">time</span> ./diophantine
+<span class="kw">real</span>   0m0.229s
+<span class="kw">user</span>   0m0.227s
+<span class="kw">sys</span>    0m0.000s</code></pre>
+</article>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>
