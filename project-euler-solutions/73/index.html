@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 73 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 73.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 73 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -44,6 +44,50 @@
 <p>It can be seen that there are 3 fractions between <span class="math">$\frac{1}{3}$</span> and <span class="math">$\frac{1}{2}$</span>.</p>
 <p>How many fractions lie between <span class="math">$\frac{1}{3}$</span> and <span class="math">$\frac{1}{2}$</span> in the sorted set of reduced proper fractions for <span class="math"><em>d</em> ≤ 12, 000</span>?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+
+<span class="ot">primes ::</span> [<span class="dt">Int</span>]
+primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
+    sieve (p<span class="fu">:</span>ps) xs <span class="fu">=</span> h <span class="fu">++</span> sieve ps [x <span class="fu">|</span> x <span class="ot">&lt;-</span> t, rem x p <span class="fu">/=</span> <span class="dv">0</span>]
+                      <span class="kw">where</span> (h, t) <span class="fu">=</span> span (<span class="fu">&lt;</span> p<span class="fu">*</span>p) xs
+
+<span class="ot">factorize ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
+factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">where</span>
+    primeFactors <span class="dv">1</span> _ <span class="fu">=</span> []
+    primeFactors _ [] <span class="fu">=</span> []
+    primeFactors m (p<span class="fu">:</span>ps) <span class="fu">|</span> m <span class="fu">&lt;</span> p <span class="fu">*</span> p <span class="fu">=</span> [m]
+                          <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> p <span class="fu">:</span> primeFactors q (p<span class="fu">:</span>ps)
+                          <span class="fu">|</span> otherwise <span class="fu">=</span> primeFactors m ps
+                          <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
+
+<span class="ot">uniq ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+uniq xs <span class="fu">=</span> uniq' Set.empty xs <span class="kw">where</span>
+    uniq' _ [] <span class="fu">=</span> []
+    uniq' set (y<span class="fu">:</span>ys) <span class="fu">|</span> Set.member y set <span class="fu">=</span> uniq' set ys
+                     <span class="fu">|</span> otherwise <span class="fu">=</span> y <span class="fu">:</span> uniq' (Set.insert y set) xs
+
+<span class="ot">mobius ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+mobius n <span class="fu">|</span> not squarefree <span class="fu">=</span> <span class="dv">0</span>
+         <span class="fu">|</span> otherwise <span class="fu">=</span> (<span class="fu">-</span><span class="dv">1</span>)<span class="fu">^</span>r
+         <span class="kw">where</span> factors <span class="fu">=</span> factorize n
+               uniqFactors <span class="fu">=</span> uniq factors
+               r <span class="fu">=</span> length uniqFactors
+               squarefree <span class="fu">=</span> r <span class="fu">==</span> length factors
+
+<span class="ot">f ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+f m <span class="fu">=</span> sum [((n <span class="fu">-</span> <span class="dv">1</span>) <span class="ot">`quot`</span> <span class="dv">2</span>) <span class="fu">-</span> (n <span class="ot">`quot`</span> <span class="dv">3</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>m]]
+
+<span class="ot">r ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+r limit <span class="fu">=</span> sum [(mobius m) <span class="fu">*</span> f (limit <span class="ot">`quot`</span> m) <span class="fu">|</span> m <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>limit]]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> r <span class="dv">12000</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fraction-range
+$ <span class="kw">time</span> ./fraction-range
+<span class="kw">real</span>   0m0.019s
+<span class="kw">user</span>   0m0.020s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> fractions <span class="ch">import</span> gcd
