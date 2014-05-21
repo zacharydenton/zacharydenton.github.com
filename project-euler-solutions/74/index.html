@@ -73,18 +73,18 @@ digits n <span class="fu">=</span> r <span class="fu">:</span> digits q
 <span class="ot">next ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 next <span class="fu">=</span> sum <span class="fu">.</span> map factorial <span class="fu">.</span> digits
 
-<span class="ot">chain ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
-chain <span class="fu">=</span> inner [] Set.empty <span class="kw">where</span>
-    inner acc set x <span class="fu">|</span> Set.member x set <span class="fu">=</span> acc
-                    <span class="fu">|</span> otherwise <span class="fu">=</span> inner (acc <span class="fu">++</span> [x]) (Set.insert x set) (next x)
+<span class="ot">chain ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+chain <span class="fu">=</span> inner Set.empty <span class="kw">where</span>
+    inner set x <span class="fu">|</span> Set.member x set <span class="fu">=</span> <span class="dv">0</span>
+                <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="dv">1</span> <span class="fu">+</span> inner (Set.insert x set) (next x)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">60</span>) <span class="fu">.</span> length <span class="fu">.</span> chain) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre>
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">60</span>) <span class="fu">.</span> chain) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o factorial-chains
 $ <span class="kw">time</span> ./factorial-chains
-<span class="kw">real</span>   0m32.821s
-<span class="kw">user</span>   0m32.693s
-<span class="kw">sys</span>    0m0.143s</code></pre>
+<span class="kw">real</span>   0m30.695s
+<span class="kw">user</span>   0m30.587s
+<span class="kw">sys</span>    0m0.120s</code></pre>
 </article>
 
 
