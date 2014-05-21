@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 68 Solution - Zach Denton</title>
+		<meta name="author" content="Zach Denton">
+		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 68.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
+		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+	</head>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
+			</ul>
+			</nav>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 68 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>
+Consider the following “magic” 3-gon ring, filled with the numbers 1 to 6, and each line adding to nine.
+</p>
+<div style="text-align:center;">
+<img src="project/images/p_068_1.gif" alt><br>
+</div>
+<p>
+Working <b>clockwise</b>, and starting from the group of three with the numerically lowest external node (4,3,2 in this example), each solution can be described uniquely. For example, the above solution can be described by the set: 4,3,2; 6,2,1; 5,1,3.
+</p>
+<p>
+It is possible to complete the ring with four different totals: 9, 10, 11, and 12. There are eight solutions in total.
+</p>
+<div style="text-align:center;">
+<table width="400" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td width="100">
+<b>Total</b>
+</td><td width="300">
+<b>Solution Set</b>
+</td>
+</tr>
+<tr>
+<td>
+9
+</td><td>
+4,2,3; 5,3,1; 6,1,2
+</td>
+</tr>
+<tr>
+<td>
+9
+</td><td>
+4,3,2; 6,2,1; 5,1,3
+</td>
+</tr>
+<tr>
+<td>
+10
+</td><td>
+2,3,5; 4,5,1; 6,1,3
+</td>
+</tr>
+<tr>
+<td>
+10
+</td><td>
+2,5,3; 6,3,1; 4,1,5
+</td>
+</tr>
+<tr>
+<td>
+11
+</td><td>
+1,4,6; 3,6,2; 5,2,4
+</td>
+</tr>
+<tr>
+<td>
+11
+</td><td>
+1,6,4; 5,4,2; 3,2,6
+</td>
+</tr>
+<tr>
+<td>
+12
+</td><td>
+1,5,6; 2,6,4; 3,4,5
+</td>
+</tr>
+<tr>
+<td>
+12
+</td><td>
+1,6,5; 3,5,4; 2,4,6
+</td>
+</tr>
+</tbody></table>
+</div>
+<p>
+By concatenating each group it is possible to form 9-digit strings; the maximum string for a 3-gon ring is 432621513.
+</p>
+<p>
+Using the numbers 1 to 10, and depending on arrangements, it is possible to form 16- and 17-digit strings. What is the maximum <b>16-digit</b> string for a “magic” 5-gon ring?
+</p>
+<div style="text-align:center;">
+<img src="project/images/p_068_2.gif" alt><br>
+</div>
+<h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fivegon ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [[[<span class="dt">Int</span>]]]
+fivegon n <span class="fu">=</span> [[[a, b, c], [d, c, e], [f, e, g], [h, g, i], [k, i, b]]
+    <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      b <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      c <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      a <span class="fu">+</span> b <span class="fu">+</span> c <span class="fu">==</span> n,
+      d <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c]) [a<span class="fu">..</span><span class="dv">10</span>],
+      e <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      d <span class="fu">+</span> c <span class="fu">+</span> e <span class="fu">==</span> n,
+      f <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d, e]) [a<span class="fu">..</span><span class="dv">10</span>],
+      g <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d, e, f]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      f <span class="fu">+</span> e <span class="fu">+</span> g <span class="fu">==</span> n,
+      h <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d, e, f, g]) [a<span class="fu">..</span><span class="dv">10</span>],
+      i <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d, e, f, g, h]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">10</span>],
+      h <span class="fu">+</span> g <span class="fu">+</span> i <span class="fu">==</span> n,
+      k <span class="ot">&lt;-</span> filter (<span class="ot">`notElem`</span> [a, b, c, d, e, f, g, h, i]) [a<span class="fu">..</span><span class="dv">10</span>],
+      k <span class="fu">+</span> i <span class="fu">+</span> b <span class="fu">==</span> n]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> maximum [s <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">50</span>], gon <span class="ot">&lt;-</span> fivegon n, <span class="kw">let</span> s <span class="fu">=</span> concatMap show <span class="fu">$</span> concat gon, length s <span class="fu">==</span> <span class="dv">16</span>]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o magic-5-gon
+$ <span class="kw">time</span> ./magic-5-gon
+<span class="kw">real</span>   0m0.028s
+<span class="kw">user</span>   0m0.027s
+<span class="kw">sys</span>    0m0.000s</code></pre>
+</article>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>
