@@ -45,18 +45,19 @@
 <p>By listing the set of reduced proper fractions for <span class="math"><em>d</em> ≤ 1, 000, 000</span> in ascending order of size, find the numerator of the fraction immediately to the left of <span class="math">$\frac{3}{7}$</span>.</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="haskell">Haskell</h3>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">loop ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span>, <span class="dt">Int</span>)
-loop n d i <span class="fu">|</span> i <span class="fu">==</span> <span class="dv">1000000</span> <span class="fu">=</span> (n, d)
-           <span class="fu">|</span> <span class="dv">7</span><span class="fu">*</span>m <span class="fu">&lt;</span> <span class="dv">3</span><span class="fu">*</span>i <span class="fu">&amp;&amp;</span> m<span class="fu">*</span>d <span class="fu">&gt;</span> n<span class="fu">*</span>i <span class="fu">=</span> loop m i (i<span class="fu">+</span><span class="dv">1</span>)
-           <span class="fu">|</span> otherwise <span class="fu">=</span> loop n d (i<span class="fu">+</span><span class="dv">1</span>)
-           <span class="kw">where</span> m <span class="fu">=</span> <span class="dv">3</span><span class="fu">*</span>i <span class="ot">`quot`</span> <span class="dv">7</span>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">prevFrac ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span>, <span class="dt">Int</span>)
+prevFrac num den limit <span class="fu">=</span> inner <span class="dv">1</span> limit <span class="dv">1</span> <span class="kw">where</span>
+    inner n d i <span class="fu">|</span> i <span class="fu">==</span> limit <span class="fu">=</span> (n, d)
+                <span class="fu">|</span> den<span class="fu">*</span>m <span class="fu">&lt;</span> num<span class="fu">*</span>i <span class="fu">&amp;&amp;</span> m<span class="fu">*</span>d <span class="fu">&gt;</span> n<span class="fu">*</span>i <span class="fu">=</span> inner m i (i<span class="fu">+</span><span class="dv">1</span>)
+                <span class="fu">|</span> otherwise <span class="fu">=</span> inner n d (i<span class="fu">+</span><span class="dv">1</span>)
+                <span class="kw">where</span> m <span class="fu">=</span> num<span class="fu">*</span>i <span class="ot">`quot`</span> den
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> loop <span class="dv">1</span> <span class="dv">1000000</span> <span class="dv">1</span></code></pre>
+main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> prevFrac <span class="dv">3</span> <span class="dv">7</span> <span class="dv">1000000</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o ordered-fractions
 $ <span class="kw">time</span> ./ordered-fractions
-<span class="kw">real</span>   0m0.024s
-<span class="kw">user</span>   0m0.023s
+<span class="kw">real</span>   0m0.023s
+<span class="kw">user</span>   0m0.020s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
