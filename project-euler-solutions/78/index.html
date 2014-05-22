@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 78 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 78.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 78 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -77,6 +77,27 @@ Find the least value of <i>n</i> for which p(<i>n</i>) is divisible by one milli
 
 
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Array</span>
+<span class="kw">import </span><span class="dt">Data.List</span> (sort)
+
+<span class="ot">pentagonals ::</span> [<span class="dt">Integer</span>]
+pentagonals <span class="fu">=</span> sort [n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="fu">-</span><span class="dv">250</span><span class="fu">..</span><span class="dv">250</span>], n <span class="fu">/=</span> <span class="dv">0</span>]
+
+<span class="ot">cache ::</span> <span class="dt">Array</span> <span class="dt">Integer</span> <span class="dt">Integer</span>
+cache <span class="fu">=</span> array (<span class="dv">0</span>, <span class="dv">100000</span>) [(x, partition x) <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">100000</span>]]
+
+<span class="ot">partition ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+partition n <span class="fu">|</span> n <span class="fu">&lt;=</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
+            <span class="fu">|</span> otherwise <span class="fu">=</span> sum [s <span class="fu">*</span> (cache <span class="fu">!</span> (n <span class="fu">-</span> p)) <span class="fu">|</span> (s, p) <span class="ot">&lt;-</span> zip (cycle [<span class="dv">1</span>, <span class="dv">1</span>, <span class="fu">-</span><span class="dv">1</span>, <span class="fu">-</span><span class="dv">1</span>]) (takeWhile (<span class="fu">&lt;=</span> n) pentagonals)]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> (i, p) <span class="ot">&lt;-</span> assocs cache, p <span class="ot">`rem`</span> <span class="dv">1000000</span> <span class="fu">==</span> <span class="dv">0</span>]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o coin-partitions
+$ <span class="kw">time</span> ./coin-partitions
+<span class="kw">real</span>   0m2.463s
+<span class="kw">user</span>   0m2.447s
+<span class="kw">sys</span>    0m0.017s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
