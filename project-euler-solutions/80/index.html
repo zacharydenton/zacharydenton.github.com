@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 80 Solution - Zach Denton</title>
+		<meta name="author" content="Zach Denton">
+		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 80.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
+		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+	</head>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
+			</ul>
+			</nav>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 80 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>It is well known that if the square root of a natural number is not an integer, then it is irrational. The decimal expansion of such square roots is infinite without any repeating pattern at all.</p>
+<p>The square root of two is 1.41421356237309504880…, and the digital sum of the first one hundred decimal digits is 475.</p>
+<p>For the first one hundred natural numbers, find the total of the digital sums of the first one hundred decimal digits for all the irrational square roots.</p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isqrt ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+isqrt <span class="dv">0</span> <span class="fu">=</span> <span class="dv">0</span>
+isqrt <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
+isqrt n <span class="fu">=</span> head <span class="fu">$</span> dropWhile (\x <span class="ot">-&gt;</span> x<span class="fu">*</span>x <span class="fu">&gt;</span> n) <span class="fu">$</span> iterate (\x <span class="ot">-&gt;</span> (x <span class="fu">+</span> n <span class="ot">`div`</span> x) <span class="ot">`div`</span> <span class="dv">2</span>) (n <span class="ot">`div`</span> <span class="dv">2</span>)
+
+<span class="ot">digits ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+digits <span class="fu">=</span> map (read <span class="fu">.</span> return) <span class="fu">.</span> show
+
+<span class="ot">sqrtDigits ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+sqrtDigits count x <span class="fu">=</span> digits <span class="fu">$</span> isqrt <span class="fu">$</span> x<span class="fu">*</span>(<span class="dv">10</span><span class="fu">^</span>(<span class="dv">2</span><span class="fu">*</span>count))
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> concat [ds <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], <span class="kw">let</span> ds <span class="fu">=</span> sqrtDigits <span class="dv">99</span> n, not (all (<span class="fu">==</span> <span class="dv">0</span>) <span class="fu">$</span> tail ds)]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-expansion
+$ <span class="kw">time</span> ./root-expansion
+<span class="kw">real</span>   0m0.077s
+<span class="kw">user</span>   0m0.073s
+<span class="kw">sys</span>    0m0.000s</code></pre>
+</article>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>
