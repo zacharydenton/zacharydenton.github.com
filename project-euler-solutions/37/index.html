@@ -58,7 +58,7 @@ leftTruncatable n <span class="fu">=</span> all isPrime <span class="fu">$</span
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter leftTruncatable candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o truncatable-primes
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o truncatable-primes truncatable-primes.hs
 $ <span class="kw">time</span> ./truncatable-primes
 <span class="kw">real</span>   0m0.004s
 <span class="kw">user</span>   0m0.003s

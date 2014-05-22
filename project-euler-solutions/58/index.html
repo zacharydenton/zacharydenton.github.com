@@ -78,7 +78,7 @@ expansion <span class="fu">=</span> scanl (\(p, t) x <span class="ot">-&gt;</spa
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> (length <span class="fu">$</span> takeWhile id <span class="fu">$</span> tail [<span class="dv">10</span><span class="fu">*</span>p <span class="fu">&gt;=</span> t <span class="fu">|</span> (p, t) <span class="ot">&lt;-</span> expansion])</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes spiral-primes.hs
 $ <span class="kw">time</span> ./spiral-primes
 <span class="kw">real</span>   0m0.761s
 <span class="kw">user</span>   0m0.760s

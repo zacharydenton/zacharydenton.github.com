@@ -54,7 +54,7 @@ prevFrac num den limit <span class="fu">=</span> inner <span class="dv">1</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> prevFrac <span class="dv">3</span> <span class="dv">7</span> <span class="dv">1000000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o ordered-fractions
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o ordered-fractions ordered-fractions.hs
 $ <span class="kw">time</span> ./ordered-fractions
 <span class="kw">real</span>   0m0.023s
 <span class="kw">user</span>   0m0.020s

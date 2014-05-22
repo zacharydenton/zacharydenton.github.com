@@ -60,7 +60,7 @@ lychrel n <span class="fu">=</span> not <span class="fu">$</span> any palindrome
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter lychrel [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o lychrel
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o lychrel lychrel.hs
 $ <span class="kw">time</span> ./lychrel
 <span class="kw">real</span>   0m0.370s
 <span class="kw">user</span>   0m0.363s

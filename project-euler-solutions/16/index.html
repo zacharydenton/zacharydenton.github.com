@@ -60,7 +60,7 @@ sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> <span class="dv">2</span><span class="fu">^</span><span class="dv">1000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumExp
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumExp sumExp.hs
 $ <span class="kw">time</span> ./sumExp
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s

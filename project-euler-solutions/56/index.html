@@ -49,7 +49,7 @@ digits n <span class="fu">=</span> r <span class="fu">:</span> digits q
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum [sum <span class="fu">$</span> digits <span class="fu">$</span> a<span class="fu">^</span>b <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], b <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o digit-sum
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o digit-sum digit-sum.hs
 $ <span class="kw">time</span> ./digit-sum
 <span class="kw">real</span>   0m0.125s
 <span class="kw">user</span>   0m0.123s

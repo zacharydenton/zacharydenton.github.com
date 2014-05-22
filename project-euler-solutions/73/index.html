@@ -83,7 +83,7 @@ r limit <span class="fu">=</span> sum [(mobius m) <span class="fu">*</span> f (l
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> r <span class="dv">12000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fraction-range
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fraction-range fraction-range.hs
 $ <span class="kw">time</span> ./fraction-range
 <span class="kw">real</span>   0m0.019s
 <span class="kw">user</span>   0m0.020s

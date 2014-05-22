@@ -61,7 +61,7 @@ cubes <span class="fu">=</span> Map.fromListWith (<span class="fu">++</span>) [(
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> minimum [minimum ns <span class="fu">|</span> (_, ns) <span class="ot">&lt;-</span> Map.toList cubes, length ns <span class="fu">==</span> <span class="dv">5</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o cubic-permutations
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o cubic-permutations cubic-permutations.hs
 $ <span class="kw">time</span> ./cubic-permutations
 <span class="kw">real</span>   0m0.093s
 <span class="kw">user</span>   0m0.090s

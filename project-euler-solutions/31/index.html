@@ -66,7 +66,7 @@ How many different ways can <span class="math">$\pounds2$</span> be made using a
                            e <span class="ot">&lt;-</span> [d,d<span class="fu">-</span><span class="dv">10</span><span class="fu">..</span><span class="dv">0</span>],
                            f <span class="ot">&lt;-</span> [e,e<span class="fu">-</span><span class="dv">5</span><span class="fu">..</span><span class="dv">0</span>],
                            g <span class="ot">&lt;-</span> [f,f<span class="fu">-</span><span class="dv">2</span><span class="fu">..</span><span class="dv">0</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o currency
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o currency currency.hs
 $ <span class="kw">time</span> ./currency
 <span class="kw">real</span>   0m0.012s
 <span class="kw">user</span>   0m0.010s

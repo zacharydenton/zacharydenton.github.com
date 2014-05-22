@@ -62,7 +62,7 @@ primesProduced (a, b) <span class="fu">=</span> length <span class="fu">$</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> uncurry (<span class="fu">*</span>) <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> primesProduced) coefficients</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o quadratic-primes
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o quadratic-primes quadratic-primes.hs
 $ <span class="kw">time</span> ./quadratic-primes
 <span class="kw">real</span>   0m3.175s
 <span class="kw">user</span>   0m3.173s

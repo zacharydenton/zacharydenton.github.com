@@ -76,7 +76,7 @@ candidates <span class="fu">=</span> [(n, phi) <span class="fu">|</span> p1 <spa
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> minimum [(fromIntegral n <span class="fu">/</span> fromIntegral phi, n) <span class="fu">|</span> (n, phi) <span class="ot">&lt;-</span> candidates, permutation n phi]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient-permutation
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient-permutation totient-permutation.hs
 $ <span class="kw">time</span> ./totient-permutation
 <span class="kw">real</span>   0m0.145s
 <span class="kw">user</span>   0m0.143s

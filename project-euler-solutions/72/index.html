@@ -51,7 +51,7 @@ farey <span class="fu">=</span> (map f [<span class="dv">0</span><span class="fu
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> farey <span class="dv">1000000</span> <span class="fu">-</span> farey <span class="dv">1</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-fractions
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-fractions counting-fractions.hs
 $ <span class="kw">time</span> ./counting-fractions
 <span class="kw">real</span>   0m0.846s
 <span class="kw">user</span>   0m0.803s

@@ -56,7 +56,7 @@ expansion <span class="fu">=</span> iterate (\(n, d) <span class="ot">-&gt;</spa
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length [(n, d) <span class="fu">|</span> (n, d) <span class="ot">&lt;-</span> take <span class="dv">1000</span> expansion, length (show (n <span class="fu">+</span> d)) <span class="fu">&gt;</span> length (show d)]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-two
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-two root-two.hs
 $ <span class="kw">time</span> ./root-two
 <span class="kw">real</span>   0m0.023s
 <span class="kw">user</span>   0m0.020s

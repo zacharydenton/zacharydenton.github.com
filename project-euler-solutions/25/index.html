@@ -74,7 +74,7 @@ fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</spa
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="fu">==</span><span class="dv">1000</span>) <span class="fu">.</span> length <span class="fu">.</span> show <span class="fu">$</span> fibs <span class="fu">!!</span> i]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci fibonacci.hs
 $ <span class="kw">time</span> ./fibonacci
 <span class="kw">real</span>   0m0.199s
 <span class="kw">user</span>   0m0.193s

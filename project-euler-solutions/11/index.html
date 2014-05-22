@@ -112,7 +112,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/011/grid.txt&quot;</span>
         <span class="kw">let</span> grid <span class="fu">=</span> parse str
         print <span class="fu">$</span> largestProduct <span class="fu">$</span> concatMap (<span class="fu">$</span>grid) [horizontal, vertical, southEast, southWest]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o grid-product
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o grid-product grid-product.hs
 $ <span class="kw">time</span> ./grid-product
 <span class="kw">real</span>   0m0.008s
 <span class="kw">user</span>   0m0.007s

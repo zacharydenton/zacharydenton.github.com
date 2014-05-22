@@ -53,7 +53,7 @@ candidates <span class="fu">=</span> filter isPrime <span class="fu">$</span> co
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-prime
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-prime pandigital-prime.hs
 $ <span class="kw">time</span> ./pandigital-prime
 <span class="kw">real</span>   0m0.067s
 <span class="kw">user</span>   0m0.063s

@@ -71,7 +71,7 @@ digits n <span class="fu">=</span> digits' n []
           digits' n acc <span class="fu">=</span> digits' (div n <span class="dv">10</span>) (mod n <span class="dv">10</span> <span class="fu">:</span> acc)
 
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span><span class="dv">500000</span>], sum (map (<span class="fu">^</span><span class="dv">5</span>) (digits n)) <span class="fu">==</span> n]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumFifths
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumFifths sumFifths.hs
 $ <span class="kw">time</span> ./sumFifths
 <span class="kw">real</span>   0m0.359s
 <span class="kw">user</span>   0m0.357s

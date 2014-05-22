@@ -81,7 +81,7 @@ candidates <span class="fu">=</span> [cons <span class="fu">|</span> cons <span 
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-factors
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-factors consecutive-factors.hs
 $ <span class="kw">time</span> ./consecutive-factors
 <span class="kw">real</span>   0m0.137s
 <span class="kw">user</span>   0m0.133s

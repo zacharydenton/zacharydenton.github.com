@@ -80,7 +80,7 @@ triangle str <span class="fu">=</span> floor t <span class="fu">==</span> ceilin
 main <span class="fu">=</span> <span class="kw">do</span>
     str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/042/words.txt&quot;</span>
     print <span class="fu">$</span> length <span class="fu">$</span> filter triangle <span class="fu">$</span> parse str</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words triangle-words.hs
 $ <span class="kw">time</span> ./triangle-words
 <span class="kw">real</span>   0m0.006s
 <span class="kw">user</span>   0m0.007s

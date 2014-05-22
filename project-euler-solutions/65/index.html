@@ -70,7 +70,7 @@ digits n <span class="fu">=</span> r <span class="fu">:</span> digits q
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> digits <span class="fu">$</span> fst <span class="fu">$</span> rationalize <span class="fu">$</span> take <span class="dv">100</span> convergents</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o e-convergents
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o e-convergents e-convergents.hs
 $ <span class="kw">time</span> ./e-convergents
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s

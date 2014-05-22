@@ -64,7 +64,7 @@ bouncy <span class="fu">=</span> b' <span class="dv">1</span> <span class="dv">0
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maybe <span class="dv">0</span> fst <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o bouncy
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o bouncy bouncy.hs
 $ <span class="kw">time</span> ./bouncy
 <span class="kw">real</span>   0m1.287s
 <span class="kw">user</span>   0m1.273s

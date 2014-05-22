@@ -98,7 +98,7 @@
         }
     }
 }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor prime-factor.go
 $ <span class="kw">time</span> ./prime-factor
 <span class="kw">real</span>   0m0.068s
 <span class="kw">user</span>   0m0.067s
@@ -118,7 +118,7 @@ factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">whe
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor prime-factor.hs
 $ <span class="kw">time</span> ./prime-factor
 <span class="kw">real</span>   0m0.005s
 <span class="kw">user</span>   0m0.003s

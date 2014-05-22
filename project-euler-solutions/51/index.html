@@ -71,7 +71,7 @@ expand (d, ds) <span class="fu">=</span> [new <span class="fu">|</span> n <span 
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> snd <span class="fu">.</span> head <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">8</span>) <span class="fu">.</span> length <span class="fu">.</span> expand) candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-replacement
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-replacement prime-replacement.hs
 $ <span class="kw">time</span> ./prime-replacement
 <span class="kw">real</span>   0m0.153s
 <span class="kw">user</span>   0m0.150s

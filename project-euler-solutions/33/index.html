@@ -61,7 +61,7 @@ curious n d <span class="fu">|</span> f <span class="fu">&gt;</span> <span class
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> denominator <span class="fu">$</span> product [fraction n d <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">..</span><span class="dv">99</span>], d <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">..</span><span class="dv">99</span>], curious n d]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o curious-fractions
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o curious-fractions curious-fractions.hs
 $ <span class="kw">time</span> ./curious-fractions
 <span class="kw">real</span>   0m0.007s
 <span class="kw">user</span>   0m0.007s

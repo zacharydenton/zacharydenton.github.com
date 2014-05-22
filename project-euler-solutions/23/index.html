@@ -96,7 +96,7 @@ sums <span class="fu">=</span> filter (any (abundantsArray <span class="fu">!</s
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o abundant
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o abundant abundant.hs
 $ <span class="kw">time</span> ./abundant
 <span class="kw">real</span>   0m0.135s
 <span class="kw">user</span>   0m0.133s

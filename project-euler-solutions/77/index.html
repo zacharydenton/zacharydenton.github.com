@@ -63,7 +63,7 @@ primePartition <span class="fu">=</span> p primes <span class="kw">where</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> head <span class="fu">$</span> dropWhile ((<span class="fu">&lt;=</span> <span class="dv">5000</span>) <span class="fu">.</span> snd) [(n, primePartition n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-summations
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-summations prime-summations.hs
 $ <span class="kw">time</span> ./prime-summations
 <span class="kw">real</span>   0m0.024s
 <span class="kw">user</span>   0m0.023s

@@ -75,7 +75,7 @@ choose n r <span class="fu">=</span> choose (n<span class="fu">-</span><span cla
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">&gt;</span> <span class="dv">1000000</span>) [n <span class="ot">`choose`</span> r <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>], r <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>n]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections combinatoric-selections.hs
 $ <span class="kw">time</span> ./combinatoric-selections
 <span class="kw">real</span>   0m0.023s
 <span class="kw">user</span>   0m0.020s

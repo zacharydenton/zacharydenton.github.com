@@ -72,7 +72,7 @@ Find the sum of all the even-valued terms in the sequence which do not exceed fo
     }
     fmt.Println(sum)
 }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o fibonacci
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o fibonacci fibonacci.go
 $ <span class="kw">time</span> ./fibonacci
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s
@@ -83,7 +83,7 @@ fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</spa
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter even <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span><span class="dv">4000000</span>) fibs</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci fibonacci.hs
 $ <span class="kw">time</span> ./fibonacci
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.003s

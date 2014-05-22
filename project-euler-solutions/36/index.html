@@ -84,7 +84,7 @@ digits base n <span class="fu">=</span> r <span class="fu">:</span> digits base 
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>], all palindrome [digits <span class="dv">10</span> n, digits <span class="dv">2</span> n]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o double-palindrome
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o double-palindrome double-palindrome.hs
 $ <span class="kw">time</span> ./double-palindrome
 <span class="kw">real</span>   0m0.223s
 <span class="kw">user</span>   0m0.217s

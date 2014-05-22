@@ -66,7 +66,7 @@ candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;=</span> <s
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o tri-pen-hex
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o tri-pen-hex tri-pen-hex.hs
 $ <span class="kw">time</span> ./tri-pen-hex
 <span class="kw">real</span>   0m0.096s
 <span class="kw">user</span>   0m0.077s

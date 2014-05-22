@@ -253,7 +253,7 @@ totient n <span class="fu">=</span> (fromIntegral n) <span class="fu">*</span> p
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> maximum [((fromIntegral n) <span class="fu">/</span> (totient n), n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient totient.hs
 $ <span class="kw">time</span> ./totient
 <span class="kw">real</span>   0m1.040s
 <span class="kw">user</span>   0m1.040s

@@ -57,7 +57,7 @@ perimeters limit <span class="fu">=</span> accumArray (<span class="fu">+</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">==</span> <span class="dv">1</span>) <span class="fu">$</span> elems <span class="fu">$</span> perimeters <span class="dv">1500000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o singular-triangles
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o singular-triangles singular-triangles.hs
 $ <span class="kw">time</span> ./singular-triangles
 <span class="kw">real</span>   0m1.853s
 <span class="kw">user</span>   0m1.837s

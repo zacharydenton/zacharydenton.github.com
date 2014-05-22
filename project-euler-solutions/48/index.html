@@ -75,7 +75,7 @@ lastN n xs <span class="fu">=</span> foldl (const <span class="fu">.</span> drop
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> lastN <span class="dv">10</span> <span class="fu">$</span> show <span class="fu">$</span> sum [x<span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o self-powers
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o self-powers self-powers.hs
 $ <span class="kw">time</span> ./self-powers
 <span class="kw">real</span>   0m0.011s
 <span class="kw">user</span>   0m0.010s

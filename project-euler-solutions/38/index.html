@@ -59,7 +59,7 @@ multiples x <span class="fu">=</span> takeWhile ((<span class="fu">==</span> <sp
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> maximum <span class="fu">$</span> filter pandigital <span class="fu">$</span> concatMap multiples [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-multiples
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-multiples pandigital-multiples.hs
 $ <span class="kw">time</span> ./pandigital-multiples
 <span class="kw">real</span>   0m0.016s
 <span class="kw">user</span>   0m0.013s

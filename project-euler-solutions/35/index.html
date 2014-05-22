@@ -81,7 +81,7 @@ candidate n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes circular-primes.hs
 $ <span class="kw">time</span> ./circular-primes
 <span class="kw">real</span>   0m0.224s
 <span class="kw">user</span>   0m0.207s

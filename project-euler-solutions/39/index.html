@@ -65,7 +65,7 @@ solutions p <span class="fu">=</span> [(a, b, c) <span class="fu">|</span> a <sp
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> (length <span class="fu">.</span> solutions)) [<span class="dv">2</span>,<span class="dv">4</span><span class="fu">..</span><span class="dv">1000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o right-triangles
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o right-triangles right-triangles.hs
 $ <span class="kw">time</span> ./right-triangles
 <span class="kw">real</span>   0m0.011s
 <span class="kw">user</span>   0m0.007s

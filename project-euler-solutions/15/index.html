@@ -74,7 +74,7 @@ choose n k <span class="fu">=</span> (factorial n) <span class="ot">`div`</span>
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> choose <span class="dv">40</span> <span class="dv">20</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o binom
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o binom binom.hs
 $ <span class="kw">time</span> ./binom
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s

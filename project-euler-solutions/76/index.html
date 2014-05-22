@@ -60,7 +60,7 @@ change t c <span class="fu">=</span> cache <span class="fu">!</span> (t, c) <spa
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> change <span class="dv">100</span> <span class="dv">99</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-summations
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-summations counting-summations.hs
 $ <span class="kw">time</span> ./counting-summations
 <span class="kw">real</span>   0m0.010s
 <span class="kw">user</span>   0m0.010s

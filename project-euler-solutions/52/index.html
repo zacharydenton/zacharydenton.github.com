@@ -46,7 +46,7 @@
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], all ((<span class="fu">==</span> (sort <span class="fu">.</span> show) n) <span class="fu">.</span> (sort <span class="fu">.</span> show) <span class="fu">.</span> (n<span class="fu">*</span>)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">6</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permuted-multiples
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permuted-multiples permuted-multiples.hs
 $ <span class="kw">time</span> ./permuted-multiples
 <span class="kw">real</span>   0m0.166s
 <span class="kw">user</span>   0m0.163s

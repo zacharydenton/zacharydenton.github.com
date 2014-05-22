@@ -68,7 +68,7 @@ collatz n <span class="fu">|</span> inRange (bounds memoCollatz) next <span clas
                              <span class="fu">|</span> otherwise <span class="ot">-&gt;</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span>
 
 main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> maximum <span class="fu">$</span> map (\n <span class="ot">-&gt;</span> (collatz n, n)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o longest-chain
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o longest-chain longest-chain.hs
 $ <span class="kw">time</span> ./longest-chain
 <span class="kw">real</span>   0m0.953s
 <span class="kw">user</span>   0m0.880s

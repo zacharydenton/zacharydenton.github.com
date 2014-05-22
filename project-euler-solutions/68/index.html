@@ -148,7 +148,7 @@ fivegon n <span class="fu">=</span> [[[a, b, c], [d, c, e], [f, e, g], [h, g, i]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> maximum [s <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">50</span>], gon <span class="ot">&lt;-</span> fivegon n, <span class="kw">let</span> s <span class="fu">=</span> concatMap show <span class="fu">$</span> concat gon, length s <span class="fu">==</span> <span class="dv">16</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o magic-5-gon
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o magic-5-gon magic-5-gon.hs
 $ <span class="kw">time</span> ./magic-5-gon
 <span class="kw">real</span>   0m0.028s
 <span class="kw">user</span>   0m0.027s

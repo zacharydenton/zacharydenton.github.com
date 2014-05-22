@@ -72,7 +72,7 @@ candidates <span class="fu">=</span> [j <span class="fu">-</span> k <span class=
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pentagonal-nums
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pentagonal-nums pentagonal-nums.hs
 $ <span class="kw">time</span> ./pentagonal-nums
 <span class="kw">real</span>   0m0.241s
 <span class="kw">user</span>   0m0.233s

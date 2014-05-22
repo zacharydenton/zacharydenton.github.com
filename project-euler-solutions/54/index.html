@@ -274,7 +274,7 @@ main <span class="fu">=</span> <span class="kw">do</span>
     str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/054/poker.txt&quot;</span>
     <span class="kw">let</span> games <span class="fu">=</span> parse str
     print <span class="fu">$</span> length [left <span class="fu">|</span> (left, right) <span class="ot">&lt;-</span> games, evaluate left <span class="fu">&gt;</span> evaluate right]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o poker
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o poker poker.hs
 $ <span class="kw">time</span> ./poker
 <span class="kw">real</span>   0m0.027s
 <span class="kw">user</span>   0m0.023s

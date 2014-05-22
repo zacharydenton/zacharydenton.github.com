@@ -59,7 +59,7 @@ champernowne <span class="fu">=</span> foldr (\x acc <span class="ot">-&gt;</spa
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> product [read [champernowne <span class="fu">!!</span> (n <span class="fu">-</span> <span class="dv">1</span>)] <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">6</span>]]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o champernowne
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o champernowne champernowne.hs
 $ <span class="kw">time</span> ./champernowne
 <span class="kw">real</span>   0m0.139s
 <span class="kw">user</span>   0m0.120s

@@ -94,7 +94,7 @@ expansion s <span class="fu">|</span> isSquare s <span class="fu">=</span> []
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (\x <span class="ot">-&gt;</span> odd <span class="fu">$</span> length <span class="fu">$</span> expansion x) [<span class="dv">2</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o continued-fractions
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o continued-fractions continued-fractions.hs
 $ <span class="kw">time</span> ./continued-fractions
 <span class="kw">real</span>   0m5.420s
 <span class="kw">user</span>   0m5.407s

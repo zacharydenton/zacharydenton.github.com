@@ -76,7 +76,7 @@ largestProduct <span class="fu">=</span> maximum <span class="fu">.</span> map p
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/008/numbers.txt&quot;</span>
         print <span class="fu">$</span> largestProduct <span class="fu">$</span> chunks <span class="dv">5</span> <span class="fu">$</span> parse str</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o great-prod
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o great-prod great-prod.hs
 $ <span class="kw">time</span> ./great-prod
 <span class="kw">real</span>   0m0.008s
 <span class="kw">user</span>   0m0.007s

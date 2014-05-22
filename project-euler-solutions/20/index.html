@@ -69,7 +69,7 @@ sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
 factorial n <span class="fu">=</span> foldr (<span class="fu">*</span>) <span class="dv">1</span> [<span class="dv">1</span><span class="fu">..</span>n]
 
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> factorial <span class="dv">100</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o factorial
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o factorial factorial.hs
 $ <span class="kw">time</span> ./factorial
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s

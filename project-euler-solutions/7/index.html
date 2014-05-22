@@ -68,7 +68,7 @@ primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</s
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> primes <span class="fu">!!</span> <span class="dv">10000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o 10001st-prime
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o 10001st-prime 10001st-prime.hs
 $ <span class="kw">time</span> ./10001st-prime
 <span class="kw">real</span>   0m0.055s
 <span class="kw">user</span>   0m0.050s

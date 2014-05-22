@@ -55,7 +55,7 @@
     printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
     <span class="kw">return</span> <span class="dv">0</span>;
 }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -Ofast -std=c11 -o natural
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -Ofast -std=c11 -o natural natural.c
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
@@ -83,7 +83,7 @@ $ <span class="kw">time</span> ./natural
     }
     fmt.Println(sum)
 }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural natural.go
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s
@@ -91,7 +91,7 @@ $ <span class="kw">time</span> ./natural
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural natural.hs
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s

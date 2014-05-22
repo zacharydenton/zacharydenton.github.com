@@ -58,7 +58,7 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permutations
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permutations permutations.hs
 $ <span class="kw">time</span> ./permutations
 <span class="kw">real</span>   0m6.124s
 <span class="kw">user</span>   0m5.587s
