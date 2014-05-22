@@ -38,37 +38,97 @@
 
   <h2 id="overview">Overview</h2>
 <h3 id="question">Question</h3>
-<div class="problem_content" role="problem">
-<pre><code>&lt;p&gt;In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by &lt;b&gt;only moving to the right and down&lt;/b&gt;, is indicated in bold red and is equal to 2427.&lt;/p&gt;
-&lt;div style=&quot;text-align:center;&quot;&gt;
-	&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; align=&quot;center&quot;&gt;
-		&lt;tbody&gt;&lt;tr&gt;
-				&lt;td&gt;&lt;img src=&quot;http://projecteuler.net/images/bracket_left.gif&quot; width=&quot;8&quot; height=&quot;120&quot; alt=&quot;&quot; align=&quot;middle&quot;&gt;&lt;br&gt;&lt;/td&gt;
-				&lt;td&gt;
-					&lt;table cellpadding=&quot;3&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
-						&lt;tbody&gt;&lt;tr&gt;
-								&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;131&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;673&lt;/td&gt;&lt;td&gt;234&lt;/td&gt;&lt;td&gt;103&lt;/td&gt;&lt;td&gt;18&lt;/td&gt;
-							&lt;/tr&gt;
-							&lt;tr&gt;
-								&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;201&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;96&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;342&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;965&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;
-							&lt;/tr&gt;
-							&lt;tr&gt;
-								&lt;td&gt;630&lt;/td&gt;&lt;td&gt;803&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;746&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;422&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;111&lt;/td&gt;
-							&lt;/tr&gt;
-							&lt;tr&gt;
-								&lt;td&gt;537&lt;/td&gt;&lt;td&gt;699&lt;/td&gt;&lt;td&gt;497&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;121&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;956&lt;/td&gt;
-							&lt;/tr&gt;
-							&lt;tr&gt;
-								&lt;td&gt;805&lt;/td&gt;&lt;td&gt;732&lt;/td&gt;&lt;td&gt;524&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;37&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span style=&quot;color:#dd0000;&quot;&gt;&lt;b&gt;331&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
-							&lt;/tr&gt;
-					&lt;/tbody&gt;&lt;/table&gt;
-				&lt;/td&gt;
-				&lt;td&gt;&lt;img src=&quot;http://projecteuler.net/images/bracket_right.gif&quot; width=&quot;8&quot; height=&quot;120&quot; alt=&quot;&quot; align=&quot;middle&quot;&gt;&lt;br&gt;&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;Find the minimal path sum, in &lt;a href=&quot;http://projecteuler.net/project/matrix.txt&quot;&gt;matrix.txt&lt;/a&gt; (right click and 'Save Link/Target As...'), a 31K text file containing a 80 by 80 matrix, from the top left to the bottom right by only moving right and down.&lt;/p&gt;</code></pre>
-</div>
+<p>
+In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by <b>only moving to the right and down</b>, is indicated in bold red and is equal to 2427.
+</p>
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+	<tbody><tr>
+		<td>
+<img src="http://projecteuler.net/images/bracket_left.gif" width="8" height="120" alt align="middle"><br>
+</td>
+		<td>
+			<table cellpadding="3" cellspacing="0" border="0">
+				<tbody><tr>
+					<td>
+<span style="color:#dd0000;"><b>131</b></span>
+</td><td>
+673
+</td><td>
+234
+</td><td>
+103
+</td><td>
+18
+</td>
+				</tr>
+				<tr>
+					<td>
+<span style="color:#dd0000;"><b>201</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>96</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>342</b></span>
+</td><td>
+965
+</td><td>
+150
+</td>
+				</tr>
+				<tr>
+					<td>
+630
+</td><td>
+803
+</td><td>
+<span style="color:#dd0000;"><b>746</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>422</b></span>
+</td><td>
+111
+</td>
+				</tr>
+				<tr>
+					<td>
+537
+</td><td>
+699
+</td><td>
+497
+</td><td>
+<span style="color:#dd0000;"><b>121</b></span>
+</td><td>
+956
+</td>
+				</tr>
+				<tr>
+					<td>
+805
+</td><td>
+732
+</td><td>
+524
+</td><td>
+<span style="color:#dd0000;"><b>37</b></span>
+</td><td>
+<span style="color:#dd0000;"><b>331</b></span>
+</td>
+				</tr>
+			</tbody></table>
+		</td>
+		<td>
+<img src="http://projecteuler.net/images/bracket_right.gif" width="8" height="120" alt align="middle"><br>
+</td>
+	</tr>
+</tbody></table>
+<p>
+Find the minimal path sum, in <a href="http://projecteuler.net/project/matrix.txt">matrix.txt</a> (right click and ‘Save Link/Target As…’), a 31K text file containing a 80 by 80 matrix, from the top left to the bottom right by only moving right and down.
+</p>
+
+
+
+
+
+
 <h2 id="solutions">Solutions</h2>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
