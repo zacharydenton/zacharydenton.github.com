@@ -50,18 +50,22 @@
 <p>How many different ways can one hundred be written as a sum of at least two positive integers?</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="haskell">Haskell</h3>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">change ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
-change <span class="dv">1</span> _ <span class="fu">=</span> <span class="dv">1</span>
-change _ <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
-change t c <span class="fu">=</span> sum [change (t <span class="fu">-</span> i<span class="fu">*</span>c) (c <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>t <span class="ot">`quot`</span> c]]
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Array</span>
+
+<span class="ot">change ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+change t c <span class="fu">=</span> cache <span class="fu">!</span> (t, c) <span class="kw">where</span>
+    cache <span class="fu">=</span> array ((<span class="dv">0</span>, <span class="dv">0</span>), (t, c)) [((i, j), f i j) <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>t], j <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>c]]
+    f <span class="dv">1</span> _ <span class="fu">=</span> <span class="dv">1</span>
+    f _ <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
+    f t' c' <span class="fu">=</span> sum [cache <span class="fu">!</span> (t' <span class="fu">-</span> i<span class="fu">*</span>c', c' <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>t' <span class="ot">`quot`</span> c']]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> change <span class="dv">100</span> <span class="dv">99</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-summations
 $ <span class="kw">time</span> ./counting-summations
-<span class="kw">real</span>   0m15.348s
-<span class="kw">user</span>   0m15.297s
-<span class="kw">sys</span>    0m0.057s</code></pre>
+<span class="kw">real</span>   0m0.011s
+<span class="kw">user</span>   0m0.010s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
