@@ -54,12 +54,16 @@ digits <span class="fu">=</span> map (read <span class="fu">.</span> return) <sp
 <span class="ot">sqrtDigits ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 sqrtDigits count x <span class="fu">=</span> digits <span class="fu">$</span> isqrt <span class="fu">$</span> x<span class="fu">*</span>(<span class="dv">10</span><span class="fu">^</span>(<span class="dv">2</span><span class="fu">*</span>count))
 
+<span class="ot">isSquare ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isSquare n <span class="fu">=</span> root <span class="fu">*</span> root <span class="fu">==</span> n
+    <span class="kw">where</span> root <span class="fu">=</span> round <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n
+
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> concat [ds <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], <span class="kw">let</span> ds <span class="fu">=</span> sqrtDigits <span class="dv">99</span> n, not (all (<span class="fu">==</span> <span class="dv">0</span>) <span class="fu">$</span> tail ds)]</code></pre>
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> concat [ds <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], not <span class="fu">$</span> isSquare n, <span class="kw">let</span> ds <span class="fu">=</span> sqrtDigits <span class="dv">99</span> n]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-expansion
 $ <span class="kw">time</span> ./root-expansion
-<span class="kw">real</span>   0m0.077s
-<span class="kw">user</span>   0m0.073s
+<span class="kw">real</span>   0m0.069s
+<span class="kw">user</span>   0m0.067s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 
