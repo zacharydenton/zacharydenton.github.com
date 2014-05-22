@@ -55,7 +55,7 @@
     printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
     <span class="kw">return</span> <span class="dv">0</span>;
 }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -Ofast -std=c11 -o natural natural.c
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -march=native -Ofast -std=c11 -o natural natural.c
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
