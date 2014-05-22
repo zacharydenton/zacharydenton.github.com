@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Project Euler Problem 77 Solution - Zach Denton</title>
+		<meta name="author" content="Zach Denton">
+		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 77.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
+		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="../../css/main.css">
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+  			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+	</head>
+	<body>
+		<header role="banner">
+			<h1><a href="../../">Zach Denton</a></h1>
+			<nav>
+			<ul>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
+			</ul>
+			</nav>
+			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
+		</header>
+
+		<article>
+  <h1>Project Euler Problem 77 Solution</h1>
+
+  <h2 id="overview">Overview</h2>
+<h3 id="question">Question</h3>
+<p>It is possible to write ten as the sum of primes in exactly five different ways:</p>
+<p><br /><span class="math">$$
+\begin{align}
+7 &amp;+ 3 \\
+5 &amp;+ 5 \\
+5 &amp;+ 3 + 2 \\
+3 &amp;+ 3 + 2 + 2 \\
+2 &amp;+ 2 + 2 + 2 + 2
+\end{align}
+$$</span><br /></p>
+<p>What is the first value which can be written as the sum of primes in over five thousand different ways?</p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Int</span>]
+primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
+    sieve (p<span class="fu">:</span>ps) xs <span class="fu">=</span> h <span class="fu">++</span> sieve ps [x <span class="fu">|</span> x <span class="ot">&lt;-</span> t, rem x p <span class="fu">/=</span> <span class="dv">0</span>]
+                      <span class="kw">where</span> (h, t) <span class="fu">=</span> span (<span class="fu">&lt;</span> p<span class="fu">*</span>p) xs
+
+<span class="ot">primePartition ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+primePartition <span class="fu">=</span> p primes <span class="kw">where</span>
+    p _ <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
+    p ks'<span class="fu">@</span>(k<span class="fu">:</span>ks) m <span class="fu">=</span> <span class="kw">if</span> m <span class="fu">&lt;</span> k <span class="kw">then</span> <span class="dv">0</span> <span class="kw">else</span> p ks' (m <span class="fu">-</span> k) <span class="fu">+</span> p ks m
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> head <span class="fu">$</span> dropWhile ((<span class="fu">&lt;=</span> <span class="dv">5000</span>) <span class="fu">.</span> snd) [(n, primePartition n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-summations
+$ <span class="kw">time</span> ./prime-summations
+<span class="kw">real</span>   0m0.024s
+<span class="kw">user</span>   0m0.023s
+<span class="kw">sys</span>    0m0.000s</code></pre>
+</article>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>
