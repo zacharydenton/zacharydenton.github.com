@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Project Euler Problem 76 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
-		<meta name="description" content="This page presents a Python solution to Project Euler Problem 76.">
+		<meta name="description" content="This page presents solutions to Project Euler Problem 76 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
 		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
@@ -49,6 +49,19 @@
 \end{aligned}$$</span><br /></p>
 <p>How many different ways can one hundred be written as a sum of at least two positive integers?</p>
 <h2 id="solutions">Solutions</h2>
+<h3 id="haskell">Haskell</h3>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">change ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+change <span class="dv">1</span> _ <span class="fu">=</span> <span class="dv">1</span>
+change _ <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span>
+change t c <span class="fu">=</span> sum [change (t <span class="fu">-</span> i<span class="fu">*</span>c) (c <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span>t <span class="ot">`quot`</span> c]]
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> change <span class="dv">100</span> <span class="dv">99</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o counting-summations
+$ <span class="kw">time</span> ./counting-summations
+<span class="kw">real</span>   0m15.348s
+<span class="kw">user</span>   0m15.297s
+<span class="kw">sys</span>    0m0.057s</code></pre>
 <h3 id="python">Python</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
