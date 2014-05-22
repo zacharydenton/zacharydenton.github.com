@@ -85,9 +85,9 @@ $ <span class="kw">time</span> ./natural
 }</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural
 $ <span class="kw">time</span> ./natural
-<span class="kw">real</span>   0m0.250s
-<span class="kw">user</span>   0m0.213s
-<span class="kw">sys</span>    0m0.033s</code></pre>
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>

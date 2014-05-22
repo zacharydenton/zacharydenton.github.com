@@ -74,9 +74,9 @@ Find the sum of all the even-valued terms in the sequence which do not exceed fo
 }</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o fibonacci
 $ <span class="kw">time</span> ./fibonacci
-<span class="kw">real</span>   0m0.241s
-<span class="kw">user</span>   0m0.213s
-<span class="kw">sys</span>    0m0.023s</code></pre>
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h3 id="haskell">Haskell</h3>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
