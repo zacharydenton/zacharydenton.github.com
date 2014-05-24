@@ -7,14 +7,12 @@
       var plane, quad,
         _this = this;
       this.$banner = $("#banner");
-      this.frameCount = 0;
       this.width = this.$banner.width();
       this.height = this.$banner.height();
       this.scene = new THREE.Scene();
       this.camera = new THREE.OrthographicCamera(-this.width / 2, this.width / 2, this.height / 2, -this.height / 2, -1000, 1000);
       this.camera.position.z = 100;
       this.camera.lookAt(this.scene.position);
-      this.startTime = Date.now();
       this.material = new THREE.ShaderMaterial({
         uniforms: {
           time: {
@@ -63,15 +61,18 @@
 
     Banner.prototype.render = function() {
       var _this = this;
-      if (this.frameCount === 15) {
-        if ((Date.now() - this.startTime) / 1000 > 15 / 30) {
+      if (this.frameCount == null) {
+        this.frameCount = 0;
+        this.startTime = Date.now();
+      }
+      if (this.frameCount === 60) {
+        if ((Date.now() - this.startTime) / 1000 > 60 / 20) {
           return;
         }
       }
       this.uniforms.time.value = (Date.now() - this.startTime) / 1000;
       this.renderer.clear();
       this.renderer.render(this.scene, this.camera);
-      this.frameCount++;
       return requestAnimationFrame(function() {
         return _this.render();
       });
