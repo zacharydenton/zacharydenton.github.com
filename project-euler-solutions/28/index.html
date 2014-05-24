@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 28 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 28 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 28 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:</p>
 <pre><code>21 22 23 24 25
 20  7  8  9 10
@@ -46,8 +48,7 @@
 17 16 15 14 13</code></pre>
 <p>It can be verified that the sum of the numbers on the diagonals is 101.</p>
 <p>What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?</p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> foldr (<span class="fu">+</span>) <span class="dv">1</span> [<span class="dv">4</span><span class="fu">*</span>n<span class="fu">^</span><span class="dv">2</span> <span class="fu">-</span> <span class="dv">6</span><span class="fu">*</span>n <span class="fu">+</span> <span class="dv">6</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span><span class="dv">1001</span>]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral spiral.hs
@@ -55,7 +56,7 @@ $ <span class="kw">time</span> ./spiral
 <span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="python">Python</h3>
+<h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> sum_diagonals_of_spiral(size):
     n = <span class="dv">1</span>
@@ -76,7 +77,7 @@ $ <span class="kw">time</span> ./spiral
 <span class="kw">real</span>   0m0.019s
 <span class="kw">user</span>   0m0.013s
 <span class="kw">sys</span>    0m0.003s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 i = <span class="dv">1</span>
 sum = i
@@ -94,6 +95,7 @@ puts sum</code></pre>
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

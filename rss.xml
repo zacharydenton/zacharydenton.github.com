@@ -16,19 +16,23 @@
     <published>2012-12-28T00:00:00Z</published>
     <updated>2012-12-28T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Best of 2012 - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="Wherein I list the best books, movies, music, and websites of 2012.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -40,7 +44,6 @@
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -120,6 +123,7 @@
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -132,19 +136,23 @@
     <published>2012-05-14T00:00:00Z</published>
     <updated>2012-05-14T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Export Facebook Contacts with Android - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -156,7 +164,6 @@
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -302,6 +309,7 @@ END:VCARD</code></pre>
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -314,19 +322,23 @@ END:VCARD</code></pre>
     <published>2011-12-29T00:00:00Z</published>
     <updated>2011-12-29T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Music Server Revisited: Streaming with sshfs and mp3fs - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -338,7 +350,6 @@ END:VCARD</code></pre>
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -383,6 +394,7 @@ EOF</code></pre>
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -395,19 +407,23 @@ EOF</code></pre>
     <published>2011-12-29T00:00:00Z</published>
     <updated>2011-12-29T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>A* Search with Multiple Targets and Sources - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -419,7 +435,6 @@ EOF</code></pre>
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -445,6 +460,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -457,19 +473,23 @@ loop:
     <published>2011-10-05T00:00:00Z</published>
     <updated>2011-10-05T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Iceland - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="I spent the final week of my trip exploring Iceland.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -481,7 +501,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -636,6 +655,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -648,19 +668,23 @@ loop:
     <published>2011-10-04T00:00:00Z</published>
     <updated>2011-10-04T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Copenhagen - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="A brief visit to Copenhagen.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -672,7 +696,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -688,6 +711,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -700,19 +724,23 @@ loop:
     <published>2011-10-04T00:00:00Z</published>
     <updated>2011-10-04T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Berlin - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="A great time in Berlin, especially in Kreuzberg.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -724,7 +752,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -748,6 +775,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -760,19 +788,23 @@ loop:
     <published>2011-10-01T00:00:00Z</published>
     <updated>2011-10-01T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Vienna - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="Vienna is now among my favorite European cities.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -784,7 +816,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -805,6 +836,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -817,19 +849,23 @@ loop:
     <published>2011-10-01T00:00:00Z</published>
     <updated>2011-10-01T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Prague - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="Pictures and stories from Prague.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -841,7 +877,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -892,6 +927,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>
@@ -904,19 +940,23 @@ loop:
     <published>2011-08-13T00:00:00Z</published>
     <updated>2011-08-13T00:00:00Z</updated>
     <summary type="html"><![CDATA[<!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Budapest - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="My adventures in Budapest.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
@@ -928,7 +968,6 @@ loop:
 				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
@@ -975,6 +1014,7 @@ loop:
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
 </html>

@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 79 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 79 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 79 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was 531278, they may ask for the 2nd, 3rd, and 5th characters; the expected reply would be: 317.</p>
 <p>The text file, <a href="http://projecteuler.net/project/keylog.txt">keylog.txt</a>, contains fifty successful login attempts.</p>
 <p>Given that the three characters are always asked for in order, analyse the file so as to determine the shortest possible secret passcode of unknown length.</p>
@@ -49,8 +51,7 @@
 <li>Then, we sort the dictionary by value, so that characters with a smaller average position appear before those with a greater average position.</li>
 <li>Finally, we concatenate the sorted characters and return this as the result.</li>
 </ol>
-<h2 id="solutions">Solutions</h2>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub)
 
 <span class="ot">crack ::</span> [<span class="dt">String</span>] <span class="ot">-&gt;</span> <span class="dt">String</span>
@@ -71,7 +72,7 @@ $ <span class="kw">time</span> ./passcode-derivation
 <span class="kw">real</span>   0m0.003s
 <span class="kw">user</span>   0m0.000s
 <span class="kw">sys</span>    0m0.003s</code></pre>
-<h3 id="python">Python</h3>
+<h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -101,6 +102,7 @@ $ <span class="kw">time</span> ./passcode-derivation
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

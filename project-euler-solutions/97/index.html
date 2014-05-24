@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 97 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Python solution to Project Euler Problem 97.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 97 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>
 The first known prime found to exceed one million digits was discovered in 1999, and is a Mersenne prime of the form <span class="math">2<sup>6972593</sup>−1</span>; it contains exactly <span class="math">2, 098, 960</span> digits. Subsequently other Mersenne primes, of the form <span class="math">2<sup><em>p</em></sup>−1</span>, have been found which contain more digits.
 </p>
@@ -53,12 +55,10 @@ Find the last ten digits of this prime number.
 
 
 
-
 <h2 id="commentary">Commentary</h2>
 <p>The <code>gmpy</code> library makes this problem trivial. Using <code>gmpy</code>, this code takes about half a second to run. Without <code>gmpy</code>, well, let’s just say it takes considerably more than a minute to run.</p>
 <p>If you’re dealing with large numbers in Python, I highly recommend <code>gmpy</code>.</p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="python">Python</h3>
+<h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
 <span class="dt">print</span> <span class="dt">str</span>(gmpy.mpz(<span class="dv">28433</span>*<span class="dv">2</span>**<span class="dv">7830457+1</span>))[-<span class="dv">10</span>:]</code></pre>
@@ -70,6 +70,7 @@ Find the last ten digits of this prime number.
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

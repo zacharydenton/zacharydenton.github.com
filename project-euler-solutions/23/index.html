@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 23 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 23 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,20 +34,17 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 23 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.</p>
 <p>A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.</p>
 <p>As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
 <p>Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.</p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group, union)
 <span class="kw">import </span><span class="dt">Data.Array</span>
 
@@ -101,7 +102,7 @@ $ <span class="kw">time</span> ./abundant
 <span class="kw">real</span>   0m0.135s
 <span class="kw">user</span>   0m0.133s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="python">Python</h3>
+<h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="ch">import</span> math
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
@@ -178,7 +179,7 @@ $ <span class="kw">time</span> ./abundant
 <span class="kw">real</span>   0m17.136s
 <span class="kw">user</span>   0m17.133s
 <span class="kw">sys</span>    0m0.010s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
 
@@ -218,6 +219,7 @@ puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sum
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

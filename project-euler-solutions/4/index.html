@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 4 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 4 in Clojure, Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 4 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is <span class="math">9009 = 91 × 99</span>.
 </p>
@@ -51,8 +53,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 
 
-<h2 id="solutions">Solutions</h2>
-<h3 id="clojure">Clojure</h3>
+<h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> palindrome</span>? [n]
   (<span class="kw">=</span> (<span class="kw">seq</span> (<span class="kw">str</span> n)) (<span class="kw">reverse</span> (<span class="kw">str</span> n))))
@@ -65,7 +66,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 <span class="kw">real</span>   0m1.745s
 <span class="kw">user</span>   0m2.770s
 <span class="kw">sys</span>    0m0.063s</code></pre>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPalindrome n <span class="fu">=</span> show n <span class="fu">==</span> reverse (show n)
 
@@ -76,14 +77,14 @@ $ <span class="kw">time</span> ./palindrome
 <span class="kw">real</span>   0m0.093s
 <span class="kw">user</span>   0m0.090s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="python">Python</h3>
+<h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">max</span>(a*b <span class="kw">for</span> a in <span class="dt">range</span>(<span class="dv">100</span>,<span class="dv">1000</span>) <span class="kw">for</span> b in <span class="dt">range</span>(a,<span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">str</span>(a*b) == <span class="dt">str</span>(a*b)[::-<span class="dv">1</span>])</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 palindrome.py
 <span class="kw">real</span>   0m0.269s
 <span class="kw">user</span>   0m0.267s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">class</span> <span class="dt">Integer</span>
@@ -111,6 +112,7 @@ puts max</code></pre>
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

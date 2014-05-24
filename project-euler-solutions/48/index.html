@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 48 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 48 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 48 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>
 The series, <span class="math">1<sup>1</sup> + 2<sup>2</sup> + 3<sup>3</sup> + … + 10<sup>10</sup> = 10405071317</span>.
 </p>
@@ -51,8 +53,7 @@ Find the last ten digits of the series, <span class="math">1<sup>1</sup> + 2
 
 
 
-<h2 id="solutions">Solutions</h2>
-<h3 id="clojure">Clojure</h3>
+<h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> ** </span>[x n]
   (. (. java.math.BigInteger (valueOf x)) (pow n)))
@@ -69,7 +70,7 @@ Find the last ten digits of the series, <span class="math">1<sup>1</sup> + 2
 <span class="kw">real</span>   0m1.173s
 <span class="kw">user</span>   0m1.877s
 <span class="kw">sys</span>    0m0.053s</code></pre>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">lastN ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
 lastN n xs <span class="fu">=</span> foldl (const <span class="fu">.</span> drop <span class="dv">1</span>) xs (drop n xs)
 
@@ -80,7 +81,7 @@ $ <span class="kw">time</span> ./self-powers
 <span class="kw">real</span>   0m0.011s
 <span class="kw">user</span>   0m0.010s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">1000</span>).reduce(<span class="dv">0</span>) { |s,n| s + n**n }.to_s[-<span class="dv">10</span>..-<span class="dv">1</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby power-series.rb
@@ -91,6 +92,7 @@ puts (<span class="dv">1</span>..<span class="dv">1000</span>).reduce(<span clas
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

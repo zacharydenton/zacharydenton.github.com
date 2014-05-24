@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 34 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 34 in Clojure, Haskell, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,19 +34,16 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 34 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>145 is a curious number, as <span class="math">1! + 4! + 5! = 1 + 24 + 120 = 145</span>.</p>
 <p>Find the sum of all numbers which are equal to the sum of the factorial of their digits.</p>
 <p>Note: as <span class="math">1! = 1</span> and <span class="math">2! = 2</span> are not sums they are not included.</p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="clojure">Clojure</h3>
+<h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> factorial </span>[n]
   (<span class="kw">if</span> (<span class="kw">or</span> (<span class="kw">=</span> n <span class="dv">1</span>) (<span class="kw">=</span> n <span class="dv">0</span>)) 
@@ -61,7 +62,7 @@
 <span class="kw">real</span>   0m1.449s
 <span class="kw">user</span>   0m2.690s
 <span class="kw">sys</span>    0m0.030s</code></pre>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">factorial ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 factorial n <span class="fu">=</span> product [<span class="dv">1</span><span class="fu">..</span>n]
 
@@ -80,7 +81,7 @@ $ <span class="kw">time</span> ./curious
 <span class="kw">real</span>   0m0.045s
 <span class="kw">user</span>   0m0.043s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
   i.to_s.length &gt; <span class="dv">1</span> &amp;&amp; i == i.to_s.each_char.map { |d| (<span class="dv">1</span>..d.to_i).reduce(<span class="dv">1</span>, :*) }.reduce(:+)
@@ -89,7 +90,7 @@ puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
 <span class="kw">real</span>   0m0.388s
 <span class="kw">user</span>   0m0.380s
 <span class="kw">sys</span>    0m0.007s</code></pre>
-<h3 id="scheme">Scheme</h3>
+<h2 id="scheme">Scheme</h2>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(factorial n)
   (apply * (iota n <span class="dv">1</span>)))
 
@@ -112,6 +113,7 @@ puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>

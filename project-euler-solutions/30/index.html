@@ -1,24 +1,28 @@
 <!doctype html>
+
 <html lang="en-us">
+
 	<head>
 		<meta charset="utf-8">
 		<title>Project Euler Problem 30 Solution - Zach Denton</title>
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 30 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,600">
-		<link rel="stylesheet" href="../../ssp/source-serif-pro.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
+			MathJax.Hub.Config({
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
+	
 	<body>
+	
+		<div id="banner"></div>
 		<header role="banner">
 			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
@@ -30,14 +34,12 @@
 				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
-			<a href="mailto:z@chdenton.com"><canvas></canvas></a>
 		</header>
 
 		<article>
   <h1>Project Euler Problem 30 Solution</h1>
 
-  <h2 id="overview">Overview</h2>
-<h3 id="question">Question</h3>
+  <h2 id="question">Question</h2>
 <p>Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p>
 <p><br /><span class="math">$$\begin{aligned}
 1634&amp;=1^4 + 6^4 + 3^4 + 4^4 \\
@@ -47,8 +49,7 @@
 <p>As <span class="math">1 = 1<sup>4</sup></span> is not a sum it is not included.</p>
 <p>The sum of these numbers is <span class="math">1634 + 8208 + 9474 = 19316</span>.</p>
 <p>Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="clojure">Clojure</h3>
+<h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> ** </span>[x n]
   (. (. java.math.BigInteger (valueOf x)) (pow n)))
@@ -64,7 +65,7 @@
 <span class="kw">real</span>   0m2.961s
 <span class="kw">user</span>   0m4.067s
 <span class="kw">sys</span>    0m0.130s</code></pre>
-<h3 id="haskell">Haskell</h3>
+<h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits n <span class="fu">=</span> digits' n []
     <span class="kw">where</span> digits' <span class="dv">0</span> acc <span class="fu">=</span> acc
@@ -76,7 +77,7 @@ $ <span class="kw">time</span> ./sumFifths
 <span class="kw">real</span>   0m0.359s
 <span class="kw">user</span>   0m0.357s
 <span class="kw">sys</span>    0m0.000s</code></pre>
-<h3 id="ruby">Ruby</h3>
+<h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
   i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
@@ -89,6 +90,7 @@ puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
 
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../../js/main.js"></script>
 	</body>
 </html>
