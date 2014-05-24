@@ -549,7 +549,7 @@ header nav ul li a:hover {
   right: 0;
   margin: auto;
   height: 350px;
-  background-color: #030303;
+  background-color: #333333;
   z-index: -1;
   overflow: hidden;
 }
