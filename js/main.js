@@ -38,11 +38,17 @@
       this.scene.add(quad);
       this.renderer = new THREE.WebGLRenderer();
       this.$banner.append(this.renderer.domElement);
+      this.animating = $('body').is('.front');
+      this.random = Math.random();
+      this.timeOffset = 0;
       $(window).resize(function(e) {
         return _this.resize(e);
       });
       $(window).mousemove(function(e) {
         return _this.mousemove(e);
+      });
+      $('header').click(function(e) {
+        return _this.toggleAnimation();
       });
     }
 
@@ -59,22 +65,32 @@
       return this.uniforms.mouse.value = new THREE.Vector2(e.clientX / this.width, 1 - e.clientY / this.height);
     };
 
-    Banner.prototype.render = function() {
-      var _this = this;
-      if (this.frameCount == null) {
-        this.frameCount = 0;
-        this.startTime = Date.now();
-      }
-      if (this.frameCount === 60) {
-        if ((Date.now() - this.startTime) / 1000 > 60 / 30) {
-          return;
+    Banner.prototype.toggleAnimation = function() {
+      this.animating = !this.animating;
+      if (this.animating) {
+        if (this.lastAnimated == null) {
+          this.lastAnimated = 0;
         }
+        this.timeOffset += this.lastAnimated - this.timestamp;
+        return this.render();
+      } else {
+        return this.lastAnimated = this.timestamp;
       }
-      this.uniforms.time.value = (Date.now() - this.startTime) / 1000;
-      this.renderer.clear();
-      this.renderer.render(this.scene, this.camera);
-      return requestAnimationFrame(function() {
-        return _this.render();
+    };
+
+    Banner.prototype.render = function(timestamp) {
+      var _this = this;
+      if (timestamp == null) {
+        timestamp = 0;
+      }
+      this.timestamp = timestamp / 1000;
+      if (this.animating || this.timestamp === 0) {
+        this.uniforms.time.value = this.timestamp + this.timeOffset + this.random * 1000;
+        this.renderer.clear();
+        this.renderer.render(this.scene, this.camera);
+      }
+      return requestAnimationFrame(function(timestamp) {
+        return _this.render(timestamp);
       });
     };
 

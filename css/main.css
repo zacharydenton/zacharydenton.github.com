@@ -400,9 +400,9 @@ html.front {
   background-color: #303030;
 }
 body {
-  color: #333333;
+  color: #191919;
   font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Georgia", serif;
   line-height: 1.468;
   margin-top: 350px;
 }
@@ -450,7 +450,7 @@ h3 {
 }
 h4 {
   font-size: 20px;
-  color: #4c4c4c;
+  color: #333333;
 }
 h5 {
   font-size: 16px;
@@ -549,7 +549,7 @@ header nav ul li a:hover {
   right: 0;
   margin: auto;
   height: 350px;
-  background-color: #333333;
+  background-color: #191919;
   z-index: -1;
   overflow: hidden;
 }
