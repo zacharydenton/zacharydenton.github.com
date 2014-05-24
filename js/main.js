@@ -66,7 +66,7 @@
         this.startTime = Date.now();
       }
       if (this.frameCount === 60) {
-        if ((Date.now() - this.startTime) / 1000 > 60 / 20) {
+        if ((Date.now() - this.startTime) / 1000 > 60 / 30) {
           return;
         }
       }
