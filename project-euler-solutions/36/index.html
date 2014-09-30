@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 36 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,20 +45,12 @@
 <p>
 The decimal number, <span class="math">585 = 1001001001<sub>2</sub></span> (binary), is palindromic in both bases.
 </p>
-
 <p>
 Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
 </p>
-
 <p>
 (Please note that the palindromic number, in either base, may not include leading zeros.)
 </p>
-
-
-
-
-
-
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> reversed </span>[string]
@@ -73,9 +65,9 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> palindrome-in-decimal-and-binary? (<span class="kw">range</span> <span class="dv">1</span> <span class="dv">1000000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindromic-bases.clj
-<span class="kw">real</span>   0m3.887s
-<span class="kw">user</span>   0m4.880s
-<span class="kw">sys</span>    0m0.223s</code></pre>
+<span class="kw">real</span>   0m5.841s
+<span class="kw">user</span>   0m6.450s
+<span class="kw">sys</span>    0m0.147s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 palindrome s <span class="fu">=</span> s <span class="fu">==</span> reverse s
@@ -89,9 +81,9 @@ digits base n <span class="fu">=</span> r <span class="fu">:</span> digits base 
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>], all palindrome [digits <span class="dv">10</span> n, digits <span class="dv">2</span> n]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o double-palindrome double-palindrome.hs
 $ <span class="kw">time</span> ./double-palindrome
-<span class="kw">real</span>   0m0.223s
-<span class="kw">user</span>   0m0.217s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.275s
+<span class="kw">user</span>   0m0.269s
+<span class="kw">sys</span>    0m0.005s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">class</span> <span class="dt">String</span>
@@ -102,9 +94,9 @@ $ <span class="kw">time</span> ./double-palindrome
 
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i| i.to_s.palindrome? &amp;&amp; i.to_s(<span class="dv">2</span>).palindrome? }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby binary-palindrome.rb
-<span class="kw">real</span>   0m0.422s
-<span class="kw">user</span>   0m0.420s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.633s
+<span class="kw">user</span>   0m0.629s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

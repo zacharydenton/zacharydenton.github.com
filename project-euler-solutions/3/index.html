@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 3 in Go, Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -54,17 +54,17 @@
 <span class="kw">func</span> eratosthenes(max <span class="dt">int</span>) []<span class="dt">int</span> {
     nums := <span class="fu">make</span>([]<span class="dt">int</span>, max)
 
-    p := 2 <span class="co">// first prime, 2</span>
+    p := <span class="dv">2</span> <span class="co">// first prime, 2</span>
     <span class="kw">for</span> {
-        i := p - 1
+        i := p - <span class="dv">1</span>
         <span class="co">// mark multiples not prime</span>
         <span class="kw">for</span> i += p; i &lt; max; i += p {
-            nums[i] = -1
+            nums[i] = -<span class="dv">1</span>
         }
         <span class="co">// find first unmarked number greater than p</span>
         <span class="kw">for</span> i = p; i &lt; max; i++ {
-            <span class="kw">if</span> nums[i] != -1 {
-                p = i + 1
+            <span class="kw">if</span> nums[i] != -<span class="dv">1</span> {
+                p = i + <span class="dv">1</span>
                 <span class="kw">break</span>
             }
         }
@@ -75,10 +75,10 @@
     }
     <span class="co">// filter out all marked numbers</span>
     primes := <span class="fu">make</span>([]<span class="dt">int</span>, max)
-    j := 0
+    j := <span class="dv">0</span>
     <span class="kw">for</span> i := <span class="kw">range</span> nums {
-        <span class="kw">if</span> nums[i] == 0 {
-            primes[j] = i + 1
+        <span class="kw">if</span> nums[i] == <span class="dv">0</span> {
+            primes[j] = i + <span class="dv">1</span>
             j++
         }
     }
@@ -87,15 +87,15 @@
 
 <span class="kw">func</span> main() {
     n := <span class="fu">new</span>(big.Int)
-    n.SetString(<span class="st">&quot;600851475143&quot;</span>, 10)
+    n.SetString(<span class="st">&quot;600851475143&quot;</span>, <span class="dv">10</span>)
     m := <span class="fu">new</span>(big.Int)
-    max := <span class="dt">int</span>(math.Sqrt(600851475143))
+    max := <span class="dt">int</span>(math.Sqrt(<span class="dv">600851475143</span>))
     primes := eratosthenes(max)
     <span class="co">// find the largest prime factor of n</span>
-    <span class="kw">for</span> i := <span class="fu">len</span>(primes) - 1; i &gt;= 0; i-- {
+    <span class="kw">for</span> i := <span class="fu">len</span>(primes) - <span class="dv">1</span>; i &gt;= <span class="dv">0</span>; i-- {
         p := big.NewInt(<span class="dt">int64</span>(primes[i]))
         m.Mod(n, p)
-        <span class="kw">if</span> m.Int64() == 0 {
+        <span class="kw">if</span> m.Int64() == <span class="dv">0</span> {
             fmt.Println(p)
             <span class="kw">break</span>
         }
@@ -103,9 +103,9 @@
 }</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor prime-factor.go
 $ <span class="kw">time</span> ./prime-factor
-<span class="kw">real</span>   0m0.068s
-<span class="kw">user</span>   0m0.067s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.052s
+<span class="kw">user</span>   0m0.047s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -123,9 +123,9 @@ factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">whe
 main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor prime-factor.hs
 $ <span class="kw">time</span> ./prime-factor
-<span class="kw">real</span>   0m0.005s
-<span class="kw">user</span>   0m0.003s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.006s
+<span class="kw">user</span>   0m0.001s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
@@ -152,9 +152,9 @@ $ <span class="kw">time</span> ./prime-factor
 
 <span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prime-factor.py
-<span class="kw">real</span>   0m0.019s
-<span class="kw">user</span>   0m0.010s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.011s
+<span class="kw">user</span>   0m0.008s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
@@ -183,9 +183,9 @@ $ <span class="kw">time</span> ./prime-factor
 
 puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-factor.rb
-<span class="kw">real</span>   0m0.047s
-<span class="kw">user</span>   0m0.040s
-<span class="kw">sys</span>    0m0.010s</code></pre>
+<span class="kw">real</span>   0m0.019s
+<span class="kw">user</span>   0m0.012s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 </article>
 
 

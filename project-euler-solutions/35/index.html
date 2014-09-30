@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 35 in Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -86,9 +86,9 @@ candidate n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes circular-primes.hs
 $ <span class="kw">time</span> ./circular-primes
-<span class="kw">real</span>   0m0.224s
-<span class="kw">user</span>   0m0.207s
-<span class="kw">sys</span>    0m0.020s</code></pre>
+<span class="kw">real</span>   0m0.230s
+<span class="kw">user</span>   0m0.219s
+<span class="kw">sys</span>    0m0.009s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -98,9 +98,9 @@ puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i|
   }
 }.count</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby circular-primes.rb
-<span class="kw">real</span>   0m27.425s
-<span class="kw">user</span>   0m27.437s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m37.266s
+<span class="kw">user</span>   0m36.924s
+<span class="kw">sys</span>    0m0.018s</code></pre>
 </article>
 
 

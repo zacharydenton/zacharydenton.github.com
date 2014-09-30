@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 34 in Clojure, Haskell, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -61,9 +61,9 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> curious? (<span class="kw">range</span> <span class="dv">50000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure curious.clj
-<span class="kw">real</span>   0m1.449s
-<span class="kw">user</span>   0m2.690s
-<span class="kw">sys</span>    0m0.030s</code></pre>
+<span class="kw">real</span>   0m2.009s
+<span class="kw">user</span>   0m2.404s
+<span class="kw">sys</span>    0m0.061s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">factorial ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 factorial n <span class="fu">=</span> product [<span class="dv">1</span><span class="fu">..</span>n]
@@ -80,18 +80,18 @@ curious n <span class="fu">=</span> n <span class="fu">==</span> sum (map factor
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter curious [<span class="dv">10</span><span class="fu">..</span><span class="dv">50000</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o curious curious.hs
 $ <span class="kw">time</span> ./curious
-<span class="kw">real</span>   0m0.045s
-<span class="kw">user</span>   0m0.043s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.037s
+<span class="kw">user</span>   0m0.033s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
   i.to_s.length &gt; <span class="dv">1</span> &amp;&amp; i == i.to_s.each_char.map { |d| (<span class="dv">1</span>..d.to_i).reduce(<span class="dv">1</span>, :*) }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby curious.rb
-<span class="kw">real</span>   0m0.388s
-<span class="kw">user</span>   0m0.380s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.423s
+<span class="kw">user</span>   0m0.422s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="scheme">Scheme</h2>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">define</span><span class="fu"> </span>(factorial n)
   (apply * (iota n <span class="dv">1</span>)))
@@ -108,9 +108,9 @@ puts (<span class="dv">0</span>..<span class="dv">50000</span>).select { |i|
 (<span class="kw">display</span> (apply <span class="kw">+</span> (filter curious? (iota <span class="dv">50000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> mit-scheme-native --quiet <span class="kw">&lt;</span> curious.scm
-<span class="kw">real</span>   0m0.500s
-<span class="kw">user</span>   0m0.480s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">real</span>   0m0.693s
+<span class="kw">user</span>   0m0.652s
+<span class="kw">sys</span>    0m0.036s</code></pre>
 </article>
 
 

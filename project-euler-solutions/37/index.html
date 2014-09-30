@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 37 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -64,7 +64,7 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o truncatable-primes truncatable-primes.hs
 $ <span class="kw">time</span> ./truncatable-primes
 <span class="kw">real</span>   0m0.004s
-<span class="kw">user</span>   0m0.003s
+<span class="kw">user</span>   0m0.002s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -135,9 +135,9 @@ $ <span class="kw">time</span> ./truncatable-primes
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 truncatable-primes.py
-<span class="kw">real</span>   0m24.927s
-<span class="kw">user</span>   0m24.920s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">real</span>   0m19.655s
+<span class="kw">user</span>   0m19.389s
+<span class="kw">sys</span>    0m0.026s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -147,9 +147,9 @@ puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
   }
 }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby truncatable-primes.rb
-<span class="kw">real</span>   0m10.669s
-<span class="kw">user</span>   0m10.673s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m9.321s
+<span class="kw">user</span>   0m9.306s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

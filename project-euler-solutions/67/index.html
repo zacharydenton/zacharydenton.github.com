@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 67 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -48,7 +48,6 @@
  2 <span style="color:#FF0000;">4</span> 6
 8 5 <span style="color:#FF0000;">9</span> 3
 </code></pre>
-
 <p>That is, <span class="math">3 + 7 + 4 + 9 = 23</span>.</p>
 <p>Find the maximum total from top to bottom in <a href="http://projecteuler.net/project/triangle.txt">triangle.txt</a> (right click and ‘Save Link/Target As…’), a 15K text file containing a triangle with one-hundred rows.</p>
 <p><strong>NOTE:</strong> This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem, as there are 2<sup>99</sup> altogether! If you could check one trillion (<span class="math">10<sup>12</sup></span>) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)</p>
@@ -73,9 +72,9 @@ main <span class="fu">=</span> <span class="kw">do</span>
         print <span class="fu">$</span> maxPath <span class="fu">$</span> reverse <span class="fu">$</span> parse str</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o maximum-path-sum maximum-path-sum.hs
 $ <span class="kw">time</span> ./maximum-path-sum
-<span class="kw">real</span>   0m0.038s
-<span class="kw">user</span>   0m0.033s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.041s
+<span class="kw">user</span>   0m0.022s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
@@ -100,9 +99,9 @@ $ <span class="kw">time</span> ./maximum-path-sum
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-max.py
-<span class="kw">real</span>   0m0.030s
-<span class="kw">user</span>   0m0.020s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.028s
+<span class="kw">user</span>   0m0.016s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

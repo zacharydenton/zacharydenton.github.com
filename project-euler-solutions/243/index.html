@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 243.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -82,8 +82,8 @@ uniq xs <span class="fu">=</span> uniq' Set.empty xs <span class="kw">where</spa
                      <span class="fu">|</span> otherwise <span class="fu">=</span> y <span class="fu">:</span> uniq' (Set.insert y set) xs
 
 <span class="ot">totient ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
-totient <span class="dv">1</span> <span class="fu">=</span> <span class="dv">1</span><span class="fu">.</span><span class="dv">0</span>
-totient n <span class="fu">=</span> (fromIntegral n) <span class="fu">*</span> product [<span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">-</span> (<span class="dv">1</span><span class="fu">.</span><span class="dv">0</span> <span class="fu">/</span> (fromIntegral p)) <span class="fu">|</span> p <span class="ot">&lt;-</span> uniq <span class="fu">$</span> factorize n]
+totient <span class="dv">1</span> <span class="fu">=</span> <span class="fl">1.0</span>
+totient n <span class="fu">=</span> (fromIntegral n) <span class="fu">*</span> product [<span class="fl">1.0</span> <span class="fu">-</span> (<span class="fl">1.0</span> <span class="fu">/</span> (fromIntegral p)) <span class="fu">|</span> p <span class="ot">&lt;-</span> uniq <span class="fu">$</span> factorize n]
 
 <span class="ot">resilience ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
 resilience d <span class="fu">=</span> (totient d) <span class="fu">/</span> (fromIntegral (d <span class="fu">-</span> <span class="dv">1</span>))
@@ -100,8 +100,8 @@ candidates <span class="fu">=</span> expand <span class="dv">1</span> primorials
 main <span class="fu">=</span> print <span class="fu">$</span> head [d <span class="fu">|</span> d <span class="ot">&lt;-</span> candidates, resilience d <span class="fu">&lt;</span> <span class="dv">15499</span> <span class="fu">/</span> <span class="dv">94744</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o resilience resilience.hs
 $ <span class="kw">time</span> ./resilience
-<span class="kw">real</span>   0m0.003s
-<span class="kw">user</span>   0m0.000s
+<span class="kw">real</span>   0m0.007s
+<span class="kw">user</span>   0m0.001s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 </article>
 

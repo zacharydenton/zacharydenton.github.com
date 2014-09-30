@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Python solution to Project Euler Problem 99.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,35 +45,22 @@
 <p>
 Comparing two numbers written in index form like <span class="math">2<sup>11</sup></span> and <span class="math">3<sup>7</sup></span> is not difficult, as any calculator would confirm that <span class="math">2<sup>11</sup> = 2048 &lt; 3<sup>7</sup> = 2187</span>.
 </p>
-
 <p>
 However, confirming that <span class="math">632382<sup>518061</sup> &gt; 519432<sup>525806</sup></span> would be much more difficult, as both numbers contain over three million digits.
 </p>
-
 <p>
 Using <a href="http://projecteuler.net/project/base_exp.txt">base_exp.txt</a> (right click and ‘Save Link/Target As…’), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.
 </p>
-
 <p>
 NOTE: The first two lines in the file represent the numbers in the example given above.
 </p>
-
-
-
-
 <h2 id="commentary">Commentary</h2>
 <p>
 As the question notes, it would be difficult to evaluate these exponents directly as they contain over three million digits each. Therefore, we must find a way to reduce these exponents to a manageable size.
 </p>
-
 <p>
 To do so, we use the identity <span class="math">log<em>a</em><sup><em>x</em></sup> = <em>x</em> × log<em>a</em></span>. Since <span class="math">log<em>b</em> &gt; log<em>a</em></span> if $ b a$, this will serve as an approximation of calculating the exponents directly.
 </p>
-
-
-
-
-
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
@@ -85,9 +72,9 @@ largest = [<span class="dv">0</span>, <span class="dv">0</span>]
         largest = [x * log10(a), i<span class="dv">+1</span>]
 <span class="dt">print</span> largest[<span class="dv">1</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 largest-exponent.py
-<span class="kw">real</span>   0m0.022s
-<span class="kw">user</span>   0m0.017s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.026s
+<span class="kw">user</span>   0m0.013s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 </article>
 
 

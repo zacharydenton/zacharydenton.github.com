@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 60.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -77,9 +77,9 @@ candidates <span class="fu">=</span> filter allPrime [[a, b, c, d, e] <span clas
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> head candidates</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-pairs prime-pairs.hs
 $ <span class="kw">time</span> ./prime-pairs
-<span class="kw">real</span>   0m0.483s
-<span class="kw">user</span>   0m0.480s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.709s
+<span class="kw">user</span>   0m0.632s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 </article>
 
 

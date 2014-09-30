@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 1 in C, Clojure, Go, Haskell, Python, Ruby and Scheme.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -60,9 +60,9 @@
 }</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -march=native -Ofast -std=c11 -o natural natural.c
 $ <span class="kw">time</span> ./natural
-<span class="kw">real</span>   0m0.001s
+<span class="kw">real</span>   0m0.000s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> multiple</span>? [n]
@@ -70,17 +70,17 @@ $ <span class="kw">time</span> ./natural
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure natural.clj
-<span class="kw">real</span>   0m1.048s
-<span class="kw">user</span>   0m1.600s
-<span class="kw">sys</span>    0m0.037s</code></pre>
+<span class="kw">real</span>   0m1.464s
+<span class="kw">user</span>   0m1.550s
+<span class="kw">sys</span>    0m0.035s</code></pre>
 <h2 id="go">Go</h2>
 <pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-    sum := 0
-    <span class="kw">for</span> i := 0; i &lt; 1000; i++ {
-        <span class="kw">if</span> i % 3 == 0 || i % 5 == 0 {
+    sum := <span class="dv">0</span>
+    <span class="kw">for</span> i := <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++ {
+        <span class="kw">if</span> i % <span class="dv">3</span> == <span class="dv">0</span> || i % <span class="dv">5</span> == <span class="dv">0</span> {
             sum += i
         }
     }
@@ -88,7 +88,7 @@ $ <span class="kw">time</span> ./natural
 }</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural natural.go
 $ <span class="kw">time</span> ./natural
-<span class="kw">real</span>   0m0.002s
+<span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="haskell">Haskell</h2>
@@ -96,16 +96,16 @@ $ <span class="kw">time</span> ./natural
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural natural.hs
 $ <span class="kw">time</span> ./natural
-<span class="kw">real</span>   0m0.002s
+<span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 natural.py
-<span class="kw">real</span>   0m0.016s
-<span class="kw">user</span>   0m0.013s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.017s
+<span class="kw">user</span>   0m0.008s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
@@ -116,9 +116,9 @@ sum = <span class="dv">0</span>
 <span class="kw">end</span>
 puts sum</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby natural.rb
-<span class="kw">real</span>   0m0.047s
-<span class="kw">user</span>   0m0.040s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.021s
+<span class="kw">user</span>   0m0.014s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="scheme">Scheme</h2>
 <pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
@@ -128,9 +128,9 @@ puts sum</code></pre>
             (iota <span class="dv">1000</span>))))
 (<span class="kw">newline</span>)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> mit-scheme-native --quiet <span class="kw">&lt;</span> natural.scm
-<span class="kw">real</span>   0m0.059s
-<span class="kw">user</span>   0m0.050s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.202s
+<span class="kw">user</span>   0m0.030s
+<span class="kw">sys</span>    0m0.018s</code></pre>
 </article>
 
 

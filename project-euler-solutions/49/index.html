@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 49 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -68,8 +68,8 @@ candidates <span class="fu">=</span> tail [ps <span class="fu">|</span> p <span 
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> concatMap show <span class="fu">$</span> head candidates</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-permutations prime-permutations.hs
 $ <span class="kw">time</span> ./prime-permutations
-<span class="kw">real</span>   0m0.004s
-<span class="kw">user</span>   0m0.003s
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.002s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -178,9 +178,9 @@ $ <span class="kw">time</span> ./prime-permutations
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prime-sequence.py
-<span class="kw">real</span>   0m23.334s
-<span class="kw">user</span>   0m23.340s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m14.271s
+<span class="kw">user</span>   0m14.141s
+<span class="kw">sys</span>    0m0.014s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -198,9 +198,9 @@ primes.each <span class="kw">do</span> |a|
   <span class="kw">end</span>
 <span class="kw">end</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-sequence.rb
-<span class="kw">real</span>   0m13.713s
-<span class="kw">user</span>   0m13.697s
-<span class="kw">sys</span>    0m0.020s</code></pre>
+<span class="kw">real</span>   0m23.201s
+<span class="kw">user</span>   0m22.793s
+<span class="kw">sys</span>    0m0.275s</code></pre>
 </article>
 
 

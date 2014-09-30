@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 53 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,31 +45,20 @@
 <p>
 There are exactly ten ways of selecting three from five, 12345:
 </p>
-
-<p><br /><span class="math">123, 124, 125, 134, 135, 145, 234, 235, 245, and 345</span><br /></p>
+<p><br /><span class="math">123, 124, 125, 134, 135, 145, 234, 235, 245,  and 345</span><br /></p>
 <p>
 In combinatorics, we use the notation, <span class="math"><em></em><sup>5</sup><em>C</em><sub>3</sub> = 10</span>.
 </p>
-
 <p>
 In general,
 </p>
-
 <p><br /><span class="math">$$^nC_r = \frac{n!}{r!(n−r)!}, \text{ where } r \leq n, n! = n\times(n−1)\times\dots\times3\times2\times1, \text{ and } 0! = 1.$$</span><br /></p>
 <p>
 It is not until <span class="math"><em>n</em> = 23</span>, that a value exceeds one-million: <span class="math"><em></em><sup>23</sup><em>C</em><sub>10</sub> = 1144066</span>.
 </p>
-
 <p>
 How many, not necessarily distinct, values of <span class="math"><em></em><sup><em>n</em></sup><em>C</em><sub><em>r</em></sub></span>, for <span class="math">1 ≤ <em>n</em> ≤ 100</span>, are greater than one-million?
 </p>
-
-
-
-
-
-
-
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">choose ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 choose _ <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
@@ -80,9 +69,9 @@ choose n r <span class="fu">=</span> choose (n<span class="fu">-</span><span cla
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">&gt;</span> <span class="dv">1000000</span>) [n <span class="ot">`choose`</span> r <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>], r <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>n]]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections combinatoric-selections.hs
 $ <span class="kw">time</span> ./combinatoric-selections
-<span class="kw">real</span>   0m0.023s
-<span class="kw">user</span>   0m0.020s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.021s
+<span class="kw">user</span>   0m0.016s
+<span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
@@ -94,9 +83,9 @@ count = <span class="dv">0</span>
             count += <span class="dv">1</span>
 <span class="dt">print</span> count</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 large-combos.py
-<span class="kw">real</span>   0m0.021s
-<span class="kw">user</span>   0m0.017s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.031s
+<span class="kw">user</span>   0m0.014s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 </article>
 
 

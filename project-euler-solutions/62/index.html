@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 62 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,16 +45,9 @@
 <p>
 The cube, <span class="math">41063625</span> (<span class="math">345<sup>3</sup></span>), can be permuted to produce two other cubes: <span class="math">56623104</span> (<span class="math">384<sup>3</sup></span>) and <span class="math">66430125</span> (<span class="math">405<sup>3</sup></span>). In fact, <span class="math">41063625</span> is the smallest cube which has exactly three permutations of its digits which are also cube.
 </p>
-
 <p>
 Find the smallest cube for which exactly five permutations of its digits are cube.
 </p>
-
-
-
-
-
-
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 <span class="kw">import qualified</span> <span class="dt">Data.Map</span> <span class="kw">as</span> <span class="dt">Map</span>
@@ -66,9 +59,9 @@ cubes <span class="fu">=</span> Map.fromListWith (<span class="fu">++</span>) [(
 main <span class="fu">=</span> print <span class="fu">$</span> minimum [minimum ns <span class="fu">|</span> (_, ns) <span class="ot">&lt;-</span> Map.toList cubes, length ns <span class="fu">==</span> <span class="dv">5</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o cubic-permutations cubic-permutations.hs
 $ <span class="kw">time</span> ./cubic-permutations
-<span class="kw">real</span>   0m0.093s
-<span class="kw">user</span>   0m0.090s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.072s
+<span class="kw">user</span>   0m0.065s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
@@ -85,9 +78,9 @@ $ <span class="kw">time</span> ./cubic-permutations
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 cube-permutations.py
-<span class="kw">real</span>   0m0.100s
-<span class="kw">user</span>   0m0.090s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.054s
+<span class="kw">user</span>   0m0.050s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 </article>
 
 

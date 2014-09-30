@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 51 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -76,9 +76,9 @@ expand (d, ds) <span class="fu">=</span> [new <span class="fu">|</span> n <span 
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> snd <span class="fu">.</span> head <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">8</span>) <span class="fu">.</span> length <span class="fu">.</span> expand) candidates</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-replacement prime-replacement.hs
 $ <span class="kw">time</span> ./prime-replacement
-<span class="kw">real</span>   0m0.153s
-<span class="kw">user</span>   0m0.150s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.152s
+<span class="kw">user</span>   0m0.139s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -143,9 +143,9 @@ __primes = primes(<span class="dv">31622</span>)
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 changing-primes.py
-<span class="kw">real</span>   0m12.138s
-<span class="kw">user</span>   0m12.107s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">real</span>   0m12.023s
+<span class="kw">user</span>   0m11.710s
+<span class="kw">sys</span>    0m0.013s</code></pre>
 </article>
 
 

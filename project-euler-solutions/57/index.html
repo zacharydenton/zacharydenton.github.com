@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 57 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -61,8 +61,8 @@ expansion <span class="fu">=</span> iterate (\(n, d) <span class="ot">-&gt;</spa
 main <span class="fu">=</span> print <span class="fu">$</span> length [(n, d) <span class="fu">|</span> (n, d) <span class="ot">&lt;-</span> take <span class="dv">1000</span> expansion, length (show (n <span class="fu">+</span> d)) <span class="fu">&gt;</span> length (show d)]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-two root-two.hs
 $ <span class="kw">time</span> ./root-two
-<span class="kw">real</span>   0m0.023s
-<span class="kw">user</span>   0m0.020s
+<span class="kw">real</span>   0m0.015s
+<span class="kw">user</span>   0m0.014s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -80,9 +80,9 @@ $ <span class="kw">time</span> ./root-two
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 root-two.py
-<span class="kw">real</span>   0m0.463s
-<span class="kw">user</span>   0m0.460s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.585s
+<span class="kw">user</span>   0m0.553s
+<span class="kw">sys</span>    0m0.019s</code></pre>
 </article>
 
 

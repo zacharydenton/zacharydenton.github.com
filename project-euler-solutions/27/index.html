@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 27 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -47,7 +47,7 @@
 <p>It turns out that the formula will produce 40 primes for the consecutive values n = 0 to 39. However, when n = 40, <span class="math">40<sup>2</sup> + 40 + 41 = 40(40 + 1) + 41</span> is divisible by 41, and certainly when n = 41, <span class="math">41<sup>2</sup> + 41 + 41</span> is clearly divisible by 41.</p>
 <p>Using computers, the incredible formula <span class="math"><em>n</em><sup>2</sup> − 79<em>n</em> + 1601</span> was discovered, which produces 80 primes for the consecutive values n = 0 to 79. The product of the coefficients, 79 and 1601, is 126479.</p>
 <p>Considering quadratics of the form:</p>
-<p><br /><span class="math"><em>n</em><sup>2</sup> + <em>a</em><em>n</em> + <em>b</em>, where ∣<em>a</em>∣ &lt; 1000and ∣<em>b</em>∣ &lt; 1000</span><br /></p>
+<p><br /><span class="math"><em>n</em><sup>2</sup> + <em>a</em><em>n</em> + <em>b</em>,  where |<em>a</em>| &lt; 1000 and |<em>b</em>| &lt; 1000</span><br /></p>
 <p>Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.</p>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Function</span> (on)
@@ -67,9 +67,9 @@ primesProduced (a, b) <span class="fu">=</span> length <span class="fu">$</span>
 main <span class="fu">=</span> print <span class="fu">$</span> uncurry (<span class="fu">*</span>) <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> primesProduced) coefficients</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o quadratic-primes quadratic-primes.hs
 $ <span class="kw">time</span> ./quadratic-primes
-<span class="kw">real</span>   0m3.175s
-<span class="kw">user</span>   0m3.173s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m4.354s
+<span class="kw">user</span>   0m4.342s
+<span class="kw">sys</span>    0m0.006s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
@@ -143,9 +143,9 @@ $ <span class="kw">time</span> ./quadratic-primes
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 quadratic-primes.py
-<span class="kw">real</span>   0m57.081s
-<span class="kw">user</span>   0m57.100s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m50.717s
+<span class="kw">user</span>   0m50.558s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
@@ -153,9 +153,9 @@ puts (-<span class="dv">999</span>..<span class="dv">999</span>).to_a.product((-
   [(<span class="dv">0</span>..<span class="dv">100</span>).take_while { |n| (n**<span class="dv">2</span> + a*n + b).prime? }.count, a * b]
 }.max[<span class="dv">1</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby quadratic-primes.rb
-<span class="kw">real</span>   0m26.550s
-<span class="kw">user</span>   0m26.317s
-<span class="kw">sys</span>    0m0.243s</code></pre>
+<span class="kw">real</span>   0m49.915s
+<span class="kw">user</span>   0m49.575s
+<span class="kw">sys</span>    0m0.193s</code></pre>
 </article>
 
 

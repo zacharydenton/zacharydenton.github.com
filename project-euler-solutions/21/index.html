@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 21 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,24 +45,15 @@
 <p>
 Let <span class="math"><em>d</em>(<em>n</em>)</span> be defined as the sum of proper divisors of <span class="math"><em>n</em></span> (numbers less than <span class="math"><em>n</em></span> which divide evenly into <span class="math"><em>n</em></span>).
 </p>
-
 <p>
 If <span class="math"><em>d</em>(<em>a</em>) = <em>b</em></span> and <span class="math"><em>d</em>(<em>b</em>) = <em>a</em></span>, where <span class="math"><em>a</em> ≠ <em>b</em></span>, then <span class="math"><em>a</em></span> and <span class="math"><em>b</em></span> are an amicable pair and each of <span class="math"><em>a</em></span> and <span class="math"><em>b</em></span> are called amicable numbers.
 </p>
-
 <p>
 For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore <span class="math"><em>d</em>(220) = 284</span>. The proper divisors of 284 are 1, 2, 4, 71 and 142; so <span class="math"><em>d</em>(284) = 220</span>.
 </p>
-
 <p>
 Evaluate the sum of all the amicable numbers under 10000.
 </p>
-
-
-
-
-
-
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> divisors </span>[n]
@@ -76,9 +67,9 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> #(amicable? % (d %)) (<span class="kw">range</span> <span class="dv">10000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure amicable.clj
-<span class="kw">real</span>   0m8.555s
-<span class="kw">user</span>   0m10.070s
-<span class="kw">sys</span>    0m0.130s</code></pre>
+<span class="kw">real</span>   0m14.411s
+<span class="kw">user</span>   0m13.924s
+<span class="kw">sys</span>    0m0.147s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">divisors ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 divisors n <span class="fu">=</span> [x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>(div n <span class="dv">2</span>)], n <span class="ot">`mod`</span> x <span class="fu">==</span> <span class="dv">0</span>]
@@ -93,8 +84,8 @@ isAmicable n <span class="fu">=</span> n <span class="fu">/=</span> x <span clas
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter isAmicable [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o amicable amicable.hs
 $ <span class="kw">time</span> ./amicable
-<span class="kw">real</span>   0m1.398s
-<span class="kw">user</span>   0m1.393s
+<span class="kw">real</span>   0m2.008s
+<span class="kw">user</span>   0m1.988s
 <span class="kw">sys</span>    0m0.003s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
@@ -118,9 +109,9 @@ require <span class="st">'mathn'</span>
 
 puts (<span class="dv">1</span>..<span class="dv">10000</span>).find_all { |n| n.amicable? }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby amicable.rb
-<span class="kw">real</span>   0m0.597s
-<span class="kw">user</span>   0m0.593s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m1.036s
+<span class="kw">user</span>   0m0.890s
+<span class="kw">sys</span>    0m0.009s</code></pre>
 </article>
 
 

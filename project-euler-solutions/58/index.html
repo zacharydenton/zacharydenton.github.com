@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 58 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,7 +45,6 @@
 <p>
 Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.
 </p>
-
 <pre><code><span style="color:#ff0000;">37</span> 36 35 34 33 32 <span style="color:#ff0000;">31</span>
 38 <span style="color:#ff0000;">17</span> 16 15 14 <span style="color:#ff0000;">13</span> 30
 39 18  <span style="color:#ff0000;">5</span>  4  <span style="color:#ff0000;">3</span> 12 29
@@ -54,20 +53,12 @@ Starting with 1 and spiralling anticlockwise in the following way, a square spir
 42 21 22 23 24 25 26
 <span style="color:#ff0000;">43</span> 44 45 46 47 48 49
 </code></pre>
-
 <p>
 It is interesting to note that the odd squares lie along the bottom right diagonal, but what is more interesting is that 8 out of the 13 numbers lying along both diagonals are prime; that is, a ratio of <span class="math">$\frac{8}{13} \approx 62%$</span>.
 </p>
-
 <p>
 If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below 10%?
 </p>
-
-
-
-
-
-
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPrime n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
@@ -83,8 +74,8 @@ expansion <span class="fu">=</span> scanl (\(p, t) x <span class="ot">-&gt;</spa
 main <span class="fu">=</span> print <span class="fu">$</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> (length <span class="fu">$</span> takeWhile id <span class="fu">$</span> tail [<span class="dv">10</span><span class="fu">*</span>p <span class="fu">&gt;=</span> t <span class="fu">|</span> (p, t) <span class="ot">&lt;-</span> expansion])</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes spiral-primes.hs
 $ <span class="kw">time</span> ./spiral-primes
-<span class="kw">real</span>   0m0.761s
-<span class="kw">user</span>   0m0.760s
+<span class="kw">real</span>   0m1.176s
+<span class="kw">user</span>   0m1.166s
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
@@ -170,9 +161,9 @@ $ <span class="kw">time</span> ./spiral-primes
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 spiral-primes.py
-<span class="kw">real</span>   0m12.510s
-<span class="kw">user</span>   0m12.507s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m13.495s
+<span class="kw">user</span>   0m13.205s
+<span class="kw">sys</span>    0m0.010s</code></pre>
 </article>
 
 

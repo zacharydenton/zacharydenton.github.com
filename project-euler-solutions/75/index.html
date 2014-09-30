@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 75.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -62,9 +62,9 @@ perimeters limit <span class="fu">=</span> accumArray (<span class="fu">+</span>
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">==</span> <span class="dv">1</span>) <span class="fu">$</span> elems <span class="fu">$</span> perimeters <span class="dv">1500000</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o singular-triangles singular-triangles.hs
 $ <span class="kw">time</span> ./singular-triangles
-<span class="kw">real</span>   0m1.853s
-<span class="kw">user</span>   0m1.837s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">real</span>   0m2.342s
+<span class="kw">user</span>   0m2.254s
+<span class="kw">sys</span>    0m0.023s</code></pre>
 </article>
 
 

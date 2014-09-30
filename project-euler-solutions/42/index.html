@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 42 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,22 +45,13 @@
 <p>
 The <span class="math"><em>n</em><sup><em>t</em><em>h</em></sup></span> term of the sequence of triangle numbers is given by, <span class="math">$t_n = \frac{1}{2}n(n+1)$</span>; so the first ten triangle numbers are:
 </p>
-
 <p><br /><span class="math">1, 3, 6, 10, 15, 21, 28, 36, 45, 55, …</span><br /></p>
 <p>
 By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is <span class="math">19 + 11 + 25 = 55 = <em>t</em><sub>10</sub></span>. If the word value is a triangle number then we shall call the word a triangle word.
 </p>
-
 <p>
 Using <a href="http://projecteuler.net/project/words.txt">words.txt</a> (right click and ‘Save Link/Target As…’), a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 </p>
-
-
-
-
-
-
-
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
 parse <span class="fu">=</span> words <span class="fu">.</span> map replaceComma <span class="fu">.</span> filter notQuote <span class="kw">where</span>
@@ -85,9 +76,9 @@ main <span class="fu">=</span> <span class="kw">do</span>
     print <span class="fu">$</span> length <span class="fu">$</span> filter triangle <span class="fu">$</span> parse str</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words triangle-words.hs
 $ <span class="kw">time</span> ./triangle-words
-<span class="kw">real</span>   0m0.006s
-<span class="kw">user</span>   0m0.007s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.008s
+<span class="kw">user</span>   0m0.003s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
@@ -114,9 +105,9 @@ $ <span class="kw">time</span> ./triangle-words
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
     main()</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-words.py
-<span class="kw">real</span>   0m0.040s
-<span class="kw">user</span>   0m0.037s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.023s
+<span class="kw">user</span>   0m0.019s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangles = (<span class="dv">1</span>..<span class="dv">1000</span>).map { |n| (n*(n<span class="dv">+1</span>))/<span class="dv">2</span> }.to_a
@@ -124,9 +115,9 @@ puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<spa
   triangles.include? word.each_byte.reduce(<span class="dv">0</span>) {|s,v| s+(v<span class="dv">-64</span>) }
 }.count</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-words.rb
-<span class="kw">real</span>   0m0.095s
-<span class="kw">user</span>   0m0.087s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m0.117s
+<span class="kw">user</span>   0m0.113s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 </article>
 
 

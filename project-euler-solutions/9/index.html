@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 9 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -68,18 +68,18 @@
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">*</span> (<span class="kw">first</span> (candidates <span class="dv">500</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure pythagorean-triples.clj
-<span class="kw">real</span>   0m2.304s
-<span class="kw">user</span>   0m3.243s
-<span class="kw">sys</span>    0m0.127s</code></pre>
+<span class="kw">real</span>   0m3.249s
+<span class="kw">user</span>   0m3.280s
+<span class="kw">sys</span>    0m0.097s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> head [a<span class="fu">*</span>b<span class="fu">*</span>c <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">500</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">500</span>], c <span class="ot">&lt;-</span> [b<span class="fu">..</span><span class="dv">500</span>],
                              a<span class="fu">+</span>b<span class="fu">+</span>c <span class="fu">==</span> <span class="dv">1000</span>, a<span class="fu">*</span>a <span class="fu">+</span> b<span class="fu">*</span>b <span class="fu">==</span> c<span class="fu">*</span>c]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pythagorean pythagorean.hs
 $ <span class="kw">time</span> ./pythagorean
-<span class="kw">real</span>   0m0.365s
-<span class="kw">user</span>   0m0.363s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.492s
+<span class="kw">user</span>   0m0.490s
+<span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">for</span> a <span class="kw">in</span> (<span class="dv">1</span>..<span class="dv">500</span>)
@@ -92,9 +92,9 @@ $ <span class="kw">time</span> ./pythagorean
   <span class="kw">end</span>
 <span class="kw">end</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pythagorean-triples.rb
-<span class="kw">real</span>   0m3.950s
-<span class="kw">user</span>   0m3.943s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m6.516s
+<span class="kw">user</span>   0m6.505s
+<span class="kw">sys</span>    0m0.002s</code></pre>
 </article>
 
 

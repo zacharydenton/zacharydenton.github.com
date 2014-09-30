@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 25 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -43,7 +43,7 @@
 
   <h2 id="question">Question</h2>
 <p>The Fibonacci sequence is defined by the recurrence relation:</p>
-<p><br /><span class="math"><em>F</em><sub><em>n</em></sub> = <em>F</em><sub><em>n</em>−1</sub> + <em>F</em><sub><em>n</em>−2</sub>where <em>F</em><sub>1</sub> = 1and <em>F</em><sub>2</sub> = 1</span><br /></p>
+<p><br /><span class="math"><em>F</em><sub><em>n</em></sub> = <em>F</em><sub><em>n</em> − 1</sub> + <em>F</em><sub><em>n</em> − 2</sub> where <em>F</em><sub>1</sub> = 1 and <em>F</em><sub>2</sub> = 1</span><br /></p>
 <p>Hence the first 12 terms will be:</p>
 <p><br /><span class="math">$$\begin{aligned}
 F_1 &amp;= 1 \\\\
@@ -68,9 +68,9 @@ F_{12} &amp;= 144
 
 (<span class="kw">println</span> (<span class="kw">count</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % (.pow (BigInteger/TEN) <span class="dv">999</span>)) fibs)))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fibonacci.clj
-<span class="kw">real</span>   0m1.188s
-<span class="kw">user</span>   0m1.950s
-<span class="kw">sys</span>    0m0.070s</code></pre>
+<span class="kw">real</span>   0m1.400s
+<span class="kw">user</span>   0m1.782s
+<span class="kw">sys</span>    0m0.050s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
@@ -79,9 +79,9 @@ fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</spa
 main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="fu">==</span><span class="dv">1000</span>) <span class="fu">.</span> length <span class="fu">.</span> show <span class="fu">$</span> fibs <span class="fu">!!</span> i]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci fibonacci.hs
 $ <span class="kw">time</span> ./fibonacci
-<span class="kw">real</span>   0m0.199s
-<span class="kw">user</span>   0m0.193s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.185s
+<span class="kw">user</span>   0m0.174s
+<span class="kw">sys</span>    0m0.005s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 i = <span class="dv">1</span>
@@ -92,9 +92,9 @@ t1, t2 = <span class="dv">0</span>, <span class="dv">1</span>
 <span class="kw">end</span>
 puts i</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby fibonacci.rb
-<span class="kw">real</span>   0m0.083s
-<span class="kw">user</span>   0m0.077s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">real</span>   0m0.223s
+<span class="kw">user</span>   0m0.213s
+<span class="kw">sys</span>    0m0.005s</code></pre>
 </article>
 
 

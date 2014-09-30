@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 30 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -53,20 +53,20 @@
 <p>Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p>
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
-(<span class="kw">defn</span><span class="fu"> ** </span>[x n]
+(<span class="kw">defn</span><span class="fu"> pow </span>[x n]
   (. (. java.math.BigInteger (valueOf x)) (pow n)))
 
 (<span class="kw">defn</span><span class="fu"> digits </span>[number]
   (<span class="kw">map</span> #(<span class="kw">-</span> (<span class="kw">int</span> %) <span class="dv">48</span>) (<span class="kw">str</span> number))) 
 
 (<span class="kw">defn</span><span class="fu"> can-be-written-as-sum-of-fifths</span>? [number]
-  (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> number <span class="dv">1</span>)) (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> #(** % <span class="dv">5</span>) (digits number))) number)))
+  (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> number <span class="dv">1</span>)) (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> #(pow % <span class="dv">5</span>) (digits number))) number)))
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> can-be-written-as-sum-of-fifths? (<span class="kw">range</span> <span class="dv">500000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fifth-powers.clj
-<span class="kw">real</span>   0m2.961s
-<span class="kw">user</span>   0m4.067s
-<span class="kw">sys</span>    0m0.130s</code></pre>
+<span class="kw">real</span>   0m4.713s
+<span class="kw">user</span>   0m4.982s
+<span class="kw">sys</span>    0m0.141s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits n <span class="fu">=</span> digits' n []
@@ -76,18 +76,18 @@ digits n <span class="fu">=</span> digits' n []
 main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span><span class="dv">500000</span>], sum (map (<span class="fu">^</span><span class="dv">5</span>) (digits n)) <span class="fu">==</span> n]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sumFifths sumFifths.hs
 $ <span class="kw">time</span> ./sumFifths
-<span class="kw">real</span>   0m0.359s
-<span class="kw">user</span>   0m0.357s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">real</span>   0m0.447s
+<span class="kw">user</span>   0m0.438s
+<span class="kw">sys</span>    0m0.003s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">2</span>..<span class="dv">500000</span>).select { |i|
   i == i.to_s.each_char.map { |d| d.to_i**<span class="dv">5</span> }.reduce(:+)
 }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby sum-of-fifths.rb
-<span class="kw">real</span>   0m1.640s
-<span class="kw">user</span>   0m1.630s
-<span class="kw">sys</span>    0m0.010s</code></pre>
+<span class="kw">real</span>   0m2.414s
+<span class="kw">user</span>   0m2.401s
+<span class="kw">sys</span>    0m0.004s</code></pre>
 </article>
 
 

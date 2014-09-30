@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents solutions to Project Euler Problem 10 in Clojure, Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -45,16 +45,9 @@
 <p>
 The sum of the primes below 10 is <span class="math">2 + 3 + 5 + 7 = 17</span>.
 </p>
-
 <p>
 Find the sum of all the primes below two million.
 </p>
-
-
-
-
-
-
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> primes </span>[n]
@@ -71,9 +64,9 @@ Find the sum of all the primes below two million.
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (primes <span class="dv">2000000</span>)))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure sum-primes.clj
-<span class="kw">real</span>   0m4.005s
-<span class="kw">user</span>   0m5.103s
-<span class="kw">sys</span>    0m0.133s</code></pre>
+<span class="kw">real</span>   0m11.670s
+<span class="kw">user</span>   0m16.524s
+<span class="kw">sys</span>    0m0.146s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -84,9 +77,9 @@ primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</s
 main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">2000000</span>) primes</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sum-primes sum-primes.hs
 $ <span class="kw">time</span> ./sum-primes
-<span class="kw">real</span>   0m1.391s
-<span class="kw">user</span>   0m1.377s
-<span class="kw">sys</span>    0m0.013s</code></pre>
+<span class="kw">real</span>   0m1.818s
+<span class="kw">user</span>   0m1.774s
+<span class="kw">sys</span>    0m0.018s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> takewhile
@@ -106,17 +99,17 @@ $ <span class="kw">time</span> ./sum-primes
 
 <span class="dt">print</span> <span class="dt">sum</span>(takewhile(<span class="kw">lambda</span> x: x &lt; <span class="dv">2000000</span>, eratosthenes()))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 sum-primes.py
-<span class="kw">real</span>   0m2.327s
-<span class="kw">user</span>   0m2.290s
-<span class="kw">sys</span>    0m0.037s</code></pre>
+<span class="kw">real</span>   0m1.806s
+<span class="kw">user</span>   0m1.760s
+<span class="kw">sys</span>    0m0.030s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts <span class="dt">Prime</span>.take_while{ |n| n &lt; <span class="dv">2000000</span> }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby sum-primes.rb
-<span class="kw">real</span>   0m0.390s
-<span class="kw">user</span>   0m0.383s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">real</span>   0m6.668s
+<span class="kw">user</span>   0m6.639s
+<span class="kw">sys</span>    0m0.005s</code></pre>
 </article>
 
 

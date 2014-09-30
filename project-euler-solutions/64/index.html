@@ -10,7 +10,7 @@
 		<meta name="author" content="Zach Denton">
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 64.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Share+Tech:400">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
@@ -18,7 +18,7 @@
   			tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   		});
 		</script>
-		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	
@@ -99,9 +99,9 @@ expansion s <span class="fu">|</span> isSquare s <span class="fu">=</span> []
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (\x <span class="ot">-&gt;</span> odd <span class="fu">$</span> length <span class="fu">$</span> expansion x) [<span class="dv">2</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o continued-fractions continued-fractions.hs
 $ <span class="kw">time</span> ./continued-fractions
-<span class="kw">real</span>   0m5.420s
-<span class="kw">user</span>   0m5.407s
-<span class="kw">sys</span>    0m0.013s</code></pre>
+<span class="kw">real</span>   0m6.378s
+<span class="kw">user</span>   0m6.297s
+<span class="kw">sys</span>    0m0.021s</code></pre>
 </article>
 
 
