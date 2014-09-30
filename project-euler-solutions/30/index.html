@@ -53,20 +53,20 @@
 <p>Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p>
 <h2 id="clojure">Clojure</h2>
 <pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
-(<span class="kw">defn</span><span class="fu"> pow </span>[x n]
+(<span class="kw">defn</span><span class="fu"> raise </span>[x n]
   (. (. java.math.BigInteger (valueOf x)) (pow n)))
 
 (<span class="kw">defn</span><span class="fu"> digits </span>[number]
   (<span class="kw">map</span> #(<span class="kw">-</span> (<span class="kw">int</span> %) <span class="dv">48</span>) (<span class="kw">str</span> number))) 
 
 (<span class="kw">defn</span><span class="fu"> can-be-written-as-sum-of-fifths</span>? [number]
-  (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> number <span class="dv">1</span>)) (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> #(pow % <span class="dv">5</span>) (digits number))) number)))
+  (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> number <span class="dv">1</span>)) (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> #(raise % <span class="dv">5</span>) (digits number))) number)))
 
 (<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> can-be-written-as-sum-of-fifths? (<span class="kw">range</span> <span class="dv">500000</span>))))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fifth-powers.clj
-<span class="kw">real</span>   0m4.713s
-<span class="kw">user</span>   0m4.982s
-<span class="kw">sys</span>    0m0.141s</code></pre>
+<span class="kw">real</span>   0m3.712s
+<span class="kw">user</span>   0m4.123s
+<span class="kw">sys</span>    0m0.129s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits n <span class="fu">=</span> digits' n []
