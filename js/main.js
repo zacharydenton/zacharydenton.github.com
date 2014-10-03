@@ -105,10 +105,12 @@
 
   })();
 
-  document.addEventListener("load", function() {
+  this.activateBanner = function() {
     window.fractalBanner = new FractalBanner();
     fractalBanner.resize();
     return fractalBanner.render();
-  });
+  };
+
+  this.activateBanner();
 
 }).call(this);
