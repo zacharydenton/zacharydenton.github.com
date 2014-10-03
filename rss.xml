@@ -29,8 +29,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -49,7 +47,6 @@
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Best of 2012</h1>
 
@@ -125,7 +122,8 @@
 <p>Usually I’m not a big fan of reading long API specifications, but the Web Audio API’s specification is worth the read. Building synthesizers inside of a web browser is just unbelievably fun.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -150,8 +148,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -170,7 +166,6 @@
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Export Facebook Contacts with Android</h1>
 
@@ -312,7 +307,8 @@ END:VCARD</code></pre>
 <p>Restrictions don’t apply to those with rooted phones and a bit of curiosity.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -337,8 +333,6 @@ END:VCARD</code></pre>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -357,7 +351,6 @@ END:VCARD</code></pre>
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Music Server Revisited: Streaming with sshfs and mp3fs</h1>
 
@@ -398,7 +391,8 @@ EOF</code></pre>
 <p>Now your music collection will be available at login.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -423,8 +417,6 @@ EOF</code></pre>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -443,7 +435,6 @@ EOF</code></pre>
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>A* Search with Multiple Targets and Sources</h1>
 
@@ -465,7 +456,8 @@ loop:
 <p>I’ve <a href="https://github.com/zacharydenton/aichallenge-ants">uploaded my bot to GitHub</a>, so you can actually <a href="https://github.com/zacharydenton/aichallenge-ants/blob/master/MyBot.java#L237">see this algorithm in practice</a> if you want.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -490,8 +482,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -510,7 +500,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Iceland</h1>
 
@@ -660,7 +649,8 @@ loop:
 <p>It was quite late when I got back, so I wasn’t sure whether or not to book a hostel for the night. The bus company sold the tickets at half price if you took the bus at 4:30 AM, which was reason enough for me to just spend the night at the bus station. I withdrew my handy silk travel sheet from my suitcase and slept for a few hours until it was time to leave. Most of the people on the bus had been partying all night. I wish I had thought of that idea, but maybe next time. After a few flights and a car ride, I was back home in Maryland. It was without a doubt the best summer I’ve ever had.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -685,8 +675,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -705,7 +693,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Copenhagen</h1>
 
@@ -716,7 +703,8 @@ loop:
 <p>After the short stay in Copenhagen, I went to the airport and hopped on a plane headed for Iceland.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -741,8 +729,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -761,7 +747,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Berlin</h1>
 
@@ -780,7 +765,8 @@ loop:
 <p>I didn’t explore Berlin as much as I had intended, but I had a good time nevertheless. Later the next day I took the train to Copenhagen.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -805,8 +791,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -825,7 +809,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Vienna</h1>
 
@@ -842,7 +825,8 @@ loop:
 <p>I walked for a couple more hours in the center of the city, and went back to the hostel. The next day I went to Prague.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -867,8 +851,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -887,7 +869,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Prague</h1>
 
@@ -934,7 +915,8 @@ loop:
 <p>I then crossed the river and walked alongside it until I completed the walking loop. I had some Chinese food for dinner and went to Berlin the next day.</p>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -959,8 +941,6 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -979,7 +959,6 @@ loop:
 			</ul>
 			</nav>
 		</header>
-
 		<article>
   <h1>Budapest</h1>
 
@@ -1021,7 +1000,8 @@ loop:
 </div>
 </article>
 
-
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
