@@ -35,7 +35,7 @@
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -124,7 +124,6 @@
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -157,7 +156,7 @@
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -312,7 +311,6 @@ END:VCARD</code></pre>
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -345,7 +343,7 @@ END:VCARD</code></pre>
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -399,7 +397,6 @@ EOF</code></pre>
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -432,7 +429,7 @@ EOF</code></pre>
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -467,7 +464,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -500,7 +496,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -663,7 +659,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -696,7 +691,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -720,7 +715,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -753,7 +747,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -785,7 +779,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -818,7 +811,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -848,7 +841,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -881,7 +873,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -941,7 +933,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>
@@ -974,7 +965,7 @@ loop:
 	<body>
 	
 		<div id="banner"></div>
-		<header role="banner">
+		<header id="header" role="banner">
 			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
@@ -1029,7 +1020,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 		<script src="../js/main.js"></script>
 	</body>

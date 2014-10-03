@@ -473,6 +473,9 @@ header {
   margin: auto;
   height: 350px;
   padding: 0 108px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 @media (max-width: 1000px) {
   header {
