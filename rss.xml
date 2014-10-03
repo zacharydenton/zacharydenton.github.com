@@ -29,6 +29,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -124,8 +126,6 @@
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -150,6 +150,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -311,8 +313,6 @@ END:VCARD</code></pre>
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -337,6 +337,8 @@ END:VCARD</code></pre>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -397,8 +399,6 @@ EOF</code></pre>
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -423,6 +423,8 @@ EOF</code></pre>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -464,8 +466,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -490,6 +490,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -659,8 +661,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -685,6 +685,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -715,8 +717,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -741,6 +741,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -779,8 +781,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -805,6 +805,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -841,8 +843,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -867,6 +867,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -933,8 +935,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -959,6 +959,8 @@ loop:
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
 		<link rel="stylesheet" href="../css/main.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+		<script src="../js/main.js"></script>
 		
 	</head>
 	
@@ -1020,8 +1022,6 @@ loop:
 </article>
 
 
-		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
