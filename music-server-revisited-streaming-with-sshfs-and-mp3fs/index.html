@@ -11,7 +11,7 @@
 		<meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 	</head>
 	
@@ -19,21 +19,21 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
 		<article>
   <h1>Music Server Revisited: Streaming with sshfs and mp3fs</h1>
 
-  <p>A while back, I wrote about <a href="../build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
+  <p>A while back, I wrote about <a href="/build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
 <p>Before you start, you’re going to need a Linux machine with your music collection on it (the server). You will also need another Linux machine to act as the client (e.g. a laptop with a small hard drive).</p>
 <h2 id="configuring-the-server">Configuring the server</h2>
 <h3 id="install-the-ssh-server">Install the ssh server</h3>
@@ -71,6 +71,6 @@ EOF</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

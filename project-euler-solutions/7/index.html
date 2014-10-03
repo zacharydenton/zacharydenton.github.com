@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 7 in Clojure, Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -78,7 +78,7 @@ $ <span class="kw">time</span> ./10001st-prime
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> eratosthenes():
-    <span class="co">'''Yields the sequence of prime numbers via the Sieve of Eratosthenes.'''</span>
+    <span class="co">&#39;&#39;&#39;Yields the sequence of prime numbers via the Sieve of Eratosthenes.&#39;&#39;&#39;</span>
     D = {}  <span class="co"># map composite integers to primes witnessing their compositeness</span>
     q = <span class="dv">2</span>   <span class="co"># first integer to test for primality</span>
     <span class="kw">while</span> <span class="dv">1</span>:
@@ -103,7 +103,7 @@ $ <span class="kw">time</span> ./10001st-prime
 <span class="kw">sys</span>    0m0.008s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">'mathn'</span>
+require <span class="st">&#39;mathn&#39;</span>
 puts <span class="dt">Prime</span>.take(<span class="dv">10001</span>).last</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby find-primes.rb
 <span class="kw">real</span>   0m0.181s
@@ -112,6 +112,6 @@ puts <span class="dt">Prime</span>.take(<span class="dv">10001</span>).last</cod
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

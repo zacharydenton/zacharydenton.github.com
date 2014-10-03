@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 22 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -49,9 +49,9 @@
 
 <span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
 parse <span class="fu">=</span> words <span class="fu">.</span> map replaceComma <span class="fu">.</span> filter notQuote <span class="kw">where</span>
-    replaceComma <span class="ch">','</span> <span class="fu">=</span> <span class="ch">' '</span>
+    replaceComma <span class="ch">&#39;,&#39;</span> <span class="fu">=</span> <span class="ch">&#39; &#39;</span>
     replaceComma c <span class="fu">=</span> c
-    notQuote <span class="fu">=</span> (<span class="fu">/=</span> <span class="ch">'&quot;'</span>)
+    notQuote <span class="fu">=</span> (<span class="fu">/=</span> <span class="ch">&#39;&quot;&#39;</span>)
 
 <span class="ot">alphaIndex ::</span> <span class="dt">Char</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 alphaIndex c <span class="fu">=</span> fromEnum c <span class="fu">-</span> <span class="dv">64</span>
@@ -81,9 +81,9 @@ $ <span class="kw">time</span> ./names
     <span class="kw">return</span> index * alpha_score
 
 <span class="kw">def</span> main():
-    names_file = <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">'names.txt'</span>))
+    names_file = <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&#39;names.txt&#39;</span>))
     names_string = names_file.read()
-    names = [name.strip(<span class="st">'&quot;'</span>) <span class="kw">for</span> name in names_string.split(<span class="st">','</span>)] 
+    names = [name.strip(<span class="st">&#39;&quot;&#39;</span>) <span class="kw">for</span> name in names_string.split(<span class="st">&#39;,&#39;</span>)] 
     names.sort()
     <span class="dt">print</span> <span class="dt">sum</span>(calculate_score(name, index<span class="dv">+1</span>) <span class="kw">for</span> index, name in <span class="dt">enumerate</span>(names))
     names_file.close()
@@ -97,7 +97,7 @@ $ <span class="kw">time</span> ./names
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
-names = <span class="dt">File</span>.open(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">'/names.txt'</span>).read.scan(<span class="ot">/\w+/</span>).sort
+names = <span class="dt">File</span>.open(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">&#39;/names.txt&#39;</span>).read.scan(<span class="ot">/\w+/</span>).sort
 puts names.map { |name| 
   word_score = name.each_byte.map { |c| c - <span class="dv">64</span> }.reduce(:+)
   (names.index(name) + <span class="dv">1</span>) * word_score
@@ -109,6 +109,6 @@ puts names.map { |name|
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

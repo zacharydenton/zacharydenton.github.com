@@ -11,7 +11,7 @@
 		<meta name="description" content="A command-line interface to Google Translate.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 	</head>
 	
@@ -19,14 +19,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -59,26 +59,26 @@ Hej! Talar du spanska?</code></pre>
     api = <span class="st">&quot;https://www.googleapis.com/language/translate/v2?&quot;</span>
     api_key = <span class="st">&quot;AIzaSyBgBlJCogk_1Hd_7WaLQgLVbQss0_dvNUc&quot;</span>
     parameters = urllib.urlencode({
-        <span class="st">'target'</span>: target,
-        <span class="st">'key'</span>: api_key,
-        <span class="co">'q'</span>: text
+        <span class="st">&#39;target&#39;</span>: target,
+        <span class="st">&#39;key&#39;</span>: api_key,
+        <span class="co">&#39;q&#39;</span>: text
     })
 
     response = urllib2.urlopen(api + parameters)
     translations = json.loads(response.read())
 
-    translated_text = translations[<span class="st">'data'</span>][<span class="st">'translations'</span>][<span class="dv">0</span>][<span class="st">'translatedText'</span>]
-    <span class="kw">return</span> translated_text.encode(<span class="st">'utf-8'</span>)
+    translated_text = translations[<span class="st">&#39;data&#39;</span>][<span class="st">&#39;translations&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;translatedText&#39;</span>]
+    <span class="kw">return</span> translated_text.encode(<span class="st">&#39;utf-8&#39;</span>)
 
 <span class="kw">def</span> main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(<span class="st">'-t'</span>, <span class="st">'--target'</span>, default=<span class="st">&quot;en&quot;</span>, \
+    parser.add_argument(<span class="st">&#39;-t&#39;</span>, <span class="st">&#39;--target&#39;</span>, default=<span class="st">&quot;en&quot;</span>, \
                         <span class="dt">help</span>=<span class="st">&quot;the language to translate into (default: en)&quot;</span>)
-    parser.add_argument(<span class="st">'text'</span>, nargs=<span class="st">'*'</span>, <span class="dt">help</span>=<span class="st">&quot;the text to translate&quot;</span>)
+    parser.add_argument(<span class="st">&#39;text&#39;</span>, nargs=<span class="st">&#39;*&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;the text to translate&quot;</span>)
     args = parser.parse_args()
 
     <span class="kw">if</span> args.text:
-        text = <span class="st">' '</span>.join(args.text)
+        text = <span class="st">&#39; &#39;</span>.join(args.text)
     <span class="kw">else</span>:
         text = sys.stdin.read()
     
@@ -89,6 +89,6 @@ Hej! Talar du spanska?</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

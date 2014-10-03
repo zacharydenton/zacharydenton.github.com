@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 11 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -113,7 +113,7 @@ $ <span class="kw">time</span> ./grid-product
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 grid = []
-grid_string = <span class="st">'''</span>
+grid_string = <span class="st">&#39;&#39;&#39;</span>
 <span class="st">08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08</span>
 <span class="st">49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00</span>
 <span class="st">81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65</span>
@@ -134,7 +134,7 @@ grid_string = <span class="st">'''</span>
 <span class="st">20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16</span>
 <span class="st">20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54</span>
 <span class="st">01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48</span>
-<span class="st">'''</span>.strip()
+<span class="st">&#39;&#39;&#39;</span>.strip()
 <span class="kw">for</span> line in grid_string.splitlines():
     grid.append([<span class="dt">int</span>(number) <span class="kw">for</span> number in line.split()])
 
@@ -222,6 +222,6 @@ puts max</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 68.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -45,7 +45,7 @@
 Consider the following “magic” 3-gon ring, filled with the numbers 1 to 6, and each line adding to nine.
 </p>
 <div style="text-align:center;">
-<img src="http://projecteuler.net/project/images/p_068_1.gif" alt><br>
+<img src="http://projecteuler.net/project/images/p_068_1.gif" alt=""><br>
 </div>
 <p>
 Working <b>clockwise</b>, and starting from the group of three with the numerically lowest external node (4,3,2 in this example), each solution can be described uniquely. For example, the above solution can be described by the set: 4,3,2; 6,2,1; 5,1,3.
@@ -138,7 +138,7 @@ By concatenating each group it is possible to form 9-digit strings; the maximum 
 Using the numbers 1 to 10, and depending on arrangements, it is possible to form 16- and 17-digit strings. What is the maximum <b>16-digit</b> string for a “magic” 5-gon ring?
 </p>
 <div style="text-align:center;">
-<img src="http://projecteuler.net/project/images/p_068_2.gif" alt><br>
+<img src="http://projecteuler.net/project/images/p_068_2.gif" alt=""><br>
 </div>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fivegon ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [[[<span class="dt">Int</span>]]]
@@ -169,6 +169,6 @@ $ <span class="kw">time</span> ./magic-5-gon
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

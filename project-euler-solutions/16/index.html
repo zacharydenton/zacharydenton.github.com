@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 16 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -49,9 +49,9 @@ What is the sum of the digits of the number <span class="math">2<sup>1000</sup><
 </p>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">sumDigits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
-sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
-    <span class="kw">where</span> sumDigits' <span class="dv">0</span> acc <span class="fu">=</span> acc
-          sumDigits' n acc <span class="fu">=</span> sumDigits' (div n <span class="dv">10</span>) (acc <span class="fu">+</span> (mod n <span class="dv">10</span>))
+sumDigits n <span class="fu">=</span> sumDigits&#39; n <span class="dv">0</span>
+    <span class="kw">where</span> sumDigits&#39; <span class="dv">0</span> acc <span class="fu">=</span> acc
+          sumDigits&#39; n acc <span class="fu">=</span> sumDigits&#39; (div n <span class="dv">10</span>) (acc <span class="fu">+</span> (mod n <span class="dv">10</span>))
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> sumDigits <span class="fu">$</span> <span class="dv">2</span><span class="fu">^</span><span class="dv">1000</span></code></pre>
@@ -77,6 +77,6 @@ puts (<span class="dv">2</span>**<span class="dv">1000</span>).to_s.each_char.in
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

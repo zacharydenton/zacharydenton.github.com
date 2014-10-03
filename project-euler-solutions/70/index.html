@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 70 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -119,14 +119,14 @@ $ <span class="kw">time</span> ./totient-permutation
 <span class="kw">sys</span>    0m0.001s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">'mathn'</span>
+require <span class="st">&#39;mathn&#39;</span>
 
 min = [<span class="dv">100</span>, <span class="dv">0</span>]
 primes = (<span class="dv">1</span>..(<span class="dv">2</span>*<span class="dt">Math</span>.sqrt(1e7))).select { |n| n.prime? }
 primes.combination(<span class="dv">2</span>).select { |a, b| a * b &lt; 1e7 }.each <span class="kw">do</span> |a, b|
   n = a * b
   t = (a - <span class="dv">1</span>) * (b - <span class="dv">1</span>)
-  <span class="kw">if</span> n.to_s.split(<span class="st">''</span>).sort == t.to_s.split(<span class="st">''</span>).sort
+  <span class="kw">if</span> n.to_s.split(<span class="st">&#39;&#39;</span>).sort == t.to_s.split(<span class="st">&#39;&#39;</span>).sort
     <span class="kw">if</span> n / t &lt; min[<span class="dv">0</span>]
       min = [n / t, n]
     <span class="kw">end</span>
@@ -140,6 +140,6 @@ puts min[<span class="dv">1</span>]</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

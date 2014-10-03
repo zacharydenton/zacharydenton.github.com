@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 54 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -97,18 +97,18 @@ How many hands does Player 1 win?
 <span class="kw">import </span><span class="dt">Data.List</span> (nub, sortBy)
 
 <span class="ot">rankValue ::</span> <span class="dt">Char</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
-rankValue <span class="ch">'A'</span> <span class="fu">=</span> <span class="dv">14</span>
-rankValue <span class="ch">'K'</span> <span class="fu">=</span> <span class="dv">13</span>
-rankValue <span class="ch">'Q'</span> <span class="fu">=</span> <span class="dv">12</span>
-rankValue <span class="ch">'J'</span> <span class="fu">=</span> <span class="dv">11</span>
-rankValue <span class="ch">'T'</span> <span class="fu">=</span> <span class="dv">10</span>
+rankValue <span class="ch">&#39;A&#39;</span> <span class="fu">=</span> <span class="dv">14</span>
+rankValue <span class="ch">&#39;K&#39;</span> <span class="fu">=</span> <span class="dv">13</span>
+rankValue <span class="ch">&#39;Q&#39;</span> <span class="fu">=</span> <span class="dv">12</span>
+rankValue <span class="ch">&#39;J&#39;</span> <span class="fu">=</span> <span class="dv">11</span>
+rankValue <span class="ch">&#39;T&#39;</span> <span class="fu">=</span> <span class="dv">10</span>
 rankValue  c  <span class="fu">=</span> digitToInt c
 
 <span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [([(<span class="dt">Int</span>, <span class="dt">Char</span>)], [(<span class="dt">Int</span>, <span class="dt">Char</span>)])]
-parse str <span class="fu">=</span> [(parse' left, parse' right) <span class="fu">|</span> line <span class="ot">&lt;-</span> lines str,
+parse str <span class="fu">=</span> [(parse&#39; left, parse&#39; right) <span class="fu">|</span> line <span class="ot">&lt;-</span> lines str,
                                            <span class="kw">let</span> cards <span class="fu">=</span> words line,
                                            <span class="kw">let</span> (left, right) <span class="fu">=</span> splitAt <span class="dv">5</span> cards]
-    <span class="kw">where</span> parse' cards <span class="fu">=</span> [(rankValue (head card), last card) <span class="fu">|</span> card <span class="ot">&lt;-</span> cards]
+    <span class="kw">where</span> parse&#39; cards <span class="fu">=</span> [(rankValue (head card), last card) <span class="fu">|</span> card <span class="ot">&lt;-</span> cards]
 
 <span class="ot">count ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Int</span>
 count x xs <span class="fu">=</span> length <span class="fu">$</span> filter (<span class="fu">==</span> x) xs
@@ -120,17 +120,17 @@ evaluate hand <span class="fu">|</span> straight <span class="fu">&amp;&amp;</sp
               <span class="fu">|</span> flush                       <span class="fu">=</span> <span class="dv">6</span> <span class="fu">:</span> ranks
               <span class="fu">|</span> straight                    <span class="fu">=</span> <span class="dv">5</span> <span class="fu">:</span> ranks
               <span class="fu">|</span> k <span class="dv">3</span>                         <span class="fu">=</span> <span class="dv">4</span> <span class="fu">:</span> kind <span class="dv">3</span> <span class="fu">++</span> ranks
-              <span class="fu">|</span> k <span class="dv">2</span> <span class="fu">&amp;&amp;</span> k' <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">=</span> <span class="dv">3</span> <span class="fu">:</span> kind <span class="dv">2</span> <span class="fu">++</span> kind' <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">++</span> ranks
+              <span class="fu">|</span> k <span class="dv">2</span> <span class="fu">&amp;&amp;</span> k&#39; <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">=</span> <span class="dv">3</span> <span class="fu">:</span> kind <span class="dv">2</span> <span class="fu">++</span> kind&#39; <span class="dv">2</span> [head (kind <span class="dv">2</span>)] <span class="fu">++</span> ranks
               <span class="fu">|</span> k <span class="dv">2</span>                         <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> kind <span class="dv">2</span> <span class="fu">++</span> ranks
               <span class="fu">|</span> otherwise                   <span class="fu">=</span> <span class="dv">1</span> <span class="fu">:</span> ranks
               <span class="kw">where</span> (r, suits) <span class="fu">=</span> unzip hand
                     ranks <span class="fu">=</span> sortBy (flip compare) r
                     flush <span class="fu">=</span> length (nub suits) <span class="fu">==</span> <span class="dv">1</span>
                     straight <span class="fu">=</span> (maximum ranks) <span class="fu">-</span> (minimum ranks) <span class="fu">==</span> <span class="dv">4</span> <span class="fu">&amp;&amp;</span> length (nub ranks) <span class="fu">==</span> <span class="dv">5</span>
-                    kind' n except <span class="fu">=</span> [rank <span class="fu">|</span> rank <span class="ot">&lt;-</span> ranks, count rank ranks <span class="fu">==</span> n, rank <span class="ot">`notElem`</span> except]
-                    kind n <span class="fu">=</span> kind' n []
-                    k' n except <span class="fu">=</span> not <span class="fu">$</span> null <span class="fu">$</span> kind' n except
-                    k n <span class="fu">=</span> k' n []
+                    kind&#39; n except <span class="fu">=</span> [rank <span class="fu">|</span> rank <span class="ot">&lt;-</span> ranks, count rank ranks <span class="fu">==</span> n, rank <span class="ot">`notElem`</span> except]
+                    kind n <span class="fu">=</span> kind&#39; n []
+                    k&#39; n except <span class="fu">=</span> not <span class="fu">$</span> null <span class="fu">$</span> kind&#39; n except
+                    k n <span class="fu">=</span> k&#39; n []
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="kw">do</span>
@@ -221,7 +221,7 @@ SCORE_FUNCS = []
     <span class="kw">return</span> <span class="dt">list</span>({suit <span class="kw">for</span> value, suit in cards})
 
 <span class="kw">def</span> cards(hand):
-    faces = {<span class="st">'T'</span>: <span class="dv">10</span>, <span class="st">'J'</span>: <span class="dv">11</span>, <span class="st">'Q'</span>: <span class="dv">12</span>, <span class="st">'K'</span>: <span class="dv">13</span>, <span class="st">'A'</span>: <span class="dv">14</span>}
+    faces = {<span class="st">&#39;T&#39;</span>: <span class="dv">10</span>, <span class="st">&#39;J&#39;</span>: <span class="dv">11</span>, <span class="st">&#39;Q&#39;</span>: <span class="dv">12</span>, <span class="st">&#39;K&#39;</span>: <span class="dv">13</span>, <span class="st">&#39;A&#39;</span>: <span class="dv">14</span>}
     <span class="kw">return</span> <span class="dt">sorted</span>(((<span class="dt">int</span>(faces.get(card[<span class="dv">0</span>], card[<span class="dv">0</span>])), card[<span class="dv">1</span>]) <span class="kw">for</span> card in hand), key=itemgetter(<span class="dv">0</span>))
 
 <span class="kw">def</span> parse_hands(lines):
@@ -231,7 +231,7 @@ SCORE_FUNCS = []
     <span class="kw">return</span> <span class="dt">int</span>(score(hands[<span class="dv">0</span>]) &lt; score(hands[<span class="dv">1</span>])) + <span class="dv">1</span>
 
 <span class="kw">def</span> main():
-    <span class="kw">with</span> <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">'poker.txt'</span>)) <span class="ch">as</span> f:
+    <span class="kw">with</span> <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&#39;poker.txt&#39;</span>)) <span class="ch">as</span> f:
         <span class="dt">print</span> <span class="dt">sum</span>(<span class="dv">1</span> <span class="kw">for</span> hands in parse_hands(f) <span class="kw">if</span> winner(hands) == <span class="dv">1</span>)
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
@@ -243,6 +243,6 @@ SCORE_FUNCS = []
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

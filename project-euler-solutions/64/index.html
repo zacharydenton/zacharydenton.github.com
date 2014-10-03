@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 64.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -84,15 +84,15 @@ expansion s <span class="fu">|</span> isSquare s <span class="fu">=</span> []
             <span class="fu">|</span> otherwise <span class="fu">=</span> head <span class="fu">$</span> dropWhile (all (<span class="fu">==</span> first)) cs
             <span class="kw">where</span> cs <span class="fu">=</span> cycles <span class="fu">$</span> map a [<span class="dv">1</span><span class="fu">..</span>]
                   first <span class="fu">=</span> (head <span class="fu">.</span> head) cs
-                  m <span class="fu">=</span> (map m' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
-                  m' <span class="dv">0</span> <span class="fu">=</span> <span class="dv">0</span>
-                  m' n <span class="fu">=</span> (d (n<span class="fu">-</span><span class="dv">1</span>))<span class="fu">*</span>(a (n<span class="fu">-</span><span class="dv">1</span>)) <span class="fu">-</span> (m (n<span class="fu">-</span><span class="dv">1</span>))
-                  d <span class="fu">=</span> (map d' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
-                  d' <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
-                  d' n <span class="fu">=</span> (s <span class="fu">-</span> (m n)<span class="fu">^</span><span class="dv">2</span>) <span class="ot">`quot`</span> (d (n<span class="fu">-</span><span class="dv">1</span>))
-                  a <span class="fu">=</span> (map a' [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
-                  a' <span class="dv">0</span> <span class="fu">=</span> floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral s
-                  a' n <span class="fu">=</span> floor <span class="fu">$</span> (fromIntegral ((a <span class="dv">0</span>) <span class="fu">+</span> (m n))) <span class="fu">/</span> (fromIntegral (d n))
+                  m <span class="fu">=</span> (map m&#39; [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                  m&#39; <span class="dv">0</span> <span class="fu">=</span> <span class="dv">0</span>
+                  m&#39; n <span class="fu">=</span> (d (n<span class="fu">-</span><span class="dv">1</span>))<span class="fu">*</span>(a (n<span class="fu">-</span><span class="dv">1</span>)) <span class="fu">-</span> (m (n<span class="fu">-</span><span class="dv">1</span>))
+                  d <span class="fu">=</span> (map d&#39; [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                  d&#39; <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
+                  d&#39; n <span class="fu">=</span> (s <span class="fu">-</span> (m n)<span class="fu">^</span><span class="dv">2</span>) <span class="ot">`quot`</span> (d (n<span class="fu">-</span><span class="dv">1</span>))
+                  a <span class="fu">=</span> (map a&#39; [<span class="dv">0</span><span class="fu">..</span>] <span class="fu">!!</span>)
+                  a&#39; <span class="dv">0</span> <span class="fu">=</span> floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral s
+                  a&#39; n <span class="fu">=</span> floor <span class="fu">$</span> (fromIntegral ((a <span class="dv">0</span>) <span class="fu">+</span> (m n))) <span class="fu">/</span> (fromIntegral (d n))
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (\x <span class="ot">-&gt;</span> odd <span class="fu">$</span> length <span class="fu">$</span> expansion x) [<span class="dv">2</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
@@ -104,6 +104,6 @@ $ <span class="kw">time</span> ./continued-fractions
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

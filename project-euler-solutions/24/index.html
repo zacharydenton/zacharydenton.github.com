@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 24 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -52,7 +52,7 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, permutations)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">&#39;0&#39;</span><span class="fu">..</span><span class="ch">&#39;9&#39;</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permutations permutations.hs
 $ <span class="kw">time</span> ./permutations
 <span class="kw">real</span>   0m7.683s
@@ -61,7 +61,7 @@ $ <span class="kw">time</span> ./permutations
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> islice, permutations
-<span class="dt">print</span> <span class="st">''</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre>
+<span class="dt">print</span> <span class="st">&#39;&#39;</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 permutations.py
 <span class="kw">real</span>   0m0.038s
 <span class="kw">user</span>   0m0.033s
@@ -76,6 +76,6 @@ puts (<span class="dv">0</span>..<span class="dv">9</span>).to_a.permutation(<sp
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

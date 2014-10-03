@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 43 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -58,7 +58,7 @@ d_8d_9d_{10} &amp; =289 \text{ is divisible by 17}
 
 <span class="ot">expand ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
 expand x <span class="st">&quot;&quot;</span> <span class="fu">=</span> [s <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>, <span class="kw">let</span> s <span class="fu">=</span> show n, s <span class="fu">==</span> nub s]
-expand x s <span class="fu">=</span> [c<span class="fu">:</span>s <span class="fu">|</span> c <span class="ot">&lt;-</span> [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>], c <span class="ot">`notElem`</span> s, (read (c<span class="fu">:</span>take <span class="dv">2</span> s)) <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>]
+expand x s <span class="fu">=</span> [c<span class="fu">:</span>s <span class="fu">|</span> c <span class="ot">&lt;-</span> [<span class="ch">&#39;0&#39;</span><span class="fu">..</span><span class="ch">&#39;9&#39;</span>], c <span class="ot">`notElem`</span> s, (read (c<span class="fu">:</span>take <span class="dv">2</span> s)) <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span>]
 
 <span class="ot">candidates ::</span> [<span class="dt">String</span>]
 candidates <span class="fu">=</span> inner [<span class="dv">17</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>] [<span class="st">&quot;&quot;</span>] <span class="kw">where</span>
@@ -79,12 +79,12 @@ $ <span class="kw">time</span> ./pandigital-substrings
 <span class="kw">def</span> has_property(digits):
     primes = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">17</span>]
     <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dt">len</span>(digits)-<span class="dv">2</span>):
-        <span class="kw">if</span> not <span class="dt">int</span>(<span class="st">''</span>.join(digits[i:i<span class="dv">+3</span>])) % primes[i] == <span class="dv">0</span>:
+        <span class="kw">if</span> not <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(digits[i:i<span class="dv">+3</span>])) % primes[i] == <span class="dv">0</span>:
             <span class="kw">return</span> <span class="ot">False</span>
     <span class="kw">return</span> <span class="ot">True</span> 
 
 <span class="kw">def</span> convert_list_to_int(l):
-    <span class="kw">return</span> <span class="dt">int</span>(<span class="st">''</span>.join(<span class="dt">str</span>(i) <span class="kw">for</span> i in l))
+    <span class="kw">return</span> <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">str</span>(i) <span class="kw">for</span> i in l))
 
 <span class="kw">def</span> main():
     pandigitals = permutations((<span class="dt">str</span>(i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">10</span>)))
@@ -99,11 +99,11 @@ $ <span class="kw">time</span> ./pandigital-substrings
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 primes = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">17</span>]
-puts (<span class="st">'0'</span>..<span class="st">'9'</span>).to_a.permutation.select { |digits| 
+puts (<span class="st">&#39;0&#39;</span>..<span class="st">&#39;9&#39;</span>).to_a.permutation.select { |digits| 
   (<span class="dv">1</span>..<span class="dv">7</span>).all? { |i|
-    digits[i..i<span class="dv">+2</span>].join(<span class="st">''</span>).to_i % primes[i] == <span class="dv">0</span>
+    digits[i..i<span class="dv">+2</span>].join(<span class="st">&#39;&#39;</span>).to_i % primes[i] == <span class="dv">0</span>
   }
-}.map { |digits| digits.join(<span class="st">''</span>).to_i }.reduce(:+)</code></pre>
+}.map { |digits| digits.join(<span class="st">&#39;&#39;</span>).to_i }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-substrings.rb
 <span class="kw">real</span>   0m11.671s
 <span class="kw">user</span>   0m11.592s
@@ -111,6 +111,6 @@ puts (<span class="st">'0'</span>..<span class="st">'9'</span>).to_a.permutation
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

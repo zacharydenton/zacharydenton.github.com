@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 41 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -76,7 +76,7 @@ $ <span class="kw">time</span> ./pandigital-prime
 
 <span class="kw">def</span> factorize(n):
     <span class="kw">if</span> n &lt; <span class="dv">1</span>:
-        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">'fact() argument should be &gt;= 1'</span>)
+        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">&#39;fact() argument should be &gt;= 1&#39;</span>)
     <span class="kw">if</span> n == <span class="dv">1</span>:
         <span class="kw">return</span> []  <span class="co"># special case</span>
     res = []
@@ -123,7 +123,7 @@ $ <span class="kw">time</span> ./pandigital-prime
         <span class="kw">return</span> <span class="ot">False</span>
 
 <span class="kw">def</span> convert_list_to_int(l):
-    <span class="kw">return</span> <span class="dt">int</span>(<span class="st">''</span>.join(<span class="dt">str</span>(d) <span class="kw">for</span> d in l))
+    <span class="kw">return</span> <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">str</span>(d) <span class="kw">for</span> d in l))
 
 <span class="kw">def</span> main():
     pandigitals = (convert_list_to_int(p) <span class="kw">for</span> p in permutations(<span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">8</span>)))
@@ -137,10 +137,10 @@ $ <span class="kw">time</span> ./pandigital-prime
 <span class="kw">sys</span>    0m0.006s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">'mathn'</span>
+require <span class="st">&#39;mathn&#39;</span>
 puts (<span class="dv">1</span>..<span class="dv">9</span>).flat_map { |n|
-  (<span class="st">'1'</span>..n.to_s).to_a.permutation.map { |p|
-    p.join(<span class="st">''</span>).to_i
+  (<span class="st">&#39;1&#39;</span>..n.to_s).to_a.permutation.map { |p|
+    p.join(<span class="st">&#39;&#39;</span>).to_i
   }.select { |i| i.prime? }
 }.max</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-prime.rb
@@ -150,6 +150,6 @@ puts (<span class="dv">1</span>..<span class="dv">9</span>).flat_map { |n|
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>

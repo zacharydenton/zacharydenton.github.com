@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 37 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="../../">Zach Denton</a></h1>
+			<h1><a href="/">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="../../about/">About</a></li>
-				<li><a href="../../archives/">Blog</a></li>
-				<li><a href="../../project-euler-solutions/">Euler</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/archives/">Blog</a></li>
+				<li><a href="/project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../../resume.pdf">Resume</a></li>
+				<li><a href="/resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -72,7 +72,7 @@ $ <span class="kw">time</span> ./truncatable-primes
 
 <span class="kw">def</span> factorize(n):
     <span class="kw">if</span> n &lt; <span class="dv">1</span>:
-        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">'fact() argument should be &gt;= 1'</span>)
+        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">&#39;fact() argument should be &gt;= 1&#39;</span>)
     <span class="kw">if</span> n == <span class="dv">1</span>:
         <span class="kw">return</span> []  <span class="co"># special case</span>
     res = []
@@ -122,8 +122,8 @@ $ <span class="kw">time</span> ./truncatable-primes
         <span class="kw">return</span> <span class="ot">False</span>
 
     <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dt">len</span>(digits)):
-        left = <span class="dt">int</span>(<span class="st">''</span>.join(<span class="dt">str</span>(digit) <span class="kw">for</span> digit in digits[:i]))
-        right = <span class="dt">int</span>(<span class="st">''</span>.join(<span class="dt">str</span>(digit) <span class="kw">for</span> digit in digits[i:]))
+        left = <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">str</span>(digit) <span class="kw">for</span> digit in digits[:i]))
+        right = <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">str</span>(digit) <span class="kw">for</span> digit in digits[i:]))
         <span class="kw">if</span> not is_prime(left) or not is_prime(right):
             <span class="kw">return</span> <span class="ot">False</span>
     <span class="kw">return</span> <span class="ot">True</span>
@@ -139,7 +139,7 @@ $ <span class="kw">time</span> ./truncatable-primes
 <span class="kw">sys</span>    0m0.026s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">'mathn'</span>
+require <span class="st">&#39;mathn&#39;</span>
 puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
   (<span class="dv">0</span>..i.to_s.length<span class="dv">-1</span>).all? { |j|
     i.to_s[<span class="dv">0</span>..j].to_i.prime? &amp;&amp; i.to_s[j..-<span class="dv">1</span>].to_i.prime?
@@ -152,6 +152,6 @@ puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="../../js/main.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>
