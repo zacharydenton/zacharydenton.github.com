@@ -29,19 +29,26 @@
           }
         },
         vertexShader: "void main(){gl_Position=vec4(position,1.0);}",
-        fragmentShader: "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 80\nvoid main(void){vec2 e=(gl_FragCoord.xy-resolution/2.0)/min(resolution.y,resolution.x)*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(-.57166-0.001*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.0+0.618);float n=1.7171+0.001*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);q=2.0*min(q,1.0-q);float r=mod(time/20.0,1.0);float tf=q*sin(0.1*time);gl_FragColor=vec4(a(vec3(r-0.25*q-0.1*abs(tf),1.0 - 0.3*abs(tf),q+0.1*abs(tf))),1.0);}"
+        fragmentShader: "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 80\nvoid main(void){vec2 e=(gl_FragCoord.xy-resolution/2.0)/min(resolution.y,resolution.x)*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(-.57166-0.001*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.0+0.618);float n=1.7171+0.001*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);q=2.0*min(q,1.0-q);float r=mod(time*0.025,1.0);float tf=q*sin(0.1*time);gl_FragColor=vec4(a(vec3(r-0.25*q-0.1*abs(tf),1.0 - 0.3*abs(tf),q+0.1*abs(tf))),1.0);}"
       });
       this.uniforms = this.material.uniforms;
       plane = new THREE.PlaneGeometry(this.width, this.height);
       quad = new THREE.Mesh(plane, this.material);
       quad.position.z = -100;
       this.scene.add(quad);
-      this.renderer = new THREE.WebGLRenderer();
+      this.renderer = new THREE.WebGLRenderer({
+        devicePixelRatio: true
+      });
       this.banner.appendChild(this.renderer.domElement);
       this.animating = (_ref = document.body.classList) != null ? _ref.contains("front") : void 0;
       this.random = Math.random();
       this.timeOffset = 0;
       window.addEventListener("resize", (function(_this) {
+        return function(e) {
+          return _this.resize(e);
+        };
+      })(this));
+      window.addEventListener("orientationchange", (function(_this) {
         return function(e) {
           return _this.resize(e);
         };
@@ -90,7 +97,7 @@
       }
       this.timestamp = timestamp / 1000;
       if (this.animating || this.timestamp === 0) {
-        this.uniforms.time.value = this.timestamp + this.timeOffset + this.random * 200;
+        this.uniforms.time.value = this.timestamp + this.timeOffset + this.random * 400;
         this.renderer.clear();
         this.renderer.render(this.scene, this.camera);
       }
@@ -105,12 +112,10 @@
 
   })();
 
-  this.activateBanner = function() {
+  document.addEventListener("DOMContentLoaded", function() {
     window.fractalBanner = new FractalBanner();
     fractalBanner.resize();
     return fractalBanner.render();
-  };
-
-  this.activateBanner();
+  });
 
 }).call(this);
