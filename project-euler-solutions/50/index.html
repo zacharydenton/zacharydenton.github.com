@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 50 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -127,7 +127,7 @@ $ <span class="kw">time</span> ./consecutive-prime-sum
 <span class="kw">sys</span>    0m0.028s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">&#39;mathn&#39;</span>
+require <span class="st">'mathn'</span>
 primes = <span class="dt">Prime</span>.each(<span class="dv">10000</span>).to_a
 longest = []
 primes[<span class="dv">0</span>..<span class="dv">10</span>].each_with_index { |p, i|
@@ -149,6 +149,6 @@ puts longest.reduce(:+)</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 40 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -65,7 +65,7 @@ $ <span class="kw">time</span> ./champernowne
 <span class="kw">sys</span>    0m0.010s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">&#39;&#39;</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
+d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">''</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
 <span class="dt">print</span> d[<span class="dv">0</span>] * d[<span class="dv">9</span>] * d[<span class="dv">99</span>] * d[<span class="dv">999</span>] * d[<span class="dv">9999</span>] * d[<span class="dv">99999</span>] * d[<span class="dv">999999</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 irrational-part.py
 <span class="kw">real</span>   0m38.219s
@@ -73,7 +73,7 @@ d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <sp
 <span class="kw">sys</span>    0m0.602s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-s = (<span class="st">&#39;1&#39;</span>..<span class="st">&#39;1000000&#39;</span>).to_a.join <span class="st">&#39;&#39;</span>
+s = (<span class="st">'1'</span>..<span class="st">'1000000'</span>).to_a.join <span class="st">''</span>
 puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
   s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
 }.reduce(<span class="dv">1</span>, :*)</code></pre>
@@ -84,6 +84,6 @@ puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

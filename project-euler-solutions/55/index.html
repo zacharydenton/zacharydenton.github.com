@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 55 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -71,7 +71,7 @@ $ <span class="kw">time</span> ./lychrel
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
 <span class="kw">def</span> is_palindrome(s):
-    <span class="kw">return</span> s == <span class="st">&#39;&#39;</span>.join(<span class="dt">reversed</span>(s))
+    <span class="kw">return</span> s == <span class="st">''</span>.join(<span class="dt">reversed</span>(s))
 
 <span class="kw">def</span> is_lychrel(n):
     s = <span class="dt">str</span>(n)
@@ -80,7 +80,7 @@ $ <span class="kw">time</span> ./lychrel
     <span class="kw">while</span> not done:
         <span class="kw">if</span> i &gt; <span class="dv">50</span>:
             <span class="kw">return</span> <span class="ot">True</span>
-        s = <span class="dt">str</span>(<span class="dt">int</span>(s) + <span class="dt">int</span>(<span class="st">&#39;&#39;</span>.join(<span class="dt">reversed</span>(s))))
+        s = <span class="dt">str</span>(<span class="dt">int</span>(s) + <span class="dt">int</span>(<span class="st">''</span>.join(<span class="dt">reversed</span>(s))))
         i += <span class="dv">1</span>
         <span class="kw">if</span> is_palindrome(s):
             done = <span class="ot">True</span>
@@ -102,6 +102,6 @@ $ <span class="kw">time</span> ./lychrel
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

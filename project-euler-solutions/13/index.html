@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 13 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -154,7 +154,7 @@ $ <span class="kw">time</span> ./large-sum
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-digits_string = <span class="st">&#39;&#39;&#39;</span>
+digits_string = <span class="st">'''</span>
 <span class="st">37107287533902102798797998220837590246510135740250</span>
 <span class="st">46376937677490009712648124896970078050417018260538</span>
 <span class="st">74324986199524741059474233309513058123726617309629</span>
@@ -255,7 +255,7 @@ digits_string = <span class="st">&#39;&#39;&#39;</span>
 <span class="st">72107838435069186155435662884062257473692284509516</span>
 <span class="st">20849603980134001723930671666823555245252804609722</span>
 <span class="st">53503534226472524250874054075591789781264330331690</span>
-<span class="st">&#39;&#39;&#39;</span>
+<span class="st">'''</span>
 <span class="dt">print</span> <span class="dt">str</span>(<span class="dt">sum</span>(<span class="dt">long</span>(line.strip()) <span class="kw">for</span> line in digits_string.strip().splitlines()))[:<span class="dv">10</span>]</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 large-sum.py
 <span class="kw">real</span>   0m0.018s
@@ -373,6 +373,6 @@ puts digits_string.each_line.inject(<span class="dv">0</span>) {|sum, value| sum
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

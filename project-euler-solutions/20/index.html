@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 20 in Clojure, Haskell and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -56,9 +56,9 @@ Find the sum of the digits in the number <span class="math">100!</span>.
 <span class="kw">sys</span>    0m0.048s</code></pre>
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">sumDigits ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
-sumDigits n <span class="fu">=</span> sumDigits&#39; n <span class="dv">0</span>
-    <span class="kw">where</span> sumDigits&#39; <span class="dv">0</span> acc <span class="fu">=</span> acc
-          sumDigits&#39; n acc <span class="fu">=</span> sumDigits&#39; (div n <span class="dv">10</span>) (acc <span class="fu">+</span> (mod n <span class="dv">10</span>))
+sumDigits n <span class="fu">=</span> sumDigits' n <span class="dv">0</span>
+    <span class="kw">where</span> sumDigits' <span class="dv">0</span> acc <span class="fu">=</span> acc
+          sumDigits' n acc <span class="fu">=</span> sumDigits' (div n <span class="dv">10</span>) (acc <span class="fu">+</span> (mod n <span class="dv">10</span>))
 
 <span class="ot">factorial ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 factorial n <span class="fu">=</span> foldr (<span class="fu">*</span>) <span class="dv">1</span> [<span class="dv">1</span><span class="fu">..</span>n]
@@ -79,6 +79,6 @@ puts <span class="dv">100</span>.downto(<span class="dv">1</span>).inject(:*).to
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

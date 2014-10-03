@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 8 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -85,7 +85,7 @@ $ <span class="kw">time</span> ./great-prod
 <span class="kw">sys</span>    0m0.000s</code></pre>
 <h2 id="python">Python</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python</span>
-numbers = <span class="st">&#39;&#39;&#39;</span>
+numbers = <span class="st">'''</span>
 <span class="st">73167176531330624919225119674426574742355349194934</span>
 <span class="st">96983520312774506326239578318016984801869478851843</span>
 <span class="st">85861560789112949495459501737958331952853208805511</span>
@@ -106,8 +106,8 @@ numbers = <span class="st">&#39;&#39;&#39;</span>
 <span class="st">84580156166097919133875499200524063689912560717606</span>
 <span class="st">05886116467109405077541002256983155200055935729725</span>
 <span class="st">71636269561882670428252483600823257530420752963450</span>
-<span class="st">&#39;&#39;&#39;</span>
-numstring = numbers.strip().replace(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="st">&#39;&#39;</span>)
+<span class="st">'''</span>
+numstring = numbers.strip().replace(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, <span class="st">''</span>)
 greatest_product = <span class="dv">0</span>
 
 <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(numstring)):
@@ -147,9 +147,9 @@ numbers = &lt;&lt;<span class="kw">EOS</span>
 <span class="ot">05886116467109405077541002256983155200055935729725</span>
 <span class="ot">71636269561882670428252483600823257530420752963450</span>
 <span class="kw">EOS</span>
-numbers = numbers.split.join(<span class="st">&#39;&#39;</span>)
+numbers = numbers.split.join(<span class="st">''</span>)
 max = <span class="dv">0</span>
-numbers.split(<span class="st">&#39;&#39;</span>).each_with_index <span class="kw">do</span> |char, i|
+numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</span> |char, i|
   product = numbers[i..i<span class="dv">+4</span>].each_char.inject(<span class="dv">1</span>) {|product, digit| product * digit.to_i}
   <span class="kw">if</span> product &gt; max
     max = product
@@ -163,6 +163,6 @@ puts max</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

@@ -28,7 +28,7 @@
 		<meta name="description" content="Wherein I list the best books, movies, music, and websites of 2012.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -36,14 +36,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -123,7 +123,7 @@
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -147,7 +147,7 @@
 		<meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -155,14 +155,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -244,37 +244,37 @@ END:VCARD</code></pre>
     conn = sqlite3.<span class="ot">connect</span>(database)
     conn.row_factory=sqlite3.Row
     c = conn.cursor()
-    fields = <span class="st">&#39;display_name, user_image_url, first_name, &#39;</span> +\
-             <span class="co">&#39;last_name, cell, other, email, birthday_month, &#39;</span> +\
-             <span class="co">&#39;birthday_day, birthday_year&#39;</span>
-    c.execute(<span class="st">&#39;select </span><span class="ot">%s</span><span class="st"> from friends&#39;</span> % fields)
+    fields = <span class="st">'display_name, user_image_url, first_name, '</span> +\
+             <span class="co">'last_name, cell, other, email, birthday_month, '</span> +\
+             <span class="co">'birthday_day, birthday_year'</span>
+    c.execute(<span class="st">'select </span><span class="ot">%s</span><span class="st"> from friends'</span> % fields)
     <span class="kw">return</span> [row <span class="kw">for</span> row in c]
 
 <span class="kw">def</span> generate_vcard(contact, photos=<span class="ot">False</span>):
     card = <span class="st">&quot;BEGIN:VCARD</span><span class="ch">\n</span><span class="st">VERSION:3.0</span><span class="ch">\n</span><span class="st">&quot;</span>
-    card += <span class="st">&quot;N:</span><span class="ot">%s</span><span class="st">;</span><span class="ot">%s</span><span class="st">;;;</span><span class="ch">\n</span><span class="st">&quot;</span> % (contact[<span class="st">&#39;last_name&#39;</span>], contact[<span class="st">&#39;first_name&#39;</span>])
-    card += <span class="st">&quot;FN:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;display_name&#39;</span>]
+    card += <span class="st">&quot;N:</span><span class="ot">%s</span><span class="st">;</span><span class="ot">%s</span><span class="st">;;;</span><span class="ch">\n</span><span class="st">&quot;</span> % (contact[<span class="st">'last_name'</span>], contact[<span class="st">'first_name'</span>])
+    card += <span class="st">&quot;FN:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">'display_name'</span>]
 
-    <span class="kw">if</span> contact[<span class="st">&#39;cell&#39;</span>]:
-        card += <span class="st">&#39;TEL;TYPE=CELL:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;cell&#39;</span>]
+    <span class="kw">if</span> contact[<span class="st">'cell'</span>]:
+        card += <span class="st">'TEL;TYPE=CELL:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">'</span> % contact[<span class="st">'cell'</span>]
 
-    <span class="kw">if</span> contact[<span class="st">&#39;other&#39;</span>]:
-        card += <span class="st">&#39;TEL;TYPE=HOME:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&#39;</span> % contact[<span class="st">&#39;other&#39;</span>]
+    <span class="kw">if</span> contact[<span class="st">'other'</span>]:
+        card += <span class="st">'TEL;TYPE=HOME:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">'</span> % contact[<span class="st">'other'</span>]
 
-    <span class="kw">if</span> contact[<span class="st">&#39;email&#39;</span>]:
-        card += <span class="st">&quot;EMAIL;TYPE=PREF:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">&#39;email&#39;</span>]
+    <span class="kw">if</span> contact[<span class="st">'email'</span>]:
+        card += <span class="st">&quot;EMAIL;TYPE=PREF:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % contact[<span class="st">'email'</span>]
 
-    birthday = <span class="st">&quot;-&quot;</span>.join([<span class="dt">str</span>(f) <span class="kw">for</span> f in [contact[<span class="st">&#39;birthday_year&#39;</span>],
-                                          contact[<span class="st">&#39;birthday_month&#39;</span>],
-                                          contact[<span class="st">&#39;birthday_day&#39;</span>]]
+    birthday = <span class="st">&quot;-&quot;</span>.join([<span class="dt">str</span>(f) <span class="kw">for</span> f in [contact[<span class="st">'birthday_year'</span>],
+                                          contact[<span class="st">'birthday_month'</span>],
+                                          contact[<span class="st">'birthday_day'</span>]]
                          <span class="kw">if</span> f != -<span class="dv">1</span>])
     <span class="kw">if</span> birthday:
-        <span class="kw">if</span> birthday.count(<span class="st">&#39;-&#39;</span>) == <span class="dv">1</span>: birthday = <span class="st">&quot;1900-&quot;</span> + birthday <span class="co"># default year</span>
+        <span class="kw">if</span> birthday.count(<span class="st">'-'</span>) == <span class="dv">1</span>: birthday = <span class="st">&quot;1900-&quot;</span> + birthday <span class="co"># default year</span>
         card += <span class="st">&quot;BDAY:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> % birthday
 
-    <span class="kw">if</span> photos and contact[<span class="st">&#39;user_image_url&#39;</span>]:
+    <span class="kw">if</span> photos and contact[<span class="st">'user_image_url'</span>]:
         <span class="kw">try</span>:
-            photo = urllib2.urlopen(contact[<span class="st">&#39;user_image_url&#39;</span>]).read()
+            photo = urllib2.urlopen(contact[<span class="st">'user_image_url'</span>]).read()
             card += <span class="st">&quot;PHOTO;ENCODING=B;TYPE=JPEG:</span><span class="ot">%s</span><span class="ch">\n</span><span class="st">&quot;</span> %\
                     base64.b64encode(photo)
         <span class="kw">except</span>:
@@ -286,12 +286,12 @@ END:VCARD</code></pre>
 
 <span class="kw">def</span> main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(<span class="st">&#39;database&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;path to facebook database&quot;</span>, default=<span class="st">&quot;fb.db&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
-    parser.add_argument(<span class="st">&#39;vcard&#39;</span>, <span class="dt">help</span>=<span class="st">&quot;file to write contacts to&quot;</span>, default=<span class="st">&quot;fbcontacts.vcf&quot;</span>, nargs=<span class="st">&#39;?&#39;</span>)
-    parser.add_argument(<span class="st">&#39;--photos&#39;</span>, action=<span class="st">&quot;store_true&quot;</span>, <span class="dt">help</span>=<span class="st">&quot;download profile pictures&quot;</span>)
+    parser.add_argument(<span class="st">'database'</span>, <span class="dt">help</span>=<span class="st">&quot;path to facebook database&quot;</span>, default=<span class="st">&quot;fb.db&quot;</span>, nargs=<span class="st">'?'</span>)
+    parser.add_argument(<span class="st">'vcard'</span>, <span class="dt">help</span>=<span class="st">&quot;file to write contacts to&quot;</span>, default=<span class="st">&quot;fbcontacts.vcf&quot;</span>, nargs=<span class="st">'?'</span>)
+    parser.add_argument(<span class="st">'--photos'</span>, action=<span class="st">&quot;store_true&quot;</span>, <span class="dt">help</span>=<span class="st">&quot;download profile pictures&quot;</span>)
     args = parser.parse_args()
 
-    <span class="kw">with</span> codecs.<span class="dt">open</span>(args.vcard, <span class="st">&#39;w&#39;</span>, <span class="st">&#39;utf-8&#39;</span>) <span class="ch">as</span> vcard:
+    <span class="kw">with</span> codecs.<span class="dt">open</span>(args.vcard, <span class="st">'w'</span>, <span class="st">'utf-8'</span>) <span class="ch">as</span> vcard:
         contacts = parse_database(args.database)
         <span class="kw">for</span> i, contact in <span class="dt">enumerate</span>(contacts):
             sys.stderr.write(<span class="st">&quot;</span><span class="ch">\r</span><span class="st">exporting contact </span><span class="ot">%s</span><span class="st"> of </span><span class="ot">%s</span><span class="st">&quot;</span> % (i<span class="dv">+1</span>, <span class="dt">len</span>(contacts)))
@@ -308,7 +308,7 @@ END:VCARD</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -332,7 +332,7 @@ END:VCARD</code></pre>
 		<meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -340,21 +340,21 @@ END:VCARD</code></pre>
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
 		<article>
   <h1>Music Server Revisited: Streaming with sshfs and mp3fs</h1>
 
-  <p>A while back, I wrote about <a href="/build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
+  <p>A while back, I wrote about <a href="../build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
 <p>Before you start, you’re going to need a Linux machine with your music collection on it (the server). You will also need another Linux machine to act as the client (e.g. a laptop with a small hard drive).</p>
 <h2 id="configuring-the-server">Configuring the server</h2>
 <h3 id="install-the-ssh-server">Install the ssh server</h3>
@@ -392,7 +392,7 @@ EOF</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -416,7 +416,7 @@ EOF</code></pre>
 		<meta name="description" content="An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -424,14 +424,14 @@ EOF</code></pre>
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -457,7 +457,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -481,7 +481,7 @@ loop:
 		<meta name="description" content="I spent the final week of my trip exploring Iceland.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -489,14 +489,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -650,7 +650,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -674,7 +674,7 @@ loop:
 		<meta name="description" content="A brief visit to Copenhagen.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -682,14 +682,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -704,7 +704,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -728,7 +728,7 @@ loop:
 		<meta name="description" content="A great time in Berlin, especially in Kreuzberg.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -736,14 +736,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -766,7 +766,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -790,7 +790,7 @@ loop:
 		<meta name="description" content="Vienna is now among my favorite European cities.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -798,14 +798,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -826,7 +826,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -850,7 +850,7 @@ loop:
 		<meta name="description" content="Pictures and stories from Prague.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -858,14 +858,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -916,7 +916,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>
@@ -940,7 +940,7 @@ loop:
 		<meta name="description" content="My adventures in Budapest.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -948,14 +948,14 @@ loop:
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -1001,7 +1001,7 @@ loop:
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>
 ]]></summary>

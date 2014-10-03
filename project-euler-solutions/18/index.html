@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 18 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -114,7 +114,7 @@ $ <span class="kw">time</span> ./max-route
             <span class="kw">return</span> triangle[<span class="dv">0</span>][<span class="dv">0</span>]
 
 <span class="kw">def</span> main():
-    triangle_str = <span class="st">&#39;&#39;&#39;\</span>
+    triangle_str = <span class="st">'''\</span>
 <span class="st">    75</span>
 <span class="st">    95 64</span>
 <span class="st">    17 47 82</span>
@@ -129,7 +129,7 @@ $ <span class="kw">time</span> ./max-route
 <span class="st">    70 11 33 28 77 73 17 78 39 68 17 57</span>
 <span class="st">    91 71 52 38 17 14 91 43 58 50 27 29 48</span>
 <span class="st">    63 66 04 68 89 53 67 30 73 16 69 87 40 31</span>
-<span class="st">    04 62 98 27 23 09 70 98 73 93 38 53 60 04 23&#39;&#39;&#39;</span>
+<span class="st">    04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'''</span>
 
     triangle = [[<span class="dt">int</span>(digit) <span class="kw">for</span> digit in line.strip().split()] <span class="kw">for</span> line in triangle_str.splitlines()]
     <span class="dt">print</span> find_sum(triangle)
@@ -176,6 +176,6 @@ puts triangle[<span class="dv">0</span>][<span class="dv">0</span>]</code></pre>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

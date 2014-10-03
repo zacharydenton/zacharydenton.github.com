@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 17 in Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -54,46 +54,46 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> to_english(number):
     _ones = {
-            <span class="dv">1</span>: <span class="st">&#39;one&#39;</span>,
-            <span class="dv">2</span>: <span class="st">&#39;two&#39;</span>,
-            <span class="dv">3</span>: <span class="st">&#39;three&#39;</span>,
-            <span class="dv">4</span>: <span class="st">&#39;four&#39;</span>,
-            <span class="dv">5</span>: <span class="st">&#39;five&#39;</span>,
-            <span class="dv">6</span>: <span class="st">&#39;six&#39;</span>,
-            <span class="dv">7</span>: <span class="st">&#39;seven&#39;</span>,
-            <span class="dv">8</span>: <span class="st">&#39;eight&#39;</span>,
-            <span class="dv">9</span>: <span class="st">&#39;nine&#39;</span>,
-            <span class="dv">10</span>: <span class="st">&#39;ten&#39;</span>,
-            <span class="dv">11</span>: <span class="st">&#39;eleven&#39;</span>,
-            <span class="dv">12</span>: <span class="st">&#39;twelve&#39;</span>,
-            <span class="dv">13</span>: <span class="st">&#39;thirteen&#39;</span>,
-            <span class="dv">14</span>: <span class="st">&#39;fourteen&#39;</span>,
-            <span class="dv">15</span>: <span class="st">&#39;fifteen&#39;</span>,
-            <span class="dv">16</span>: <span class="st">&#39;sixteen&#39;</span>,
-            <span class="dv">17</span>: <span class="st">&#39;seventeen&#39;</span>,
-            <span class="dv">18</span>: <span class="st">&#39;eighteen&#39;</span>,
-            <span class="dv">19</span>: <span class="st">&#39;nineteen&#39;</span>,
+            <span class="dv">1</span>: <span class="st">'one'</span>,
+            <span class="dv">2</span>: <span class="st">'two'</span>,
+            <span class="dv">3</span>: <span class="st">'three'</span>,
+            <span class="dv">4</span>: <span class="st">'four'</span>,
+            <span class="dv">5</span>: <span class="st">'five'</span>,
+            <span class="dv">6</span>: <span class="st">'six'</span>,
+            <span class="dv">7</span>: <span class="st">'seven'</span>,
+            <span class="dv">8</span>: <span class="st">'eight'</span>,
+            <span class="dv">9</span>: <span class="st">'nine'</span>,
+            <span class="dv">10</span>: <span class="st">'ten'</span>,
+            <span class="dv">11</span>: <span class="st">'eleven'</span>,
+            <span class="dv">12</span>: <span class="st">'twelve'</span>,
+            <span class="dv">13</span>: <span class="st">'thirteen'</span>,
+            <span class="dv">14</span>: <span class="st">'fourteen'</span>,
+            <span class="dv">15</span>: <span class="st">'fifteen'</span>,
+            <span class="dv">16</span>: <span class="st">'sixteen'</span>,
+            <span class="dv">17</span>: <span class="st">'seventeen'</span>,
+            <span class="dv">18</span>: <span class="st">'eighteen'</span>,
+            <span class="dv">19</span>: <span class="st">'nineteen'</span>,
             }
 
     _tens = {
-            <span class="dv">2</span>: <span class="st">&#39;twenty&#39;</span>,
-            <span class="dv">3</span>: <span class="st">&#39;thirty&#39;</span>,
-            <span class="dv">4</span>: <span class="st">&#39;forty&#39;</span>,
-            <span class="dv">5</span>: <span class="st">&#39;fifty&#39;</span>,
-            <span class="dv">6</span>: <span class="st">&#39;sixty&#39;</span>,
-            <span class="dv">7</span>: <span class="st">&#39;seventy&#39;</span>,
-            <span class="dv">8</span>: <span class="st">&#39;eighty&#39;</span>,
-            <span class="dv">9</span>: <span class="st">&#39;ninety&#39;</span>
+            <span class="dv">2</span>: <span class="st">'twenty'</span>,
+            <span class="dv">3</span>: <span class="st">'thirty'</span>,
+            <span class="dv">4</span>: <span class="st">'forty'</span>,
+            <span class="dv">5</span>: <span class="st">'fifty'</span>,
+            <span class="dv">6</span>: <span class="st">'sixty'</span>,
+            <span class="dv">7</span>: <span class="st">'seventy'</span>,
+            <span class="dv">8</span>: <span class="st">'eighty'</span>,
+            <span class="dv">9</span>: <span class="st">'ninety'</span>
             }
     <span class="kw">if</span> <span class="dt">abs</span>(number) &gt;= <span class="dv">10000</span>:
         <span class="kw">return</span> <span class="dt">str</span>(number)
     <span class="kw">elif</span> number == <span class="dv">0</span>:
-        <span class="kw">return</span> <span class="st">&#39;zero&#39;</span>
+        <span class="kw">return</span> <span class="st">'zero'</span>
     <span class="kw">else</span>:
-        output = <span class="st">&#39;&#39;</span>
+        output = <span class="st">''</span>
 
         <span class="kw">if</span> number &lt; <span class="dv">0</span>:
-            output += <span class="st">&#39;negative &#39;</span>
+            output += <span class="st">'negative '</span>
             number = <span class="dt">abs</span>(number)
 
         <span class="kw">if</span> number &gt;= <span class="dv">1000</span>:
@@ -116,7 +116,7 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
             output += _tens[number / <span class="dv">10</span>]
             number %= <span class="dv">10</span>
             <span class="kw">if</span> number % <span class="dv">10</span> in _ones:
-                output += <span class="st">&#39;-&#39;</span>
+                output += <span class="st">'-'</span>
 
         <span class="kw">if</span> number in _ones:
             output += _ones[number]
@@ -124,9 +124,9 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
         <span class="kw">return</span> output
 
 <span class="kw">def</span> cleanse_string(string):
-    <span class="co">&#39;&#39;&#39;remove spaces and hyphens&#39;&#39;&#39;</span>
-    string = string.replace(<span class="st">&#39; &#39;</span>, <span class="st">&#39;&#39;</span>)
-    string = string.replace(<span class="st">&#39;-&#39;</span>, <span class="st">&#39;&#39;</span>)
+    <span class="co">'''remove spaces and hyphens'''</span>
+    string = string.replace(<span class="st">' '</span>, <span class="st">''</span>)
+    string = string.replace(<span class="st">'-'</span>, <span class="st">''</span>)
     <span class="kw">return</span> string
 
 <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
@@ -136,9 +136,9 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 <span class="kw">sys</span>    0m0.003s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">&#39;linguistics&#39;</span> <span class="co"># gem install linguistics</span>
+require <span class="st">'linguistics'</span> <span class="co"># gem install linguistics</span>
 <span class="dt">Linguistics</span>::use( <span class="st">:en</span> )
-puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">&#39;&#39;</span>).length }.reduce(:+)</code></pre>
+puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">''</span>).length }.reduce(:+)</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby number-to-words.rb
 <span class="kw">real</span>   0m0.449s
 <span class="kw">user</span>   0m0.191s
@@ -146,6 +146,6 @@ puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.nu
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

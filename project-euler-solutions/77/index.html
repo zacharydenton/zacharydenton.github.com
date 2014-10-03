@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents a Haskell solution to Project Euler Problem 77.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -61,7 +61,7 @@ primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</s
 <span class="ot">primePartition ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 primePartition <span class="fu">=</span> p primes <span class="kw">where</span>
     p _ <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
-    p ks&#39;<span class="fu">@</span>(k<span class="fu">:</span>ks) m <span class="fu">=</span> <span class="kw">if</span> m <span class="fu">&lt;</span> k <span class="kw">then</span> <span class="dv">0</span> <span class="kw">else</span> p ks&#39; (m <span class="fu">-</span> k) <span class="fu">+</span> p ks m
+    p ks'<span class="fu">@</span>(k<span class="fu">:</span>ks) m <span class="fu">=</span> <span class="kw">if</span> m <span class="fu">&lt;</span> k <span class="kw">then</span> <span class="dv">0</span> <span class="kw">else</span> p ks' (m <span class="fu">-</span> k) <span class="fu">+</span> p ks m
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> head <span class="fu">$</span> dropWhile ((<span class="fu">&lt;=</span> <span class="dv">5000</span>) <span class="fu">.</span> snd) [(n, primePartition n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]</code></pre>
@@ -73,6 +73,6 @@ $ <span class="kw">time</span> ./prime-summations
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

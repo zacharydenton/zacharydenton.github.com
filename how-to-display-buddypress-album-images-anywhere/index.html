@@ -11,7 +11,7 @@
 		<meta name="description" content="How to use the BuddyPress Album+ loop to display images anywhere on your WordPress site.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		
 	</head>
 	
@@ -19,14 +19,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../about/">About</a></li>
+				<li><a href="../archives/">Blog</a></li>
+				<li><a href="../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -35,13 +35,13 @@
 
   <p>Recently, I created a new landing page for <a href="http://ultralightbackpacking.net" title="Ultralight Backpacking Network">Ultralight Backpacking Network</a>. It features a grid of images posted by the site’s users. Ultralight Backpacking Network is using BuddyPress Album+ to manage users’ photo albums, so I needed to figure out a way to display BuddyPress Album+ images anywhere on the site. It turns out that BuddyPress Album+ makes this a relatively easy task. You retrieve the images using a loop, a process familiar to anyone who has modified or created a WordPress theme. Here’s an example of a BuddyPress Album+ loop:</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;photos&quot;</span><span class="kw">&gt;</span>
-<span class="kw">&lt;?php</span> bp_album_query_pictures(&#39;per_page=5&#39;); <span class="kw">?&gt;</span>
+<span class="kw">&lt;?php</span> bp_album_query_pictures('per_page=5'); <span class="kw">?&gt;</span>
 <span class="kw">&lt;?php</span> if ( bp_album_has_pictures() ) : <span class="kw">?&gt;</span>
         <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;thumb&quot;</span><span class="kw">&gt;</span>
         <span class="kw">&lt;?php</span> while ( bp_album_has_pictures() ) : bp_album_the_picture(); <span class="kw">?&gt;</span>
                 <span class="kw">&lt;li&gt;</span>
                         <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_middle_url(); ?&gt;&quot;</span><span class="ot"> title=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_title(); ?&gt;&quot;</span><span class="kw">&gt;</span>
-                                <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&#39;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_thumb_url() ?&gt;&#39;</span><span class="ot"> alt=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_desc(); ?&gt;&quot;</span> <span class="kw">/&gt;</span>
+                                <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">'</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_thumb_url() ?&gt;'</span><span class="ot"> alt=</span><span class="st">&quot;</span><span class="er">&lt;</span><span class="st">?php bp_album_picture_desc(); ?&gt;&quot;</span> <span class="kw">/&gt;</span>
                         <span class="kw">&lt;/a&gt;</span>
                 <span class="kw">&lt;/li&gt;</span>
         <span class="kw">&lt;?php</span> endwhile; <span class="kw">?&gt;</span>
@@ -90,10 +90,10 @@
 <li><strong>bp_album_picture_thumb_url</strong>- Prints the URL to the image thumbnail.</li>
 <li><strong>bp_album_adjacent_links</strong> - Prints links to the preceding and succeeding albums or images.</li>
 </ul>
-<p>There are several other template tags you can use – too many to list here, in fact. For more information, check out <code>includes/bp-album-templatetags.php</code> in the <code>bp-album</code> folder. If you want to display information about the album author, you are going to need a few additional template tags that don’t come with BuddyPress Album+ by default. See <a href="/buddypress-album-author-template-tags/" title="BuddyPress Album Author Template Tags">this post</a> for more details. That’s enough information to get you up and running with custom BuddyPress Album+ themes.</p>
+<p>There are several other template tags you can use – too many to list here, in fact. For more information, check out <code>includes/bp-album-templatetags.php</code> in the <code>bp-album</code> folder. If you want to display information about the album author, you are going to need a few additional template tags that don’t come with BuddyPress Album+ by default. See <a href="../buddypress-album-author-template-tags/" title="BuddyPress Album Author Template Tags">this post</a> for more details. That’s enough information to get you up and running with custom BuddyPress Album+ themes.</p>
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 </html>

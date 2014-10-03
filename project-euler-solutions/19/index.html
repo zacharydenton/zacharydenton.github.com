@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 19 in Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -79,13 +79,13 @@ months = [
     <span class="dv">31</span>
 ]
 
-week = [<span class="st">&#39;sun&#39;</span>,
-        <span class="co">&#39;mon&#39;</span>,
-        <span class="co">&#39;tue&#39;</span>,
-        <span class="co">&#39;wed&#39;</span>,
-        <span class="co">&#39;thu&#39;</span>,
-        <span class="co">&#39;fri&#39;</span>,
-        <span class="co">&#39;sat&#39;</span>
+week = [<span class="st">'sun'</span>,
+        <span class="co">'mon'</span>,
+        <span class="co">'tue'</span>,
+        <span class="co">'wed'</span>,
+        <span class="co">'thu'</span>,
+        <span class="co">'fri'</span>,
+        <span class="co">'sat'</span>
        ]
 
 leapyears = [year <span class="kw">for</span> year in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>) <span class="kw">if</span> year % <span class="dv">4</span> == <span class="dv">0</span>]
@@ -103,7 +103,7 @@ since_last_year = <span class="dv">0</span>
 first_of_months = {}
 <span class="kw">while</span> year &lt;= <span class="dv">100</span>:
     <span class="co">#print &quot;%s/%s/%s - %s&quot; % (month+1, since_last_month+1, year+1900, week[weekday])</span>
-    <span class="co"># if it&#39;s the first of the month, make a note </span>
+    <span class="co"># if it's the first of the month, make a note </span>
     <span class="co"># of the weekday.</span>
     <span class="kw">if</span> since_last_month == <span class="dv">0</span>:
         first_of_months[<span class="st">&quot;</span><span class="ot">%s</span><span class="st">/</span><span class="ot">%s</span><span class="st">/</span><span class="ot">%s</span><span class="st">&quot;</span> % (month<span class="dv">+1</span>, since_last_month<span class="dv">+1</span>, year<span class="dv">+1900</span>)] = week[weekday]
@@ -139,17 +139,17 @@ first_of_months = {}
 
 <span class="kw">def</span> date_sort(date):
     date_str = date[<span class="dv">0</span>]
-    month,day,year = date_str.split(<span class="st">&#39;/&#39;</span>)
+    month,day,year = date_str.split(<span class="st">'/'</span>)
     <span class="kw">return</span> <span class="dt">int</span>(month)*<span class="dt">int</span>(day)*<span class="dt">int</span>(year)
 
-<span class="dt">print</span> <span class="dt">len</span>([weekday <span class="kw">for</span> weekday in first_of_months.values() <span class="kw">if</span> weekday == <span class="st">&#39;sun&#39;</span>])</code></pre>
+<span class="dt">print</span> <span class="dt">len</span>([weekday <span class="kw">for</span> weekday in first_of_months.values() <span class="kw">if</span> weekday == <span class="st">'sun'</span>])</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 first-sunday.py
 <span class="kw">real</span>   0m0.073s
 <span class="kw">user</span>   0m0.054s
 <span class="kw">sys</span>    0m0.007s</code></pre>
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-require <span class="st">&#39;date&#39;</span>
+require <span class="st">'date'</span>
 puts <span class="dt">Date</span>.new(<span class="dv">1901</span>,<span class="dv">1</span>,<span class="dv">1</span>).upto(<span class="dt">Date</span>.new(<span class="dv">2000</span>,<span class="dv">12</span>,<span class="dv">31</span>)).find_all { |d| d.mday == <span class="dv">1</span> &amp;&amp; d.wday == <span class="dv">0</span> }.count</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby first-sunday.rb
 <span class="kw">real</span>   0m0.093s
@@ -158,6 +158,6 @@ puts <span class="dt">Date</span>.new(<span class="dv">1901</span>,<span class="
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

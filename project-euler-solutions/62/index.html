@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 62 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -70,7 +70,7 @@ $ <span class="kw">time</span> ./cubic-permutations
     cubes = defaultdict(<span class="dt">list</span>)
     <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">10000</span>):
         c = cube(i)
-        digits = <span class="st">&#39;&#39;</span>.join(<span class="dt">sorted</span>([d <span class="kw">for</span> d in <span class="dt">str</span>(c)]))
+        digits = <span class="st">''</span>.join(<span class="dt">sorted</span>([d <span class="kw">for</span> d in <span class="dt">str</span>(c)]))
         cubes[digits].append(c)
     <span class="dt">print</span> <span class="dt">min</span>([<span class="dt">min</span>(v) <span class="kw">for</span> k, v in cubes.items() <span class="kw">if</span> <span class="dt">len</span>(v) == <span class="dv">5</span>])
 
@@ -83,6 +83,6 @@ $ <span class="kw">time</span> ./cubic-permutations
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

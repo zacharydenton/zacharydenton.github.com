@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents a Python solution to Project Euler Problem 59.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -64,7 +64,7 @@ Your task has been made easy, as the encryption key consists of three lower case
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 <span class="ch">from</span> operator <span class="ch">import</span> itemgetter
 
-dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span> word in <span class="dt">open</span>(<span class="st">&#39;/usr/share/dict/words&#39;</span>).readlines())
+dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span> word in <span class="dt">open</span>(<span class="st">'/usr/share/dict/words'</span>).readlines())
 
 <span class="kw">def</span> ncycle(iterable, n):
     c = cycle(iterable)
@@ -86,21 +86,21 @@ dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span
         frequency[char] += <span class="dv">1</span>
     f = <span class="dt">sorted</span>(frequency.iteritems(), key=itemgetter(<span class="dv">1</span>), reverse=<span class="ot">True</span>)
     top = [k <span class="kw">for</span> k,v in f[:<span class="dv">4</span>]]
-    <span class="kw">if</span> <span class="st">&#39; &#39;</span> in top and <span class="st">&#39;e&#39;</span> in top and <span class="st">&#39;t&#39;</span> in top:
+    <span class="kw">if</span> <span class="st">' '</span> in top and <span class="st">'e'</span> in top and <span class="st">'t'</span> in top:
         words = plaintext.split()
         <span class="kw">if</span> <span class="dt">float</span>(<span class="dt">len</span>(dictionary_words(words))) / <span class="dt">float</span>(<span class="dt">len</span>(words)) &gt; <span class="fl">0.5</span>:
             <span class="kw">return</span> <span class="ot">True</span>
     <span class="kw">return</span> <span class="ot">False</span>
 
 <span class="kw">def</span> main():
-    cipher = [<span class="dt">int</span>(c) <span class="kw">for</span> c in <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&#39;cipher1.txt&#39;</span>)).read().strip().split(<span class="st">&#39;,&#39;</span>)]
+    cipher = [<span class="dt">int</span>(c) <span class="kw">for</span> c in <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">'cipher1.txt'</span>)).read().strip().split(<span class="st">','</span>)]
 
     candidates = ascii_lowercase
 
     passwords = product(candidates, candidates, candidates)
     <span class="kw">for</span> p in passwords:
         password = [<span class="dt">ord</span>(c) <span class="kw">for</span> c in p]
-        plaintext = <span class="st">&#39;&#39;</span>.join(<span class="dt">list</span>(decipher(cipher, password)))
+        plaintext = <span class="st">''</span>.join(<span class="dt">list</span>(decipher(cipher, password)))
         <span class="kw">if</span> is_english(plaintext):
             <span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">ord</span>(c) <span class="kw">for</span> c in plaintext)
             <span class="kw">return</span>
@@ -114,6 +114,6 @@ dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

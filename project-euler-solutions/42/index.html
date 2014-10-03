@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 42 in Haskell, Python and Ruby.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -54,9 +54,9 @@ Using <a href="http://projecteuler.net/project/words.txt">words.txt</a> (right c
 <h2 id="haskell">Haskell</h2>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
 parse <span class="fu">=</span> words <span class="fu">.</span> map replaceComma <span class="fu">.</span> filter notQuote <span class="kw">where</span>
-    replaceComma <span class="ch">&#39;,&#39;</span> <span class="fu">=</span> <span class="ch">&#39; &#39;</span>
+    replaceComma <span class="ch">','</span> <span class="fu">=</span> <span class="ch">' '</span>
     replaceComma c <span class="fu">=</span> c
-    notQuote <span class="fu">=</span> (<span class="fu">/=</span> <span class="ch">&#39;&quot;&#39;</span>)
+    notQuote <span class="fu">=</span> (<span class="fu">/=</span> <span class="ch">'&quot;'</span>)
 
 <span class="ot">alphaIndex ::</span> <span class="dt">Char</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 alphaIndex c <span class="fu">=</span> fromEnum c <span class="fu">-</span> <span class="dv">64</span>
@@ -94,7 +94,7 @@ $ <span class="kw">time</span> ./triangle-words
 
 <span class="kw">def</span> main():
     triangle_numbers = [triangle(n) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">100</span>)]
-    words = [word.strip(<span class="st">&#39;&quot;&#39;</span>) <span class="kw">for</span> word in <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">&#39;words.txt&#39;</span>)).read().split(<span class="st">&#39;,&#39;</span>)]
+    words = [word.strip(<span class="st">'&quot;'</span>) <span class="kw">for</span> word in <span class="dt">open</span>(os.path.join(os.path.dirname(<span class="ot">__file__</span>), <span class="st">'words.txt'</span>)).read().split(<span class="st">','</span>)]
     total = <span class="dv">0</span>
     <span class="kw">for</span> word in words:
         <span class="kw">if</span> word_value(word) in triangle_numbers:
@@ -110,7 +110,7 @@ $ <span class="kw">time</span> ./triangle-words
 <h2 id="ruby">Ruby</h2>
 <pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangles = (<span class="dv">1</span>..<span class="dv">1000</span>).map { |n| (n*(n<span class="dv">+1</span>))/<span class="dv">2</span> }.to_a
-puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">&#39;/words.txt&#39;</span>).scan(<span class="ot">/\w+/</span>).select { |word|
+puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">'/words.txt'</span>).scan(<span class="ot">/\w+/</span>).select { |word|
   triangles.include? word.each_byte.reduce(<span class="dv">0</span>) {|s,v| s+(v<span class="dv">-64</span>) }
 }.count</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-words.rb
@@ -120,6 +120,6 @@ puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<spa
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>

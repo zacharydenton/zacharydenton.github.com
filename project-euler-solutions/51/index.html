@@ -11,7 +11,7 @@
 		<meta name="description" content="This page presents solutions to Project Euler Problem 51 in Haskell and Python.">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="../../css/main.css">
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({
@@ -26,14 +26,14 @@
 	
 		<div id="banner"></div>
 		<header id="header" role="banner">
-			<h1><a href="/">Zach Denton</a></h1>
+			<h1><a href="../../">Zach Denton</a></h1>
 			<nav>
 			<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/archives/">Blog</a></li>
-				<li><a href="/project-euler-solutions/">Euler</a></li>
+				<li><a href="../../about/">About</a></li>
+				<li><a href="../../archives/">Blog</a></li>
+				<li><a href="../../project-euler-solutions/">Euler</a></li>
 				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="/resume.pdf">Resume</a></li>
+				<li><a href="../../resume.pdf">Resume</a></li>
 			</ul>
 			</nav>
 		</header>
@@ -69,7 +69,7 @@ candidates <span class="fu">=</span> [(snd <span class="fu">$</span> head g, s) 
 replace old new <span class="fu">=</span> foldr (\x acc <span class="ot">-&gt;</span> (<span class="kw">if</span> x <span class="fu">==</span> old <span class="kw">then</span> new <span class="kw">else</span> x) <span class="fu">:</span> acc) []
 
 <span class="ot">expand ::</span> (<span class="dt">Char</span>, <span class="dt">String</span>) <span class="ot">-&gt;</span> [<span class="dt">String</span>]
-expand (d, ds) <span class="fu">=</span> [new <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="ch">&#39;1&#39;</span><span class="fu">..</span><span class="ch">&#39;9&#39;</span>], <span class="kw">let</span> new <span class="fu">=</span> replace d n ds, isPrime (read new)]
+expand (d, ds) <span class="fu">=</span> [new <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="ch">'1'</span><span class="fu">..</span><span class="ch">'9'</span>], <span class="kw">let</span> new <span class="fu">=</span> replace d n ds, isPrime (read new)]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> putStrLn <span class="fu">$</span> snd <span class="fu">.</span> head <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">8</span>) <span class="fu">.</span> length <span class="fu">.</span> expand) candidates</code></pre>
@@ -123,13 +123,13 @@ __primes = primes(<span class="dv">31622</span>)
     digits = [d <span class="kw">for</span> d in <span class="dt">str</span>(num)]
     products = <span class="dt">list</span>(product((<span class="ot">True</span>, <span class="ot">False</span>), repeat=<span class="dt">len</span>(digits)))[<span class="dv">1</span>:-<span class="dv">1</span>]
     <span class="kw">for</span> p in products:
-        pattern = <span class="st">&#39;&#39;</span>
+        pattern = <span class="st">''</span>
         <span class="kw">for</span> i, x in <span class="dt">enumerate</span>(p):
             <span class="kw">if</span> x:
                 pattern += digits[i]
             <span class="kw">else</span>:
-                pattern += <span class="st">&#39;X&#39;</span>
-        <span class="kw">yield</span> [<span class="dt">int</span>(pattern.replace(<span class="st">&#39;X&#39;</span>, <span class="dt">str</span>(n))) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">10</span>)]
+                pattern += <span class="st">'X'</span>
+        <span class="kw">yield</span> [<span class="dt">int</span>(pattern.replace(<span class="st">'X'</span>, <span class="dt">str</span>(n))) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">10</span>)]
 
 <span class="kw">def</span> main():
     <span class="kw">for</span> prime in primes(<span class="dv">1000000</span>):
@@ -148,6 +148,6 @@ __primes = primes(<span class="dv">31622</span>)
 </article>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
-		<script src="/js/main.js"></script>
+		<script src="../../js/main.js"></script>
 	</body>
 </html>
