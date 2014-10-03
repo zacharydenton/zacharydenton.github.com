@@ -105,7 +105,7 @@
 
   })();
 
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("load", function() {
     window.fractalBanner = new FractalBanner();
     fractalBanner.resize();
     return fractalBanner.render();
