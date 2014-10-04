@@ -8,6 +8,9 @@
       this.banner = document.getElementById("banner");
       this.header = document.getElementById("header");
       this.initRenderer();
+      if (this.gl == null) {
+        return;
+      }
       this.initShaders();
       this.initQuad();
       this.resize();
