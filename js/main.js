@@ -4,42 +4,13 @@
 
   FractalBanner = (function() {
     function FractalBanner() {
-      var plane, quad, _ref;
+      var _ref;
       this.banner = document.getElementById("banner");
       this.header = document.getElementById("header");
-      this.width = this.banner.offsetWidth;
-      this.height = this.banner.offsetHeight;
-      this.scene = new THREE.Scene();
-      this.camera = new THREE.OrthographicCamera(-this.width / 2, this.width / 2, this.height / 2, -this.height / 2, -1000, 1000);
-      this.camera.position.z = 100;
-      this.camera.lookAt(this.scene.position);
-      this.material = new THREE.ShaderMaterial({
-        uniforms: {
-          time: {
-            type: "f",
-            value: 0.0
-          },
-          resolution: {
-            type: "v2",
-            value: new THREE.Vector2(this.width, this.height)
-          },
-          mouse: {
-            type: "v2",
-            value: new THREE.Vector2(0.5, 0.5)
-          }
-        },
-        vertexShader: "void main(){gl_Position=vec4(position,1.0);}",
-        fragmentShader: "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 80\nvoid main(void){vec2 e=(gl_FragCoord.xy-resolution/2.0)/min(resolution.y,resolution.x)*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(-.57166-0.001*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.0+0.618);float n=1.7171+0.001*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);q=2.0*min(q,1.0-q);float r=mod(time*0.025,1.0);float tf=q*sin(0.1*time);gl_FragColor=vec4(a(vec3(r-0.25*q-0.1*abs(tf),1.0 - 0.3*abs(tf),q+0.1*abs(tf))),1.0);}"
-      });
-      this.uniforms = this.material.uniforms;
-      plane = new THREE.PlaneGeometry(this.width, this.height);
-      quad = new THREE.Mesh(plane, this.material);
-      quad.position.z = -100;
-      this.scene.add(quad);
-      this.renderer = new THREE.WebGLRenderer({
-        devicePixelRatio: true
-      });
-      this.banner.appendChild(this.renderer.domElement);
+      this.initRenderer();
+      this.initShaders();
+      this.initQuad();
+      this.resize();
       this.animating = (_ref = document.body.classList) != null ? _ref.contains("front") : void 0;
       this.random = Math.random();
       this.timeOffset = 0;
@@ -65,17 +36,58 @@
       })(this));
     }
 
+    FractalBanner.prototype.initRenderer = function() {
+      var _ref;
+      this.canvas = document.createElement("canvas");
+      this.banner.appendChild(this.canvas);
+      return this.gl = (_ref = this.canvas.getContext("webgl")) != null ? _ref : this.canvas.getContext("experimental-webgl");
+    };
+
+    FractalBanner.prototype.initShaders = function() {
+      var fragmentShader, vertexShader;
+      vertexShader = this.gl.createShader(this.gl.VERTEX_SHADER);
+      this.gl.shaderSource(vertexShader, "attribute vec2 position;\nvoid main(){gl_Position=vec4(position,0,1);}");
+      this.gl.compileShader(vertexShader);
+      fragmentShader = this.gl.createShader(this.gl.FRAGMENT_SHADER);
+      this.gl.shaderSource(fragmentShader, "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 80\nvoid main(void){vec2 e=(gl_FragCoord.xy-resolution/2.0)/min(resolution.y,resolution.x)*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(-.57166-0.001*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.0+0.618);float n=1.7171+0.001*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);q=2.0*min(q,1.0-q);float r=mod(time*0.025,1.0);float tf=q*sin(0.1*time);gl_FragColor=vec4(a(vec3(r-0.25*q-0.1*abs(tf),1.0 - 0.3*abs(tf),q+0.1*abs(tf))),1.0);}");
+      this.gl.compileShader(fragmentShader);
+      this.shader = this.gl.createProgram();
+      this.gl.attachShader(this.shader, vertexShader);
+      this.gl.attachShader(this.shader, fragmentShader);
+      this.gl.linkProgram(this.shader);
+      this.gl.useProgram(this.shader);
+      this.positionAttrib = this.gl.getAttribLocation(this.shader, "position");
+      this.gl.enableVertexAttribArray(this.positionAttrib);
+      this.timeUniform = this.gl.getUniformLocation(this.shader, "time");
+      this.gl.uniform1f(this.timeUniform, 0);
+      this.resolutionUniform = this.gl.getUniformLocation(this.shader, "resolution");
+      this.gl.uniform2f(this.resolutionUniform, this.width, this.height);
+      this.mouseUniform = this.gl.getUniformLocation(this.shader, "mouse");
+      return this.gl.uniform2f(this.mouseUniform, 0.5, 0.5);
+    };
+
+    FractalBanner.prototype.initQuad = function() {
+      var vertexPosBuffer, vertices;
+      vertexPosBuffer = this.gl.createBuffer();
+      this.gl.bindBuffer(this.gl.ARRAY_BUFFER, vertexPosBuffer);
+      vertices = [-1, -1, 1, -1, -1, 1, 1, 1];
+      this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(vertices), this.gl.STATIC_DRAW);
+      return this.gl.vertexAttribPointer(this.vertexPosAttrib, 2, this.gl.FLOAT, false, 0, 0);
+    };
+
     FractalBanner.prototype.resize = function(e) {
-      this.width = this.banner.offsetWidth;
-      this.height = this.banner.offsetHeight;
-      this.uniforms.resolution.value = new THREE.Vector2(this.width, this.height);
-      this.camera.aspect = this.width / this.height;
-      this.camera.updateProjectionMatrix();
-      return this.renderer.setSize(this.width, this.height);
+      var _ref;
+      this.devicePixelRatio = (_ref = window.devicePixelRatio) != null ? _ref : 1;
+      this.width = this.banner.offsetWidth * this.devicePixelRatio;
+      this.height = this.banner.offsetHeight * this.devicePixelRatio;
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+      this.gl.uniform2f(this.resolutionUniform, this.width, this.height);
+      return this.gl.viewport(0, 0, this.width, this.height);
     };
 
     FractalBanner.prototype.mousemove = function(e) {
-      return this.uniforms.mouse.value = new THREE.Vector2(e.clientX / this.width, 1 - e.clientY / this.height);
+      return this.gl.uniform2f(this.mouseUniform, e.clientX / this.width, 1 - e.clientY / this.height);
     };
 
     FractalBanner.prototype.toggleAnimation = function() {
@@ -97,9 +109,8 @@
       }
       this.timestamp = timestamp / 1000;
       if (this.animating || this.timestamp === 0) {
-        this.uniforms.time.value = this.timestamp + this.timeOffset + this.random * 400;
-        this.renderer.clear();
-        this.renderer.render(this.scene, this.camera);
+        this.gl.uniform1f(this.timeUniform, this.timestamp + this.timeOffset + this.random * 400);
+        this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
       }
       return requestAnimationFrame((function(_this) {
         return function(timestamp) {
@@ -114,7 +125,6 @@
 
   document.addEventListener("DOMContentLoaded", function() {
     window.fractalBanner = new FractalBanner();
-    fractalBanner.resize();
     return fractalBanner.render();
   });
 
