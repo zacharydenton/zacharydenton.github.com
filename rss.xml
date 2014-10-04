@@ -19,43 +19,43 @@
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Best of 2012 - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="Wherein I list the best books, movies, music, and websites of 2012.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Best of 2012 - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="Wherein I list the best books, movies, music, and websites of 2012.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Best of 2012</h1>
 
   <p>It’s been a great year. Here’s a list of the best books, movies, albums, and websites I discovered in 2012.</p>
@@ -130,8 +130,8 @@ ga('send', 'pageview');
 <p>Usually I’m not a big fan of reading long API specifications, but the Web Audio API’s specification is worth the read. Building synthesizers inside of a web browser is just unbelievably fun.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -145,43 +145,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Export Facebook Contacts with Android - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Export Facebook Contacts with Android - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Export Facebook Contacts with Android</h1>
 
   <p>If you have a rooted Android phone, you have full control over your device — and unrestricted access to the data it contains. In this post, I’m going to show you how you can use your rooted Android device to do something that <a href="http://techcrunch.com/2011/02/22/google-android-facebook-contacts/">the average person can’t do</a>: namely, export your contacts from the Facebook app on Android.</p>
@@ -322,8 +322,8 @@ END:VCARD</code></pre>
 <p>Restrictions don’t apply to those with rooted phones and a bit of curiosity.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -337,43 +337,43 @@ END:VCARD</code></pre>
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Music Server Revisited: Streaming with sshfs and mp3fs - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Music Server Revisited: Streaming with sshfs and mp3fs - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Music Server Revisited: Streaming with sshfs and mp3fs</h1>
 
   <p>A while back, I wrote about <a href="../build-a-media-server-with-ampache-and-transmission/">streaming music with Ampache</a>. Ampache is a nice piece of software, with some unique advantages (like Android support). However, there are simpler ways to stream music. I’m going to show you how to stream music using sshfs and (optionally) mp3fs. One of the best things about this approach is that it allows you to access your collection with the media player of your choice.</p>
@@ -413,8 +413,8 @@ EOF</code></pre>
 <p>Now your music collection will be available at login.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -428,43 +428,43 @@ EOF</code></pre>
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>A* Search with Multiple Targets and Sources - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>A* Search with Multiple Targets and Sources - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>A* Search with Multiple Targets and Sources</h1>
 
   <p>A couple months ago, I decided to expand my knowledge of artificial intelligence by participating in the <a href="http://aichallenge.org">2011 AI Challenge</a>. It was an incredibly interesting and educational experience. Sadly, I was forced to divert my attention away from the AI Challenge to focus on more important things.</p>
@@ -485,8 +485,8 @@ loop:
 <p>I’ve <a href="https://github.com/zacharydenton/aichallenge-ants">uploaded my bot to GitHub</a>, so you can actually <a href="https://github.com/zacharydenton/aichallenge-ants/blob/master/MyBot.java#L237">see this algorithm in practice</a> if you want.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -500,43 +500,43 @@ loop:
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Iceland - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="I spent the final week of my trip exploring Iceland.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Iceland - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="I spent the final week of my trip exploring Iceland.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Iceland</h1>
 
   <div class="figure">
@@ -685,8 +685,8 @@ ga('send', 'pageview');
 <p>It was quite late when I got back, so I wasn’t sure whether or not to book a hostel for the night. The bus company sold the tickets at half price if you took the bus at 4:30 AM, which was reason enough for me to just spend the night at the bus station. I withdrew my handy silk travel sheet from my suitcase and slept for a few hours until it was time to leave. Most of the people on the bus had been partying all night. I wish I had thought of that idea, but maybe next time. After a few flights and a car ride, I was back home in Maryland. It was without a doubt the best summer I’ve ever had.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -700,43 +700,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Copenhagen - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="A brief visit to Copenhagen.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Copenhagen - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="A brief visit to Copenhagen.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Copenhagen</h1>
 
   <p>My visit to Copenhagen was relatively uneventful. The main thing I did was go to the <a href="http://www.coffeecollective.dk/">Coffee Collective</a>, a coffee roastery run by a former World Barista Champion.</p>
@@ -746,8 +746,8 @@ ga('send', 'pageview');
 <p>After the short stay in Copenhagen, I went to the airport and hopped on a plane headed for Iceland.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -761,43 +761,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Berlin - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="A great time in Berlin, especially in Kreuzberg.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Berlin - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="A great time in Berlin, especially in Kreuzberg.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Berlin</h1>
 
   <p>Immediately after arriving at the Berlin Hauptbahnhof, I went to the tourist information desk. I asked the guy behind the counter for a map, and he asked for 10 euro. When I asked him where to find a free WiFi hotspot, he replied, “Nothing is free in Germany.” Not a promising start.</p>
@@ -815,8 +815,8 @@ ga('send', 'pageview');
 <p>I didn’t explore Berlin as much as I had intended, but I had a good time nevertheless. Later the next day I took the train to Copenhagen.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -830,43 +830,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Vienna - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="Vienna is now among my favorite European cities.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Vienna - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="Vienna is now among my favorite European cities.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Vienna</h1>
 
   <div class="figure">
@@ -882,8 +882,8 @@ ga('send', 'pageview');
 <p>I walked for a couple more hours in the center of the city, and went back to the hostel. The next day I went to Prague.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -897,43 +897,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Prague - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="Pictures and stories from Prague.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Prague - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="Pictures and stories from Prague.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Prague</h1>
 
   <div class="figure">
@@ -979,8 +979,8 @@ ga('send', 'pageview');
 <p>I then crossed the river and walked alongside it until I completed the walking loop. I had some Chinese food for dinner and went to Berlin the next day.</p>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
@@ -994,43 +994,43 @@ ga('send', 'pageview');
 
 <html lang="en-us">
 
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Budapest - Zach Denton</title>
-		
-		<meta name="author" content="Zach Denton">
-		<meta name="description" content="My adventures in Budapest.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
-		<link rel="stylesheet" href="../css/main.css">
-		
-		<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-15976986-5', 'auto');
-ga('send', 'pageview');
-		</script>
-	</head>
-	
-	<body>
-	
-		<div id="banner"></div>
-		<header id="header" role="banner">
-			<h1><a href="../">Zach Denton</a></h1>
-			<nav>
-			<ul>
-				<li><a href="../about/">About</a></li>
-				<li><a href="../archives/">Blog</a></li>
-				<li><a href="../project-euler-solutions/">Euler</a></li>
-				<li><a href="https://github.com/zacharydenton">GitHub</a></li>
-				<li><a href="../resume.pdf">Resume</a></li>
-			</ul>
-			</nav>
-		</header>
-		<article>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Budapest - Zach Denton</title>
+        
+        <meta name="author" content="Zach Denton">
+        <meta name="description" content="My adventures in Budapest.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
+        <link rel="stylesheet" href="../css/main.css">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-15976986-5', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </head>
+    
+    <body>
+    
+        <div id="banner"></div>
+        <header id="header" role="banner">
+            <h1><a href="../">Zach Denton</a></h1>
+            <nav>
+            <ul>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../archives/">Blog</a></li>
+                <li><a href="../project-euler-solutions/">Euler</a></li>
+                <li><a href="https://github.com/zacharydenton">GitHub</a></li>
+                <li><a href="../resume.pdf">Resume</a></li>
+            </ul>
+            </nav>
+        </header>
+        <article>
   <h1>Budapest</h1>
 
   <div class="figure">
@@ -1071,8 +1071,8 @@ ga('send', 'pageview');
 </div>
 </article>
 
-		<script src="../js/main.js"></script>
-	</body>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
 ]]></summary>
 </entry>
