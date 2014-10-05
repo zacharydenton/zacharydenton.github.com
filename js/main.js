@@ -117,7 +117,7 @@
       }
       this.timestamp = timestamp / 1000;
       if (this.animating || this.timestamp === 0) {
-        this.gl.uniform1f(this.timeUniform, this.timestamp + this.timeOffset + this.random * 400);
+        this.gl.uniform1f(this.timeUniform, this.timestamp + this.timeOffset + this.random * 300);
         this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
       }
       return requestAnimationFrame((function(_this) {
