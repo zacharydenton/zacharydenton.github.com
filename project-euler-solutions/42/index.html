@@ -53,7 +53,7 @@ By converting each letter in a word to a number corresponding to its alphabetica
 Using <a href="http://projecteuler.net/project/words.txt">words.txt</a> (right click and ‘Save Link/Target As…’), a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">String</span>]
 parse <span class="fu">=</span> words <span class="fu">.</span> map replaceComma <span class="fu">.</span> filter notQuote <span class="kw">where</span>
     replaceComma <span class="ch">','</span> <span class="fu">=</span> <span class="ch">' '</span>
     replaceComma c <span class="fu">=</span> c
@@ -73,14 +73,14 @@ triangle str <span class="fu">=</span> floor t <span class="fu">==</span> ceilin
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="kw">do</span>
     str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/042/words.txt&quot;</span>
-    print <span class="fu">$</span> length <span class="fu">$</span> filter triangle <span class="fu">$</span> parse str</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words triangle-words.hs
+    print <span class="fu">$</span> length <span class="fu">$</span> filter triangle <span class="fu">$</span> parse str</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-words triangle-words.hs
 $ <span class="kw">time</span> ./triangle-words
 <span class="kw">real</span>   0m0.008s
 <span class="kw">user</span>   0m0.003s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
 <span class="ch">from</span> string <span class="ch">import</span> ascii_uppercase
 
@@ -103,21 +103,21 @@ $ <span class="kw">time</span> ./triangle-words
     <span class="dt">print</span> total
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-words.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-words.py
 <span class="kw">real</span>   0m0.023s
 <span class="kw">user</span>   0m0.019s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 triangles = (<span class="dv">1</span>..<span class="dv">1000</span>).map { |n| (n*(n<span class="dv">+1</span>))/<span class="dv">2</span> }.to_a
 puts <span class="dt">File</span>.read(<span class="dt">File</span>.dirname(<span class="dv">__FILE__</span>) + <span class="st">'/words.txt'</span>).scan(<span class="ot">/\w+/</span>).select { |word|
   triangles.include? word.each_byte.reduce(<span class="dv">0</span>) {|s,v| s+(v<span class="dv">-64</span>) }
-}.count</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-words.rb
+}.count</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-words.rb
 <span class="kw">real</span>   0m0.117s
 <span class="kw">user</span>   0m0.113s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

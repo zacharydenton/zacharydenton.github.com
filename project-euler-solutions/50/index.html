@@ -56,7 +56,7 @@ The longest sum of consecutive primes below one-thousand that adds to a prime, c
 Which prime, below one-million, can be written as the sum of the most consecutive primes?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Function</span> (on)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Function</span> (on)
 <span class="kw">import </span><span class="dt">Data.List</span> (maximumBy)
 
 <span class="ot">primes ::</span> [<span class="dt">Int</span>]
@@ -73,14 +73,14 @@ consecutive p <span class="fu">=</span> dropWhile (not <span class="fu">.</span>
     sums <span class="fu">=</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) <span class="fu">$</span> scanl1 (<span class="fu">+</span>) <span class="fu">$</span> dropWhile (<span class="fu">&lt;</span> p) primes
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> length) <span class="fu">$</span> map consecutive <span class="fu">$</span> take <span class="dv">10</span> primes</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-prime-sum consecutive-prime-sum.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> length) <span class="fu">$</span> map consecutive <span class="fu">$</span> take <span class="dv">10</span> primes</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-prime-sum consecutive-prime-sum.hs
 $ <span class="kw">time</span> ./consecutive-prime-sum
 <span class="kw">real</span>   0m0.003s
 <span class="kw">user</span>   0m0.001s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
 <span class="kw">def</span> euler(n):
     <span class="co"># Create a candidate list within which non-primes will</span>
@@ -121,13 +121,13 @@ $ <span class="kw">time</span> ./consecutive-prime-sum
     <span class="dt">print</span> <span class="dt">sum</span>(chain)
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 consecutive-prime-sum.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 consecutive-prime-sum.py
 <span class="kw">real</span>   0m16.859s
 <span class="kw">user</span>   0m16.749s
-<span class="kw">sys</span>    0m0.028s</code></pre>
+<span class="kw">sys</span>    0m0.028s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 primes = <span class="dt">Prime</span>.each(<span class="dv">10000</span>).to_a
 longest = []
@@ -142,11 +142,11 @@ primes[<span class="dv">0</span>..<span class="dv">10</span>].each_with_index { 
     <span class="kw">end</span>
   <span class="kw">end</span> <span class="kw">while</span> sum &lt; <span class="dv">1000000</span>
 }
-puts longest.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby consecutive-prime-sum.rb
+puts longest.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby consecutive-prime-sum.rb
 <span class="kw">real</span>   0m0.325s
 <span class="kw">user</span>   0m0.319s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

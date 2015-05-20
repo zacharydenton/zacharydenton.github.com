@@ -52,7 +52,7 @@
 <p>Find the maximum total from top to bottom in <a href="http://projecteuler.net/project/triangle.txt">triangle.txt</a> (right click and ‘Save Link/Target As…’), a 15K text file containing a triangle with one-hundred rows.</p>
 <p><strong>NOTE:</strong> This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem, as there are 2<sup>99</sup> altogether! If you could check one trillion (<span class="math">10<sup>12</sup></span>) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [[<span class="dt">Integer</span>]]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [[<span class="dt">Integer</span>]]
 parse <span class="fu">=</span> map (map read <span class="fu">.</span> words) <span class="fu">.</span> lines
 
 <span class="ot">best ::</span> [<span class="dt">Integer</span>] <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
@@ -69,14 +69,14 @@ maxPath (current<span class="fu">:</span>next<span class="fu">:</span>rest) <spa
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/067/triangle.txt&quot;</span>
-        print <span class="fu">$</span> maxPath <span class="fu">$</span> reverse <span class="fu">$</span> parse str</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o maximum-path-sum maximum-path-sum.hs
+        print <span class="fu">$</span> maxPath <span class="fu">$</span> reverse <span class="fu">$</span> parse str</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o maximum-path-sum maximum-path-sum.hs
 $ <span class="kw">time</span> ./maximum-path-sum
 <span class="kw">real</span>   0m0.041s
 <span class="kw">user</span>   0m0.022s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
 
 <span class="kw">def</span> find_sum(triangle):
@@ -97,11 +97,11 @@ $ <span class="kw">time</span> ./maximum-path-sum
     <span class="dt">print</span> find_sum(triangle)
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-max.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-max.py
 <span class="kw">real</span>   0m0.028s
 <span class="kw">user</span>   0m0.016s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

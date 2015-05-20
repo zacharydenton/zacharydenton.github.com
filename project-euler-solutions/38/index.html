@@ -52,7 +52,7 @@
 <p>The same can be achieved by starting with 9 and multiplying by 1, 2, 3, 4, and 5, giving the pandigital, 918273645, which is the concatenated product of 9 and (1,2,3,4,5).</p>
 <p>What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with <span class="math">1, 2, …, <em>n</em></span> where <span class="math"><em>n</em> &gt; 1</span>?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 
 <span class="ot">pandigital ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 pandigital <span class="fu">=</span> (<span class="fu">==</span> <span class="st">&quot;123456789&quot;</span>) <span class="fu">.</span> sort
@@ -61,14 +61,14 @@ pandigital <span class="fu">=</span> (<span class="fu">==</span> <span class="st
 multiples x <span class="fu">=</span> takeWhile ((<span class="fu">==</span> <span class="dv">9</span>) <span class="fu">.</span> length) <span class="fu">$</span> dropWhile ((<span class="fu">&lt;</span> <span class="dv">9</span>) <span class="fu">.</span> length) <span class="fu">$</span> scanl (\acc n <span class="ot">-&gt;</span> acc <span class="fu">++</span> show (x <span class="fu">*</span> n)) (show x) [<span class="dv">2</span><span class="fu">..</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> putStrLn <span class="fu">$</span> maximum <span class="fu">$</span> filter pandigital <span class="fu">$</span> concatMap multiples [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-multiples pandigital-multiples.hs
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> maximum <span class="fu">$</span> filter pandigital <span class="fu">$</span> concatMap multiples [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-multiples pandigital-multiples.hs
 $ <span class="kw">time</span> ./pandigital-multiples
 <span class="kw">real</span>   0m0.013s
 <span class="kw">user</span>   0m0.009s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
 <span class="kw">def</span> is_pandigital(*args, **kwargs):
     num = <span class="dt">sorted</span>(<span class="st">''</span>.join(<span class="dt">str</span>(arg) <span class="kw">for</span> arg in args))
@@ -94,13 +94,13 @@ $ <span class="kw">time</span> ./pandigital-multiples
     <span class="dt">print</span> <span class="dt">max</span>(concatenated_product(i, n) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">10000</span>) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10</span>) <span class="kw">if</span> is_pandigital(concatenated_product(i, n)))
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-concatenation.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-concatenation.py
 <span class="kw">real</span>   0m1.025s
 <span class="kw">user</span>   0m0.928s
-<span class="kw">sys</span>    0m0.008s</code></pre>
+<span class="kw">sys</span>    0m0.008s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 p (<span class="dv">1</span>..<span class="dv">9999</span>).flat_map { |i|
   (<span class="dv">1</span>..<span class="dv">9</span>).map { |j|
     (<span class="dv">1</span>..j).map { |k|
@@ -109,11 +109,11 @@ p (<span class="dv">1</span>..<span class="dv">9999</span>).flat_map { |i|
   }
 }.select { |s|
   s.length == <span class="dv">9</span> &amp;&amp; s.split(<span class="st">''</span>).sort.join(<span class="st">''</span>) == <span class="st">'123456789'</span>
-}.map { |s| s.to_i }.max</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-concatenation.rb
+}.map { |s| s.to_i }.max</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-concatenation.rb
 <span class="kw">real</span>   0m0.644s
 <span class="kw">user</span>   0m0.622s
-<span class="kw">sys</span>    0m0.009s</code></pre>
+<span class="kw">sys</span>    0m0.009s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

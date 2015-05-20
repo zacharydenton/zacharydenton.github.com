@@ -59,7 +59,7 @@
 </ol>
 <p>Find the sum of the only ordered set of six cyclic 4-digit numbers for which each polygonal type: triangle, square, pentagonal, hexagonal, heptagonal, and octagonal, is represented by a different number in the set.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">stringSet ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">Set.Set</span> <span class="dt">String</span>
 stringSet <span class="fu">=</span> Set.fromList <span class="fu">.</span> map show <span class="fu">.</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">10000</span>) <span class="fu">.</span> dropWhile (<span class="fu">&lt;</span> <span class="dv">1000</span>)
@@ -87,14 +87,14 @@ main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="
                                      [n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]],
                                      [n<span class="fu">*</span>(<span class="dv">2</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]],
                                      [n<span class="fu">*</span>(<span class="dv">5</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">3</span>) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]],
-                                     [n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">2</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o figurate-numbers figurate-numbers.hs
+                                     [n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">2</span>) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o figurate-numbers figurate-numbers.hs
 $ <span class="kw">time</span> ./figurate-numbers
 <span class="kw">real</span>   0m0.017s
 <span class="kw">user</span>   0m0.012s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> triangle(n): <span class="kw">return</span> n*(n<span class="dv">+1</span>)/<span class="dv">2</span>
 <span class="kw">def</span> square(n): <span class="kw">return</span> n*n
 <span class="kw">def</span> pentagonal(n): <span class="kw">return</span> n*(<span class="dv">3</span>*n<span class="dv">-1</span>)/<span class="dv">2</span>
@@ -127,11 +127,11 @@ figurates = {
                                 <span class="kw">return</span>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 figurate-numbers.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 figurate-numbers.py
 <span class="kw">real</span>   0m0.342s
 <span class="kw">user</span>   0m0.335s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

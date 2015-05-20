@@ -60,20 +60,20 @@ It is not until <span class="math"><em>n</em> = 23</span>, that a value exce
 How many, not necessarily distinct, values of <span class="math"><em></em><sup><em>n</em></sup><em>C</em><sub><em>r</em></sub></span>, for <span class="math">1 ≤ <em>n</em> ≤ 100</span>, are greater than one-million?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">choose ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">choose ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 choose _ <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
 choose <span class="dv">0</span> _ <span class="fu">=</span> <span class="dv">0</span>
 choose n r <span class="fu">=</span> choose (n<span class="fu">-</span><span class="dv">1</span>) (r<span class="fu">-</span><span class="dv">1</span>) <span class="fu">*</span> n <span class="ot">`div`</span> r
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">&gt;</span> <span class="dv">1000000</span>) [n <span class="ot">`choose`</span> r <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>], r <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>n]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections combinatoric-selections.hs
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">&gt;</span> <span class="dv">1000000</span>) [n <span class="ot">`choose`</span> r <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">100</span>], r <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>n]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o combinatoric-selections combinatoric-selections.hs
 $ <span class="kw">time</span> ./combinatoric-selections
 <span class="kw">real</span>   0m0.021s
 <span class="kw">user</span>   0m0.016s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
 count = <span class="dv">0</span>
 <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">101</span>):
@@ -81,11 +81,11 @@ count = <span class="dv">0</span>
         c = gmpy.comb(n,r)
         <span class="kw">if</span> c &gt; <span class="dv">1000000</span>:
             count += <span class="dv">1</span>
-<span class="dt">print</span> count</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 large-combos.py
+<span class="dt">print</span> count</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 large-combos.py
 <span class="kw">real</span>   0m0.031s
 <span class="kw">user</span>   0m0.014s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

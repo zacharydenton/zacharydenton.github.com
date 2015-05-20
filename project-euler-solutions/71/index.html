@@ -48,7 +48,7 @@
 <p>It can be seen that <span class="math">$\frac{2}{5}$</span> is the fraction immediately to the left of <span class="math">$\frac{3}{7}$</span>.</p>
 <p>By listing the set of reduced proper fractions for <span class="math"><em>d</em> ≤ 1, 000, 000</span> in ascending order of size, find the numerator of the fraction immediately to the left of <span class="math">$\frac{3}{7}$</span>.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">prevFrac ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span>, <span class="dt">Int</span>)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">prevFrac ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span>, <span class="dt">Int</span>)
 prevFrac num den limit <span class="fu">=</span> inner <span class="dv">1</span> limit <span class="dv">1</span> <span class="kw">where</span>
     inner n d i <span class="fu">|</span> i <span class="fu">==</span> limit <span class="fu">=</span> (n, d)
                 <span class="fu">|</span> den<span class="fu">*</span>m <span class="fu">&lt;</span> num<span class="fu">*</span>i <span class="fu">&amp;&amp;</span> m<span class="fu">*</span>d <span class="fu">&gt;</span> n<span class="fu">*</span>i <span class="fu">=</span> inner m i (i<span class="fu">+</span><span class="dv">1</span>)
@@ -56,14 +56,14 @@ prevFrac num den limit <span class="fu">=</span> inner <span class="dv">1</span>
                 <span class="kw">where</span> m <span class="fu">=</span> num<span class="fu">*</span>i <span class="ot">`quot`</span> den
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> prevFrac <span class="dv">3</span> <span class="dv">7</span> <span class="dv">1000000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o ordered-fractions ordered-fractions.hs
+main <span class="fu">=</span> print <span class="fu">$</span> fst <span class="fu">$</span> prevFrac <span class="dv">3</span> <span class="dv">7</span> <span class="dv">1000000</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o ordered-fractions ordered-fractions.hs
 $ <span class="kw">time</span> ./ordered-fractions
 <span class="kw">real</span>   0m0.026s
 <span class="kw">user</span>   0m0.016s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> fractions <span class="ch">import</span> Fraction
 
 <span class="kw">def</span> main():
@@ -74,11 +74,11 @@ $ <span class="kw">time</span> ./ordered-fractions
         closest = Fraction(three_sevenths).limit_denominator(<span class="dv">1000000</span>)
     <span class="dt">print</span> closest.numerator
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prop-frac.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prop-frac.py
 <span class="kw">real</span>   0m0.084s
 <span class="kw">user</span>   0m0.021s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

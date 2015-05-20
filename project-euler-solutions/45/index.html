@@ -51,7 +51,7 @@
 <p>It can be verified that <span class="math"><em>T</em><sub>285</sub> = <em>P</em><sub>165</sub> = <em>H</em><sub>143</sub> = 40755</span>.</p>
 <p>Find the next triangle number that is also pentagonal and hexagonal.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">triangles ::</span> [<span class="dt">Int</span>]
 triangles <span class="fu">=</span> [(n<span class="fu">*</span>(n <span class="fu">+</span> <span class="dv">1</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]
@@ -68,14 +68,14 @@ candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;=</span> <s
           isHexagonal <span class="fu">=</span> (<span class="ot">`Set.member`</span> Set.fromList hexagonals)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o tri-pen-hex tri-pen-hex.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o tri-pen-hex tri-pen-hex.hs
 $ <span class="kw">time</span> ./tri-pen-hex
 <span class="kw">real</span>   0m0.073s
 <span class="kw">user</span>   0m0.060s
-<span class="kw">sys</span>    0m0.009s</code></pre>
+<span class="kw">sys</span>    0m0.009s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> triangle(n):
     <span class="kw">return</span> n*(n<span class="dv">+1</span>)/<span class="dv">2</span>
 
@@ -94,23 +94,23 @@ $ <span class="kw">time</span> ./tri-pen-hex
             <span class="dt">print</span> t
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 tri-pen-hex.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 tri-pen-hex.py
 <span class="kw">real</span>   0m0.161s
 <span class="kw">user</span>   0m0.145s
-<span class="kw">sys</span>    0m0.010s</code></pre>
+<span class="kw">sys</span>    0m0.010s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
 p = (<span class="dv">1</span>..<span class="dv">100000</span>).map { |n| n*(<span class="dv">3</span>*n<span class="dv">-1</span>)/<span class="dv">2</span> }.to_set
 h = (<span class="dv">1</span>..<span class="dv">100000</span>).map { |n| n*(<span class="dv">2</span>*n<span class="dv">-1</span>) }.to_set
 puts (<span class="dv">286</span>..<span class="dv">100000</span>).map { |n| n*(n<span class="dv">+1</span>)/<span class="dv">2</span> }.detect { |t|
   p.include?(t) <span class="kw">and</span> h.include?(t)
-}</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby tri-pen-hex.rb
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby tri-pen-hex.rb
 <span class="kw">real</span>   0m0.231s
 <span class="kw">user</span>   0m0.223s
-<span class="kw">sys</span>    0m0.008s</code></pre>
+<span class="kw">sys</span>    0m0.008s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

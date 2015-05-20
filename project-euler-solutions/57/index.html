@@ -54,18 +54,18 @@
 <p>The next three expansions are <span class="math">$\frac{99}{70}$</span>, <span class="math">$\frac{239}{169}$</span>, and <span class="math">$\frac{577}{408}$</span>, but the eighth expansion, <span class="math">$\frac{1393}{985}$</span>, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.</p>
 <p>In the first one-thousand expansions, how many fractions contain a numerator with more digits than denominator?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">expansion ::</span> [(<span class="dt">Integer</span>, <span class="dt">Integer</span>)]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">expansion ::</span> [(<span class="dt">Integer</span>, <span class="dt">Integer</span>)]
 expansion <span class="fu">=</span> iterate (\(n, d) <span class="ot">-&gt;</span> (d, n <span class="fu">+</span> <span class="dv">2</span><span class="fu">*</span>d)) (<span class="dv">1</span>, <span class="dv">2</span>)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length [(n, d) <span class="fu">|</span> (n, d) <span class="ot">&lt;-</span> take <span class="dv">1000</span> expansion, length (show (n <span class="fu">+</span> d)) <span class="fu">&gt;</span> length (show d)]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-two root-two.hs
+main <span class="fu">=</span> print <span class="fu">$</span> length [(n, d) <span class="fu">|</span> (n, d) <span class="ot">&lt;-</span> take <span class="dv">1000</span> expansion, length (show (n <span class="fu">+</span> d)) <span class="fu">&gt;</span> length (show d)]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o root-two root-two.hs
 $ <span class="kw">time</span> ./root-two
 <span class="kw">real</span>   0m0.015s
 <span class="kw">user</span>   0m0.014s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> fractions
 
 <span class="kw">def</span> root_two(iterations):
@@ -78,11 +78,11 @@ $ <span class="kw">time</span> ./root-two
     <span class="dt">print</span> <span class="dt">len</span>([f <span class="kw">for</span> f in root_two(<span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">len</span>(<span class="dt">str</span>(f.numerator)) &gt; <span class="dt">len</span>(<span class="dt">str</span>(f.denominator))])
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 root-two.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 root-two.py
 <span class="kw">real</span>   0m0.585s
 <span class="kw">user</span>   0m0.553s
-<span class="kw">sys</span>    0m0.019s</code></pre>
+<span class="kw">sys</span>    0m0.019s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

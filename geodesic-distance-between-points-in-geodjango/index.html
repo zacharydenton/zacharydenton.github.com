@@ -41,19 +41,19 @@
 <p>Geodesic distance refers to the distance between two points if you were to travel between them on the Earth’s surface. Thus, it is the ‘real’ distance between two points, as opposed to the theoretical distance returned by GeoDjango.</p>
 <p>The formulae used to calculate this distance are <a href="http://en.wikipedia.org/wiki/Vincenty%27s_formulae" title="Vincenty's formulae">quite complex</a>. Luckily, they have been implemented for us in a Python module called <a href="http://code.google.com/p/geopy/wiki/GettingStarted#Calculating_distances" title="Calculating Distances with geopy">geopy</a>. The specific method we will be using is known as Vincenty’s method. It’s accurate to within 0.5mm!</p>
 <p>The specific function is <code>geopy.distance.distance</code>. Here’s a simple example demonstrating its use:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> geopy.distance <span class="ch">import</span> distance <span class="ch">as</span> geopy_distance
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> geopy.distance <span class="ch">import</span> distance <span class="ch">as</span> geopy_distance
 &gt;&gt;&gt; washington = (<span class="fl">38.53</span>, <span class="fl">77.02</span>)
 &gt;&gt;&gt; chicago = (<span class="fl">41.50</span>, <span class="fl">87.37</span>)
 &gt;&gt;&gt; d = geopy_distance(washington, chicago)
 &gt;&gt;&gt; <span class="dt">print</span> d.meters
 <span class="fl">942408.377797</span>
 &gt;&gt;&gt; <span class="dt">print</span> d.miles
-<span class="fl">585.585417063</span></code></pre>
+<span class="fl">585.585417063</span></code></pre></div>
 <p>Notice how converting between different units of measure on the resultant <code>Distance</code> object is as simple as accessing different attributes of that object (in this case, <code>meters</code> and <code>miles</code>).</p>
 <h2 id="solution">Solution</h2>
 <p>In the example below, we have a Route object which can be associated with an arbitrary number of waypoints. Since the geopy distance function only works on two points, we use the itertools module to take the points pairwise so that we can calculate the distance for each pair and find the sum of the distances. Once we have calculated the geodesic distance with geopy and itertools, we turn it into a GeoDjango Distance object, which allows us to seamlessly convert to several different kinds of units as well as interface with the rest of GeoDjango’s spatial query functions.</p>
 <p>Here’s an example <code>models.py</code> which demonstrates this approach:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> itertools <span class="ch">import</span> tee, izip
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> itertools <span class="ch">import</span> tee, izip
 
 <span class="ch">from</span> django.contrib.gis.db <span class="ch">import</span> models
 <span class="ch">from</span> django.contrib.gis.measure <span class="ch">import</span> Distance
@@ -108,11 +108,11 @@
             <span class="st">'miles'</span>: d.mi,
             <span class="co">'kilometers'</span>: d.km,
             <span class="co">'fathoms'</span>: d.fathom
-    }</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> app.models
+    }</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> app.models
 &gt;&gt;&gt; app.models.example()
 Washington, D.C. -&gt; Chicago -&gt; San Francisco:
-<span class="fl">2458.41</span> miles, or <span class="fl">3956.42</span> kilometers (or <span class="fl">2163398.31</span> fathoms)</code></pre>
+<span class="fl">2458.41</span> miles, or <span class="fl">3956.42</span> kilometers (or <span class="fl">2163398.31</span> fathoms)</code></pre></div>
 <p>The distance function can either be used on its own or as an instance method, as in Route.length(). If you have any questions, feel free to ask in the comments.</p>
 <h2 id="additional-notes">Additional Notes</h2>
 <h3 id="projected-coordinate-systems">Projected Coordinate Systems</h3>

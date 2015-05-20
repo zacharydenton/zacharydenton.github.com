@@ -35,7 +35,7 @@
   <h1>How To Display BuddyPress Album Images Anywhere</h1>
 
   <p>Recently, I created a new landing page for <a href="http://ultralightbackpacking.net" title="Ultralight Backpacking Network">Ultralight Backpacking Network</a>. It features a grid of images posted by the site’s users. Ultralight Backpacking Network is using BuddyPress Album+ to manage users’ photo albums, so I needed to figure out a way to display BuddyPress Album+ images anywhere on the site. It turns out that BuddyPress Album+ makes this a relatively easy task. You retrieve the images using a loop, a process familiar to anyone who has modified or created a WordPress theme. Here’s an example of a BuddyPress Album+ loop:</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;photos&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;photos&quot;</span><span class="kw">&gt;</span>
 <span class="kw">&lt;?php</span> bp_album_query_pictures('per_page=5'); <span class="kw">?&gt;</span>
 <span class="kw">&lt;?php</span> if ( bp_album_has_pictures() ) : <span class="kw">?&gt;</span>
         <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;thumb&quot;</span><span class="kw">&gt;</span>
@@ -48,7 +48,7 @@
         <span class="kw">&lt;?php</span> endwhile; <span class="kw">?&gt;</span>
         <span class="kw">&lt;/ul&gt;</span> 
 <span class="kw">&lt;?php</span> endif; <span class="kw">?&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Notice how similar it is to the WordPress loop. An important thing to remember is that you must first call the function <code>bp_album_query_pictures()</code> before you can start the BuddyPress Album+ Loop. This function initializes the Query object used for the loop. The <code>bp_album_query_pictures()</code> function supports a few different parameters:</p>
 <ul>
 <li><strong>owner_id</strong> - This is the numeric ID of the user whose photos you wish to display.</li>

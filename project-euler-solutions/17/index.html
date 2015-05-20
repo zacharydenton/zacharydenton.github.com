@@ -52,7 +52,7 @@ If all the numbers from 1 to 1000 (one thousand) inclusive were written out in w
 NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of “and” when writing out numbers is in compliance with British usage.
 </p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> to_english(number):
     _ones = {
             <span class="dv">1</span>: <span class="st">'one'</span>,
@@ -130,20 +130,20 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
     string = string.replace(<span class="st">'-'</span>, <span class="st">''</span>)
     <span class="kw">return</span> string
 
-<span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 num-string-sum.py
+<span class="dt">print</span> <span class="dt">sum</span>(<span class="dt">len</span>(cleanse_string(to_english(i))) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1001</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 num-string-sum.py
 <span class="kw">real</span>   0m0.015s
 <span class="kw">user</span>   0m0.011s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'linguistics'</span> <span class="co"># gem install linguistics</span>
 <span class="dt">Linguistics</span>::use( <span class="st">:en</span> )
-puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">''</span>).length }.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby number-to-words.rb
+puts (<span class="dv">1</span>..<span class="dv">1000</span>).map { |i| i.en.numwords.gsub(<span class="ot">/[ -]/</span>, <span class="st">''</span>).length }.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby number-to-words.rb
 <span class="kw">real</span>   0m0.449s
 <span class="kw">user</span>   0m0.191s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

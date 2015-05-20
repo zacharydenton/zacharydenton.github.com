@@ -52,7 +52,7 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 (Please note that the palindromic number, in either base, may not include leading zeros.)
 </p>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> reversed </span>[string]
   (<span class="kw">apply</span> <span class="kw">str</span> (<span class="kw">reverse</span> string)))
 
@@ -63,13 +63,13 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
   (<span class="kw">and</span> (palindrome? (Integer/toString n <span class="dv">2</span>))
        (palindrome? (Integer/toString n))))
 
-(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> palindrome-in-decimal-and-binary? (<span class="kw">range</span> <span class="dv">1</span> <span class="dv">1000000</span>))))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindromic-bases.clj
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> palindrome-in-decimal-and-binary? (<span class="kw">range</span> <span class="dv">1</span> <span class="dv">1000000</span>))))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindromic-bases.clj
 <span class="kw">real</span>   0m5.841s
 <span class="kw">user</span>   0m6.450s
-<span class="kw">sys</span>    0m0.147s</code></pre>
+<span class="kw">sys</span>    0m0.147s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 palindrome s <span class="fu">=</span> s <span class="fu">==</span> reverse s
 
 <span class="ot">digits ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
@@ -78,25 +78,25 @@ digits base n <span class="fu">=</span> r <span class="fu">:</span> digits base 
     <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem n base
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>], all palindrome [digits <span class="dv">10</span> n, digits <span class="dv">2</span> n]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o double-palindrome double-palindrome.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>], all palindrome [digits <span class="dv">10</span> n, digits <span class="dv">2</span> n]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o double-palindrome double-palindrome.hs
 $ <span class="kw">time</span> ./double-palindrome
 <span class="kw">real</span>   0m0.275s
 <span class="kw">user</span>   0m0.269s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="kw">class</span> <span class="dt">String</span>
   <span class="kw">def</span> palindrome?
     <span class="dv">self</span> == <span class="dv">self</span>.reverse
   <span class="kw">end</span>
 <span class="kw">end</span>
 
-puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i| i.to_s.palindrome? &amp;&amp; i.to_s(<span class="dv">2</span>).palindrome? }.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby binary-palindrome.rb
+puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i| i.to_s.palindrome? &amp;&amp; i.to_s(<span class="dv">2</span>).palindrome? }.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby binary-palindrome.rb
 <span class="kw">real</span>   0m0.633s
 <span class="kw">user</span>   0m0.629s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

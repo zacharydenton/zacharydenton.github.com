@@ -130,7 +130,7 @@ A note on VPSs
 <p>At this point, try navigating to http://your-server/ampache/. If the page is not found, do the following:</p>
 <pre class="console"><code>$ sudo $EDITOR /etc/apache2/apache2.conf</code></pre>
 <p>Add the following to the bottom of that file:</p>
-<pre class="sourceCode apache"><code class="sourceCode apache">Include<span class="st"> /etc/ampache/ampache.conf</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode apache"><code class="sourceCode apache">Include<span class="st"> /etc/ampache/ampache.conf</span></code></pre></div>
 <p>Restart the web server:</p>
 <pre class="console"><code>$ sudo /etc/init.d/apache2 restart</code></pre>
 <p>Now, open http://your-server/ampache/ in a web browser. You will see a webpage entitled ‘Ampache Installation’. Click on ‘Start configuration’ near the bottom of the page.</p>
@@ -138,13 +138,13 @@ A note on VPSs
 <p>On this page, type ‘root’ into the ‘MySQL Username’ box. The ‘MySQL username’ is the MySQL root password you entered on the previous page. Click ‘Write Config’ and you will be prompted to download an <code>ampache.cfg.php</code> file. Save this file to your local machine.</p>
 <h3 id="configuring-ampache">Configuring Ampache</h3>
 <p>Make the following changes to <code>ampache.cfg.php</code>:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">xml_rpc:</span> <span class="st">&quot;true&quot;</span>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">xml_rpc:</span> <span class="st">&quot;true&quot;</span>
 <span class="fu">allow_zip_download:</span> <span class="st">&quot;true&quot;</span>
-<span class="fu">transcode_m4a:</span> <span class="st">&quot;false&quot;</span></code></pre>
+<span class="fu">transcode_m4a:</span> <span class="st">&quot;false&quot;</span></code></pre></div>
 <p>If you would like to transcode your FLACs on-the-fly, make the following change:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">transcode_flac:</span> <span class="st">&quot;true&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">transcode_flac:</span> <span class="st">&quot;true&quot;</span></code></pre></div>
 <p>If you have multiple formats of each album (e.g. if you download albums in MP3, OGG, AAC, and FLAC), each format will be indexed. To eliminate these duplicates, you can opt to only index one of these formats. To only index FLAC:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">catalog_file_pattern:</span> <span class="st">&quot;flac&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">catalog_file_pattern:</span> <span class="st">&quot;flac&quot;</span></code></pre></div>
 <p>When you’ve finished editing <code>ampache.cfg.php</code>, copy it to the <code>/etc/ampache</code> directory on your server:</p>
 <pre class="console"><code>$ scp /path/to/ampache.cfg.php root@your-server:/etc/ampache/</code></pre>
 <p>Once <code>ampache.cfg.php</code> is in place on your server, click ‘Check for Config’. Both ‘Ampache.cfg.php Exists’ and ‘Ampache.cfg.php Configured?’ should now say ‘OK’. Click ‘Continue to Step 3’.</p>

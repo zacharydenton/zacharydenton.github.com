@@ -53,7 +53,7 @@ It can be seen that <span class="math"><em>P</em><sub>4</sub> + <em>P</em><s
 Find the pair of pentagonal numbers, <span class="math"><em>P</em><sub><em>j</em></sub></span> and <span class="math"><em>P</em><sub><em>k</em></sub></span>, for which their sum and difference is pentagonal and <span class="math"><em>D</em> = |<em>P</em><sub><em>k</em></sub> − <em>P</em><sub><em>j</em></sub>|</span> is minimised; what is the value of <span class="math"><em>D</em></span>?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">pentagonals ::</span> [<span class="dt">Int</span>]
 pentagonals <span class="fu">=</span> [(n<span class="fu">*</span>(<span class="dv">3</span><span class="fu">*</span>n <span class="fu">-</span> <span class="dv">1</span>)) <span class="ot">`quot`</span> <span class="dv">2</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">3000</span>]]
@@ -66,14 +66,14 @@ candidates <span class="fu">=</span> [j <span class="fu">-</span> k <span class=
                       isPentagonal (j <span class="fu">-</span> k), isPentagonal (j <span class="fu">+</span> k)]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pentagonal-nums pentagonal-nums.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pentagonal-nums pentagonal-nums.hs
 $ <span class="kw">time</span> ./pentagonal-nums
 <span class="kw">real</span>   0m0.262s
 <span class="kw">user</span>   0m0.252s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 <span class="ch">from</span> math <span class="ch">import</span> *
 <span class="ch">from</span> operator <span class="ch">import</span> *
@@ -89,22 +89,22 @@ $ <span class="kw">time</span> ./pentagonal-nums
             <span class="dt">print</span> <span class="dt">abs</span>(sub(*p))
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pentagonal-nums.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pentagonal-nums.py
 <span class="kw">real</span>   0m0.876s
 <span class="kw">user</span>   0m0.849s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
 pentagonals = (<span class="dv">1</span>..<span class="dv">3000</span>).map { |n| n*(<span class="dv">3</span>*n<span class="dv">-1</span>)/<span class="dv">2</span> }.to_set
 puts pentagonals.to_a.combination(<span class="dv">2</span>).select { |a,b|
   pentagonals.include?(a+b) &amp;&amp; pentagonals.include?((a-b).abs)
-}.map { |a,b| (a-b).abs }.min</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pentagonal-nums.rb
+}.map { |a,b| (a-b).abs }.min</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pentagonal-nums.rb
 <span class="kw">real</span>   0m1.216s
 <span class="kw">user</span>   0m1.214s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

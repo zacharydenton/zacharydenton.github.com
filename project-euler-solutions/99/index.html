@@ -62,7 +62,7 @@ As the question notes, it would be difficult to evaluate these exponents directl
 To do so, we use the identity <span class="math">log<em>a</em><sup><em>x</em></sup> = <em>x</em> × log<em>a</em></span>. Since <span class="math">log<em>b</em> &gt; log<em>a</em></span> if $ b a$, this will serve as an approximation of calculating the exponents directly.
 </p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
 <span class="ch">from</span> math <span class="ch">import</span> log10
 largest = [<span class="dv">0</span>, <span class="dv">0</span>]
@@ -70,11 +70,11 @@ largest = [<span class="dv">0</span>, <span class="dv">0</span>]
     a, x = <span class="dt">map</span>(<span class="dt">int</span>, line.split(<span class="st">','</span>))
     <span class="kw">if</span> x * log10(a) &gt; largest[<span class="dv">0</span>]:
         largest = [x * log10(a), i<span class="dv">+1</span>]
-<span class="dt">print</span> largest[<span class="dv">1</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 largest-exponent.py
+<span class="dt">print</span> largest[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 largest-exponent.py
 <span class="kw">real</span>   0m0.026s
 <span class="kw">user</span>   0m0.013s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

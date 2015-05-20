@@ -55,7 +55,7 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 </p>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> divisors </span>[n]
   (<span class="kw">filter</span> #(<span class="kw">zero?</span> (<span class="kw">mod</span> n %)) (<span class="kw">range</span> <span class="dv">1</span> (<span class="kw">+</span> <span class="dv">1</span> (<span class="kw">/</span> n <span class="dv">2</span>)))))
 
@@ -65,13 +65,13 @@ Evaluate the sum of all the amicable numbers under 10000.
 (<span class="kw">defn</span><span class="fu"> amicable</span>? [a b]
   (<span class="kw">and</span> (<span class="kw">not</span> (<span class="kw">=</span> a b)) (<span class="kw">=</span> (d a) b) (<span class="kw">=</span> (d b) a)))
 
-(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> #(amicable? % (d %)) (<span class="kw">range</span> <span class="dv">10000</span>))))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure amicable.clj
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> #(amicable? % (d %)) (<span class="kw">range</span> <span class="dv">10000</span>))))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure amicable.clj
 <span class="kw">real</span>   0m14.411s
 <span class="kw">user</span>   0m13.924s
-<span class="kw">sys</span>    0m0.147s</code></pre>
+<span class="kw">sys</span>    0m0.147s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">divisors ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">divisors ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 divisors n <span class="fu">=</span> [x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>(div n <span class="dv">2</span>)], n <span class="ot">`mod`</span> x <span class="fu">==</span> <span class="dv">0</span>]
 
 <span class="ot">d ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
@@ -81,14 +81,14 @@ d <span class="fu">=</span> sum <span class="fu">.</span> divisors
 isAmicable n <span class="fu">=</span> n <span class="fu">/=</span> x <span class="fu">&amp;&amp;</span> d x <span class="fu">==</span> n <span class="kw">where</span> x <span class="fu">=</span> d n
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter isAmicable [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o amicable amicable.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter isAmicable [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o amicable amicable.hs
 $ <span class="kw">time</span> ./amicable
 <span class="kw">real</span>   0m2.008s
 <span class="kw">user</span>   0m1.988s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
@@ -107,11 +107,11 @@ require <span class="st">'mathn'</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
 
-puts (<span class="dv">1</span>..<span class="dv">10000</span>).find_all { |n| n.amicable? }.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby amicable.rb
+puts (<span class="dv">1</span>..<span class="dv">10000</span>).find_all { |n| n.amicable? }.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby amicable.rb
 <span class="kw">real</span>   0m1.036s
 <span class="kw">user</span>   0m0.890s
-<span class="kw">sys</span>    0m0.009s</code></pre>
+<span class="kw">sys</span>    0m0.009s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

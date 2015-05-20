@@ -45,7 +45,7 @@
 <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
 <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 <h2 id="c">C</h2>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &lt;stdio.h&gt;</span>
 
 <span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv)
 {
@@ -57,24 +57,24 @@
     }
     printf(<span class="st">&quot;%d</span><span class="ch">\n</span><span class="st">&quot;</span>, sum);
     <span class="kw">return</span> <span class="dv">0</span>;
-}</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -march=native -Ofast -std=c11 -o natural natural.c
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -march=native -Ofast -std=c11 -o natural natural.c
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.000s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> multiple</span>? [n]
   (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">rem</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">rem</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
 
-(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure natural.clj
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">filter</span> multiple? (<span class="kw">range</span> <span class="dv">1000</span>))))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure natural.clj
 <span class="kw">real</span>   0m1.464s
 <span class="kw">user</span>   0m1.550s
-<span class="kw">sys</span>    0m0.035s</code></pre>
+<span class="kw">sys</span>    0m0.035s</code></pre></div>
 <h2 id="go">Go</h2>
-<pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+<div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
@@ -85,52 +85,52 @@ $ <span class="kw">time</span> ./natural
         }
     }
     fmt.Println(sum)
-}</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural natural.go
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural natural.go
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural natural.hs
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> sum [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">999</span>], or [(n <span class="ot">`mod`</span> <span class="dv">3</span> <span class="fu">==</span> <span class="dv">0</span>), (n <span class="ot">`mod`</span> <span class="dv">5</span> <span class="fu">==</span> <span class="dv">0</span>)]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o natural natural.hs
 $ <span class="kw">time</span> ./natural
 <span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-<span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 natural.py
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="dt">print</span> <span class="dt">sum</span>(i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1000</span>) <span class="kw">if</span> (i % <span class="dv">3</span> == <span class="dv">0</span>) or (i % <span class="dv">5</span> == <span class="dv">0</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 natural.py
 <span class="kw">real</span>   0m0.017s
 <span class="kw">user</span>   0m0.008s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 sum = <span class="dv">0</span>
 <span class="dv">1000</span>.times <span class="kw">do</span> |i|
   <span class="kw">if</span> i % <span class="dv">3</span> == <span class="dv">0</span> <span class="kw">or</span> i % <span class="dv">5</span> == <span class="dv">0</span>
     sum += i
   <span class="kw">end</span>
 <span class="kw">end</span>
-puts sum</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby natural.rb
+puts sum</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby natural.rb
 <span class="kw">real</span>   0m0.021s
 <span class="kw">user</span>   0m0.014s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="scheme">Scheme</h2>
-<pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
+<div class="sourceCode"><pre class="sourceCode scheme"><code class="sourceCode scheme">(<span class="kw">display</span>
   (reduce <span class="kw">+</span> <span class="dv">0</span>
           (filter
             (<span class="kw">lambda</span> (n)
               (<span class="kw">or</span> (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">3</span>) <span class="dv">0</span>) (<span class="kw">=</span> (<span class="kw">remainder</span> n <span class="dv">5</span>) <span class="dv">0</span>)))
             (iota <span class="dv">1000</span>))))
-(<span class="kw">newline</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> mit-scheme-native --quiet <span class="kw">&lt;</span> natural.scm
+(<span class="kw">newline</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> mit-scheme-native --quiet <span class="kw">&lt;</span> natural.scm
 <span class="kw">real</span>   0m0.202s
 <span class="kw">user</span>   0m0.030s
-<span class="kw">sys</span>    0m0.018s</code></pre>
+<span class="kw">sys</span>    0m0.018s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

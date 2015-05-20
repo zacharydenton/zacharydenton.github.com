@@ -50,30 +50,30 @@ A permutation is an ordered arrangement of objects. For example, 3124 is one pos
 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, permutations)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, permutations)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permutations permutations.hs
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> (sort <span class="fu">$</span> permutations [<span class="ch">'0'</span><span class="fu">..</span><span class="ch">'9'</span>]) <span class="fu">!!</span> <span class="dv">999999</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permutations permutations.hs
 $ <span class="kw">time</span> ./permutations
 <span class="kw">real</span>   0m7.683s
 <span class="kw">user</span>   0m6.911s
-<span class="kw">sys</span>    0m0.651s</code></pre>
+<span class="kw">sys</span>    0m0.651s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> islice, permutations
-<span class="dt">print</span> <span class="st">''</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 permutations.py
+<span class="dt">print</span> <span class="st">''</span>.join(<span class="dt">next</span>(islice(permutations(<span class="dt">map</span>(<span class="dt">str</span>, <span class="dt">range</span>(<span class="dv">10</span>))), <span class="dv">999999</span>, <span class="ot">None</span>)))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 permutations.py
 <span class="kw">real</span>   0m0.038s
 <span class="kw">user</span>   0m0.033s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
-puts (<span class="dv">0</span>..<span class="dv">9</span>).to_a.permutation(<span class="dv">10</span>).to_a[<span class="dv">999999</span>].join</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby permutations.rb
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+puts (<span class="dv">0</span>..<span class="dv">9</span>).to_a.permutation(<span class="dv">10</span>).to_a[<span class="dv">999999</span>].join</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby permutations.rb
 <span class="kw">real</span>   0m2.741s
 <span class="kw">user</span>   0m2.394s
-<span class="kw">sys</span>    0m0.208s</code></pre>
+<span class="kw">sys</span>    0m0.208s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

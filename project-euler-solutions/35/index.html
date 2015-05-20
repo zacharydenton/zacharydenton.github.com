@@ -46,7 +46,7 @@
 <p>There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.</p>
 <p>How many circular primes are there below one million?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
 
 <span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
 pairwise f (xs<span class="fu">:</span>ys<span class="fu">:</span>t) <span class="fu">=</span> f xs ys <span class="fu">:</span> pairwise f t
@@ -83,24 +83,24 @@ candidate n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class
             <span class="fu">|</span> otherwise <span class="fu">=</span> all (<span class="ot">`elem`</span> <span class="st">&quot;1379&quot;</span>) (show n)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes circular-primes.hs
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">.</span> filter circular <span class="fu">$</span> filter candidate <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">1000000</span>) primes</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o circular-primes circular-primes.hs
 $ <span class="kw">time</span> ./circular-primes
 <span class="kw">real</span>   0m0.230s
 <span class="kw">user</span>   0m0.219s
-<span class="kw">sys</span>    0m0.009s</code></pre>
+<span class="kw">sys</span>    0m0.009s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).select { |i|
   (<span class="dv">1</span>..i.to_s.length).all? { |j|
     i.to_s.split(<span class="st">''</span>).rotate(j).join(<span class="st">''</span>).to_i.prime?
   }
-}.count</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby circular-primes.rb
+}.count</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby circular-primes.rb
 <span class="kw">real</span>   0m37.266s
 <span class="kw">user</span>   0m36.924s
-<span class="kw">sys</span>    0m0.018s</code></pre>
+<span class="kw">sys</span>    0m0.018s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

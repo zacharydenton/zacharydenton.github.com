@@ -54,7 +54,7 @@
 <p>It turns out that the conjecture was false.</p>
 <p>What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPrime n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
           <span class="fu">|</span> otherwise <span class="fu">=</span> not <span class="fu">$</span> or [n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n]]
 
@@ -65,14 +65,14 @@ isSum n <span class="fu">=</span> any isPrime [n <span class="fu">-</span> <span
 candidates <span class="fu">=</span> [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span>,<span class="dv">3</span><span class="fu">..</span>], not (isPrime n), not (isSum n)]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o goldbach goldbach.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o goldbach goldbach.hs
 $ <span class="kw">time</span> ./goldbach
 <span class="kw">real</span>   0m0.009s
 <span class="kw">user</span>   0m0.008s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> product
 
 <span class="kw">def</span> sieve(n):
@@ -99,24 +99,24 @@ $ <span class="kw">time</span> ./goldbach
     <span class="dt">print</span> <span class="dt">min</span>(n <span class="kw">for</span> n in composites <span class="kw">if</span> n not in sums and n % <span class="dv">2</span> != <span class="dv">0</span>)
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 composite-prime.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 composite-prime.py
 <span class="kw">real</span>   0m0.229s
 <span class="kw">user</span>   0m0.207s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
 require <span class="st">'mathn'</span>
 primes = (<span class="dv">2</span>..<span class="dv">10000</span>).select { |n| n.prime? }.to_set
 composites = (<span class="dv">2</span>..<span class="dv">10000</span>).reject { |n| n.prime? }.to_set
 twicesquares = (<span class="dv">0</span>..<span class="dv">100</span>).map { |n| <span class="dv">2</span>*(n**<span class="dv">2</span>) }.to_set
 sums = primes.to_a.product(twicesquares.to_a).map { |a,b| a+b }.to_set
-puts composites.select { |n| !sums.include?(n) <span class="kw">and</span> n.odd? }.min</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby composite-prime.rb
+puts composites.select { |n| !sums.include?(n) <span class="kw">and</span> n.odd? }.min</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby composite-prime.rb
 <span class="kw">real</span>   0m0.280s
 <span class="kw">user</span>   0m0.244s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">sys</span>    0m0.007s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

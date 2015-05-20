@@ -50,7 +50,7 @@
 <p>In fact, <span class="math"><em>d</em> = 12</span> is the smallest denominator having a resilience <span class="math">$R(d) &lt; \frac{4}{10}$</span>.</p>
 <p>Find the smallest denominator <span class="math"><em>d</em></span>, having a resilience <span class="math">$R(d) &lt; \frac{15499}{94744}$</span>.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (union)
 <span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
@@ -97,12 +97,12 @@ candidates <span class="fu">=</span> expand <span class="dv">1</span> primorials
                         <span class="fu">|</span> otherwise <span class="fu">=</span> expand <span class="dv">1</span> (tail ps)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head [d <span class="fu">|</span> d <span class="ot">&lt;-</span> candidates, resilience d <span class="fu">&lt;</span> <span class="dv">15499</span> <span class="fu">/</span> <span class="dv">94744</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o resilience resilience.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head [d <span class="fu">|</span> d <span class="ot">&lt;-</span> candidates, resilience d <span class="fu">&lt;</span> <span class="dv">15499</span> <span class="fu">/</span> <span class="dv">94744</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o resilience resilience.hs
 $ <span class="kw">time</span> ./resilience
 <span class="kw">real</span>   0m0.007s
 <span class="kw">user</span>   0m0.001s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

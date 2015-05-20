@@ -58,7 +58,7 @@ Unfortunately, this method is impractical for most users, so the modified method
 Your task has been made easy, as the encryption key consists of three lower case characters. Using <a href="http://projectuler.net/project/cipher1.txt">cipher1.txt</a> (right click and ‘Save Link/Target As…’), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.
 </p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> os
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 <span class="ch">from</span> string <span class="ch">import</span> *
@@ -107,11 +107,11 @@ dictionary = <span class="dt">set</span>(word.strip() <span class="kw">for</span
             <span class="kw">return</span>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 xor-encryption.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 xor-encryption.py
 <span class="kw">real</span>   0m3.230s
 <span class="kw">user</span>   0m3.107s
-<span class="kw">sys</span>    0m0.015s</code></pre>
+<span class="kw">sys</span>    0m0.015s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -55,13 +55,13 @@ Find the last ten digits of this prime number.
 <p>The <code>gmpy</code> library makes this problem trivial. Using <code>gmpy</code>, this code takes about half a second to run. Without <code>gmpy</code>, well, let’s just say it takes considerably more than a minute to run.</p>
 <p>If you’re dealing with large numbers in Python, I highly recommend <code>gmpy</code>.</p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> gmpy
-<span class="dt">print</span> <span class="dt">str</span>(gmpy.mpz(<span class="dv">28433</span>*<span class="dv">2</span>**<span class="dv">7830457+1</span>))[-<span class="dv">10</span>:]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 non-mersenne.py
+<span class="dt">print</span> <span class="dt">str</span>(gmpy.mpz(<span class="dv">28433</span>*<span class="dv">2</span>**<span class="dv">7830457+1</span>))[-<span class="dv">10</span>:]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 non-mersenne.py
 <span class="kw">real</span>   0m0.678s
 <span class="kw">user</span>   0m0.590s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

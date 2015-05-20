@@ -54,34 +54,34 @@ If <span class="math"><em>d</em><sub><em>n</em></sub></span> represents the nth 
 </p>
 <p><br /><span class="math"><em>d</em><sub>1</sub> × <em>d</em><sub>10</sub> × <em>d</em><sub>100</sub> × <em>d</em><sub>1000</sub> × <em>d</em><sub>10000</sub> × <em>d</em><sub>100000</sub> × <em>d</em><sub>1000000</sub></span><br /></p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">champernowne ::</span> <span class="dt">String</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">champernowne ::</span> <span class="dt">String</span>
 champernowne <span class="fu">=</span> foldr (\x acc <span class="ot">-&gt;</span> (show x) <span class="fu">++</span> acc) <span class="st">&quot;&quot;</span> [<span class="dv">1</span><span class="fu">..</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> product [read [champernowne <span class="fu">!!</span> (n <span class="fu">-</span> <span class="dv">1</span>)] <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">6</span>]]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o champernowne champernowne.hs
+main <span class="fu">=</span> print <span class="fu">$</span> product [read [champernowne <span class="fu">!!</span> (n <span class="fu">-</span> <span class="dv">1</span>)] <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">0</span><span class="fu">..</span><span class="dv">6</span>]]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o champernowne champernowne.hs
 $ <span class="kw">time</span> ./champernowne
 <span class="kw">real</span>   0m0.074s
 <span class="kw">user</span>   0m0.063s
-<span class="kw">sys</span>    0m0.010s</code></pre>
+<span class="kw">sys</span>    0m0.010s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 d = [<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="st">''</span>.join((<span class="dt">str</span>(digit) <span class="kw">for</span> digit in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">10000001</span>)))]
-<span class="dt">print</span> d[<span class="dv">0</span>] * d[<span class="dv">9</span>] * d[<span class="dv">99</span>] * d[<span class="dv">999</span>] * d[<span class="dv">9999</span>] * d[<span class="dv">99999</span>] * d[<span class="dv">999999</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 irrational-part.py
+<span class="dt">print</span> d[<span class="dv">0</span>] * d[<span class="dv">9</span>] * d[<span class="dv">99</span>] * d[<span class="dv">999</span>] * d[<span class="dv">9999</span>] * d[<span class="dv">99999</span>] * d[<span class="dv">999999</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 irrational-part.py
 <span class="kw">real</span>   0m38.219s
 <span class="kw">user</span>   0m37.256s
-<span class="kw">sys</span>    0m0.602s</code></pre>
+<span class="kw">sys</span>    0m0.602s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 s = (<span class="st">'1'</span>..<span class="st">'1000000'</span>).to_a.join <span class="st">''</span>
 puts (<span class="dv">0</span>..<span class="dv">6</span>).map { |i|
   s[(<span class="dv">10</span>**i)-<span class="dv">1</span>].to_i
-}.reduce(<span class="dv">1</span>, :*)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby irrational-part.rb
+}.reduce(<span class="dv">1</span>, :*)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby irrational-part.rb
 <span class="kw">real</span>   0m0.918s
 <span class="kw">user</span>   0m0.882s
-<span class="kw">sys</span>    0m0.027s</code></pre>
+<span class="kw">sys</span>    0m0.027s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

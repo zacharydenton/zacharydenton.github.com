@@ -49,7 +49,7 @@ The sum of the primes below 10 is <span class="math">2 + 3 + 5 + 7�
 Find the sum of all the primes below two million.
 </p>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> primes </span>[n]
   (<span class="kw">defn</span><span class="fu"> improve </span>[p nums]
     (<span class="kw">filter</span> #(<span class="kw">or</span> 
@@ -62,27 +62,28 @@ Find the sum of all the primes below two million.
       (prime-iter (<span class="kw">nth</span> nums (<span class="kw">+</span> i <span class="dv">1</span>)) (improve (<span class="kw">nth</span> nums (<span class="kw">+</span> i <span class="dv">1</span>)) nums) (<span class="kw">+</span> i <span class="dv">1</span>))))
   (prime-iter <span class="dv">2</span> (<span class="kw">range</span> <span class="dv">2</span> (<span class="kw">+</span> n <span class="dv">1</span>)) -<span class="dv">1</span>))
 
-(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (primes <span class="dv">2000000</span>)))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure sum-primes.clj
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">+</span> (primes <span class="dv">2000000</span>)))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure sum-primes.clj
 <span class="kw">real</span>   0m11.670s
 <span class="kw">user</span>   0m16.524s
-<span class="kw">sys</span>    0m0.146s</code></pre>
+<span class="kw">sys</span>    0m0.146s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
     sieve (p<span class="fu">:</span>ps) xs <span class="fu">=</span> h <span class="fu">++</span> sieve ps [x <span class="fu">|</span> x <span class="ot">&lt;-</span> t, rem x p <span class="fu">/=</span> <span class="dv">0</span>]
                       <span class="kw">where</span> (h, t) <span class="fu">=</span> span (<span class="fu">&lt;</span> p<span class="fu">*</span>p) xs
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">2000000</span>) primes</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sum-primes sum-primes.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">2000000</span>) primes</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o sum-primes sum-primes.hs
 $ <span class="kw">time</span> ./sum-primes
 <span class="kw">real</span>   0m1.818s
 <span class="kw">user</span>   0m1.774s
-<span class="kw">sys</span>    0m0.018s</code></pre>
+<span class="kw">sys</span>    0m0.018s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> takewhile
+
 <span class="kw">def</span> eratosthenes():
     <span class="co">'''Yields the sequence of prime numbers via the Sieve of Eratosthenes.'''</span>
     D = {}  <span class="co"># map composite integers to primes witnessing their compositeness</span>
@@ -97,19 +98,19 @@ $ <span class="kw">time</span> ./sum-primes
             <span class="kw">del</span> D[q]       <span class="co"># no longer need D[q], free memory</span>
         q += <span class="dv">1</span>
 
-<span class="dt">print</span> <span class="dt">sum</span>(takewhile(<span class="kw">lambda</span> x: x &lt; <span class="dv">2000000</span>, eratosthenes()))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 sum-primes.py
-<span class="kw">real</span>   0m1.806s
-<span class="kw">user</span>   0m1.760s
-<span class="kw">sys</span>    0m0.030s</code></pre>
+<span class="dt">print</span> <span class="dt">sum</span>(takewhile(<span class="kw">lambda</span> x: x &lt; <span class="dv">2000000</span>, eratosthenes()))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 sum-primes.py
+<span class="kw">real</span>   0m3.015s
+<span class="kw">user</span>   0m2.543s
+<span class="kw">sys</span>    0m0.043s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
-puts <span class="dt">Prime</span>.take_while{ |n| n &lt; <span class="dv">2000000</span> }.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby sum-primes.rb
+puts <span class="dt">Prime</span>.take_while{ |n| n &lt; <span class="dv">2000000</span> }.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby sum-primes.rb
 <span class="kw">real</span>   0m6.668s
 <span class="kw">user</span>   0m6.639s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

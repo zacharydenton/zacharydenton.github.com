@@ -45,7 +45,7 @@
 <p>The primes 3, 7, 109, and 673, are quite remarkable. By taking any two primes and concatenating them in any order the result will always be prime. For example, taking 7 and 109, both 7109 and 1097 are prime. The sum of these four primes, 792, represents the lowest sum for a set of four primes with this property.</p>
 <p>Find the lowest sum for a set of five primes for which any two primes concatenate to produce another prime.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Int</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Int</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
     sieve (p<span class="fu">:</span>ps) xs <span class="fu">=</span> h <span class="fu">++</span> sieve ps [x <span class="fu">|</span> x <span class="ot">&lt;-</span> t, rem x p <span class="fu">/=</span> <span class="dv">0</span>]
                       <span class="kw">where</span> (h, t) <span class="fu">=</span> span (<span class="fu">&lt;</span> p<span class="fu">*</span>p) xs
@@ -74,12 +74,12 @@ candidates <span class="fu">=</span> filter allPrime [[a, b, c, d, e] <span clas
     <span class="kw">where</span> primes' <span class="fu">=</span> takeWhile (<span class="fu">&lt;</span> <span class="dv">10000</span>) primes
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-pairs prime-pairs.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> head candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-pairs prime-pairs.hs
 $ <span class="kw">time</span> ./prime-pairs
 <span class="kw">real</span>   0m0.709s
 <span class="kw">user</span>   0m0.632s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

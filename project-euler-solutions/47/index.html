@@ -55,7 +55,7 @@
 \end{aligned}$$</span><br /></p>
 <p>Find the first four consecutive integers to have four distinct primes factors. What is the first of these numbers?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub)
 
 <span class="ot">primes ::</span> [<span class="dt">Int</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -83,14 +83,14 @@ chunks n l <span class="fu">|</span> length chunk <span class="fu">&lt;</span> n
 candidates <span class="fu">=</span> [cons <span class="fu">|</span> cons <span class="ot">&lt;-</span> chunks <span class="dv">4</span> [<span class="dv">1</span><span class="fu">..</span>], all ((<span class="fu">==</span> <span class="dv">4</span>) <span class="fu">.</span> uniqueFactors) cons]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> head candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-factors consecutive-factors.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> head candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o consecutive-factors consecutive-factors.hs
 $ <span class="kw">time</span> ./consecutive-factors
 <span class="kw">real</span>   0m0.118s
 <span class="kw">user</span>   0m0.114s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
 
 <span class="kw">def</span> factorize(n):
@@ -128,21 +128,21 @@ $ <span class="kw">time</span> ./consecutive-factors
             chain.append(n)
     <span class="dt">print</span> (chain[i:i+search] <span class="kw">for</span> i, n in <span class="dt">enumerate</span>(chain) <span class="kw">if</span> chain[i:i+search] == <span class="dt">range</span>(n, n+search)).<span class="dt">next</span>()[<span class="dv">0</span>]
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 consecutive-factors.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 consecutive-factors.py
 <span class="kw">real</span>   0m17.201s
 <span class="kw">user</span>   0m17.151s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">sys</span>    0m0.017s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">1000000</span>).each_cons(<span class="dv">4</span>).detect { |nums| 
   nums.all? { |n| n.prime_division.length == <span class="dv">4</span> } 
-}[<span class="dv">0</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby consecutive-factors.rb
+}[<span class="dv">0</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby consecutive-factors.rb
 <span class="kw">real</span>   0m4.616s
 <span class="kw">user</span>   0m4.607s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

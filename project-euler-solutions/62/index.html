@@ -49,21 +49,21 @@ The cube, <span class="math">41063625</span> (<span class="math">345<sup>3</sup>
 Find the smallest cube for which exactly five permutations of its digits are cube.
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 <span class="kw">import qualified</span> <span class="dt">Data.Map</span> <span class="kw">as</span> <span class="dt">Map</span>
 
 <span class="ot">cubes ::</span> <span class="dt">Map.Map</span> <span class="dt">String</span> [<span class="dt">Integer</span>]
 cubes <span class="fu">=</span> Map.fromListWith (<span class="fu">++</span>) [(sort (show cube), [cube]) <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">10000</span>], <span class="kw">let</span> cube <span class="fu">=</span> x<span class="fu">^</span><span class="dv">3</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> minimum [minimum ns <span class="fu">|</span> (_, ns) <span class="ot">&lt;-</span> Map.toList cubes, length ns <span class="fu">==</span> <span class="dv">5</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o cubic-permutations cubic-permutations.hs
+main <span class="fu">=</span> print <span class="fu">$</span> minimum [minimum ns <span class="fu">|</span> (_, ns) <span class="ot">&lt;-</span> Map.toList cubes, length ns <span class="fu">==</span> <span class="dv">5</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o cubic-permutations cubic-permutations.hs
 $ <span class="kw">time</span> ./cubic-permutations
 <span class="kw">real</span>   0m0.072s
 <span class="kw">user</span>   0m0.065s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 <span class="kw">def</span> cube(x): <span class="kw">return</span> x**<span class="dv">3</span>
 
@@ -76,11 +76,11 @@ $ <span class="kw">time</span> ./cubic-permutations
     <span class="dt">print</span> <span class="dt">min</span>([<span class="dt">min</span>(v) <span class="kw">for</span> k, v in cubes.items() <span class="kw">if</span> <span class="dt">len</span>(v) == <span class="dv">5</span>])
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 cube-permutations.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 cube-permutations.py
 <span class="kw">real</span>   0m0.054s
 <span class="kw">user</span>   0m0.050s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

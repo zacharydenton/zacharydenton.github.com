@@ -48,7 +48,7 @@
 <h3 id="ruby">Ruby</h3>
 <p>Ruby was the first “real” programming language I learned. Before Ruby, I was writing simple programs on my TI-89, but that doesn’t really count. If you’re wondering, I first learned how to program by reading the excellent <a href="http://pine.fm/LearnToProgram/" title="Learn to Program"><em>Learn to Program</em></a>, by Chris Pine.</p>
 <p>In Ruby, the easiest way to get the digits of a number is simply to convert the number into a string. Once that is established, one simply needs to apply the aforementioned algorithm to each number within a certain limit to find the Munchausen numbers within that limit:</p>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 <span class="co"># munchausen.rb - finds munchausen numbers</span>
 
 <span class="dv">5000</span>.times <span class="kw">do</span> |i|
@@ -61,11 +61,11 @@
     <span class="kw">if</span> sum == i
         puts i.to_s() + <span class="st">&quot; (munchausen)&quot;</span>
     <span class="kw">end</span>
-<span class="kw">end</span></code></pre>
+<span class="kw">end</span></code></pre></div>
 <h3 id="c">C</h3>
 <p>C is great if you need to eke out every last drop of performance from your machine. I wouldn’t think of using it in any other case, though. That being said, it is much easier than assembly language, but come on people – this is the 21st century.</p>
 <p>I took a slightly different approach here and used modular arithmetic to extract the digits from the number. To find the least significant digit, we take the remainder when the number is divided by 10. We do this until all digits have been extracted. Then we simply apply the algorithm as in the previous example.</p>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="co">// calculate munchausen numbers</span>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// calculate munchausen numbers</span>
 <span class="ot">#include &lt;stdio.h&gt;</span>
 <span class="ot">#include &lt;math.h&gt;</span>
 
@@ -93,13 +93,13 @@
         } 
     }
     <span class="kw">return</span> <span class="dv">0</span>;
-}</code></pre>
+}</code></pre></div>
 <h3 id="clojure">Clojure</h3>
 <p>Clojure is an interesting new language, conceived in 2008. It is a Lisp which targets the Java Virtual Machine, meaning it can make use of any existing Java code whilst being written in a functional style.</p>
 <p>Functional programming is an intriguing concept. It seems more theoretical than the imperative style I am used to, but perhaps that is because I am learning the language by reading <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html" title="Structure and Interpretation of Computer Programs"><em>Structure and Interpretation of Computer Programs</em></a>.</p>
 <p>One thing about Clojure that seems strange to me is the fact that it lacks a standard library. This means that you have to define your own exponentiation function. In this case, I just used a function from the Java standard library.</p>
 <p>The other idiosyncrasy I noticed is that in Clojure, converting a char to an int returns the ASCII representation of that char, rather than performing a direct conversion. Thus, we must subtract 48 in order to receive the number itself.</p>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> ** </span>[x n]
   (. (. java.math.BigInteger (valueOf x)) (pow n)))
 
@@ -122,11 +122,11 @@
   (<span class="kw">=</span> (<span class="kw">apply</span> <span class="kw">+</span> (<span class="kw">map</span> raise-to-itself (digits number))) number))
 
 (<span class="kw">def</span><span class="fu"> munchausen </span>(<span class="kw">filter</span> munchausen? (<span class="kw">range</span> <span class="dv">5000</span>)))
-(<span class="kw">println</span> munchausen)</code></pre>
+(<span class="kw">println</span> munchausen)</code></pre></div>
 <h3 id="python">Python</h3>
 <p>Python is easily my favorite language. Everything about it just seems “right”. Of course, this is probably because it is the language I use the most – but then we have a chicken-or-egg scenario, don’t we?</p>
 <p>Here’s the program written in Python. I used it to find every Munchausen number less than 500,000,000. After thirty minutes or so of intense computation, it turns out that the only Munchausen numbers are 1 and 3435. Others have posited that 438,579,088 is a Munchausen number, but this is false because <span class="math">0<sup>0</sup> = 1</span>, at least in most programming languages.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="co"># calculates munchausen numbers</span>
 <span class="co">#</span>
 <span class="co"># these are numbers with the property</span>
@@ -137,7 +137,7 @@
 <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">5000</span>):
     digits = (<span class="dt">int</span>(digit) <span class="kw">for</span> digit in <span class="dt">str</span>(i))
     <span class="kw">if</span> <span class="dt">sum</span>(digit ** digit <span class="kw">for</span> digit in digits) == i:
-        <span class="dt">print</span>(i, <span class="st">&quot;(munchausen)&quot;</span>)</code></pre>
+        <span class="dt">print</span>(i, <span class="st">&quot;(munchausen)&quot;</span>)</code></pre></div>
 </article>
 
         <script src="../js/main.js"></script>

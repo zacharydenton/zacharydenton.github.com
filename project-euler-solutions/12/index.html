@@ -61,7 +61,7 @@ Let us list the factors of the first seven triangle numbers:
 We can see that 28 is the first triangle number to have over five divisors. What is the value of the first triangle number to have over five hundred divisors?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (group)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (group)
 
 <span class="ot">triangles ::</span> [<span class="dt">Int</span>]
 triangles <span class="fu">=</span> scanl1 (<span class="fu">+</span>) [<span class="dv">1</span><span class="fu">..</span>]
@@ -91,14 +91,14 @@ divisors n <span class="fu">=</span> map product <span class="fu">$</span> seque
 numDivisors n <span class="fu">=</span> product [k <span class="fu">+</span> <span class="dv">1</span> <span class="fu">|</span> (_, k) <span class="ot">&lt;-</span> primePowers n]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> dropWhile (\n <span class="ot">-&gt;</span> numDivisors n <span class="fu">&lt;=</span> <span class="dv">500</span>) triangles</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-numbers triangle-numbers.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head <span class="fu">$</span> dropWhile (\n <span class="ot">-&gt;</span> numDivisors n <span class="fu">&lt;=</span> <span class="dv">500</span>) triangles</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o triangle-numbers triangle-numbers.hs
 $ <span class="kw">time</span> ./triangle-numbers
 <span class="kw">real</span>   0m0.047s
 <span class="kw">user</span>   0m0.043s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 
@@ -113,13 +113,13 @@ $ <span class="kw">time</span> ./triangle-numbers
         res.append(<span class="dv">2</span>)
         n //= <span class="dv">2</span>
     <span class="co"># try odd numbers up to sqrt(n)</span>
-    limit = math.sqrt(n<span class="dv">+1</span>)
+    limit = math.sqrt(n + <span class="dv">1</span>)
     i = <span class="dv">3</span>
     <span class="kw">while</span> i &lt;= limit:
         <span class="kw">if</span> n % i == <span class="dv">0</span>:
             res.append(i)
             n //= i
-            limit = math.sqrt(n+i)
+            limit = math.sqrt(n + i)
         <span class="kw">else</span>:
             i += <span class="dv">2</span>
     <span class="kw">if</span> n != <span class="dv">1</span>:
@@ -133,7 +133,7 @@ _triangle_cache = {<span class="dv">1</span>: <span class="dv">1</span>}
     <span class="kw">try</span>:
         <span class="kw">return</span> _triangle_cache[n]
     <span class="kw">except</span> <span class="ot">KeyError</span>:
-        result = n + triangle(n<span class="dv">-1</span>)
+        result = n + triangle(n - <span class="dv">1</span>)
         _triangle_cache[n] = result
         <span class="kw">return</span> result
 
@@ -150,15 +150,15 @@ _triangle_cache = {<span class="dv">1</span>: <span class="dv">1</span>}
     <span class="kw">except</span>:
         <span class="kw">return</span> <span class="dv">1</span>
 
-triangles = (triangle(i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">100000</span>))
+triangles = (triangle(i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">100000</span>))
 divisible_triangles = (i <span class="kw">for</span> i in triangles <span class="kw">if</span> num_divisors(i) &gt; <span class="dv">500</span>)
-<span class="dt">print</span> divisible_triangles.<span class="dt">next</span>()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-numbers.py
-<span class="kw">real</span>   0m0.443s
-<span class="kw">user</span>   0m0.438s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="dt">print</span> divisible_triangles.<span class="dt">next</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 triangle-numbers.py
+<span class="kw">real</span>   0m0.488s
+<span class="kw">user</span>   0m0.445s
+<span class="kw">sys</span>    0m0.015s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
@@ -181,11 +181,11 @@ triangles = <span class="dt">Enumerator</span>.new <span class="kw">do</span> |y
   <span class="kw">end</span>
 <span class="kw">end</span>
 
-puts triangles.detect { |t| t.divisors.count &gt; <span class="dv">500</span> }</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-numbers.rb
+puts triangles.detect { |t| t.divisors.count &gt; <span class="dv">500</span> }</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby triangle-numbers.rb
 <span class="kw">real</span>   0m4.037s
 <span class="kw">user</span>   0m4.013s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

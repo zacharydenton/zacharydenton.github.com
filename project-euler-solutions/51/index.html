@@ -46,7 +46,7 @@
 <p>By replacing the 3rd and 4th digits of 56**3 with the same digit, this 5-digit number is the first example having seven primes among the ten generated numbers, yielding the family: 56003, 56113, 56333, 56443, 56663, 56773, and 56993. Consequently 56003, being the first member of this family, is the smallest prime with this property.</p>
 <p>Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group)
 
 <span class="ot">primes ::</span> [<span class="dt">Int</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -73,14 +73,14 @@ replace old new <span class="fu">=</span> foldr (\x acc <span class="ot">-&gt;</
 expand (d, ds) <span class="fu">=</span> [new <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="ch">'1'</span><span class="fu">..</span><span class="ch">'9'</span>], <span class="kw">let</span> new <span class="fu">=</span> replace d n ds, isPrime (read new)]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> putStrLn <span class="fu">$</span> snd <span class="fu">.</span> head <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">8</span>) <span class="fu">.</span> length <span class="fu">.</span> expand) candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-replacement prime-replacement.hs
+main <span class="fu">=</span> putStrLn <span class="fu">$</span> snd <span class="fu">.</span> head <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">8</span>) <span class="fu">.</span> length <span class="fu">.</span> expand) candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-replacement prime-replacement.hs
 $ <span class="kw">time</span> ./prime-replacement
 <span class="kw">real</span>   0m0.152s
 <span class="kw">user</span>   0m0.139s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 <span class="kw">def</span> primes(n): 
     <span class="kw">if</span> n==<span class="dv">2</span>: <span class="kw">return</span> [<span class="dv">2</span>]
@@ -141,11 +141,11 @@ __primes = primes(<span class="dv">31622</span>)
                 <span class="kw">return</span>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 changing-primes.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 changing-primes.py
 <span class="kw">real</span>   0m12.023s
 <span class="kw">user</span>   0m11.710s
-<span class="kw">sys</span>    0m0.013s</code></pre>
+<span class="kw">sys</span>    0m0.013s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

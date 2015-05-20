@@ -51,15 +51,15 @@
 <p>It can be verified that the sum of the numbers on the diagonals is 101.</p>
 <p>What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> foldr (<span class="fu">+</span>) <span class="dv">1</span> [<span class="dv">4</span><span class="fu">*</span>n<span class="fu">^</span><span class="dv">2</span> <span class="fu">-</span> <span class="dv">6</span><span class="fu">*</span>n <span class="fu">+</span> <span class="dv">6</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span><span class="dv">1001</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral spiral.hs
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> foldr (<span class="fu">+</span>) <span class="dv">1</span> [<span class="dv">4</span><span class="fu">*</span>n<span class="fu">^</span><span class="dv">2</span> <span class="fu">-</span> <span class="dv">6</span><span class="fu">*</span>n <span class="fu">+</span> <span class="dv">6</span> <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span><span class="dv">1001</span>]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral spiral.hs
 $ <span class="kw">time</span> ./spiral
 <span class="kw">real</span>   0m0.006s
 <span class="kw">user</span>   0m0.001s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> sum_diagonals_of_spiral(size):
     n = <span class="dv">1</span>
     step = <span class="dv">2</span>
@@ -74,13 +74,13 @@ $ <span class="kw">time</span> ./spiral
             since_last = <span class="dv">0</span>
     <span class="kw">return</span> total
 
-<span class="dt">print</span> sum_diagonals_of_spiral(<span class="dv">1001</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 spiral.py
+<span class="dt">print</span> sum_diagonals_of_spiral(<span class="dv">1001</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 spiral.py
 <span class="kw">real</span>   0m0.017s
 <span class="kw">user</span>   0m0.010s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 i = <span class="dv">1</span>
 sum = i
 step = <span class="dv">2</span>
@@ -88,11 +88,11 @@ step = <span class="dv">2</span>
   <span class="dv">4</span>.times { sum += i += step }
   step += <span class="dv">2</span>
 <span class="kw">end</span>
-puts sum</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby spiral.rb
+puts sum</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby spiral.rb
 <span class="kw">real</span>   0m0.014s
 <span class="kw">user</span>   0m0.012s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

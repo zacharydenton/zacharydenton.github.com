@@ -60,7 +60,7 @@ It is interesting to note that the odd squares lie along the bottom right diagon
 If one complete new layer is wrapped around the spiral above, a square spiral with side length 9 will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below 10%?
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPrime n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
           <span class="fu">|</span> otherwise <span class="fu">=</span> not <span class="fu">$</span> or [n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n]]
 
@@ -71,14 +71,14 @@ primeCorners n <span class="fu">=</span> sum [<span class="dv">1</span> <span cl
 expansion <span class="fu">=</span> scanl (\(p, t) x <span class="ot">-&gt;</span> (p <span class="fu">+</span> primeCorners x, t <span class="fu">+</span> <span class="dv">4</span>)) (<span class="dv">0</span>, <span class="dv">1</span>) [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> (length <span class="fu">$</span> takeWhile id <span class="fu">$</span> tail [<span class="dv">10</span><span class="fu">*</span>p <span class="fu">&gt;=</span> t <span class="fu">|</span> (p, t) <span class="ot">&lt;-</span> expansion])</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes spiral-primes.hs
+main <span class="fu">=</span> print <span class="fu">$</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> (length <span class="fu">$</span> takeWhile id <span class="fu">$</span> tail [<span class="dv">10</span><span class="fu">*</span>p <span class="fu">&gt;=</span> t <span class="fu">|</span> (p, t) <span class="ot">&lt;-</span> expansion])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o spiral-primes spiral-primes.hs
 $ <span class="kw">time</span> ./spiral-primes
 <span class="kw">real</span>   0m1.176s
 <span class="kw">user</span>   0m1.166s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 
@@ -159,11 +159,11 @@ $ <span class="kw">time</span> ./spiral-primes
             <span class="kw">return</span>
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 spiral-primes.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 spiral-primes.py
 <span class="kw">real</span>   0m13.495s
 <span class="kw">user</span>   0m13.205s
-<span class="kw">sys</span>    0m0.010s</code></pre>
+<span class="kw">sys</span>    0m0.010s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

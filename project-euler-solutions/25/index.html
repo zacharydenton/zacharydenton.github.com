@@ -62,39 +62,39 @@ F_{12} &amp;= 144
 <p>The 12th term, <span class="math"><em>F</em><sub>12</sub></span>, is the first term to contain three digits.</p>
 <p>What is the first term in the Fibonacci sequence to contain 1000 digits?</p>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">def</span><span class="fu"> fibs</span>
   (<span class="kw">lazy-cat</span> [(BigInteger/ZERO) (BigInteger/ONE)] (<span class="kw">map</span> <span class="kw">+</span> fibs (<span class="kw">rest</span> fibs))))
 
-(<span class="kw">println</span> (<span class="kw">count</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % (.pow (BigInteger/TEN) <span class="dv">999</span>)) fibs)))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fibonacci.clj
+(<span class="kw">println</span> (<span class="kw">count</span> (<span class="kw">take-while</span> #(<span class="kw">&lt;</span> % (.pow (BigInteger/TEN) <span class="dv">999</span>)) fibs)))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure fibonacci.clj
 <span class="kw">real</span>   0m1.400s
 <span class="kw">user</span>   0m1.782s
-<span class="kw">sys</span>    0m0.050s</code></pre>
+<span class="kw">sys</span>    0m0.050s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="fu">==</span><span class="dv">1000</span>) <span class="fu">.</span> length <span class="fu">.</span> show <span class="fu">$</span> fibs <span class="fu">!!</span> i]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci fibonacci.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head [i <span class="fu">|</span> i <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="fu">==</span><span class="dv">1000</span>) <span class="fu">.</span> length <span class="fu">.</span> show <span class="fu">$</span> fibs <span class="fu">!!</span> i]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o fibonacci fibonacci.hs
 $ <span class="kw">time</span> ./fibonacci
 <span class="kw">real</span>   0m0.185s
 <span class="kw">user</span>   0m0.174s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 i = <span class="dv">1</span>
 t1, t2 = <span class="dv">0</span>, <span class="dv">1</span>
 <span class="kw">while</span> t2.to_s.length &lt; <span class="dv">1000</span>
   t1, t2 = t2, t1 + t2
   i += <span class="dv">1</span>
 <span class="kw">end</span>
-puts i</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby fibonacci.rb
+puts i</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby fibonacci.rb
 <span class="kw">real</span>   0m0.223s
 <span class="kw">user</span>   0m0.213s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

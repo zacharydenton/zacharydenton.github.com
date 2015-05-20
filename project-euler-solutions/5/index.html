@@ -52,7 +52,7 @@
 <pre><code>step = divisible_to(x-1)</code></pre>
 <p>This is a recursive solution to the problem, and yields incredible performance. It can calculate the smallest number divisible to 500 in a fraction of a second.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isDivisibleTo ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isDivisibleTo ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isDivisibleTo x n <span class="fu">=</span> all (\i <span class="ot">-&gt;</span> n <span class="ot">`mod`</span> i <span class="fu">==</span> <span class="dv">0</span>) (reverse [<span class="dv">1</span><span class="fu">..</span>x])
 
 <span class="ot">divisibleTo ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
@@ -61,14 +61,14 @@ divisibleTo x <span class="fu">=</span> <span class="kw">let</span> step <span c
                 <span class="kw">in</span>  head <span class="fu">$</span> filter (isDivisibleTo x) [step,<span class="dv">2</span><span class="fu">*</span>step<span class="fu">..</span>]
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> divisibleTo <span class="dv">20</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o divisible divisible.hs
+main <span class="fu">=</span> print <span class="fu">$</span> divisibleTo <span class="dv">20</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o divisible divisible.hs
 $ <span class="kw">time</span> ./divisible
 <span class="kw">real</span>   0m0.004s
 <span class="kw">user</span>   0m0.001s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> is_divisible_to(number, x):
     <span class="kw">for</span> i in <span class="dt">reversed</span>(<span class="dt">range</span>(<span class="dv">1</span>, x<span class="dv">+1</span>)):
         <span class="kw">if</span> number % i != <span class="dv">0</span>:
@@ -89,13 +89,13 @@ $ <span class="kw">time</span> ./divisible
             found = is_divisible_to(number, x)
         <span class="kw">return</span> number
 
-<span class="dt">print</span> divisible_to(<span class="dv">20</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 divisible.py
+<span class="dt">print</span> divisible_to(<span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 divisible.py
 <span class="kw">real</span>   0m0.011s
 <span class="kw">user</span>   0m0.009s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">class</span> <span class="dt">Numeric</span>
   <span class="kw">def</span> divisible_to?(x)
@@ -118,11 +118,11 @@ $ <span class="kw">time</span> ./divisible
   <span class="kw">end</span>
 <span class="kw">end</span>
 
-puts divisible_to(<span class="dv">20</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby divisible.rb
+puts divisible_to(<span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby divisible.rb
 <span class="kw">real</span>   0m0.017s
 <span class="kw">user</span>   0m0.012s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -47,7 +47,7 @@
 <p>Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.</p>
 <p>HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub, sort)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (nub, sort)
 
 <span class="ot">candidates ::</span> [(<span class="dt">String</span>, <span class="dt">Integer</span>)]
 candidates <span class="fu">=</span> [(concatMap show [a, b, a<span class="fu">*</span>b], a<span class="fu">*</span>b) <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">2000</span>], b <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">50</span>]]
@@ -56,14 +56,14 @@ candidates <span class="fu">=</span> [(concatMap show [a, b, a<span class="fu">*
 pandigital <span class="fu">=</span> (<span class="fu">==</span> <span class="st">&quot;123456789&quot;</span>) <span class="fu">.</span> sort
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> nub [p <span class="fu">|</span> (digits, p) <span class="ot">&lt;-</span> candidates, pandigital digits]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital pandigital.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> nub [p <span class="fu">|</span> (digits, p) <span class="ot">&lt;-</span> candidates, pandigital digits]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital pandigital.hs
 $ <span class="kw">time</span> ./pandigital
 <span class="kw">real</span>   0m0.109s
 <span class="kw">user</span>   0m0.102s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> is_pandigital(*args, **kwargs):
     num = <span class="dt">sorted</span>(<span class="st">''</span>.join(<span class="dt">str</span>(arg) <span class="kw">for</span> arg in args))
 
@@ -89,24 +89,24 @@ $ <span class="kw">time</span> ./pandigital
     <span class="dt">print</span> <span class="dt">sum</span>(pandigitals)
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-products.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-products.py
 <span class="kw">real</span>   0m1.469s
 <span class="kw">user</span>   0m1.464s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">1</span>..<span class="dv">4999</span>).flat_map { |a|
   (<span class="dv">1</span>..<span class="dv">99</span>).map <span class="kw">do</span> |b|  
     [a.to_s + b.to_s + (a*b).to_s, a*b]
   <span class="kw">end</span>
 }.select { |p| 
   p[<span class="dv">0</span>].length == <span class="dv">9</span> &amp;&amp; p[<span class="dv">0</span>].each_char.sort.join == <span class="st">&quot;123456789&quot;</span>
-}.map { |p| p[<span class="dv">1</span>] }.uniq.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital.rb
+}.map { |p| p[<span class="dv">1</span>] }.uniq.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital.rb
 <span class="kw">real</span>   0m1.195s
 <span class="kw">user</span>   0m1.165s
-<span class="kw">sys</span>    0m0.028s</code></pre>
+<span class="kw">sys</span>    0m0.028s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -47,7 +47,7 @@
 <p>As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
 <p>Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group, union)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, group, union)
 <span class="kw">import </span><span class="dt">Data.Array</span>
 
 <span class="ot">pairwise ::</span> (a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]
@@ -98,14 +98,14 @@ remainders x <span class="fu">=</span> map (x<span class="fu">-</span>) <span cl
 sums <span class="fu">=</span> filter (any (abundantsArray <span class="fu">!</span>) <span class="fu">.</span> remainders) [<span class="dv">1</span><span class="fu">..</span>upperBound]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o abundant abundant.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum [<span class="dv">1</span><span class="fu">..</span>upperBound] <span class="fu">-</span> sum sums</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o abundant abundant.hs
 $ <span class="kw">time</span> ./abundant
 <span class="kw">real</span>   0m0.132s
 <span class="kw">user</span>   0m0.130s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="ch">import</span> math
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -176,13 +176,13 @@ $ <span class="kw">time</span> ./abundant
     <span class="dt">print</span>(<span class="dt">sum</span>(number <span class="kw">for</span> number in <span class="dt">range</span>(<span class="dv">1</span>,<span class="dv">30000</span>) <span class="kw">if</span> number not in sums))
     
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 abundant.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 abundant.py
 <span class="kw">real</span>   0m11.288s
 <span class="kw">user</span>   0m11.172s
-<span class="kw">sys</span>    0m0.009s</code></pre>
+<span class="kw">sys</span>    0m0.009s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span> 
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
@@ -212,11 +212,11 @@ abundants.each <span class="kw">do</span> |x|
   i += <span class="dv">1</span>
 <span class="kw">end</span>
 sums.uniq!
-puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby abundant.rb
+puts (<span class="dv">1</span>..<span class="dv">28213</span>).reject { |n| sums.include? n }.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby abundant.rb
 <span class="kw">real</span>   0m25.451s
 <span class="kw">user</span>   0m25.058s
-<span class="kw">sys</span>    0m0.058s</code></pre>
+<span class="kw">sys</span>    0m0.058s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

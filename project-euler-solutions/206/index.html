@@ -44,7 +44,7 @@
   <h2 id="question">Question</h2>
 <p>Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0, where each “_” is a single digit.</p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
 <span class="kw">def</span> is_concealed(n):
     digits = <span class="dt">str</span>(n)
@@ -59,11 +59,11 @@
     <span class="dt">print</span> (n <span class="kw">for</span> n in <span class="dt">xrange</span>(<span class="dv">1000000000</span>, <span class="dv">1390000000</span>, <span class="dv">10</span>)
         <span class="kw">if</span> (n % <span class="dv">100</span> == <span class="dv">30</span> or n % <span class="dv">100</span> == <span class="dv">70</span>) and is_concealed(n*n)).<span class="dt">next</span>()
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 concealed.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 concealed.py
 <span class="kw">real</span>   0m18.522s
 <span class="kw">user</span>   0m18.400s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

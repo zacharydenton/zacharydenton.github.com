@@ -45,17 +45,17 @@
 <p>It can be seen that the number, 125874, and its double, 251748, contain exactly the same digits, but in a different order.</p>
 <p>Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> head [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], all ((<span class="fu">==</span> (sort <span class="fu">.</span> show) n) <span class="fu">.</span> (sort <span class="fu">.</span> show) <span class="fu">.</span> (n<span class="fu">*</span>)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">6</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permuted-multiples permuted-multiples.hs
+main <span class="fu">=</span> print <span class="fu">$</span> head [n <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], all ((<span class="fu">==</span> (sort <span class="fu">.</span> show) n) <span class="fu">.</span> (sort <span class="fu">.</span> show) <span class="fu">.</span> (n<span class="fu">*</span>)) [<span class="dv">1</span><span class="fu">..</span><span class="dv">6</span>]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o permuted-multiples permuted-multiples.hs
 $ <span class="kw">time</span> ./permuted-multiples
 <span class="kw">real</span>   0m0.249s
 <span class="kw">user</span>   0m0.214s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
 <span class="kw">def</span> get_digits(n):
     <span class="kw">return</span> <span class="dt">sorted</span>(<span class="dt">str</span>(n))
@@ -77,11 +77,11 @@ $ <span class="kw">time</span> ./permuted-multiples
     <span class="dt">print</span> n
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 same-digits.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 same-digits.py
 <span class="kw">real</span>   0m0.504s
 <span class="kw">user</span>   0m0.484s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

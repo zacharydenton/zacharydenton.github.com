@@ -48,7 +48,7 @@
 <p><strong>120 cm</strong>: (30,40,50), (20,48,52), (24,45,51)</p>
 <p>Given that <span class="math"><em>L</em></span> is the length of the wire, for how many values of <span class="math"><em>L</em> ≤ 1500000</span> can exactly one integer sided right angle triangle be formed?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Array</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.Array</span>
 
 <span class="ot">triples ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
 triples limit <span class="fu">=</span> [a <span class="fu">+</span> b <span class="fu">+</span> c <span class="fu">|</span> u <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>l'], v <span class="ot">&lt;-</span> [u<span class="fu">+</span><span class="dv">1</span>,u<span class="fu">+</span><span class="dv">3</span><span class="fu">..</span>l'<span class="fu">-</span>u], gcd u v <span class="fu">==</span> <span class="dv">1</span>,
@@ -59,12 +59,12 @@ triples limit <span class="fu">=</span> [a <span class="fu">+</span> b <span cla
 perimeters limit <span class="fu">=</span> accumArray (<span class="fu">+</span>) <span class="dv">0</span> (<span class="dv">1</span>, limit) <span class="fu">$</span> map (\p <span class="ot">-&gt;</span> (p, <span class="dv">1</span>)) <span class="fu">$</span> concat [takeWhile (<span class="fu">&lt;=</span> limit) <span class="fu">$</span> map (<span class="fu">*</span>p) [<span class="dv">1</span><span class="fu">..</span>] <span class="fu">|</span> p <span class="ot">&lt;-</span> triples limit]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">==</span> <span class="dv">1</span>) <span class="fu">$</span> elems <span class="fu">$</span> perimeters <span class="dv">1500000</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o singular-triangles singular-triangles.hs
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter (<span class="fu">==</span> <span class="dv">1</span>) <span class="fu">$</span> elems <span class="fu">$</span> perimeters <span class="dv">1500000</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o singular-triangles singular-triangles.hs
 $ <span class="kw">time</span> ./singular-triangles
 <span class="kw">real</span>   0m2.342s
 <span class="kw">user</span>   0m2.254s
-<span class="kw">sys</span>    0m0.023s</code></pre>
+<span class="kw">sys</span>    0m0.023s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

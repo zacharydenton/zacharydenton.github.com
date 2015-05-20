@@ -76,7 +76,7 @@ The minimal path sum in the 5 by 5 matrix below, by starting in any cell in the 
 Find the minimal path sum, in <a href="http://projecteuler.net/project/matrix.txt">matrix.txt</a> (right click and ‘Save Link/Target As…’), a 31K text file containing a 80 by 80 matrix, from the left column to the right column.
 </p>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python2</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python2</span>
 <span class="ch">import</span> os
 <span class="ch">import</span> heapq
 
@@ -125,11 +125,11 @@ Find the minimal path sum, in <a href="http://projecteuler.net/project/matrix.tx
     sources = [(<span class="dv">0</span>, y) <span class="kw">for</span> y, row in <span class="dt">enumerate</span>(matrix)]
     <span class="dt">print</span> <span class="dt">sum</span>(matrix[y][x] <span class="kw">for</span> (x, y) in astar(matrix, targets, sources))
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 path-sum.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 path-sum.py
 <span class="kw">real</span>   0m2.576s
 <span class="kw">user</span>   0m2.531s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

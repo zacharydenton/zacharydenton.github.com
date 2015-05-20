@@ -52,7 +52,7 @@ Interestingly, <span class="math"><em>φ</em>(87109) = 79180</span>, and it 
 Find the value of <span class="math"><em>n</em></span>, <span class="math">1 &lt; <em>n</em> &lt; 10<sup>7</sup></span>, for which <span class="math"><em>φ</em>(<em>n</em>)</span> is a permutation of <span class="math"><em>n</em></span> and the ratio <span class="math">$\frac{n}{\varphi(n)}$</span> produces a minimum.
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort)
 
 <span class="ot">primes ::</span> [<span class="dt">Int</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
@@ -70,14 +70,14 @@ candidates <span class="fu">=</span> [(n, phi) <span class="fu">|</span> p1 <spa
     <span class="kw">where</span> ps <span class="fu">=</span> take <span class="dv">500</span> primes
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> minimum [(fromIntegral n <span class="fu">/</span> fromIntegral phi, n) <span class="fu">|</span> (n, phi) <span class="ot">&lt;-</span> candidates, permutation n phi]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient-permutation totient-permutation.hs
+main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> minimum [(fromIntegral n <span class="fu">/</span> fromIntegral phi, n) <span class="fu">|</span> (n, phi) <span class="ot">&lt;-</span> candidates, permutation n phi]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient-permutation totient-permutation.hs
 $ <span class="kw">time</span> ./totient-permutation
 <span class="kw">real</span>   0m0.104s
 <span class="kw">user</span>   0m0.102s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> math <span class="ch">import</span> sqrt
 <span class="ch">from</span> operator <span class="ch">import</span> mul
 <span class="ch">from</span> itertools <span class="ch">import</span> *
@@ -113,13 +113,13 @@ $ <span class="kw">time</span> ./totient-permutation
 
     <span class="dt">print</span> minimum[<span class="dv">1</span>]
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 totient.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 totient.py
 <span class="kw">real</span>   0m0.297s
 <span class="kw">user</span>   0m0.296s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 
 min = [<span class="dv">100</span>, <span class="dv">0</span>]
@@ -133,11 +133,11 @@ primes.combination(<span class="dv">2</span>).select { |a, b| a * b &lt; 1e7 }.e
     <span class="kw">end</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
-puts min[<span class="dv">1</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby totient.rb
+puts min[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby totient.rb
 <span class="kw">real</span>   0m2.873s
 <span class="kw">user</span>   0m2.857s
-<span class="kw">sys</span>    0m0.008s</code></pre>
+<span class="kw">sys</span>    0m0.008s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

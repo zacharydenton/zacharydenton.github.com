@@ -45,20 +45,20 @@
 <p>A googol (<span class="math">10<sup>100</sup></span>) is a massive number: one followed by one-hundred zeros; <span class="math">100<sup>100</sup></span> is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only 1.</p>
 <p>Considering natural numbers of the form, <span class="math"><em>a</em><em>b</em></span>, where <span class="math"><em>a</em>, <em>b</em> &lt; 100</span>, what is the maximum digital sum?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">digits ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> [<span class="dt">Integer</span>]
 digits <span class="dv">0</span> <span class="fu">=</span> []
 digits n <span class="fu">=</span> r <span class="fu">:</span> digits q
     <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem n <span class="dv">10</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maximum [sum <span class="fu">$</span> digits <span class="fu">$</span> a<span class="fu">^</span>b <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], b <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o digit-sum digit-sum.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maximum [sum <span class="fu">$</span> digits <span class="fu">$</span> a<span class="fu">^</span>b <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>], b <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">99</span>]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o digit-sum digit-sum.hs
 $ <span class="kw">time</span> ./digit-sum
 <span class="kw">real</span>   0m0.142s
 <span class="kw">user</span>   0m0.139s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 
 <span class="kw">def</span> get_digits(n):
@@ -73,11 +73,11 @@ $ <span class="kw">time</span> ./digit-sum
     <span class="dt">print</span> largest
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 digital-sum.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 digital-sum.py
 <span class="kw">real</span>   0m0.491s
 <span class="kw">user</span>   0m0.468s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

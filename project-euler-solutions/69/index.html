@@ -115,7 +115,7 @@ It can be seen that n=6 produces a maximum n/φ(n) for n ≤ 10.
 Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 </p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">minus ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
 minus xs<span class="fu">@</span>(x<span class="fu">:</span>xt) ys<span class="fu">@</span>(y<span class="fu">:</span>yt) <span class="fu">=</span> <span class="kw">case</span> compare x y <span class="kw">of</span>
@@ -167,14 +167,14 @@ totient <span class="dv">1</span> <span class="fu">=</span> <span class="fl">1.0
 totient n <span class="fu">=</span> (fromIntegral n) <span class="fu">*</span> product [<span class="fl">1.0</span> <span class="fu">-</span> (<span class="fl">1.0</span> <span class="fu">/</span> (fromIntegral p)) <span class="fu">|</span> p <span class="ot">&lt;-</span> uniq <span class="fu">$</span> factorize n]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> maximum [((fromIntegral n) <span class="fu">/</span> (totient n), n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient totient.hs
+main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> maximum [((fromIntegral n) <span class="fu">/</span> (totient n), n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o totient totient.hs
 $ <span class="kw">time</span> ./totient
 <span class="kw">real</span>   0m1.186s
 <span class="kw">user</span>   0m1.177s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
 <span class="ch">from</span> operator <span class="ch">import</span> mul
 
@@ -204,13 +204,13 @@ $ <span class="kw">time</span> ./totient
 <span class="kw">def</span> main():
     <span class="dt">print</span> <span class="dt">max</span>((n / totient(n), n) <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">2</span>, <span class="dv">1000001</span>))[<span class="dv">1</span>]
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 totient.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 totient.py
 <span class="kw">real</span>   0m17.548s
 <span class="kw">user</span>   0m17.377s
-<span class="kw">sys</span>    0m0.020s</code></pre>
+<span class="kw">sys</span>    0m0.020s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'set'</span>
 
 <span class="kw">def</span> factorize(orig)
@@ -239,11 +239,11 @@ require <span class="st">'set'</span>
   n * factorize(n).each_key.map { |p| <span class="dv">1</span> - <span class="fl">1.0</span> / p }.reduce(<span class="dv">1</span>, :*)
 <span class="kw">end</span>
 
-puts (<span class="dv">2</span>..<span class="dv">1000000</span>).map { |n| [n / totient(n), n] }.max[<span class="dv">1</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby totient.rb
+puts (<span class="dv">2</span>..<span class="dv">1000000</span>).map { |n| [n / totient(n), n] }.max[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby totient.rb
 <span class="kw">real</span>   0m37.923s
 <span class="kw">user</span>   0m37.603s
-<span class="kw">sys</span>    0m0.080s</code></pre>
+<span class="kw">sys</span>    0m0.080s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -67,7 +67,7 @@ $$</span><br /></p>
 <p>Starting with 69 produces a chain of five non-repeating terms, but the longest non-repeating chain with a starting number below one million is sixty terms.</p>
 <p>How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Data.Set</span> <span class="kw">as</span> <span class="dt">Set</span>
 
 <span class="ot">factorial ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
 factorial n <span class="fu">=</span> product [<span class="dv">1</span><span class="fu">..</span>n]
@@ -86,12 +86,12 @@ chain <span class="fu">=</span> inner Set.empty <span class="kw">where</span>
                 <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="dv">1</span> <span class="fu">+</span> inner (Set.insert x set) (next x)
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">60</span>) <span class="fu">.</span> chain) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o factorial-chains factorial-chains.hs
+main <span class="fu">=</span> print <span class="fu">$</span> length <span class="fu">$</span> filter ((<span class="fu">==</span> <span class="dv">60</span>) <span class="fu">.</span> chain) [<span class="dv">1</span><span class="fu">..</span><span class="dv">1000000</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o factorial-chains factorial-chains.hs
 $ <span class="kw">time</span> ./factorial-chains
 <span class="kw">real</span>   0m38.074s
 <span class="kw">user</span>   0m37.024s
-<span class="kw">sys</span>    0m0.246s</code></pre>
+<span class="kw">sys</span>    0m0.246s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -49,38 +49,38 @@ A palindromic number reads the same both ways. The largest palindrome made from 
 Find the largest palindrome made from the product of two 3-digit numbers.
 </p>
 <h2 id="clojure">Clojure</h2>
-<pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
+<div class="sourceCode"><pre class="sourceCode clojure"><code class="sourceCode clojure">#!/usr/bin/env clojure
 (<span class="kw">defn</span><span class="fu"> palindrome</span>? [n]
   (<span class="kw">=</span> (<span class="kw">seq</span> (<span class="kw">str</span> n)) (<span class="kw">reverse</span> (<span class="kw">str</span> n))))
 
 (<span class="kw">defn</span><span class="fu"> palindromes </span>[limit]
   (<span class="kw">filter</span> palindrome? (<span class="kw">for</span> [a (<span class="kw">range</span> <span class="dv">100</span> <span class="dv">1000</span>) b (<span class="kw">range</span> a <span class="dv">1000</span>)] (<span class="kw">*</span> a b))))
 
-(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">max</span> (palindromes <span class="dv">1000</span>)))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindrome.clj
+(<span class="kw">println</span> (<span class="kw">reduce</span> <span class="kw">max</span> (palindromes <span class="dv">1000</span>)))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> clojure palindrome.clj
 <span class="kw">real</span>   0m2.162s
 <span class="kw">user</span>   0m2.525s
-<span class="kw">sys</span>    0m0.081s</code></pre>
+<span class="kw">sys</span>    0m0.081s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPalindrome n <span class="fu">=</span> show n <span class="fu">==</span> reverse (show n)
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maximum [prod <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">999</span>], <span class="kw">let</span> prod <span class="fu">=</span> a <span class="fu">*</span> b, isPalindrome prod]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o palindrome palindrome.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maximum [prod <span class="fu">|</span> a <span class="ot">&lt;-</span> [<span class="dv">100</span><span class="fu">..</span><span class="dv">999</span>], b <span class="ot">&lt;-</span> [a<span class="fu">..</span><span class="dv">999</span>], <span class="kw">let</span> prod <span class="fu">=</span> a <span class="fu">*</span> b, isPalindrome prod]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o palindrome palindrome.hs
 $ <span class="kw">time</span> ./palindrome
 <span class="kw">real</span>   0m0.081s
 <span class="kw">user</span>   0m0.077s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
-<span class="dt">print</span> <span class="dt">max</span>(a*b <span class="kw">for</span> a in <span class="dt">range</span>(<span class="dv">100</span>,<span class="dv">1000</span>) <span class="kw">for</span> b in <span class="dt">range</span>(a,<span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">str</span>(a*b) == <span class="dt">str</span>(a*b)[::-<span class="dv">1</span>])</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 palindrome.py
-<span class="kw">real</span>   0m0.321s
-<span class="kw">user</span>   0m0.312s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="dt">print</span> <span class="dt">max</span>(a * b <span class="kw">for</span> a in <span class="dt">range</span>(<span class="dv">100</span>, <span class="dv">1000</span>) <span class="kw">for</span> b in <span class="dt">range</span>(a, <span class="dv">1000</span>) <span class="kw">if</span> <span class="dt">str</span>(a * b) == <span class="dt">str</span>(a * b)[::-<span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 palindrome.py
+<span class="kw">real</span>   0m0.989s
+<span class="kw">user</span>   0m0.321s
+<span class="kw">sys</span>    0m0.007s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">class</span> <span class="dt">Integer</span>
   <span class="kw">def</span> palindromic?
@@ -98,11 +98,11 @@ max = <span class="dv">0</span>
     <span class="kw">end</span>
   <span class="kw">end</span>
 <span class="kw">end</span>
-puts max</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby palindrome.rb
+puts max</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby palindrome.rb
 <span class="kw">real</span>   0m0.450s
 <span class="kw">user</span>   0m0.448s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

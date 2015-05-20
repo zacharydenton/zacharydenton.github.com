@@ -39,7 +39,7 @@
 <pre class="console"><code>$ ./compressor.sh source_dir output_dir</code></pre>
 <p>where <code>source_dir</code> is the path to your music collection and <code>output_dir</code> is the directory in which you would like the resultant MP3 files to be placed.</p>
 <p>Without further ado, here is the script:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env bash</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env bash</span>
 <span class="co"># converts all .flac files to .mp3 and copies them to the</span>
 <span class="co"># OUT directory; copies all .mp3 files to the OUT directory.</span>
 
@@ -104,10 +104,10 @@
 <span class="co"># convert to MP3, preserving ID3 tags</span>
 <span class="kw">echo</span> <span class="st">&quot;encoding </span><span class="ot">$flac</span><span class="st"> to </span><span class="ot">$OF</span><span class="st">&quot;</span>
 <span class="kw">flac</span> -c -dF --silent <span class="st">&quot;</span><span class="ot">$flac</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="kw">lame</span> <span class="ot">$LAMEOPTS</span> \
-<span class="kw">--add-id3v2</span> --pad-id3v2 --ignore-tag-errors --tt <span class="st">&quot;</span><span class="ot">$TITLE</span><span class="st">&quot;</span> --tn <span class="st">&quot;</span><span class="ot">${TRACKNUMBER:-</span>0<span class="ot">}</span><span class="st">&quot;</span> --ta <span class="st">&quot;</span><span class="ot">$ARTIST</span><span class="st">&quot;</span> --tl <span class="st">&quot;</span><span class="ot">$ALBUM</span><span class="st">&quot;</span> --ty <span class="st">&quot;</span><span class="ot">$DATE</span><span class="st">&quot;</span> --tg <span class="st">&quot;</span><span class="ot">${GENRE:-</span>12<span class="ot">}</span><span class="st">&quot;</span> \
-<span class="kw">-</span> <span class="st">&quot;</span><span class="ot">$OF</span><span class="st">&quot;</span>
+--add-id3v2 --pad-id3v2 --ignore-tag-errors --tt <span class="st">&quot;</span><span class="ot">$TITLE</span><span class="st">&quot;</span> --tn <span class="st">&quot;</span><span class="ot">${TRACKNUMBER:-</span>0<span class="ot">}</span><span class="st">&quot;</span> --ta <span class="st">&quot;</span><span class="ot">$ARTIST</span><span class="st">&quot;</span> --tl <span class="st">&quot;</span><span class="ot">$ALBUM</span><span class="st">&quot;</span> --ty <span class="st">&quot;</span><span class="ot">$DATE</span><span class="st">&quot;</span> --tg <span class="st">&quot;</span><span class="ot">${GENRE:-</span>12<span class="ot">}</span><span class="st">&quot;</span> \
+- <span class="st">&quot;</span><span class="ot">$OF</span><span class="st">&quot;</span>
 <span class="kw">fi</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 </article>
 
         <script src="../js/main.js"></script>

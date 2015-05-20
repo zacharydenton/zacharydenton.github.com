@@ -57,7 +57,7 @@
 <p>Where <span class="math">$0.1\overline{6}$</span> means <span class="math">0.1666…</span>, and has a 1-digit recurring cycle. It can be seen that <span class="math">$\frac{1}{7}$</span> has a 6-digit recurring cycle.</p>
 <p>Find the value of <span class="math"><em>d</em> &lt; 1000</span> for which <span class="math">$\frac{1}{d}$</span> contains the longest recurring cycle in its decimal fraction part.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (maximumBy)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (maximumBy)
 <span class="kw">import </span><span class="dt">Data.Function</span> (on)
 
 <span class="ot">cycleLength ::</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
@@ -66,14 +66,14 @@ cycleLength n <span class="fu">|</span> even n <span class="fu">=</span> <span c
               <span class="fu">|</span> otherwise <span class="fu">=</span> head [p <span class="fu">|</span> p <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>], (<span class="dv">10</span><span class="fu">^</span>p <span class="fu">-</span> <span class="dv">1</span>) <span class="ot">`rem`</span> n <span class="fu">==</span> <span class="dv">0</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> cycleLength) [<span class="dv">1</span>,<span class="dv">3</span><span class="fu">..</span><span class="dv">1000</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o decimal-cycle decimal-cycle.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maximumBy (compare <span class="ot">`on`</span> cycleLength) [<span class="dv">1</span>,<span class="dv">3</span><span class="fu">..</span><span class="dv">1000</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o decimal-cycle decimal-cycle.hs
 $ <span class="kw">time</span> ./decimal-cycle
 <span class="kw">real</span>   0m0.471s
 <span class="kw">user</span>   0m0.439s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="kw">def</span> recurring_cycle(n, d):
     <span class="co"># solve 10^s % d == 10^(s+t) % d</span>
     <span class="co"># where t is length and s is start</span>
@@ -83,20 +83,20 @@ $ <span class="kw">time</span> ./decimal-cycle
     <span class="kw">return</span> <span class="dv">0</span>
 
 longest = <span class="dt">max</span>(recurring_cycle(<span class="dv">1</span>, i) <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>))
-<span class="dt">print</span> [i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>) <span class="kw">if</span> recurring_cycle(<span class="dv">1</span>, i) == longest][<span class="dv">0</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 recurring-decimal.py
+<span class="dt">print</span> [i <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">2</span>,<span class="dv">1001</span>) <span class="kw">if</span> recurring_cycle(<span class="dv">1</span>, i) == longest][<span class="dv">0</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 recurring-decimal.py
 <span class="kw">real</span>   0m2.709s
 <span class="kw">user</span>   0m2.518s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 puts (<span class="dv">0</span>..<span class="dv">1000</span>).map { |d| 
   (<span class="dv">1</span>..d).detect(lambda{<span class="dv">0</span>}) { |t| (<span class="dv">10</span>**t % d) == <span class="dv">1</span> } 
-}.each_with_index.max[<span class="dv">1</span>]</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby decimal-cycle.rb
+}.each_with_index.max[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby decimal-cycle.rb
 <span class="kw">real</span>   0m1.290s
 <span class="kw">user</span>   0m1.275s
-<span class="kw">sys</span>    0m0.005s</code></pre>
+<span class="kw">sys</span>    0m0.005s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -46,7 +46,7 @@
 <p>Find the sum of the only eleven primes that are both truncatable from left to right and right to left.</p>
 <p>NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPrime n <span class="fu">|</span> n <span class="fu">&lt;=</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
           <span class="fu">|</span> otherwise <span class="fu">=</span> not <span class="fu">$</span> or [n <span class="ot">`rem`</span> x <span class="fu">==</span> <span class="dv">0</span> <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span>floor <span class="fu">$</span> sqrt <span class="fu">$</span> fromIntegral n]]
 
@@ -60,14 +60,14 @@ candidates <span class="fu">=</span> dropWhile (<span class="fu">&lt;</span> <sp
 leftTruncatable n <span class="fu">=</span> all isPrime <span class="fu">$</span> takeWhile (<span class="fu">&lt;</span> n) [n <span class="ot">`rem`</span> <span class="dv">10</span><span class="fu">^</span>x <span class="fu">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="fu">..</span>]]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter leftTruncatable candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o truncatable-primes truncatable-primes.hs
+main <span class="fu">=</span> print <span class="fu">$</span> sum <span class="fu">$</span> filter leftTruncatable candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o truncatable-primes truncatable-primes.hs
 $ <span class="kw">time</span> ./truncatable-primes
 <span class="kw">real</span>   0m0.004s
 <span class="kw">user</span>   0m0.002s
-<span class="kw">sys</span>    0m0.000s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 <span class="ch">import</span> math
 
@@ -133,23 +133,23 @@ $ <span class="kw">time</span> ./truncatable-primes
     <span class="dt">print</span> <span class="dt">sum</span>(n <span class="kw">for</span> n in <span class="dt">range</span>(<span class="dv">1</span>, <span class="dv">1000000</span>) <span class="kw">if</span> is_truncatable(n))
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 truncatable-primes.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 truncatable-primes.py
 <span class="kw">real</span>   0m19.655s
 <span class="kw">user</span>   0m19.389s
-<span class="kw">sys</span>    0m0.026s</code></pre>
+<span class="kw">sys</span>    0m0.026s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">10</span>..<span class="dv">1000000</span>).select { |i|
   (<span class="dv">0</span>..i.to_s.length<span class="dv">-1</span>).all? { |j|
     i.to_s[<span class="dv">0</span>..j].to_i.prime? &amp;&amp; i.to_s[j..-<span class="dv">1</span>].to_i.prime?
   }
-}.reduce(:+)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby truncatable-primes.rb
+}.reduce(:+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby truncatable-primes.rb
 <span class="kw">real</span>   0m9.321s
 <span class="kw">user</span>   0m9.306s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

@@ -45,7 +45,7 @@
 <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
 <p>What is the largest prime factor of the number 600851475143 ?</p>
 <h2 id="go">Go</h2>
-<pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+<div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 <span class="kw">import</span> <span class="st">&quot;math&quot;</span>
@@ -100,14 +100,14 @@
             <span class="kw">break</span>
         }
     }
-}</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor prime-factor.go
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor prime-factor.go
 $ <span class="kw">time</span> ./prime-factor
 <span class="kw">real</span>   0m0.052s
 <span class="kw">user</span>   0m0.047s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>
     sieve (p<span class="fu">:</span>xs) <span class="fu">=</span> p <span class="fu">:</span> sieve [x <span class="fu">|</span> x <span class="ot">&lt;-</span> xs, x <span class="ot">`mod`</span> p <span class="fu">&gt;</span> <span class="dv">0</span>]
 
@@ -120,14 +120,14 @@ factorize n <span class="fu">=</span> primeFactors n primes <span class="kw">whe
                           <span class="kw">where</span> (q, r) <span class="fu">=</span> quotRem m p
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor prime-factor.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maximum <span class="fu">$</span> factorize <span class="dv">600851475143</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o prime-factor prime-factor.hs
 $ <span class="kw">time</span> ./prime-factor
 <span class="kw">real</span>   0m0.006s
 <span class="kw">user</span>   0m0.001s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">import</span> math
 
 <span class="kw">def</span> factorize(n):
@@ -150,13 +150,13 @@ $ <span class="kw">time</span> ./prime-factor
         res.append(n)
     <span class="kw">return</span> res
 
-<span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prime-factor.py
+<span class="dt">print</span> <span class="dt">max</span>(factorize(<span class="dv">600851475143</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 prime-factor.py
 <span class="kw">real</span>   0m0.011s
 <span class="kw">user</span>   0m0.008s
-<span class="kw">sys</span>    0m0.004s</code></pre>
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">def</span> factorize(orig)
   factors = {}
@@ -181,11 +181,11 @@ $ <span class="kw">time</span> ./prime-factor
   factors
 <span class="kw">end</span>
 
-puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-factor.rb
+puts factorize(<span class="dv">600851475143</span>).keys.max</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-factor.rb
 <span class="kw">real</span>   0m0.019s
 <span class="kw">user</span>   0m0.012s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

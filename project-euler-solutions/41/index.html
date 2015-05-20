@@ -45,7 +45,7 @@
 <p>We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p>
 <p>What is the largest n-digit pandigital prime that exists?</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (permutations)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (permutations)
 
 <span class="ot">isPrime ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPrime n <span class="fu">|</span> n <span class="fu">&lt;=</span> <span class="dv">1</span> <span class="fu">=</span> <span class="dt">False</span>
@@ -55,14 +55,14 @@ isPrime n <span class="fu">|</span> n <span class="fu">&lt;=</span> <span class=
 candidates <span class="fu">=</span> filter isPrime <span class="fu">$</span> concatMap (\n <span class="ot">-&gt;</span> map (read <span class="fu">.</span> concatMap show) <span class="fu">$</span> permutations [<span class="dv">1</span><span class="fu">..</span>n]) [<span class="dv">1</span><span class="fu">..</span><span class="dv">7</span>]
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maximum candidates</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-prime pandigital-prime.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maximum candidates</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o pandigital-prime pandigital-prime.hs
 $ <span class="kw">time</span> ./pandigital-prime
 <span class="kw">real</span>   0m0.057s
 <span class="kw">user</span>   0m0.049s
-<span class="kw">sys</span>    0m0.001s</code></pre>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python3</span>
 <span class="ch">from</span> collections <span class="ch">import</span> defaultdict
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 <span class="ch">from</span> functools <span class="ch">import</span> <span class="dt">reduce</span>
@@ -131,23 +131,23 @@ $ <span class="kw">time</span> ./pandigital-prime
     <span class="dt">print</span>(<span class="dt">max</span>(p <span class="kw">for</span> p in pandigitals <span class="kw">if</span> is_prime(p)))
 
 <span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-prime.py
+    main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 pandigital-prime.py
 <span class="kw">real</span>   0m0.270s
 <span class="kw">user</span>   0m0.212s
-<span class="kw">sys</span>    0m0.006s</code></pre>
+<span class="kw">sys</span>    0m0.006s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 require <span class="st">'mathn'</span>
 puts (<span class="dv">1</span>..<span class="dv">9</span>).flat_map { |n|
   (<span class="st">'1'</span>..n.to_s).to_a.permutation.map { |p|
     p.join(<span class="st">''</span>).to_i
   }.select { |i| i.prime? }
-}.max</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-prime.rb
+}.max</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pandigital-prime.rb
 <span class="kw">real</span>   0m3.487s
 <span class="kw">user</span>   0m3.447s
-<span class="kw">sys</span>    0m0.007s</code></pre>
+<span class="kw">sys</span>    0m0.007s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

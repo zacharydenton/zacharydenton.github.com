@@ -46,7 +46,7 @@
 Starting in the top left corner of a 2x2 grid, there are 6 routes (without backtracking) to the bottom right corner.
 </p>
 <div style="text-align: center;">
-<img src="http://projecteuler.net/project/images/p_015.gif" />
+<p><img src="http://projecteuler.net/project/images/p_015.gif" /></p>
 </div>
 <p>
 How many routes are there through a 20x20 grid?
@@ -62,29 +62,29 @@ How many routes are there through a 20x20 grid?
 <p>Thus, a general solution for grids of size <span class="math"><em>x</em></span> is</p>
 <p><br /><span class="math">$$routes = \binom {2x} {x}$$</span><br />.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">factorial ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
-factorial n <span class="fu">=</span> foldr (<span class="fu">*</span>) <span class="dv">1</span> [<span class="dv">1</span><span class="fu">..</span>n]
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">factorial ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
+factorial n <span class="fu">=</span> product [<span class="dv">1</span><span class="fu">..</span>n]
 
 <span class="ot">choose ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span>
-choose n k <span class="fu">=</span> (factorial n) <span class="ot">`div`</span> ((factorial k) <span class="fu">*</span> (factorial (n <span class="fu">-</span> k)))
+choose n k <span class="fu">=</span> div (factorial n) <span class="fu">$</span> factorial k <span class="fu">*</span> factorial (n <span class="fu">-</span> k)
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> choose <span class="dv">40</span> <span class="dv">20</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o binom binom.hs
+main <span class="fu">=</span> print <span class="fu">$</span> choose <span class="dv">40</span> <span class="dv">20</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o binom binom.hs
 $ <span class="kw">time</span> ./binom
-<span class="kw">real</span>   0m0.004s
+<span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.002s</code></pre>
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> gmpy <span class="ch">import</span> comb
-<span class="dt">print</span> comb(<span class="dv">2</span> * <span class="dv">20</span>,<span class="dv">20</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 grid-routes.py
+<span class="dt">print</span> comb(<span class="dv">2</span> * <span class="dv">20</span>,<span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 grid-routes.py
 <span class="kw">real</span>   0m0.012s
 <span class="kw">user</span>   0m0.009s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
-<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
 
 <span class="kw">class</span> <span class="dt">Integer</span> 
   <span class="kw">def</span> choose(k) 
@@ -92,11 +92,11 @@ $ <span class="kw">time</span> ./binom
   <span class="kw">end</span>
 <span class="kw">end</span>
 
-puts <span class="dv">40</span>.choose(<span class="dv">20</span>)</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pascal.rb
+puts <span class="dv">40</span>.choose(<span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby pascal.rb
 <span class="kw">real</span>   0m0.013s
 <span class="kw">user</span>   0m0.009s
-<span class="kw">sys</span>    0m0.003s</code></pre>
+<span class="kw">sys</span>    0m0.003s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>

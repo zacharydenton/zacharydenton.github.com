@@ -49,7 +49,7 @@
 <p>Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.</p>
 <p>Find the least number for which the proportion of bouncy numbers is exactly 99%.</p>
 <h2 id="haskell">Haskell</h2>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, find)
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import </span><span class="dt">Data.List</span> (sort, find)
 
 <span class="ot">isIncreasing ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isIncreasing n <span class="fu">=</span> show n <span class="fu">==</span> sort (show n)
@@ -66,14 +66,14 @@ bouncy <span class="fu">=</span> b' <span class="dv">1</span> <span class="dv">0
              <span class="fu">|</span> otherwise  <span class="fu">=</span> (n, acc)   <span class="fu">:</span> b' (n<span class="fu">+</span><span class="dv">1</span>) acc
 
 <span class="ot">main ::</span>  <span class="dt">IO</span> ()
-main <span class="fu">=</span> print <span class="fu">$</span> maybe <span class="dv">0</span> fst <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o bouncy bouncy.hs
+main <span class="fu">=</span> print <span class="fu">$</span> maybe <span class="dv">0</span> fst <span class="fu">$</span> find (\(n, b) <span class="ot">-&gt;</span> (n <span class="fu">*</span> <span class="dv">99</span>) <span class="fu">==</span> (b <span class="fu">*</span> <span class="dv">100</span>)) bouncy</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o bouncy bouncy.hs
 $ <span class="kw">time</span> ./bouncy
 <span class="kw">real</span>   0m1.719s
 <span class="kw">user</span>   0m1.699s
-<span class="kw">sys</span>    0m0.017s</code></pre>
+<span class="kw">sys</span>    0m0.017s</code></pre></div>
 <h2 id="python">Python</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 <span class="ch">from</span> itertools <span class="ch">import</span> *
 
 <span class="kw">def</span> pairwise(iterable):
@@ -105,11 +105,11 @@ $ <span class="kw">time</span> ./bouncy
     bouncy = running_total(imap(<span class="kw">lambda</span> n: <span class="dt">float</span>(is_bouncy(n)), count(<span class="dv">1</span>)))
     <span class="dt">print</span> (n <span class="kw">for</span> n, b in izip(nums, bouncy) <span class="kw">if</span> b / n == <span class="fl">0.99</span>).<span class="dt">next</span>()
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 bouncy.py
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>: main()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 bouncy.py
 <span class="kw">real</span>   0m18.639s
 <span class="kw">user</span>   0m18.362s
-<span class="kw">sys</span>    0m0.025s</code></pre>
+<span class="kw">sys</span>    0m0.025s</code></pre></div>
 </article>
 
         <script src="../../js/main.js"></script>
