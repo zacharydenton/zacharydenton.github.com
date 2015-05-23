@@ -119,6 +119,19 @@ Washington, D.C. -&gt; Chicago -&gt; San Francisco:
 <p>If your data is concentrated in a small area, then you could use a <a href="http://docs.djangoproject.com/en/dev/ref/contrib/gis/db-api/#distance-lookups" title="GeoDjango Distance Lookups">projected coordinate system</a> (such as SRID 32140, for South Texas) to solve the problem.</p>
 <h3 id="postgis-geography-field-type">PostGIS Geography Field Type</h3>
 <p>Alternatively, you could try storing your data using the <a href="http://postgis.refractions.net/docs/ch04.html#PostGIS_Geography" title="PostGIS Geography Field Type">PostGIS Geography field type</a>, which performs geodesic calculations instead of Cartesian calculations. The downside with this approach is that it prevents you from using many of the GeoDjango functions. For instance, none of the Spatial Aggregate functions worked, in my testing. Since this is a relatively new PostGIS feature, I expect it to become more usable in the future. Once it does, I recommend using that instead, as it makes more sense to have these kinds of calculations occur seamlessly at the database level.</p>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'zacharydenton';
+var disqus_url = 'http://zach.se/geodesic-distance-between-points-in-geodjango/';
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+
+
 </article>
 
         <script src="../js/main.js"></script>

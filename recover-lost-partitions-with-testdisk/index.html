@@ -43,6 +43,19 @@
 <p>It uses a few different methods to recover the lost partitions. First, it quickly scans through the entire hard drive, looking for lost partitions. Then, it gives you the option to perform a deeper search, which inspects the drive more carefully. Finally, it checks if there is a backup MBR on the device, and if so, uses it to replace the lost MBR.</p>
 <p>This final option worked for me. Personally, I think this should be the first step performed, as it takes several hours to scan the entire drive twice whereas it presumably takes less than a second to inspect the backup MBR.</p>
 <p>Check out this <a href="http://www.cgsecurity.org/wiki/TestDisk_Step_By_Step">step-by-step guide</a> detailing its use.</p>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'zacharydenton';
+var disqus_url = 'http://zach.se/recover-lost-partitions-with-testdisk/';
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+
+
 </article>
 
         <script src="../js/main.js"></script>
