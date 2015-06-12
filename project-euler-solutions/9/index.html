@@ -77,13 +77,12 @@
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-    <span class="kw">var</span> a, b, c, lb, lc <span class="dt">int</span>
-    <span class="kw">for</span> a = <span class="dv">1</span>; a &lt; <span class="dv">1000</span>; a++ {
-        lb = <span class="dv">1000</span> - a
+    <span class="kw">var</span> a, b, c, lb <span class="dt">int</span>
+    max := <span class="dv">1000</span>
+    <span class="kw">for</span> a = <span class="dv">1</span>; a &lt; max; a++ {
+        lb = max - a
         <span class="kw">for</span> b = a; b &lt; lb; b++ {
-            lc = <span class="dv">1000</span> - (a + b)
-            <span class="kw">for</span> c = b; c &lt; lc; c++ {
-            }
+            c = max - (a + b)
             <span class="kw">if</span> a*a+b*b == c*c {
                 fmt.Println(a * b * c)
                 <span class="kw">return</span>
@@ -93,8 +92,8 @@
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o pythagorean pythagorean.go
 $ <span class="kw">time</span> ./pythagorean
-<span class="kw">real</span>   0m0.024s
-<span class="kw">user</span>   0m0.015s
+<span class="kw">real</span>   0m0.002s
+<span class="kw">user</span>   0m0.001s
 <span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">main ::</span>  <span class="dt">IO</span> ()
