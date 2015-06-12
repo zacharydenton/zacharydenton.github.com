@@ -59,20 +59,23 @@ Find the sum of all the even-valued terms in the sequence which do not exceed fo
 <span class="kw">sys</span>    0m0.058s</code></pre></div>
 <h2 id="go">Go</h2>
 <div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-    sum := <span class="dv">0</span>
-    <span class="kw">for</span> a, b := <span class="dv">1</span>, <span class="dv">2</span>; b &lt;= <span class="fl">4e6</span>; a, b = b, a + b {
-        <span class="kw">if</span> b % <span class="dv">2</span> == <span class="dv">0</span> { sum += b }
-    }
-    fmt.Println(sum)
+	sum := <span class="dv">0</span>
+	<span class="kw">for</span> a, b := <span class="dv">1</span>, <span class="dv">2</span>; b &lt;= <span class="fl">4e6</span>; a, b = b, a+b {
+		<span class="kw">if</span> b%<span class="dv">2</span> == <span class="dv">0</span> {
+			sum += b
+		}
+	}
+	fmt.Println(sum)
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o fibonacci fibonacci.go
 $ <span class="kw">time</span> ./fibonacci
-<span class="kw">real</span>   0m0.023s
+<span class="kw">real</span>   0m0.001s
 <span class="kw">user</span>   0m0.000s
-<span class="kw">sys</span>    0m0.000s</code></pre></div>
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">fibs ::</span>  [<span class="dt">Integer</span>]
 fibs <span class="fu">=</span> <span class="dv">0</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)

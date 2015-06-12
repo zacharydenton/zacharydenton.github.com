@@ -75,20 +75,21 @@ $ <span class="kw">time</span> ./natural
 <span class="kw">sys</span>    0m0.035s</code></pre></div>
 <h2 id="go">Go</h2>
 <div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> main() {
-    sum := <span class="dv">0</span>
-    <span class="kw">for</span> i := <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++ {
-        <span class="kw">if</span> i % <span class="dv">3</span> == <span class="dv">0</span> || i % <span class="dv">5</span> == <span class="dv">0</span> {
-            sum += i
-        }
-    }
-    fmt.Println(sum)
+	sum := <span class="dv">0</span>
+	<span class="kw">for</span> i := <span class="dv">0</span>; i &lt; <span class="dv">1000</span>; i++ {
+		<span class="kw">if</span> i%<span class="dv">3</span> == <span class="dv">0</span> || i%<span class="dv">5</span> == <span class="dv">0</span> {
+			sum += i
+		}
+	}
+	fmt.Println(sum)
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o natural natural.go
 $ <span class="kw">time</span> ./natural
-<span class="kw">real</span>   0m0.001s
+<span class="kw">real</span>   0m0.002s
 <span class="kw">user</span>   0m0.000s
 <span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="haskell">Haskell</h2>

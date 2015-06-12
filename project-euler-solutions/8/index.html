@@ -42,7 +42,7 @@
   <h1>Project Euler Problem 8 Solution</h1>
 
   <h2 id="question">Question</h2>
-<p>Find the greatest product of five consecutive digits in the 1000-digit number.</p>
+<p>The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.</p>
 <pre><code>73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
@@ -63,6 +63,7 @@
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450</code></pre>
+<p>Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?</p>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">parse ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]
 parse <span class="fu">=</span> map (read <span class="fu">.</span> return) <span class="fu">.</span> concat <span class="fu">.</span> lines
@@ -78,12 +79,12 @@ largestProduct <span class="fu">=</span> maximum <span class="fu">.</span> map p
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
 main <span class="fu">=</span> <span class="kw">do</span>
         str <span class="ot">&lt;-</span> readFile <span class="st">&quot;/home/zach/code/euler/008/numbers.txt&quot;</span>
-        print <span class="fu">$</span> largestProduct <span class="fu">$</span> chunks <span class="dv">5</span> <span class="fu">$</span> parse str</code></pre></div>
+        print <span class="fu">$</span> largestProduct <span class="fu">$</span> chunks <span class="dv">13</span> <span class="fu">$</span> parse str</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ghc</span> -O2 -o great-prod great-prod.hs
 $ <span class="kw">time</span> ./great-prod
-<span class="kw">real</span>   0m0.006s
+<span class="kw">real</span>   0m0.007s
 <span class="kw">user</span>   0m0.004s
-<span class="kw">sys</span>    0m0.000s</code></pre></div>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="python">Python</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/python</span>
 numbers = <span class="st">'''</span>
@@ -113,7 +114,7 @@ greatest_product = <span class="dv">0</span>
 
 <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(numstring)):
     product = <span class="dv">1</span>
-    substring = numstring[i:i<span class="dv">+5</span>]
+    substring = numstring[i:i<span class="dv">+13</span>]
     <span class="kw">for</span> digit in substring:
         product *= <span class="dt">int</span>(digit)
     <span class="kw">if</span> product &gt; greatest_product:
@@ -121,8 +122,8 @@ greatest_product = <span class="dv">0</span>
 
 <span class="dt">print</span> greatest_product</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> python2 great_prod.py
-<span class="kw">real</span>   0m0.021s
-<span class="kw">user</span>   0m0.011s
+<span class="kw">real</span>   0m0.024s
+<span class="kw">user</span>   0m0.015s
 <span class="kw">sys</span>    0m0.005s</code></pre></div>
 <h2 id="ruby">Ruby</h2>
 <div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="kw">#!/usr/bin/env ruby</span>
@@ -151,16 +152,16 @@ numbers = &lt;&lt;<span class="kw">EOS</span>
 numbers = numbers.split.join(<span class="st">''</span>)
 max = <span class="dv">0</span>
 numbers.split(<span class="st">''</span>).each_with_index <span class="kw">do</span> |char, i|
-  product = numbers[i..i<span class="dv">+4</span>].each_char.inject(<span class="dv">1</span>) {|acc, digit| acc * digit.to_i}
+  product = numbers[i...i<span class="dv">+13</span>].each_char.inject(<span class="dv">1</span>) {|acc, digit| acc * digit.to_i}
   <span class="kw">if</span> product &gt; max
     max = product
   <span class="kw">end</span>
 <span class="kw">end</span>
 puts max</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby great_prod.rb
-<span class="kw">real</span>   0m0.047s
-<span class="kw">user</span>   0m0.014s
-<span class="kw">sys</span>    0m0.004s</code></pre></div>
+<span class="kw">real</span>   0m0.072s
+<span class="kw">user</span>   0m0.022s
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
