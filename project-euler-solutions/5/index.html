@@ -8,7 +8,7 @@
         <title>Project Euler Problem 5 Solution - Zach Denton</title>
         
         <meta name="author" content="Zach Denton">
-        <meta name="description" content="This page presents solutions to Project Euler Problem 5 in Haskell, Python and Ruby.">
+        <meta name="description" content="This page presents solutions to Project Euler Problem 5 in Go, Haskell, Python and Ruby.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../../css/main.css">
@@ -51,6 +51,30 @@
 <p>This insight is used in the python solution on line 14:</p>
 <pre><code>step = divisible_to(x-1)</code></pre>
 <p>This is a recursive solution to the problem, and yields incredible performance. It can calculate the smallest number divisible to 500 in a fraction of a second.</p>
+<h2 id="go">Go</h2>
+<div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
+
+<span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
+
+<span class="kw">func</span> GCD(a, b <span class="dt">int</span>) <span class="dt">int</span> {
+    <span class="kw">for</span> b != <span class="dv">0</span> {
+        a, b = b, a%b
+    }
+    <span class="kw">return</span> a
+}
+
+<span class="kw">func</span> main() {
+    lcm := <span class="dv">1</span>
+    <span class="kw">for</span> i := <span class="dv">2</span>; i &lt;= <span class="dv">20</span>; i++ {
+        lcm *= i / GCD(i, lcm)
+    }
+    fmt.Println(lcm)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o divisible divisible.go
+$ <span class="kw">time</span> ./divisible
+<span class="kw">real</span>   0m0.001s
+<span class="kw">user</span>   0m0.000s
+<span class="kw">sys</span>    0m0.000s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isDivisibleTo ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isDivisibleTo x n <span class="fu">=</span> all (\i <span class="ot">-&gt;</span> n <span class="ot">`mod`</span> i <span class="fu">==</span> <span class="dv">0</span>) (reverse [<span class="dv">1</span><span class="fu">..</span>x])
