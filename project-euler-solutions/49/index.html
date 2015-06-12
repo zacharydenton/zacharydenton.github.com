@@ -188,7 +188,7 @@ primes = (<span class="dv">1488</span>..<span class="dv">9999</span>).select { |
 primes.each <span class="kw">do</span> |a|
   primes.select { |b| b &gt; a }.each <span class="kw">do</span> |b|
     primes.select { |c| c &gt; b }.each <span class="kw">do</span> |c|
-      <span class="kw">if</span>	c-b == b-a &amp;&amp; 
+      <span class="kw">if</span> c-b == b-a &amp;&amp;
         a.to_s.split(<span class="st">''</span>).sort == b.to_s.split(<span class="st">''</span>).sort &amp;&amp;
         b.to_s.split(<span class="st">''</span>).sort == c.to_s.split(<span class="st">''</span>).sort &amp;&amp;
         c.to_s.split(<span class="st">''</span>).sort == a.to_s.split(<span class="st">''</span>).sort
@@ -198,9 +198,9 @@ primes.each <span class="kw">do</span> |a|
   <span class="kw">end</span>
 <span class="kw">end</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby prime-sequence.rb
-<span class="kw">real</span>   0m23.201s
-<span class="kw">user</span>   0m22.793s
-<span class="kw">sys</span>    0m0.275s</code></pre></div>
+<span class="kw">real</span>   0m27.347s
+<span class="kw">user</span>   0m22.455s
+<span class="kw">sys</span>    0m0.337s</code></pre></div>
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">

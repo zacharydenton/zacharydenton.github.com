@@ -199,7 +199,7 @@ directions = []
 
 max = <span class="dv">0</span>
 grid.each_with_index <span class="kw">do</span> |row, y|
-  row.each_with_index	<span class="kw">do</span> |cell, x|
+  row.each_with_index <span class="kw">do</span> |cell, x|
     directions.each <span class="kw">do</span> |x_dir, y_dir|
       product = <span class="dv">1</span>
       <span class="dv">4</span>.times <span class="kw">do</span> |i|
@@ -217,9 +217,9 @@ grid.each_with_index <span class="kw">do</span> |row, y|
 <span class="kw">end</span>
 puts max</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">time</span> ruby grid-product.rb
-<span class="kw">real</span>   0m0.021s
-<span class="kw">user</span>   0m0.017s
-<span class="kw">sys</span>    0m0.003s</code></pre></div>
+<span class="kw">real</span>   0m0.093s
+<span class="kw">user</span>   0m0.025s
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">

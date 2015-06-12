@@ -52,60 +52,60 @@
 <span class="kw">import</span> <span class="st">&quot;math/big&quot;</span>
 
 <span class="kw">func</span> eratosthenes(max <span class="dt">int</span>) []<span class="dt">int</span> {
-	nums := <span class="fu">make</span>([]<span class="dt">int</span>, max)
+    nums := <span class="fu">make</span>([]<span class="dt">int</span>, max)
 
-	p := <span class="dv">2</span> <span class="co">// first prime, 2</span>
-	<span class="kw">for</span> {
-		i := p - <span class="dv">1</span>
-		<span class="co">// mark multiples not prime</span>
-		<span class="kw">for</span> i += p; i &lt; max; i += p {
-			nums[i] = -<span class="dv">1</span>
-		}
-		<span class="co">// find first unmarked number greater than p</span>
-		<span class="kw">for</span> i = p; i &lt; max; i++ {
-			<span class="kw">if</span> nums[i] != -<span class="dv">1</span> {
-				p = i + <span class="dv">1</span>
-				<span class="kw">break</span>
-			}
-		}
-		<span class="co">// no unmarked numbers greater than p found; finished</span>
-		<span class="kw">if</span> i == max {
-			<span class="kw">break</span>
-		}
-	}
-	<span class="co">// filter out all marked numbers</span>
-	primes := <span class="fu">make</span>([]<span class="dt">int</span>, max)
-	j := <span class="dv">0</span>
-	<span class="kw">for</span> i := <span class="kw">range</span> nums {
-		<span class="kw">if</span> nums[i] == <span class="dv">0</span> {
-			primes[j] = i + <span class="dv">1</span>
-			j++
-		}
-	}
-	<span class="kw">return</span> primes[:j]
+    p := <span class="dv">2</span> <span class="co">// first prime, 2</span>
+    <span class="kw">for</span> {
+        i := p - <span class="dv">1</span>
+        <span class="co">// mark multiples not prime</span>
+        <span class="kw">for</span> i += p; i &lt; max; i += p {
+            nums[i] = -<span class="dv">1</span>
+        }
+        <span class="co">// find first unmarked number greater than p</span>
+        <span class="kw">for</span> i = p; i &lt; max; i++ {
+            <span class="kw">if</span> nums[i] != -<span class="dv">1</span> {
+                p = i + <span class="dv">1</span>
+                <span class="kw">break</span>
+            }
+        }
+        <span class="co">// no unmarked numbers greater than p found; finished</span>
+        <span class="kw">if</span> i == max {
+            <span class="kw">break</span>
+        }
+    }
+    <span class="co">// filter out all marked numbers</span>
+    primes := <span class="fu">make</span>([]<span class="dt">int</span>, max)
+    j := <span class="dv">0</span>
+    <span class="kw">for</span> i := <span class="kw">range</span> nums {
+        <span class="kw">if</span> nums[i] == <span class="dv">0</span> {
+            primes[j] = i + <span class="dv">1</span>
+            j++
+        }
+    }
+    <span class="kw">return</span> primes[:j]
 }
 
 <span class="kw">func</span> main() {
-	n := <span class="fu">new</span>(big.Int)
-	n.SetString(<span class="st">&quot;600851475143&quot;</span>, <span class="dv">10</span>)
-	m := <span class="fu">new</span>(big.Int)
-	max := <span class="dt">int</span>(math.Sqrt(<span class="dv">600851475143</span>))
-	primes := eratosthenes(max)
-	<span class="co">// find the largest prime factor of n</span>
-	<span class="kw">for</span> i := <span class="fu">len</span>(primes) - <span class="dv">1</span>; i &gt;= <span class="dv">0</span>; i-- {
-		p := big.NewInt(<span class="dt">int64</span>(primes[i]))
-		m.Mod(n, p)
-		<span class="kw">if</span> m.Int64() == <span class="dv">0</span> {
-			fmt.Println(p)
-			<span class="kw">break</span>
-		}
-	}
+    n := <span class="fu">new</span>(big.Int)
+    n.SetString(<span class="st">&quot;600851475143&quot;</span>, <span class="dv">10</span>)
+    m := <span class="fu">new</span>(big.Int)
+    max := <span class="dt">int</span>(math.Sqrt(<span class="dv">600851475143</span>))
+    primes := eratosthenes(max)
+    <span class="co">// find the largest prime factor of n</span>
+    <span class="kw">for</span> i := <span class="fu">len</span>(primes) - <span class="dv">1</span>; i &gt;= <span class="dv">0</span>; i-- {
+        p := big.NewInt(<span class="dt">int64</span>(primes[i]))
+        m.Mod(n, p)
+        <span class="kw">if</span> m.Int64() == <span class="dv">0</span> {
+            fmt.Println(p)
+            <span class="kw">break</span>
+        }
+    }
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o prime-factor prime-factor.go
 $ <span class="kw">time</span> ./prime-factor
-<span class="kw">real</span>   0m0.060s
-<span class="kw">user</span>   0m0.042s
-<span class="kw">sys</span>    0m0.002s</code></pre></div>
+<span class="kw">real</span>   0m0.045s
+<span class="kw">user</span>   0m0.040s
+<span class="kw">sys</span>    0m0.004s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> sieve [<span class="dv">2</span><span class="fu">..</span>] <span class="kw">where</span>

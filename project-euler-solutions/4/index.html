@@ -67,33 +67,33 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 <span class="kw">import</span> <span class="st">&quot;fmt&quot;</span>
 
 <span class="kw">func</span> IsPalindrome(number <span class="dt">int</span>) <span class="dt">bool</span> {
-	n := number
-	reversed, digit := <span class="dv">0</span>, <span class="dv">0</span>
-	<span class="kw">for</span> n &gt; <span class="dv">0</span> {
-		digit = n % <span class="dv">10</span>
-		reversed = reversed*<span class="dv">10</span> + digit
-		n /= <span class="dv">10</span>
-	}
-	<span class="kw">return</span> number == reversed
+    n := number
+    reversed, digit := <span class="dv">0</span>, <span class="dv">0</span>
+    <span class="kw">for</span> n &gt; <span class="dv">0</span> {
+        digit = n % <span class="dv">10</span>
+        reversed = reversed*<span class="dv">10</span> + digit
+        n /= <span class="dv">10</span>
+    }
+    <span class="kw">return</span> number == reversed
 }
 
 <span class="kw">func</span> main() {
-	product, max := <span class="dv">0</span>, <span class="dv">0</span>
-	<span class="kw">for</span> a := <span class="dv">100</span>; a &lt; <span class="dv">1000</span>; a++ {
-		<span class="kw">for</span> b := a; b &lt; <span class="dv">1000</span>; b++ {
-			product = a * b
-			<span class="kw">if</span> product &gt; max &amp;&amp; IsPalindrome(product) {
-				max = product
-			}
-		}
-	}
-	fmt.Println(max)
+    product, max := <span class="dv">0</span>, <span class="dv">0</span>
+    <span class="kw">for</span> a := <span class="dv">100</span>; a &lt; <span class="dv">1000</span>; a++ {
+        <span class="kw">for</span> b := a; b &lt; <span class="dv">1000</span>; b++ {
+            product = a * b
+            <span class="kw">if</span> product &gt; max &amp;&amp; IsPalindrome(product) {
+                max = product
+            }
+        }
+    }
+    fmt.Println(max)
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o palindrome palindrome.go
 $ <span class="kw">time</span> ./palindrome
-<span class="kw">real</span>   0m0.004s
-<span class="kw">user</span>   0m0.004s
-<span class="kw">sys</span>    0m0.000s</code></pre></div>
+<span class="kw">real</span>   0m0.007s
+<span class="kw">user</span>   0m0.002s
+<span class="kw">sys</span>    0m0.001s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isPalindrome ::</span>  <span class="dt">Integer</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isPalindrome n <span class="fu">=</span> show n <span class="fu">==</span> reverse (show n)
