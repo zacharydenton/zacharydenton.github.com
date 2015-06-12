@@ -74,7 +74,6 @@ Find the sum of all the primes below two million.
 <span class="kw">import</span> <span class="st">&quot;math&quot;</span>
 
 <span class="kw">func</span> PrimeSieve(n <span class="dt">int64</span>) []<span class="dt">int64</span> {
-    result := <span class="fu">make</span>([]<span class="dt">int64</span>, <span class="dv">0</span>, n/<span class="dt">int64</span>(math.Log(<span class="dt">float64</span>(n))))
     sieve := <span class="fu">make</span>([]<span class="dt">bool</span>, n<span class="dv">+1</span>)
     sn := <span class="dt">int64</span>(math.Sqrt(<span class="dt">float64</span>(n)))
     <span class="kw">var</span> i, j <span class="dt">int64</span>
@@ -85,6 +84,8 @@ Find the sum of all the primes below two million.
             }
         }
     }
+
+    result := <span class="fu">make</span>([]<span class="dt">int64</span>, <span class="dv">0</span>, n/<span class="dt">int64</span>(math.Log(<span class="dt">float64</span>(n))))
     <span class="kw">for</span> i = <span class="dv">2</span>; i &lt;= n; i++ {
         <span class="kw">if</span> !sieve[i] {
             result = <span class="fu">append</span>(result, i)
@@ -103,9 +104,9 @@ Find the sum of all the primes below two million.
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">go</span> build -o sum-primes sum-primes.go
 $ <span class="kw">time</span> ./sum-primes
-<span class="kw">real</span>   0m0.016s
+<span class="kw">real</span>   0m0.018s
 <span class="kw">user</span>   0m0.011s
-<span class="kw">sys</span>    0m0.003s</code></pre></div>
+<span class="kw">sys</span>    0m0.002s</code></pre></div>
 <h2 id="haskell">Haskell</h2>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">primes ::</span> [<span class="dt">Integer</span>]
 primes <span class="fu">=</span> <span class="dv">2</span> <span class="fu">:</span> sieve primes [<span class="dv">3</span>,<span class="dv">5</span><span class="fu">..</span>] <span class="kw">where</span>
