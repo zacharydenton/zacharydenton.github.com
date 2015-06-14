@@ -394,19 +394,19 @@ code > span.er {
   color: #c3bf9f;
 }
 html {
-  background-color: #f9f9f6;
+  background-color: #eceff1;
 }
 html.front {
-  background-color: #303030;
+  background-color: #263238;
 }
 body {
   color: #191919;
   font-size: 16px;
-  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Georgia", serif;
+  font-family: "Iowan Old Style", Georgia, serif;
   line-height: 1.468;
   margin-top: 350px;
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   body {
     margin-top: 200px;
   }
@@ -415,10 +415,10 @@ body.front {
   margin-top: 0;
 }
 a {
-  color: #092e68;
+  color: #607d8b;
 }
 a:hover {
-  color: #1362dd;
+  color: #a8bac3;
 }
 h1,
 h2,
@@ -426,7 +426,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Share Tech", Arial, sans-serif;
+  font-family: Futura, "Segoe UI", "Trebuchet MS", Arial, sans-serif;
   font-weight: 400;
   text-rendering: optimizeLegibility;
   line-height: 1.2;
@@ -440,7 +440,7 @@ h6 a {
   text-decoration: none;
 }
 h1 {
-  font-size: 54px;
+  font-size: 48px;
 }
 h2 {
   font-size: 36px;
@@ -462,10 +462,10 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Monaco, Menlo, Consolas, "Source Code Pro", "Ubuntu Mono", monospace;
 }
 header {
-  font-family: "Share Tech", Arial, sans-serif;
+  font-family: Futura, "Segoe UI", "Trebuchet MS", Arial, sans-serif;
   position: absolute;
   top: 0;
   left: 0;
@@ -482,7 +482,7 @@ header {
     padding: 0 36px;
   }
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   header {
     text-align: center;
     padding: 0;
@@ -491,7 +491,7 @@ header {
 }
 header a {
   text-decoration: none;
-  color: #f9f9f6;
+  color: #eceff1;
 }
 header a:hover {
   color: #ffffff;
@@ -499,17 +499,23 @@ header a:hover {
 header h1 {
   margin: 0;
   padding: 0;
-  color: #f9f9f6;
-  font-family: "Share Tech", Arial, sans-serif;
+  color: #eceff1;
+  font-family: Futura, "Segoe UI", "Trebuchet MS", Arial, sans-serif;
   font-size: 54px;
+  font-weight: 900;
   line-height: 350px;
   text-rendering: optimizeLegibility;
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   header h1 {
     line-height: 1;
     margin-bottom: 16px;
     margin-top: 54px;
+  }
+}
+@media (max-width: 320px) {
+  header h1 {
+    font-size: 48px;
   }
 }
 header nav {
@@ -518,6 +524,7 @@ header nav {
   position: absolute;
   line-height: 350px;
   font-size: 20px;
+  font-weight: 900;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
 }
@@ -526,10 +533,25 @@ header nav {
     right: 36px;
   }
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   header nav {
     position: static;
     line-height: 1;
+  }
+}
+@media (max-width: 600px) {
+  header nav {
+    font-size: 18px;
+  }
+}
+@media (max-width: 420px) {
+  header nav {
+    font-size: 16px;
+  }
+}
+@media (max-width: 320px) {
+  header nav {
+    font-size: 14px;
   }
 }
 header nav ul {
@@ -552,11 +574,11 @@ header nav ul li a:hover {
   right: 0;
   margin: auto;
   height: 350px;
-  background-color: #191919;
+  background-color: #37474F;
   z-index: -1;
   overflow: hidden;
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   #banner {
     height: 200px;
   }
@@ -568,7 +590,7 @@ body.front header {
 article {
   font-size: 20px;
   position: relative;
-  top: 54px;
+  top: 48px;
   max-width: 1000px;
   text-rendering: optimizeLegibility;
   display: block;
@@ -595,7 +617,7 @@ article h1:first-child {
   -o-hyphens: none;
   hyphens: none;
   margin-top: 0;
-  margin-bottom: 54px;
+  margin-bottom: 48px;
 }
 article h1:first-child + .figure {
   margin-top: 0;
@@ -669,7 +691,7 @@ article pre {
 }
 article .figure {
   text-align: center;
-  margin: 54px 0;
+  margin: 48px 0;
 }
 article .figure img {
   width: 100%;
@@ -680,7 +702,7 @@ article .figure .caption {
   font-size: 16px;
 }
 article iframe {
-  margin: 54px 0;
+  margin: 48px 0;
   margin-left: 150px;
   max-width: 700px;
 }

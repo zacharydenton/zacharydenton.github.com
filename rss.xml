@@ -27,7 +27,6 @@
         <meta name="author" content="Zach Denton">
         <meta name="description" content="Wherein I list the best books, movies, music, and websites of 2012.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -168,7 +167,6 @@ var disqus_url = 'http://zach.se/best-of-2012/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="How to use a rooted Android phone to export your Facebook address book.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -366,7 +364,6 @@ var disqus_url = 'http://zach.se/export-facebook-contacts-with-android/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="Access a remote music collection seamlessly with user-space filesystems.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -463,7 +460,6 @@ var disqus_url = 'http://zach.se/music-server-revisited-streaming-with-sshfs-and
         <meta name="author" content="Zach Denton">
         <meta name="description" content="An extension of the A* algorithm to support pathfinding from many starting points to many goal points in a single pass.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -541,7 +537,6 @@ var disqus_url = 'http://zach.se/a-star-search-with-multiple-targets-and-sources
         <meta name="author" content="Zach Denton">
         <meta name="description" content="I spent the final week of my trip exploring Iceland.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -782,7 +777,6 @@ var disqus_url = 'http://zach.se/iceland/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="A brief visit to Copenhagen.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -849,7 +843,6 @@ var disqus_url = 'http://zach.se/copenhagen/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="A great time in Berlin, especially in Kreuzberg.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -925,7 +918,6 @@ var disqus_url = 'http://zach.se/berlin/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="Vienna is now among my favorite European cities.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -999,7 +991,6 @@ var disqus_url = 'http://zach.se/vienna/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="Pictures and stories from Prague.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>
@@ -1113,7 +1104,6 @@ var disqus_url = 'http://zach.se/prague/';
         <meta name="author" content="Zach Denton">
         <meta name="description" content="My adventures in Budapest.">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Share+Tech:400">
         <link rel="stylesheet" href="../css/main.css">
         
         <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-15976986-5', 'auto');ga('send', 'pageview');</script>

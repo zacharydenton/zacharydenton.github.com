@@ -12,6 +12,7 @@
         return;
       }
       this.initShaders();
+      this.initPalette();
       this.initQuad();
       this.resize();
       this.animating = (_ref = document.body.classList) != null ? _ref.contains("front") : void 0;
@@ -52,7 +53,7 @@
       this.gl.shaderSource(vertexShader, "attribute vec2 position;\nvoid main(){gl_Position=vec4(position,0,1);}");
       this.gl.compileShader(vertexShader);
       fragmentShader = this.gl.createShader(this.gl.FRAGMENT_SHADER);
-      this.gl.shaderSource(fragmentShader, "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 80\nvoid main(void){vec2 e=((gl_FragCoord.xy-resolution*0.5)/min(resolution.x,resolution.y))*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(-.57166-0.001*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.0+0.618);float n=1.7171+0.001*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);q=2.0*min(q,1.0-q);float r=mod(time*0.025,1.0);float tf=q*sin(0.1*time);gl_FragColor=vec4(a(vec3(r-0.25*q-0.1*abs(tf),1.0 - 0.3*abs(tf),q+0.1*abs(tf))),1.0);}");
+      this.gl.shaderSource(fragmentShader, "precision lowp float;\nuniform float time;uniform vec2 resolution;uniform vec2 mouse;uniform sampler2D palette;vec3 a(vec3 b){vec4 c=vec4(1.0,2.0/3.0,1.0/3.0,3.0);vec3 d=abs(fract(b.xxx+c.xyz)*6.0-c.www);return b.z*mix(c.xxx,clamp(d-c.xxx,0.0,1.0),b.y);}\n#define N 42\nvoid main(void){vec2 e=((gl_FragCoord.xy-resolution*0.5)/min(resolution.x,resolution.y))*20.0;float f=0.0;float g=3.1415926535*2.0;float h=(7.296-0.01*mouse.x*0.2+0.0001*time)*g;float i=cos(h);float j=sin(h);vec2 k=vec2(i,-j);vec2 l=vec2(j,i);\nvec2 m=vec2(0,1.618);float n=-2.916+0.01*mouse.y+0.0001*time;for(int o=0;o<N;o++){float p=dot(e,e);if(p>1.0){p=(1.0)/p;e.x=e.x*p;e.y=e.y*p;}f*=.99;f+=p;e=vec2(dot(e,k),dot(e,l))*n+m;}float q=fract(f);gl_FragColor=texture2D(palette, vec2(fract(0.1 * time + q), 0.5));}");
       this.gl.compileShader(fragmentShader);
       this.shader = this.gl.createProgram();
       this.gl.attachShader(this.shader, vertexShader);
@@ -67,6 +68,43 @@
       this.gl.uniform2f(this.resolutionUniform, this.width, this.height);
       this.mouseUniform = this.gl.getUniformLocation(this.shader, "mouse");
       return this.gl.uniform2f(this.mouseUniform, 0.5, 0.5);
+    };
+
+    FractalBanner.prototype.initPalette = function() {
+      var colors, lerp, palette;
+      palette = new Uint8Array(512 * 4);
+      lerp = function(startIndex, stopIndex, startColor, stopColor) {
+        var i, ratio, _i, _results;
+        _results = [];
+        for (i = _i = startIndex; startIndex <= stopIndex ? _i < stopIndex : _i > stopIndex; i = startIndex <= stopIndex ? ++_i : --_i) {
+          ratio = 1 - (i - startIndex) / (stopIndex - startIndex);
+          palette[i * 4 + 0] = Math.floor(ratio * startColor[0] + (1 - ratio) * stopColor[0]);
+          palette[i * 4 + 1] = Math.floor(ratio * startColor[1] + (1 - ratio) * stopColor[1]);
+          palette[i * 4 + 2] = Math.floor(ratio * startColor[2] + (1 - ratio) * stopColor[2]);
+          _results.push(palette[i * 4 + 3] = 255);
+        }
+        return _results;
+      };
+      colors = [[[43, 4, 74], [11, 46, 89], [13, 103, 89], [122, 179, 23], [160, 197, 95]], [[7, 9, 61], [12, 15, 102], [11, 16, 140], [14, 78, 173], [16, 127, 201]], [[51, 19, 39], [153, 23, 102], [217, 15, 90], [243, 71, 57], [255, 110, 39]], [[101, 19, 102], [167, 26, 91], [231, 32, 78], [247, 110, 42], [240, 197, 5]], [[166, 2, 108], [209, 2, 78], [252, 57, 3], [252, 127, 3], [255, 171, 3]], [[4, 57, 78], [0, 135, 94], [167, 204, 21], [245, 204, 23], [245, 98, 23]]];
+      colors = colors[Math.floor(Math.random() * colors.length)];
+      lerp(0, 128, colors[0], colors[1]);
+      lerp(128, 192, colors[1], colors[2]);
+      lerp(192, 224, colors[2], colors[3]);
+      lerp(224, 256, colors[3], colors[4]);
+      lerp(256, 320, colors[4], colors[3]);
+      lerp(320, 384, colors[3], colors[2]);
+      lerp(384, 448, colors[2], colors[1]);
+      lerp(448, 512, colors[1], colors[0]);
+      this.paletteUniform = this.gl.getUniformLocation(this.shader, "palette");
+      this.gl.uniform1i(this.paletteUniform, 0);
+      this.gl.activeTexture(this.gl.TEXTURE0);
+      this.paletteTexture = this.gl.createTexture();
+      this.gl.bindTexture(this.gl.TEXTURE_2D, this.paletteTexture);
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE);
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE);
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+      return this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 512, 1, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, palette);
     };
 
     FractalBanner.prototype.initQuad = function() {
@@ -117,7 +155,7 @@
       }
       this.timestamp = timestamp / 1000;
       if (this.animating || this.timestamp === 0) {
-        this.gl.uniform1f(this.timeUniform, this.timestamp + this.timeOffset + this.random * 300);
+        this.gl.uniform1f(this.timeUniform, this.timestamp + this.timeOffset + (250 * (1.0 - 2.0 * this.random)));
         this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
       }
       return requestAnimationFrame((function(_this) {
